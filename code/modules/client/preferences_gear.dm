@@ -821,6 +821,10 @@ var/global/list/gear_datums_by_name = list()
 	display_name = "Canteen"
 	path = /obj/item/reagent_container/food/drinks/flask/canteen
 
+/datum/gear/flask/empty_canteen
+	display_name = "Empty canteen"
+	path = /obj/item/reagent_container/food/drinks/flask/canteen/empty
+
 /datum/gear/flask/leather
 	display_name = "Leather flask"
 	path = /obj/item/reagent_container/food/drinks/flask/detflask
@@ -1073,7 +1077,7 @@ var/global/list/gear_datums_by_name = list()
 /datum/gear/misc/sunscreen_stick
 	display_name = "USCM issue sunscreen"
 	path = /obj/item/facepaint/sunscreen_stick
-	cost = 1 //The cadmium poisoning pays for the discounted cost longterm
+	cost = 1
 	allowed_origins = USCM_ORIGINS
 
 /datum/gear/misc/patch_uscm
