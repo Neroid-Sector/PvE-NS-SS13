@@ -541,7 +541,6 @@
 	},
 /obj/item/defenses/handheld/sentry,
 /obj/structure/largecrate/supply/explosives/grenades/less{
-	icon_state = "case";
 	layer = 3.1;
 	pixel_x = 20;
 	pixel_y = 10
@@ -2281,7 +2280,6 @@
 "iF" = (
 /obj/structure/largecrate/supply/motiondetectors,
 /obj/structure/largecrate/supply/explosives/grenades/less{
-	icon_state = "case";
 	pixel_y = 10
 	},
 /obj/item/ammo_box/magazine/mk1{
@@ -3917,6 +3915,11 @@
 	pixel_y = 10
 	},
 /obj/structure/surface/rack,
+/obj/item/ammo_box/magazine/m4a3{
+	pixel_y = -7;
+	pixel_x = 5
+	},
+/obj/item/ammo_box/magazine/vp70,
 /turf/open/floor/almayer,
 /area/golden_arrow/platoonarmory)
 "oM" = (
@@ -5206,7 +5209,7 @@
 /area/golden_arrow/engineering)
 "tP" = (
 /obj/structure/surface/table/almayer,
-/obj/item/storage/box/co2_knife{
+/obj/item/storage/box/loadout/co2_knife{
 	pixel_x = 3;
 	pixel_y = 13
 	},
