@@ -210,14 +210,33 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 		if(!M.ready || M.job)
 			continue
 
+		var/datum/preferences/prefs = M.client.prefs
+		if(prefs.alternate_option == RETURN_TO_LOBBY && !prefs.has_job_priorities()) //only try to assign players that actually want assigned
+			continue
+
 		unassigned_players += M
 
 	if(!length(unassigned_players)) //If we don't have any players, the round can't start.
 		unassigned_players = null
 		return
 
-	unassigned_players = shuffle(unassigned_players, 1) //Shuffle the players.
+	log_debug("ASSIGNMENT: Building player_weights list.")
+	var/list/player_weights = list()
+	for(var/mob/new_player/cycled_unassigned in unassigned_players)
+		var/base_weight = 1 //baseline weighting
 
+		var/new_bonus = 0
+		switch(cycled_unassigned.client.get_total_human_playtime()) //+1 for new players, +2 for really new players
+			if(0 to 2 HOURS)
+				new_bonus = 2
+			if(2 HOURS to 5 HOURS)
+				new_bonus = 1
+
+		//var/streak_bonus = max(get_client_stat(cycled_unassigned.client, PLAYER_STAT_UNASSIGNED_ROUND_STREAK) - 2, 0) //+1 per missed round after 2
+
+		player_weights[cycled_unassigned] = base_weight + new_bonus //+ streak_bonus
+
+	unassigned_players = shuffle_weight(unassigned_players)
 
 	// How many positions do we open based on total pop
 	for(var/i in roles_by_name)
@@ -247,11 +266,11 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 		return
 
 	log_debug("ASSIGNMENT: Starting prime priority assignments.")
-	for(var/mob/new_player/cycled_unassigned in shuffle(unassigned_players))
+	for(var/mob/new_player/cycled_unassigned in unassigned_players)
 		assign_role_to_player_by_priority(cycled_unassigned, roles_to_assign, unassigned_players, PRIME_PRIORITY)
 
 	log_debug("ASSIGNMENT: Starting regular priority assignments.")
-	for(var/mob/new_player/cycled_unassigned in shuffle(unassigned_players))
+	for(var/mob/new_player/cycled_unassigned in unassigned_players)
 		var/player_assigned_job = FALSE
 
 		for(var/priority in HIGH_PRIORITY to LOW_PRIORITY)
@@ -278,6 +297,7 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 
 						if(assign_role(cycled_unassigned, random_job))
 							log_debug("ASSIGNMENT: We have randomly assigned [random_job_name] to [cycled_unassigned]")
+							//cycled_unassigned.client.player_data?.adjust_stat(PLAYER_STAT_UNASSIGNED_ROUND_STREAK, STAT_CATEGORY_MISC, 0, TRUE)
 							unassigned_players -= cycled_unassigned
 
 							if(random_job.spawn_positions != -1 && random_job.current_positions >= random_job.spawn_positions)
@@ -292,6 +312,7 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 					var/datum/job/marine_job = GET_MAPPED_ROLE(JOB_SQUAD_MARINE)
 					if(assign_role(cycled_unassigned, marine_job))
 						log_debug("ASSIGNMENT: We have assigned [marine_job.title] to [cycled_unassigned] via alternate option.")
+						//cycled_unassigned.client.player_data?.adjust_stat(PLAYER_STAT_UNASSIGNED_ROUND_STREAK, STAT_CATEGORY_MISC, 0, TRUE)
 						unassigned_players -= cycled_unassigned
 
 						if(marine_job.spawn_positions != -1 && marine_job.current_positions >= marine_job.spawn_positions)
@@ -305,6 +326,8 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 					cycled_unassigned.ready = 0
 
 	log_debug("ASSIGNMENT: Assignment complete. Players unassigned: [length(unassigned_players)] Jobs unassigned: [length(roles_to_assign)]")
+	for(var/mob/new_player/cycled_unassigned in unassigned_players)
+		//cycled_unassigned.client.player_data?.adjust_stat(PLAYER_STAT_UNASSIGNED_ROUND_STREAK, STAT_CATEGORY_MISC, 1)
 
 	return roles_to_assign
 
@@ -321,6 +344,7 @@ I hope it's easier to tell what the heck this proc is even doing, unlike previou
 
 			if(assign_role(cycled_unassigned, actual_job))
 				log_debug("ASSIGNMENT: We have assigned [job_name] to [cycled_unassigned].")
+				//cycled_unassigned.client.player_data?.adjust_stat(PLAYER_STAT_UNASSIGNED_ROUND_STREAK, STAT_CATEGORY_MISC, 0, TRUE)
 				unassigned_players -= cycled_unassigned
 
 				if(actual_job.spawn_positions != -1 && actual_job.current_positions >= actual_job.spawn_positions)
