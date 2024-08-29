@@ -1,6 +1,6 @@
 /datum/game_mode/colonialmarines/ai
-	name = "Distress Signal: Lowpop"
-	config_tag = "Distress Signal: Lowpop"
+	name = "Xenosurge"
+	config_tag = "Xenosurge"
 	required_players = 0
 	votable = TRUE
 

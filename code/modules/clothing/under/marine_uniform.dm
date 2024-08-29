@@ -50,6 +50,7 @@
 
 /obj/item/clothing/under/marine/standard
 	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/medic
 	name = "\improper UACM corpsman uniform"
@@ -60,6 +61,7 @@
 
 /obj/item/clothing/under/marine/medic/standard
 	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/engineer
 	name = "\improper UACM combat technician uniform"
@@ -70,11 +72,13 @@
 
 /obj/item/clothing/under/marine/engineer/standard
 	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/engineer/darker
 	icon_state = "d_marine_engineer"
 	worn_state = "d_marine_engineer"
 	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/rto
 	name = "\improper UACM radio telephone operator uniform"
@@ -83,10 +87,18 @@
 	item_state = "marine_rto"
 	specialty = "marine Radio Telephone Operator"
 
+/obj/item/clothing/under/marine/rto/standard
+	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
+
 /obj/item/clothing/under/marine/sniper
 	name = "\improper UACM sniper uniform"
 	flags_jumpsuit = FALSE
 	specialty = "UACM Sniper"
+
+/obj/item/clothing/under/marine/sniper/standard
+	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/tanker
 	name = "\improper UACM tanker uniform"
@@ -94,6 +106,10 @@
 	worn_state = "marine_tanker"
 	flags_jumpsuit = FALSE
 	specialty = "UACM tanker"
+
+/obj/item/clothing/under/marine/tanker/standard
+	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/tanker/New(loc,
 	new_protection = list(MAP_ICE_COLONY = ICE_PLANET_MIN_COLD_PROT),
