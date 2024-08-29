@@ -407,7 +407,7 @@
 /obj/item/tacmap_view
 	name = "Tactical Map tablet"
 	desc = "A device to access the tactical map feed. Standard issue for all Marines."
-	icon_state = "tacmap"
+	icon_state = "tac_map"
 	var/datum/tacmap/map
 	var/minimap_type = MINIMAP_FLAG_USCM
 	var/faction = FACTION_MARINE
