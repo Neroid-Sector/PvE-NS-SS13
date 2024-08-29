@@ -389,7 +389,7 @@
 //Anchorpoint Station Squad Marine - Similar to the Movie squad but nerfed a bit.
 
 /datum/equipment_preset/uscm/cmb
-	name = "USCM Anchorpoint Station Squad Marine"
+	name = "UACM Anchorpoint Station Squad Marine"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 /datum/equipment_preset/uscm/cmb/New()
@@ -441,7 +441,7 @@
 //Anchorpoint Station Marine Squad Leader
 
 /datum/equipment_preset/uscm/cmb/leader
-	name = "USCM Anchorpoint Station Team Leader"
+	name = "UACM Anchorpoint Station Team Leader"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 /datum/equipment_preset/uscm/cmb/leader/New()
 	. = ..()
@@ -486,7 +486,7 @@
 
 //Anchorpoint Station Marine RTO - technical specialist, has the responsibility of engineering as well
 /datum/equipment_preset/uscm/cmb/rto
-	name = "USCM Anchorpoint Station Technical Specialist"
+	name = "UACM Anchorpoint Station Technical Specialist"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 /datum/equipment_preset/uscm/cmb/rto/New()
 	. = ..()
@@ -531,7 +531,7 @@
 
 //Anchorpoint Station Corpsman
 /datum/equipment_preset/uscm/cmb/medic
-	name = "USCM Anchorpoint Station Corpsman"
+	name = "UACM Anchorpoint Station Corpsman"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 /datum/equipment_preset/uscm/cmb/medic/New()
 	. = ..()
@@ -588,7 +588,7 @@
 
 //Anchorpoint Station Marine Smartgunnner
 /datum/equipment_preset/uscm/cmb/smartgunner
-	name = "USCM Anchorpoint Station Smartgunner"
+	name = "UACM Anchorpoint Station Smartgunner"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 /datum/equipment_preset/uscm/cmb/smartgunner/New()
 	. = ..()

@@ -2,7 +2,7 @@
 
 /obj/structure/machinery/cm_vending/gear/antag
 	name = "\improper Suspicious Automated Gear Rack"
-	desc = "While similar in function to ColMarTech automated racks, this one is clearly not of USCM origin. Contains various gear."
+	desc = "While similar in function to ColMarTech automated racks, this one is clearly not of UACM origin. Contains various gear."
 	icon_state = "gear"
 
 	req_one_access = list(ACCESS_ILLEGAL_PIRATE, ACCESS_UPP_GENERAL, ACCESS_CLF_GENERAL)

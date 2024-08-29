@@ -4,7 +4,7 @@ GLOBAL_DATUM_INIT(tacmap_admin_panel, /datum/tacmap_admin_panel, new)
 
 /datum/tacmap_admin_panel
 	var/name = "Tacmap Panel"
-	/// The index picked last for USCM (zero indexed), -1 will try to select latest if it exists
+	/// The index picked last for UACM (zero indexed), -1 will try to select latest if it exists
 	var/uscm_selection = LATEST_SELECTION
 	/// The index picked last for Xenos (zero indexed), -1 will try to select latest if it exists
 	var/xeno_selection = LATEST_SELECTION

@@ -223,7 +223,7 @@
 
 /obj/structure/machinery/vending/security
 	name = "\improper ColMarTech Military Police Vendor"
-	desc = "A USCM Military Police vendor."
+	desc = "A UACM Military Police vendor."
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
 	icon_state = "sec"
 	icon_deny = "sec-deny"

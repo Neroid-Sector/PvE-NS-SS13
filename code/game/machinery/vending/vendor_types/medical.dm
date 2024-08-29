@@ -392,7 +392,7 @@
 	)
 
 /obj/structure/machinery/cm_vending/sorted/medical/wall_med/limited
-	desc = "Wall-mounted Medical Equipment Dispenser. This version is more limited than standard USCM NanoMeds."
+	desc = "Wall-mounted Medical Equipment Dispenser. This version is more limited than standard UACM NanoMeds."
 
 	chem_refill = list(
 		/obj/item/reagent_container/hypospray/autoinjector/skillless,

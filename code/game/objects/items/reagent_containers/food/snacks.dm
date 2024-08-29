@@ -3371,7 +3371,7 @@
 		playsound(loc,"rip", 15, 1)
 
 		name = "\improper" + flavor
-		desc = "The contents of a USCM Standard issue MRE. This one is [flavor]."
+		desc = "The contents of a UACM Standard issue MRE. This one is [flavor]."
 		icon_state = flavor
 		package = 0
 		return

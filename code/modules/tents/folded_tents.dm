@@ -94,7 +94,7 @@
 		return
 
 	if(!is_ground_level(deploy_turf.z) && !unrestricted_deployment)
-		to_chat(user, SPAN_WARNING("USCM Operational Tents are intended for operations, not ship or space recreation."))
+		to_chat(user, SPAN_WARNING("UACM Operational Tents are intended for operations, not ship or space recreation."))
 		return
 
 	var/list/obj/effect/overlay/temp/tent_deployment_area/turf_overlay = list()
@@ -128,27 +128,27 @@
 	qdel(src) // Success!
 
 /obj/item/folded_tent/cmd
-	name = "folded USCM Command Tent"
+	name = "folded UACM Command Tent"
 	icon_state = "cmd"
-	desc = "A standard USCM Command Tent. This one comes equipped with a self-powered Overwatch Console and a Telephone. Unfold in a suitable location to maximize usefulness. Staff Officer not included. ENTRANCE TO THE SOUTH."
+	desc = "A standard UACM Command Tent. This one comes equipped with a self-powered Overwatch Console and a Telephone. Unfold in a suitable location to maximize usefulness. Staff Officer not included. ENTRANCE TO THE SOUTH."
 	template_preset = "tent_cmd"
 
 /obj/item/folded_tent/med
-	name = "folded USCM Medical Tent"
+	name = "folded UACM Medical Tent"
 	icon_state = "med"
-	desc = "A standard USCM Medical Tent. This one comes equipped with advanced field surgery facilities. Unfold in a suitable location to maximize health gains. Surgical Tray not included. ENTRANCE TO THE SOUTH."
+	desc = "A standard UACM Medical Tent. This one comes equipped with advanced field surgery facilities. Unfold in a suitable location to maximize health gains. Surgical Tray not included. ENTRANCE TO THE SOUTH."
 	template_preset = "tent_med"
 
 /obj/item/folded_tent/reqs
-	name = "folded USCM Requisitions Tent"
+	name = "folded UACM Requisitions Tent"
 	icon_state = "req"
-	desc = "A standard USCM Requisitions Tent. Now, you can enjoy req line anywhere you go! Unfold in a suitable location to maximize resource distribution. ASRS not included. ENTRANCE TO THE SOUTH."
+	desc = "A standard UACM Requisitions Tent. Now, you can enjoy req line anywhere you go! Unfold in a suitable location to maximize resource distribution. ASRS not included. ENTRANCE TO THE SOUTH."
 	template_preset = "tent_reqs"
 
 /obj/item/folded_tent/big
-	name = "folded USCM Big Tent"
+	name = "folded UACM Big Tent"
 	icon_state = "big"
-	desc = "A standard USCM Tent. This one is just a bigger, general purpose version. Unfold in a suitable location for maximum FOB vibes. Mess Tech not included. ENTRANCE TO THE SOUTH."
+	desc = "A standard UACM Tent. This one is just a bigger, general purpose version. Unfold in a suitable location for maximum FOB vibes. Mess Tech not included. ENTRANCE TO THE SOUTH."
 	template_preset = "tent_big"
 
 /obj/effect/overlay/temp/tent_deployment_error

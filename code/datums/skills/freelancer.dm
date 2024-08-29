@@ -4,7 +4,7 @@ FREELANCERS
 -----------
 */
 
-//NOTE: Freelancer training is similar to the USCM's, but with additional construction skills
+//NOTE: Freelancer training is similar to the UACM's, but with additional construction skills
 
 /datum/skills/freelancer
 	name = "Freelancer Private"

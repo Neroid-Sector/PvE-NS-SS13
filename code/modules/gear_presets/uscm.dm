@@ -1,5 +1,5 @@
 /datum/equipment_preset/uscm
-	name = "USCM"
+	name = "UACM"
 	faction = FACTION_MARINE
 	faction_group = FACTION_LIST_MARINE
 	languages = list(LANGUAGE_ENGLISH)
@@ -96,7 +96,7 @@
 
 //*****************************************************************************************************/
 /datum/equipment_preset/uscm/pfc
-	name = "USCM Squad Rifleman"
+	name = "UACM Squad Rifleman"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP)
@@ -155,7 +155,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/sg
-	name = "USCM Squad Smartgunner"
+	name = "UACM Squad Smartgunner"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_SMARTPREP)
@@ -216,7 +216,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/sg/full
-	name = "USCM Squad Smartgunner"
+	name = "UACM Squad Smartgunner"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 /datum/equipment_preset/uscm/sg/full/load_gear(mob/living/carbon/human/new_human)
@@ -233,7 +233,7 @@
 	return //No cryo munchies
 
 /datum/equipment_preset/uscm/rto
-	name = "USCM Radio Telephone Operator"
+	name = "UACM Radio Telephone Operator"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_SPECPREP)
@@ -258,7 +258,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/tank
-	name = "USCM Vehicle Crewman (CRMN) (Cryo)"
+	name = "UACM Vehicle Crewman (CRMN) (Cryo)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(
@@ -295,7 +295,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/tank/full
-	name = "USCM Vehicle Crewman (CRMN)"
+	name = "UACM Vehicle Crewman (CRMN)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	utility_under = list(/obj/item/clothing/under/marine/officer/tanker)
@@ -317,7 +317,7 @@
 /*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/tank/recon
-	name = "USCM Reconnaissance Vehicle Operator (CRMN)"
+	name = "UACM Reconnaissance Vehicle Operator (CRMN)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	assignment = "Reconnaissance Vehicle Operator"
@@ -365,7 +365,7 @@
 /*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/spec
-	name = "USCM (Cryo) Squad Weapons Specialist"
+	name = "UACM (Cryo) Squad Weapons Specialist"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_SPECPREP)
@@ -386,7 +386,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/specrag(new_human), WEAR_HEAD)
 
 /datum/equipment_preset/uscm/spec/cryo
-	name = "USCM Cryo Squad Weapons Specialist"
+	name = "UACM Cryo Squad Weapons Specialist"
 	auto_squad_name = SQUAD_MARINE_CRYO
 
 /datum/equipment_preset/uscm/spec/cryo/load_gear(mob/living/carbon/human/new_human)
@@ -397,7 +397,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/spec/full_armor
-	name = "USCM Weapons Specialist (B18 Armor)"
+	name = "UACM Weapons Specialist (B18 Armor)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 /datum/equipment_preset/uscm/spec/full_armor/load_gear(mob/living/carbon/human/new_human)
@@ -422,7 +422,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/medic
-	name = "USCM Squad Hospital Corpsman"
+	name = "UACM Squad Hospital Corpsman"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_MEDPREP, ACCESS_MARINE_MEDBAY)
 	assignment = JOB_SQUAD_MEDIC
@@ -483,7 +483,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/tl
-	name = "USCM Squad Sergeant"
+	name = "UACM Squad Sergeant"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_TL_PREP)
@@ -533,7 +533,7 @@
 /*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/engineer
-	name = "USCM Squad Combat Technician"
+	name = "UACM Squad Combat Technician"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_ENGPREP, ACCESS_CIVILIAN_ENGINEERING)
@@ -555,7 +555,7 @@
 	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
 
 /datum/equipment_preset/uscm/engineer/cryo
-	name = "USCM Cryo Squad Combat Technician"
+	name = "UACM Cryo Squad Combat Technician"
 	auto_squad_name = SQUAD_MARINE_CRYO
 
 /datum/equipment_preset/uscm/engineer/cryo/load_gear(mob/living/carbon/human/new_human)
@@ -565,7 +565,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/leader
-	name = "USCM Platoon Sergeant"
+	name = "UACM Platoon Sergeant"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_LEADER, ACCESS_MARINE_DROPSHIP)
 	assignment = JOB_SQUAD_LEADER
@@ -625,7 +625,7 @@
 // ERT members that spawn with full gear from DEFCON
 
 /datum/equipment_preset/uscm/private_equipped
-	name = "USCM Squad Rifleman (Equipped)"
+	name = "UACM Squad Rifleman (Equipped)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP)
@@ -666,7 +666,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m41aMK1(new_human.back), WEAR_IN_BACK)
 
 /datum/equipment_preset/uscm/private_equipped/random
-	name = "USCM Squad Rifleman (Equipped Random)"
+	name = "UACM Squad Rifleman (Equipped Random)"
 
 /datum/equipment_preset/uscm/private_equipped/random/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine(new_human), WEAR_BODY)
@@ -689,7 +689,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/leader_equipped
-	name = "USCM Platoon Sergeant (Equipped)"
+	name = "UACM Platoon Sergeant (Equipped)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_LEADER, ACCESS_MARINE_DROPSHIP)
@@ -725,7 +725,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m41aMK1(new_human.back), WEAR_IN_BACK)
 
 /datum/equipment_preset/uscm/leader_equipped/random
-	name = "USCM Platoon Sergeant (Equipped Random)"
+	name = "UACM Platoon Sergeant (Equipped Random)"
 
 /datum/equipment_preset/uscm/leader_equipped/random/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine(new_human), WEAR_BODY)
@@ -748,7 +748,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/smartgunner_equipped
-	name = "USCM Squad Smartgunner (Equipped)"
+	name = "UACM Squad Smartgunner (Equipped)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_SMARTPREP)
@@ -780,7 +780,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/almayer/marine/cryo(new_human), WEAR_L_EAR)
 
 /datum/equipment_preset/uscm/smartgunner_equipped/random
-	name = "USCM Squad Smartgunner (Equipped Random)"
+	name = "UACM Squad Smartgunner (Equipped Random)"
 
 /datum/equipment_preset/uscm/smartgunner_equipped/random/spawn_marine_fluff_items(mob/living/carbon/human/new_human)
 	var/obj/item/helmet_accessory = pick(GLOB.allowed_helmet_items)
@@ -835,7 +835,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/engineer_equipped
-	name = "USCM Squad Combat Technician (Equipped)"
+	name = "UACM Squad Combat Technician (Equipped)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_ENGPREP, ACCESS_CIVILIAN_ENGINEERING)
@@ -875,13 +875,13 @@
 	new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m41aMK1(new_human.back), WEAR_IN_BACK)
 
 /datum/equipment_preset/uscm/engineer_equipped/cryo
-	name = "USCM Cryo Squad Combat Technician (Equipped)"
+	name = "UACM Cryo Squad Combat Technician (Equipped)"
 	auto_squad_name = SQUAD_MARINE_CRYO
 
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/medic_equipped
-	name = "USCM Squad Hospital Corpsman (Equipped)"
+	name = "UACM Squad Hospital Corpsman (Equipped)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_MEDPREP, ACCESS_MARINE_MEDBAY)
@@ -928,7 +928,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/tool/surgery/synthgraft(new_human), WEAR_IN_BACK)
 
 /datum/equipment_preset/uscm/medic_equipped/random
-	name = "USCM Squad Hospital Corpsman (Equipped Random)"
+	name = "UACM Squad Hospital Corpsman (Equipped Random)"
 
 /datum/equipment_preset/uscm/medic_equipped/random/spawn_marine_fluff_items(mob/living/carbon/human/new_human)
 	var/obj/item/helmet_accessory = pick(GLOB.allowed_helmet_items)
@@ -972,7 +972,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/specialist_equipped
-	name = "USCM Squad Weapons Specialist (Equipped)"
+	name = "UACM Squad Weapons Specialist (Equipped)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_SPECPREP)
@@ -1010,13 +1010,13 @@
 	new_human.equip_to_slot_or_del(new /obj/item/storage/box/MRE(new_human), WEAR_IN_BACK)
 
 /datum/equipment_preset/uscm/specialist_equipped/cryo
-	name = "USCM Cryo Squad Weapons Specialist (Equipped)"
+	name = "UACM Cryo Squad Weapons Specialist (Equipped)"
 	auto_squad_name = SQUAD_MARINE_CRYO
 
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/specialist_equipped/sniper
-	name = "USCM Sniper Specialist (Equipped)"
+	name = "UACM Sniper Specialist (Equipped)"
 
 /datum/equipment_preset/uscm/specialist_equipped/sniper/load_gear(mob/living/carbon/human/new_human)
 	//TODO: add backpacks and satchels
@@ -1042,7 +1042,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm/tl_equipped
-	name = "USCM Squad Sergeant (Equipped)"
+	name = "UACM Squad Sergeant (Equipped)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_TL_PREP)
@@ -1076,7 +1076,7 @@
 	new_human.back.pickup(new_human)
 
 /datum/equipment_preset/uscm/tl_equipped/random
-	name = "USCM Squad Sergeant (Equipped Random)"
+	name = "UACM Squad Sergeant (Equipped Random)"
 
 /datum/equipment_preset/uscm/tl_equipped/random/load_gear(mob/living/carbon/human/new_human)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/rto(new_human), WEAR_BACK)

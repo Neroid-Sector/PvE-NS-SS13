@@ -879,7 +879,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		GLOB.hive_datum[hives[faction]].hive_ui.open_hive_status(src)
 
 /mob/dead/observer/verb/view_uscm_tacmap()
-	set name = "View USCM Tacmap"
+	set name = "View UACM Tacmap"
 	set category = "Ghost.View"
 
 	GLOB.uscm_tacmap_status.tgui_interact(src)

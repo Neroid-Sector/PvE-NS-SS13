@@ -3,7 +3,7 @@
 
 /obj/item/clothing/gloves/marine
 	name = "marine combat gloves"
-	desc = "Standard USCMC issue combat gloves, reinforced against small sharp objects, and even insulated from electric shock. Very uncomfortable."
+	desc = "Standard UACM issue combat gloves, reinforced against small sharp objects, and even insulated from electric shock. Very uncomfortable."
 	icon_state = "black"
 	item_state = "black"
 	siemens_coefficient = 0
@@ -47,14 +47,14 @@
 
 /obj/item/clothing/gloves/marine/brown
 	name = "marine brown combat gloves"
-	desc = "USCMC issue combat gloves, now in brown rather than black, reinforced against small sharp objects, and even insulated from electric shock. Very uncomfortable."
+	desc = "UACM issue combat gloves, now in brown rather than black, reinforced against small sharp objects, and even insulated from electric shock. Very uncomfortable."
 	icon_state = "brown"
 	item_state = "brown"
 	adopts_squad_color = FALSE
 
 /obj/item/clothing/gloves/marine/medical
 	name = "marine medical combat gloves"
-	desc = "Special USCMC issue to hospital corpsmen or other field medical workers. Offers protection from shock and cuts while also improving one's grip on medical tools. Unlike the regular gloves, these are relatively comfortable to wear."
+	desc = "Special UACM issue to hospital corpsmen or other field medical workers. Offers protection from shock and cuts while also improving one's grip on medical tools. Unlike the regular gloves, these are relatively comfortable to wear."
 	icon_state = "latex"
 	item_state = "lgloves"
 	adopts_squad_color = FALSE

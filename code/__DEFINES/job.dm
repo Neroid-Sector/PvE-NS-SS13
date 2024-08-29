@@ -132,9 +132,9 @@ var/global/list/job_command_roles = JOB_COMMAND_ROLES_LIST
 
 #define JOB_STOWAWAY "Stowaway"
 
-#define JOB_MARINE "USCM Marine" //generic marine
-#define JOB_COLONEL "USCM Colonel"
-#define JOB_GENERAL "USCM General"
+#define JOB_MARINE "UACM Marine" //generic marine
+#define JOB_COLONEL "UACM Colonel"
+#define JOB_GENERAL "UACM General"
 #define JOB_ACMC "Assistant Commandant of the Marine Corps"
 #define JOB_CMC "Commandant of the Marine Corps"
 

@@ -155,14 +155,14 @@
 	group = "Food"
 
 /datum/supply_packs/mre
-	name = "USCM MRE crate(x2)"
+	name = "UACM MRE crate(x2)"
 	contains = list(
 		/obj/item/ammo_box/magazine/misc/mre,
 		/obj/item/ammo_box/magazine/misc/mre,
 	)
 	cost = 10
 	containertype = /obj/structure/closet/crate/supply
-	containername = "\improper USCM MRE crate(x2)"
+	containername = "\improper UACM MRE crate(x2)"
 	group = "Food"
 
 /datum/supply_packs/funfood

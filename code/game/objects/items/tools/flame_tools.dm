@@ -448,7 +448,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 ////////////
 /obj/item/clothing/mask/cigarette/cigar
 	name = "\improper premium cigar"
-	desc = "A huge, brown roll of tobacco and some other stuff that you're meant to smoke. Makes you feel like a true USCM sergeant."
+	desc = "A huge, brown roll of tobacco and some other stuff that you're meant to smoke. Makes you feel like a true UACM sergeant."
 	icon_state = "cigar_off"
 	icon_on = "cigar_on"
 	icon_off = "cigar_off"

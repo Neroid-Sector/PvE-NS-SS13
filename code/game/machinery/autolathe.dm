@@ -559,7 +559,7 @@
 
 /obj/structure/machinery/autolathe/armylathe
 	name = "\improper Armylathe"
-	desc = "A specialized autolathe made for printing USCM weaponry and parts."
+	desc = "A specialized autolathe made for printing UACM weaponry and parts."
 	icon_state = "armylathe"
 	base_state = "armylathe"
 	recipes = null

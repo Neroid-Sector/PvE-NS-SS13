@@ -328,7 +328,7 @@
 
 
 /obj/structure/largecrate/guns
-	name = "\improper USCM firearms crate (x3)"
+	name = "\improper UACM firearms crate (x3)"
 	fill_from_loc = FALSE
 	var/num_guns = 3
 	var/num_mags = 3

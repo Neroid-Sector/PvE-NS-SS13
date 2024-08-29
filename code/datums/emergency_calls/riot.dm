@@ -1,7 +1,7 @@
 
 //Anti-riot team
 /datum/emergency_call/riot
-	name = "USCM Riot Control"
+	name = "UACM Riot Control"
 	mob_max = 10
 	mob_min = 5
 	objectives = "Ensure order is restored and Marine Law is maintained."

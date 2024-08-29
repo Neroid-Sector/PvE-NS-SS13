@@ -657,7 +657,7 @@ INITIALIZE_IMMEDIATE(/turf/closed/wall/indestructible/splashscreen)
 /turf/closed/wall/shiva/prefabricated
 	name = "prefabricated structure wall"
 	icon_state = "shiva_fab"
-	desc = "This structure is made of metal support rods and robust poly-kevlon plastics. A derivative of the stuff used in UA ballistics vests, USCM and UPP uniforms. These walls are pulled taught and have been reinforced into a more permanent structure."
+	desc = "This structure is made of metal support rods and robust poly-kevlon plastics. A derivative of the stuff used in UA ballistics vests, UACM and UPP uniforms. These walls are pulled taught and have been reinforced into a more permanent structure."
 	walltype = WALL_SHIVA_FAB
 	damage_cap = HEALTH_WALL
 

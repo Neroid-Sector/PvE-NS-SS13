@@ -469,7 +469,7 @@
 
 /obj/item/device/radio/headset/almayer/ct
 	name = "supply radio headset"
-	desc = "Used by the lowly Cargo Technicians of the USCM, light weight and portable. To access the supply channel, use :u."
+	desc = "Used by the lowly Cargo Technicians of the UACM, light weight and portable. To access the supply channel, use :u."
 	icon_state = "req_headset"
 	initial_keys = list(/obj/item/device/encryptionkey/req/ct)
 
@@ -565,7 +565,7 @@
 
 /obj/item/device/radio/headset/almayer/mcom/synth
 	name = "marine synth headset"
-	desc = "Issued only to USCM synthetics. Channels are as follows: :v - marine command, :p - military police, :a - alpha squad, :b - bravo squad, :c - charlie squad, :d - delta squad, :n - engineering, :m - medbay, :u - requisitions, :j - JTAC,  :t - intel"
+	desc = "Issued only to UACM synthetics. Channels are as follows: :v - marine command, :p - military police, :a - alpha squad, :b - bravo squad, :c - charlie squad, :d - delta squad, :n - engineering, :m - medbay, :u - requisitions, :j - JTAC,  :t - intel"
 	icon_state = "ms_headset"
 	initial_keys = list(/obj/item/device/encryptionkey/cmpcom/synth)
 	volume = RADIO_VOLUME_CRITICAL
@@ -1035,32 +1035,32 @@
 	initial_keys = list(/obj/item/device/encryptionkey/WY, /obj/item/device/encryptionkey/cmb)
 
 /obj/item/device/radio/headset/almayer/highcom
-	name = "USCM High Command headset"
-	desc = "Issued to members of USCM High Command and their immediate subordinates. Channels are as follows: :v - marine command, :p - military police, :a - alpha squad, :b - bravo squad, :c - charlie squad, :d - delta squad, :n - engineering, :m - medbay, :u - requisitions, :j - JTAC,  :t - intel,  :z - HighCom"
+	name = "UACM High Command headset"
+	desc = "Issued to members of UACM High Command and their immediate subordinates. Channels are as follows: :v - marine command, :p - military police, :a - alpha squad, :b - bravo squad, :c - charlie squad, :d - delta squad, :n - engineering, :m - medbay, :u - requisitions, :j - JTAC,  :t - intel,  :z - HighCom"
 	icon_state = "mhc_headset"
 	frequency = HC_FREQ
 	initial_keys = list(/obj/item/device/encryptionkey/highcom)
 	volume = RADIO_VOLUME_CRITICAL
 
 /obj/item/device/radio/headset/almayer/provost
-	name = "USCM Provost headset"
-	desc = "Issued to members of the USCM Provost Office and their immediate subordinates."
+	name = "UACM Provost headset"
+	desc = "Issued to members of the UACM Provost Office and their immediate subordinates."
 	icon_state = "pvst_headset"
 	frequency = PVST_FREQ
 	initial_keys = list(/obj/item/device/encryptionkey/provost)
 	volume = RADIO_VOLUME_CRITICAL
 
 /obj/item/device/radio/headset/almayer/sof
-	name = "USCM SOF headset"
-	desc = "Issued exclusively to Marine Raiders and members of the USCM's Force Reconnaissance."
+	name = "UACM SOF headset"
+	desc = "Issued exclusively to Marine Raiders and members of the UACM's Force Reconnaissance."
 	icon_state = "soc_headset"
 	frequency = SOF_FREQ
 	initial_keys = list(/obj/item/device/encryptionkey/soc)
 	volume = RADIO_VOLUME_IMPORTANT
 
 /obj/item/device/radio/headset/almayer/sof/survivor_forecon
-	name = "USCM SOF headset"
-	desc = "Issued exclusively to Marine Raiders and members of the USCM's Force Reconnaissance."
+	name = "UACM SOF headset"
+	desc = "Issued exclusively to Marine Raiders and members of the UACM's Force Reconnaissance."
 	icon_state = "soc_headset"
 	frequency = SOF_FREQ
 	initial_keys = list(/obj/item/device/encryptionkey/soc/forecon)
@@ -1070,7 +1070,7 @@
 
 /obj/item/device/radio/headset/almayer/mcom/vc
 	name = "marine vehicle crew radio headset"
-	desc = "Used by USCM vehicle crew, features a non-standard brace. Channels are as follows: :v - marine command, :n - engineering, :m - medbay, :u - requisitions"
+	desc = "Used by UACM vehicle crew, features a non-standard brace. Channels are as follows: :v - marine command, :n - engineering, :m - medbay, :u - requisitions"
 	initial_keys = list(/obj/item/device/encryptionkey/vc)
 	volume = RADIO_VOLUME_RAISED
 	multibroadcast_cooldown = HIGH_MULTIBROADCAST_COOLDOWN

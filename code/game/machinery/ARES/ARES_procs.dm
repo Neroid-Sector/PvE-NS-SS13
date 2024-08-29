@@ -200,11 +200,11 @@ GLOBAL_LIST_INIT(maintenance_categories, list(
 		if(ARES_ACCESS_CE)//5
 			return "Chief Engineer"
 		if(ARES_ACCESS_SYNTH)//6
-			return "USCM Synthetic"
+			return "UACM Synthetic"
 		if(ARES_ACCESS_CO)//7
 			return "[MAIN_SHIP_NAME] Commanding Officer"
 		if(ARES_ACCESS_HIGH)//8
-			return "USCM High Command"
+			return "UACM High Command"
 		if(ARES_ACCESS_WY_COMMAND)//9
 			return "Weyland-Yutani Directorate"
 		if(ARES_ACCESS_DEBUG)//10

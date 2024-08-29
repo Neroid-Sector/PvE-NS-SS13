@@ -1,7 +1,7 @@
 //*******************************************************************************************************
 //Provost Enforcer Team
 /datum/emergency_call/provost_enforcer
-	name = "USCM Provost Enforcers"
+	name = "UACM Provost Enforcers"
 	mob_max = 5
 	mob_min = 5
 	probability = 0

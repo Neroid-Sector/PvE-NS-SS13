@@ -101,7 +101,7 @@ Template
 /datum/poster/poster_19
 	icon_state = "poster19"
 	name = "suspicious looking poster"
-	desc = "This poster describes USCM as the enemy."
+	desc = "This poster describes UACM as the enemy."
 
 /datum/poster/poster_20
 	icon_state="poster20"

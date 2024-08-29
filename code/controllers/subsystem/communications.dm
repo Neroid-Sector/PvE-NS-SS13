@@ -103,7 +103,7 @@ var/const/MIN_FREQ = 1460 // ---------------------------------------------------
 var/const/PUB_FREQ = 1461
 var/const/MAX_FREQ = 1468 // ------------------------------------------------------
 
-//USCM High Command (USCM 1470-1499)
+//UACM High Command (UACM 1470-1499)
 var/const/HC_FREQ = 1471
 var/const/SOF_FREQ = 1472
 var/const/PVST_FREQ = 1473

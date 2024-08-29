@@ -201,5 +201,5 @@
 //FORECON
 
 /obj/effect/landmark/corpsespawner/forecon_spotter
-	name = "USCM Reconnaissance Spotter"
+	name = "UACM Reconnaissance Spotter"
 	equip_path = /datum/equipment_preset/corpse/forecon_spotter

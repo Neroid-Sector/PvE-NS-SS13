@@ -21,7 +21,7 @@
 	dress_shoes = list(/obj/item/clothing/shoes/laceup)
 
 /datum/equipment_preset/uscm_ship/uscm_medical/cmo
-	name = "USCM Chief Medical Officer (CMO)"
+	name = "UACM Chief Medical Officer (CMO)"
 
 	idtype = /obj/item/card/id/silver
 	access = list(
@@ -76,7 +76,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/uscm_medical/doctor
-	name = "USCM Surgeon"
+	name = "UACM Surgeon"
 
 	assignment = JOB_DOCTOR
 	rank = JOB_DOCTOR
@@ -113,7 +113,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/uscm_medical/nurse
-	name = "USCM Nurse"
+	name = "UACM Nurse"
 
 	assignment = JOB_NURSE
 	rank = JOB_NURSE
@@ -148,7 +148,7 @@
 
 //*****************************************************************************************************/
 /datum/equipment_preset/uscm_ship/uscm_medical/researcher
-	name = "USCM Researcher"
+	name = "UACM Researcher"
 
 	access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_MORGUE)
 	assignment = JOB_RESEARCHER

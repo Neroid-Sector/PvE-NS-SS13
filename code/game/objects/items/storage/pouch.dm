@@ -697,7 +697,7 @@
 
 /obj/item/storage/pouch/medical/socmed/dutch
 	name = "\improper Dutch's Medical Pouch"
-	desc = "A pouch bought from a black market trader by Dutch quite a few years ago. Rumoured to be stolen from secret USCM assets. Its contents have been slowly used up and replaced over the years."
+	desc = "A pouch bought from a black market trader by Dutch quite a few years ago. Rumoured to be stolen from secret UACM assets. Its contents have been slowly used up and replaced over the years."
 
 /obj/item/storage/pouch/medical/socmed/dutch/fill_preset_inventory()
 	new /obj/item/device/healthanalyzer(src)

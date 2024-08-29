@@ -2875,7 +2875,7 @@
 	pixel_x = 29
 	},
 /obj/item/toy/plush/therapy/red{
-	desc = "A USCM approved plush doll. It's not soft and hardly comforting!";
+	desc = "A UACM approved plush doll. It's not soft and hardly comforting!";
 	force = 15;
 	layer = 4.1;
 	name = "Commando Huggs";

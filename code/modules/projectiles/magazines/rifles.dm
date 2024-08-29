@@ -316,7 +316,7 @@
 
 /obj/item/ammo_magazine/rifle/lmg/heap
 	name = "\improper M41AE2 HEAP ammo box (10x24mm)"
-	desc = "A semi-rectangular box of rounds for the M41AE2 Heavy Pulse Rifle. This one contains the standard Armor-Piercing explosive tipped round of the USCM."
+	desc = "A semi-rectangular box of rounds for the M41AE2 Heavy Pulse Rifle. This one contains the standard Armor-Piercing explosive tipped round of the UACM."
 	default_ammo = /datum/ammo/bullet/rifle/heap
 	max_rounds = 300
 	gun_type = /obj/item/weapon/gun/rifle/lmg

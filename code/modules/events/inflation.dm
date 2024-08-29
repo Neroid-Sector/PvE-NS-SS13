@@ -67,7 +67,7 @@
 		"withdrawal of government funding in relevant sectors",
 		"a vital Seegson industries space station going dark", // A:I,
 		"several mining colonies defecting to the UPP",
-		"a critical USCM defeat by CLF insurgents in the Tychon's Rift sector",
+		"a critical UACM defeat by CLF insurgents in the Tychon's Rift sector",
 		"newly imposed sanctions as a result of corporate investigations",
 		"flaring tensions with Arcturus",
 		"a Sol-wide solar flare technological blackout",

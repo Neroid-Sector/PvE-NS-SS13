@@ -385,7 +385,7 @@
 		return ..(marker)
 	var/turf/TU = get_turf(marker.signal_loc)
 	if(!is_ground_level(TU.z) && z_level_restriction)
-		mission_error = "USCM Dropships can only operate with planetside targets."
+		mission_error = "UACM Dropships can only operate with planetside targets."
 		return FALSE
 	return ..(marker)
 

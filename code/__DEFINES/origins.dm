@@ -4,7 +4,7 @@
 // Civilian / CLF
 #define ORIGIN_CIVILIAN "Colony-Born"
 
-// USCM
+// UACM
 #define ORIGIN_USCM "United Americas (United States)"
 #define ORIGIN_USCM_LUNA "United Americas (Luna)"
 #define ORIGIN_USCM_OTHER "United Americas (Other)"

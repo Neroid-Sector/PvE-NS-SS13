@@ -80,14 +80,14 @@
 	desc = "A miniature table flag of the United Americas, representing all of North, South, and Central America."
 
 /obj/item/prop/tableflag/uscm
-	name = "USCM table flag"
+	name = "UACM table flag"
 	icon_state = "uscmflag"
 	desc = "A miniature table flag of the United States Colonial Marines. 'Semper Fi' is written on the flag's bottom."
 
 /obj/item/prop/tableflag/uscm2
-	name = "USCM historical table flag"
+	name = "UACM historical table flag"
 	icon_state = "uscmflag2"
-	desc = "A miniature historical table flag of the United States Colonial Marines, in traditional scarlet and gold. The USCM logo sits in the center; an eagle is perched atop it and an anchor rests behind it."
+	desc = "A miniature historical table flag of the United States Colonial Marines, in traditional scarlet and gold. The UACM logo sits in the center; an eagle is perched atop it and an anchor rests behind it."
 
 /obj/item/prop/tableflag/upp
 	name = "UPP table flag"
@@ -124,7 +124,7 @@
 
 /obj/item/prop/colony/used_flare
 	name = "flare"
-	desc = "A used USCM issued flare. There are instructions on the side, it reads 'pull cord, make light'."
+	desc = "A used UACM issued flare. There are instructions on the side, it reads 'pull cord, make light'."
 	icon_state = "flare-empty"
 	icon = 'icons/obj/items/lighting.dmi'
 
@@ -253,7 +253,7 @@
 
 /obj/item/prop/magazine/book/borntokill
 	name = "\improper Born to Kill"
-	desc = "An autobiography penned by Derik A.W. Tomahawk it recounts his service in the USCM. The book was harshly criticised for its bland and uncreative writing and wasn't well received by the general public or members of the UA military. However, artificial soldiers typically value the information contained within."
+	desc = "An autobiography penned by Derik A.W. Tomahawk it recounts his service in the UACM. The book was harshly criticised for its bland and uncreative writing and wasn't well received by the general public or members of the UA military. However, artificial soldiers typically value the information contained within."
 
 /obj/item/prop/magazine/book/bladerunner
 	name = "\improper Bladerunner: A True Detectives Story"
@@ -270,24 +270,24 @@
 //boots magazine
 /obj/item/prop/magazine/boots
 	name = "generic Boots! magazine"
-	desc = "The only official USCM magazine!"
+	desc = "The only official UACM magazine!"
 
 /obj/item/prop/magazine/boots/n117
 	name = "Boots!: Issue No.117"
-	desc = "The only official USCM magazine, the headline reads 'STOP CANNING' the short paragraph further explains the dangers of marines throwing CN-20 Nerve gas into bathrooms as a prank."
+	desc = "The only official UACM magazine, the headline reads 'STOP CANNING' the short paragraph further explains the dangers of marines throwing CN-20 Nerve gas into bathrooms as a prank."
 
 /obj/item/prop/magazine/boots/n150
 	name = "Boots!: Issue No.150"
-	desc = "The only official USCM magazine, the headline reads 'UPP Rations, The truth.' the short paragraph further explains UPP field rations aren't standardized and are produced at a local level. Because of this, captured and confiscated UPP rations have included some odd choices such as duck liver, century eggs, lutefisk, pickled pig snout, canned tripe, and dehydrated candied radish snacks."
+	desc = "The only official UACM magazine, the headline reads 'UPP Rations, The truth.' the short paragraph further explains UPP field rations aren't standardized and are produced at a local level. Because of this, captured and confiscated UPP rations have included some odd choices such as duck liver, century eggs, lutefisk, pickled pig snout, canned tripe, and dehydrated candied radish snacks."
 
 /obj/item/prop/magazine/boots/n160
 	name = "Boots!: Issue No.160"
-	desc = "The only official USCM magazine, the headline reads 'Corporate Liaison 'emotionally exhausted' from screwing so many people over.'"
+	desc = "The only official UACM magazine, the headline reads 'Corporate Liaison 'emotionally exhausted' from screwing so many people over.'"
 
 /obj/item/prop/magazine/boots/n054
 	name = "Boots!: Issue No.54"
-	desc = "The only official USCM magazine, the headline reads 'ARMAT strikes back against litigants in M41A-MK2 self cleaning case'"
+	desc = "The only official UACM magazine, the headline reads 'ARMAT strikes back against litigants in M41A-MK2 self cleaning case'"
 
 /obj/item/prop/magazine/boots/n055
 	name = "Boots!: Issue No.55"
-	desc = "The only official USCM magazine, the headline reads 'TEN tips to keep your UD4 cockpit both safer and more relaxing.'"
+	desc = "The only official UACM magazine, the headline reads 'TEN tips to keep your UD4 cockpit both safer and more relaxing.'"

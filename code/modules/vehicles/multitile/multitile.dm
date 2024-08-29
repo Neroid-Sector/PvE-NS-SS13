@@ -100,7 +100,7 @@
 	//revivable corpses slots
 	var/revivable_dead_slots = 0
 	//Special roles categories slots. These allow to set specific roles in categories with their own slots.
-	//For example, (list(JOB_CREWMAN, JOB_UPP_CREWMAN) = 2) means that USCM and UPP crewman will always have 2 slots reserved for them.
+	//For example, (list(JOB_CREWMAN, JOB_UPP_CREWMAN) = 2) means that UACM and UPP crewman will always have 2 slots reserved for them.
 	//Only first encounter of job will be checked for slots, so don't put job in more than one category.
 	var/list/role_reserved_slots = list()
 

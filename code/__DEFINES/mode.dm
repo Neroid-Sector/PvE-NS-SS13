@@ -221,7 +221,7 @@ var/global/list/whitelist_hierarchy = list(WHITELIST_NORMAL, WHITELIST_COUNCIL, 
 
 // Faction names
 #define FACTION_NEUTRAL "Neutral"
-#define FACTION_MARINE "USCM"
+#define FACTION_MARINE "UACM"
 #define FACTION_SURVIVOR "Survivor"
 #define FACTION_UPP "UPP"
 #define FACTION_TWE "TWE"

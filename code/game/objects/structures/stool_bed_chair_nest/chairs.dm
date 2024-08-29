@@ -278,7 +278,7 @@
 /obj/structure/bed/chair/comfy/alpha
 	icon_state = "comfychair_alpha"
 	name = "Alpha squad chair"
-	desc = "A simple chair permanently attached to the floor. Covered with a squeaky and way too hard faux-leather, unevenly painted in Alpha squad red. Only for the bravest and freshest USCM recruits."
+	desc = "A simple chair permanently attached to the floor. Covered with a squeaky and way too hard faux-leather, unevenly painted in Alpha squad red. Only for the bravest and freshest UACM recruits."
 
 /obj/structure/bed/chair/comfy/bravo
 	icon_state = "comfychair_bravo"

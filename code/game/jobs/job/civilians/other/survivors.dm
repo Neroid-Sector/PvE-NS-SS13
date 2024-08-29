@@ -82,9 +82,9 @@
 		tell_survivor_story(survivor)
 
 	if(hostile)
-		to_chat(survivor, SPAN_HIGHDANGER("You are HOSTILE to the USCM!"))
+		to_chat(survivor, SPAN_HIGHDANGER("You are HOSTILE to the UACM!"))
 	else
-		to_chat(survivor, SPAN_XENOHIGHDANGER("You are NON-HOSTILE to the USCM!"))
+		to_chat(survivor, SPAN_XENOHIGHDANGER("You are NON-HOSTILE to the UACM!"))
 
 /datum/job/civilian/survivor/proc/tell_survivor_story(mob/living/carbon/human/H)
 	var/list/survivor_story = list(

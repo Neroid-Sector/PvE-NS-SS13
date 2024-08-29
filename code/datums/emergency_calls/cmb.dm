@@ -1,4 +1,4 @@
-// The Colonial Marshal Bureau, a UA Federal investigative/law enforcement functionary from Sol which oversees many colonies among the frontier. They are friendly to USCM.
+// The Colonial Marshal Bureau, a UA Federal investigative/law enforcement functionary from Sol which oversees many colonies among the frontier. They are friendly to UACM.
 /datum/emergency_call/cmb
 	name = "CMB - Colonial Marshals Patrol Team (Friendly)"
 	mob_max = 5
@@ -85,7 +85,7 @@
 	else if(M == cmb_observer)
 		to_chat(M, SPAN_BOLD("You are an Interstellar Human Rights Observer, originally from [pick(50;"The United Americas", 10;"Europe", 10;"Luna", 20;"Sol", 10;"a colony on the frontier")]."))
 		to_chat(M, SPAN_BOLD("You are [pick(60; "skeptical", 40;"ambicable", 10;"supportive")] of Weyland-Yutani and their practices."))
-		to_chat(M, SPAN_BOLD("You are [pick(40; "skeptical", 30;"ambicable", 30;"supportive")] of the USCM's actions on the frontier."))
+		to_chat(M, SPAN_BOLD("You are [pick(40; "skeptical", 30;"ambicable", 30;"supportive")] of the UACM's actions on the frontier."))
 		to_chat(M, SPAN_BOLD("Through a lot of hard work, your organization managed to convince the Colonial Marshals to take you to the frontier for an article about the quality of life there."))
 		to_chat(M, SPAN_BOLD("Observe the Feds in their adventures and keep an eye out for any inhumane acts from others. The Neroid Sector is full of atrocities on every side."))
 		to_chat(M, SPAN_BOLD("Do not instigate or start any confrontations. You are an observer, and you do not wage wars. Only intervene in medical emergencies."))

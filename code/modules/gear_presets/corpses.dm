@@ -982,7 +982,7 @@
 //FORECON
 
 /datum/equipment_preset/corpse/forecon_spotter
-	name = "Corpse - USCM Reconnaissance Spotter"
+	name = "Corpse - UACM Reconnaissance Spotter"
 	assignment = "Reconnaissance Spotter"
 	xenovictim = FALSE
 	paygrade = "ME5"

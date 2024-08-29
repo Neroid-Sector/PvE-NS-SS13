@@ -1075,7 +1075,7 @@
 
 /obj/structure/prop/invuln/ice_prefab
 	name = "prefabricated structure"
-	desc = "This structure is made of metal support rods and robust poly-kevlon plastics. A derivative of the stuff used in UA ballistics vests, USCM and UPP uniforms. The loose walls roll with each gust of wind."
+	desc = "This structure is made of metal support rods and robust poly-kevlon plastics. A derivative of the stuff used in UA ballistics vests, UACM and UPP uniforms. The loose walls roll with each gust of wind."
 	icon = 'icons/obj/structures/props/ice_colony/fabs_tileset.dmi'
 	icon_state = "fab"
 	density = TRUE
@@ -1110,7 +1110,7 @@
 
 /obj/structure/prop/invuln/remote_console_pod
 	name = "Remote Console Pod"
-	desc = "A drop pod used to launch remote piloting equipment to USCM areas of operation"
+	desc = "A drop pod used to launch remote piloting equipment to UACM areas of operation"
 	icon = 'icons/obj/structures/droppod_32x64.dmi'
 	icon_state = "techpod_open"
 	layer = DOOR_CLOSED_LAYER

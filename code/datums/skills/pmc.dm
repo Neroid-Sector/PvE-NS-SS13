@@ -4,7 +4,7 @@ Private Military Contractors
 ----------------------------
 */
 
-//NOTE: Compared to the USCM, PMCs have additional firearms training, construction skills and policing skills
+//NOTE: Compared to the UACM, PMCs have additional firearms training, construction skills and policing skills
 
 /datum/skills/pmc
 	name = "PMC Private"

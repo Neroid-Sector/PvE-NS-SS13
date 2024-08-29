@@ -1,5 +1,5 @@
 /obj/structure/droppod/supply
-	name = "\improper USCM requisitions package"
+	name = "\improper UACM requisitions package"
 	drop_time = 10 SECONDS
 	dropping_time = 2 SECONDS
 	open_time = 2 SECONDS

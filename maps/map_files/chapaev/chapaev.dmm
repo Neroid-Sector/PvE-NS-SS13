@@ -1207,7 +1207,7 @@
 	pixel_y = 38
 	},
 /obj/item/toy/plush/therapy/red{
-	desc = "A USCM approved plush doll. It's not soft and hardly comforting!";
+	desc = "A UACM approved plush doll. It's not soft and hardly comforting!";
 	force = 15;
 	layer = 2.9;
 	name = "Commando Huggs";
@@ -1914,7 +1914,7 @@
 /area/golden_arrow/medical)
 "tq" = (
 /obj/structure/machinery/cm_vending/sorted/marine_food{
-	desc = "USCM Food Vendor, containing standard military Prepared Meals. It was gifted to Chapaev by Marines of 1st Platoon, Sun Riders as a sign of good will. They did not complain receiving a crate of vodka in return."
+	desc = "UACM Food Vendor, containing standard military Prepared Meals. It was gifted to Chapaev by Marines of 1st Platoon, Sun Riders as a sign of good will. They did not complain receiving a crate of vodka in return."
 	},
 /turf/open/floor/strata{
 	dir = 6;

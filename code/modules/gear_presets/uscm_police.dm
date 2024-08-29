@@ -1,12 +1,12 @@
 /datum/equipment_preset/uscm_ship/uscm_police
-	name = "USCM (police roles)"
+	name = "UACM (police roles)"
 	faction = FACTION_MARINE
 	minimum_age = 22
 
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/uscm_police/mp
-	name = "USCM Military Police (MP)"
+	name = "UACM Military Police (MP)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 	idtype = /obj/item/card/id/dogtag
 	access = list(
@@ -67,7 +67,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/uscm_police/warden
-	name = "USCM Military Warden (MW)"
+	name = "UACM Military Warden (MW)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 	idtype = /obj/item/card/id/dogtag
 
@@ -124,7 +124,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/uscm_police/cmp
-	name = "USCM Chief MP (CMP)"
+	name = "UACM Chief MP (CMP)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 	idtype = /obj/item/card/id/silver
 
@@ -186,7 +186,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/uscm_police/riot_mp
-	name = "USCM Riot MP (RMP)"
+	name = "UACM Riot MP (RMP)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/silver
@@ -236,7 +236,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/uscm_police/riot_mp/riot_cmp
-	name = "USCM Riot Chief MP (RCMP)"
+	name = "UACM Riot Chief MP (RCMP)"
 	flags = EQUIPMENT_PRESET_EXTRA
 
 	assignment = JOB_RIOT_CHIEF
