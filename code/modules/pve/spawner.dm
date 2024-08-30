@@ -8,7 +8,6 @@ GLOBAL_VAR_INIT(spawner_number, 1)
 	name = "AI spawner"
 	desc = "just spawnin' shit"
 	opacity = FALSE
-	mouse_opacity = FALSE
 	density = FALSE
 	invisibility = INVISIBILITY_OBSERVER
 	icon_state = "brazier"
