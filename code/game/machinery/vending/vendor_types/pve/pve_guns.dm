@@ -1,7 +1,7 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/guns
 	name = "\improper UAR Automated Weapons Rack"
 	desc = "An automated weapon rack hooked up to a big storage of standard-issue weapons."
-	icon_state = "guns"
+	icon_state = "req_guns"
 	req_access = list()
 	req_one_access = list()
 	hackable = TRUE
@@ -84,7 +84,7 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/extra_munitions/
 	name = "\improper UAR Automated Explosive, Incendiary and Support Munitions Rack"
 	desc = "An automated weapon rack hooked up to a big storage of standard-issue weapons."
-	icon_state = "plate"
+	icon_state = "gear"
 	req_access = list()
 	req_one_access = list()
 	hackable = TRUE
@@ -120,7 +120,7 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo/
 	name = "\improper UAR Automated Ammunition Rack"
 	desc = "An automated weapon rack hooked up to a big storage of standard-issue weapons."
-	icon_state = "req_guns"
+	icon_state = "req_ammo"
 	req_access = list()
 	req_one_access = list()
 	hackable = TRUE
