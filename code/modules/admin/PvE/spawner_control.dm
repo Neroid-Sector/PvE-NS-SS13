@@ -1,6 +1,6 @@
 /client/proc/create_spawner()
 	set category = "Xenosurge.Spawners"
-	set name = "Create Spawner"
+	set name = "Spawners - Create"
 	set desc = "Creates and launches configuration of a spawner at current location."
 
 	if(!check_rights(R_ADMIN))
@@ -70,3 +70,31 @@
 				spawner_count += 1
 		to_chat(usr, SPAN_INFO("Spawner activation complete. Spawners activated: [spawner_count]."))
 		log_admin("[usr] has activated a [spawner_count] spawner Xenosurge. Parameters: Max:[GLOB.xenosurge_spawner_limit], Waves:[GLOB.xenosurge_wave_max], Delay:[GLOB.xenosurge_wave_delay], Xenos:[GLOB.xenosurge_wave_xenos_max]")
+
+/client/proc/stop_surge()
+	set category = "Xenosurge.Spawners"
+	set name = "Xenosurge - Stop"
+	set desc = "Deinitalizes all spawners, stopping them."
+
+	if(!check_rights(R_ADMIN))
+		return
+	if(tgui_alert(usr, "Confirm: Stop Xenosurge?","START",list("Cancel","OK"), timeout = 0) == "OK")
+		for (var/obj/structure/xenosurge_spawner/spawner in GLOB.xenosurge_configured_spawners)
+			if(spawner.spawner_initiated == TRUE)
+				spawner.spawner_initiated = FALSE
+		GLOB.xenosurge_wave_xenos_current = 0
+		GLOB.xenosurge_wave_current = 0
+		to_chat(usr, SPAN_INFO("All spawners have been deactivated, the surge is effectively stopped."))
+
+/client/proc/remove_spawners()
+	set category = "Xenosurge.Spawners"
+	set name = "Spawners - Remove All"
+	set desc = "Removes all spawners."
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(tgui_alert(usr, "Confirm: Remove spawners?","START",list("Cancel","OK"), timeout = 0) == "OK")
+		for (var/obj/structure/xenosurge_spawner/spawner in world)
+			qdel(spawner)
+		GLOB.spawner_number = 1
+		to_chat(usr, SPAN_INFO("Spawners removed and ID number reset."))

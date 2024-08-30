@@ -66,3 +66,5 @@ GLOBAL_VAR_INIT(xenosurge_wave_xenos_max, 100)
 GLOBAL_VAR_INIT(xenosurge_wave_xenos_current, 0)
 
 GLOBAL_LIST_EMPTY(xenosurge_configured_spawners)
+
+GLOBAL_VAR_INIT(spawner_number, 1)

@@ -1,7 +1,6 @@
 #define AI_XENOS list(XENO_CASTE_DRONE, XENO_CASTE_RUNNER, XENO_CASTE_LURKER, XENO_CASTE_CRUSHER, XENO_CASTE_FACEHUGGER)
 #define XENO_BEHAVIORS list("Attack", "Capture", "Hive", "Build")
 #define XENO_BEHAVIORS_ASSOC list("Attack" = /datum/component/ai_behavior_override/attack, "Capture" = /datum/component/ai_behavior_override/capture, "Hive" = /datum/component/ai_behavior_override/hive, "Build" = /datum/component/ai_behavior_override/build)
-GLOBAL_VAR_INIT(spawner_number, 1)
 
 
 /obj/structure/xenosurge_spawner
@@ -25,6 +24,7 @@ GLOBAL_VAR_INIT(spawner_number, 1)
 	for (var/obj/structure/xenosurge_spawner/spawner in GLOB.xenosurge_configured_spawners)
 		spawner.spawner_initiated = FALSE
 	GLOB.xenosurge_wave_xenos_current = 0
+	GLOB.xenosurge_wave_current = 0
 
 /obj/structure/xenosurge_spawner/proc/spawner_loop()
 	sleep(xenos_to_spawn_delay)
