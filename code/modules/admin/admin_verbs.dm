@@ -141,6 +141,9 @@ var/list/admin_verbs_minor_event = list(
 	/client/proc/admin_biohazard_alert,
 	/client/proc/toggle_hardcore_perma,
 	/client/proc/toggle_bypass_joe_restriction,
+	/client/proc/create_spawner,
+	/client/proc/setup_surge,
+	/client/proc/start_surge,
 )
 
 var/list/admin_verbs_major_event = list(
