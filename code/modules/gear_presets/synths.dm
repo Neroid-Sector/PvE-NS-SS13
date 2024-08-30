@@ -35,7 +35,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/synth/uscm
-	name = "USCM Synthetic"
+	name = "UACM Synthetic"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 	faction = FACTION_MARINE
 	idtype = /obj/item/card/id/gold
@@ -59,7 +59,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/synth/uscm/councillor
-	name = "USCM Synthetic Councillor"
+	name = "UACM Synthetic Councillor"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 	faction = FACTION_MARINE
 	idtype = /obj/item/card/id/gold

@@ -414,7 +414,7 @@
 	},
 /obj/effect/decal/cleanable/blood{
 	base_icon = 'icons/obj/items/weapons/grenade.dmi';
-	desc = "An expended M55C tear gas grenade that was used for nonlethal riot control. These used to be used on USCM ships until they found out that marines are already used to teargas so the U.S.S Re-education made a better model through 'extensive trials' that works on marines, which is now the M66 used by MPs today. Being now utterly useless to marines and phased out by the M66, M55Cs were spread around the colonies across the UA galaxy like salt to be used on poor colonists instead.";
+	desc = "An expended M55C tear gas grenade that was used for nonlethal riot control. These used to be used on UACM ships until they found out that marines are already used to teargas so the U.S.S Re-education made a better model through 'extensive trials' that works on marines, which is now the M66 used by MPs today. Being now utterly useless to marines and phased out by the M66, M55Cs were spread around the colonies across the UA galaxy like salt to be used on poor colonists instead.";
 	icon = 'icons/obj/items/weapons/grenade.dmi';
 	icon_state = "grenade_custom";
 	name = "M55C Teargas grenade"
@@ -496,7 +496,7 @@
 "Tm" = (
 /obj/effect/decal/cleanable/blood{
 	base_icon = 'icons/obj/items/weapons/grenade.dmi';
-	desc = "An expended M55C tear gas grenade that was used for nonlethal riot control. These used to be used on USCM ships until they found out that marines are already used to teargas so the U.S.S Re-education made a better model through 'extensive trials' that works on marines, which is now the M66 used by MPs today. Being now utterly useless to marines and phased out by the M66, M55Cs were spread around the colonies across the UA galaxy like salt to be used on poor colonists instead.";
+	desc = "An expended M55C tear gas grenade that was used for nonlethal riot control. These used to be used on UACM ships until they found out that marines are already used to teargas so the U.S.S Re-education made a better model through 'extensive trials' that works on marines, which is now the M66 used by MPs today. Being now utterly useless to marines and phased out by the M66, M55Cs were spread around the colonies across the UA galaxy like salt to be used on poor colonists instead.";
 	icon = 'icons/obj/items/weapons/grenade.dmi';
 	icon_state = "grenade_custom";
 	name = "M55C Teargas grenade"

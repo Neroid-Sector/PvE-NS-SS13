@@ -32,7 +32,7 @@
 
 /obj/item/clothing/suit/storage/marine
 	name = "\improper M3 pattern marine armor"
-	desc = "Standard USCMC issue M3 Pattern Personal Armor. Composite ballistic armor, integral biomonitoring system, and brackets for the IMP system as well as the TNR Shoulder Lamp. \nHas some extra pouches on the sides for storage."
+	desc = "Standard UACM issue M3 Pattern Personal Armor. Composite ballistic armor, integral biomonitoring system, and brackets for the IMP system as well as the TNR Shoulder Lamp. \nHas some extra pouches on the sides for storage."
 	icon = 'icons/obj/items/clothing/cm_suits.dmi'
 	icon_state = "1"
 	item_state = "marine_armor" //Make unique states for Officer & Intel armors.
@@ -498,7 +498,7 @@
 
 /obj/item/clothing/suit/storage/marine/tanker
 	name = "\improper M3 pattern tanker armor"
-	desc = "Armored vest sometimes worn by USCMC armor crews. More bulky than a flak vest or service jacket, but substantially improved protection should the wearer need to dismount."
+	desc = "Armored vest sometimes worn by UACM armor crews. More bulky than a flak vest or service jacket, but substantially improved protection should the wearer need to dismount."
 	icon_state = "tanker"
 	uniform_restricted = list(/obj/item/clothing/under/marine/officer/tanker)
 	specialty = "M3 pattern tanker"
@@ -554,7 +554,7 @@
 
 /obj/item/clothing/suit/storage/marine/light/vest
 	name = "\improper M3-VL pattern ballistics vest"
-	desc = "Up until 2182 USCM non-combat personnel were issued non-standardized ballistics vests, though the lack of IMP compatibility and suit lamps proved time and time again inefficient. This modified M3-L shell is the result of a 6-year R&D program; It provides utility, protection, AND comfort to all USCM non-combat personnel."
+	desc = "Up until 2182 UACM non-combat personnel were issued non-standardized ballistics vests, though the lack of IMP compatibility and suit lamps proved time and time again inefficient. This modified M3-L shell is the result of a 6-year R&D program; It provides utility, protection, AND comfort to all UACM non-combat personnel."
 	icon_state = "VL"
 	flags_atom = NO_SNOW_TYPE|NO_NAME_OVERRIDE
 	flags_marine_armor = ARMOR_LAMP_OVERLAY //No squad colors when wearing this since it'd look funny.
@@ -707,7 +707,7 @@
 
 /obj/item/clothing/suit/storage/marine/M3G
 	name = "\improper M3-G4 grenadier armor"
-	desc = "A custom set of M3 armor packed to the brim with padding, plating, and every form of ballistic protection under the sun. Used exclusively by USCM Grenadiers."
+	desc = "A custom set of M3 armor packed to the brim with padding, plating, and every form of ballistic protection under the sun. Used exclusively by UACM Grenadiers."
 	icon_state = "grenadier"
 	armor_melee = CLOTHING_ARMOR_MEDIUMHIGH
 	armor_bullet = CLOTHING_ARMOR_MEDIUMHIGH
@@ -735,7 +735,7 @@
 
 /obj/item/clothing/suit/storage/marine/M3S
 	name = "\improper M3-S light armor"
-	desc = "A custom set of M3 armor designed for USCM Scouts."
+	desc = "A custom set of M3 armor designed for UACM Scouts."
 	icon_state = "scout_armor"
 	armor_melee = CLOTHING_ARMOR_MEDIUMHIGH
 	slowdown = SLOWDOWN_ARMOR_LIGHT
@@ -747,7 +747,7 @@
 
 /obj/item/clothing/suit/storage/marine/M35
 	name = "\improper M35 pyrotechnician armor"
-	desc = "A custom set of M35 armor designed for use by USCM Pyrotechnicians."
+	desc = "A custom set of M35 armor designed for use by UACM Pyrotechnicians."
 	icon_state = "pyro_armor"
 	armor_bio = CLOTHING_ARMOR_MEDIUMHIGH
 	armor_internaldamage = CLOTHING_ARMOR_MEDIUMHIGH
@@ -898,7 +898,7 @@
 
 /obj/item/clothing/suit/storage/marine/ghillie
 	name = "\improper M45 pattern ghillie armor"
-	desc = "A lightweight ghillie camouflage suit, used by USCM snipers on recon missions. Very lightweight, but doesn't protect much."
+	desc = "A lightweight ghillie camouflage suit, used by UACM snipers on recon missions. Very lightweight, but doesn't protect much."
 	icon_state = "ghillie_armor"
 	armor_bio = CLOTHING_ARMOR_MEDIUMHIGH
 	slowdown = SLOWDOWN_ARMOR_LIGHT
@@ -1053,7 +1053,7 @@
 
 /obj/item/clothing/suit/storage/marine/ghillie/forecon
 	name = "UDEP Thermal Poncho"
-	desc = "UDEP or the Ultra Diffusive Environmental Poncho is a camouflaged rain-cover worn to protect against the elements and chemical spills. It's commonly treated with an infrared absorbing coating, making a marine almost invisible in the rain. Favoured by USCM specialists for it's comfort and practicality."
+	desc = "UDEP or the Ultra Diffusive Environmental Poncho is a camouflaged rain-cover worn to protect against the elements and chemical spills. It's commonly treated with an infrared absorbing coating, making a marine almost invisible in the rain. Favoured by UACM specialists for it's comfort and practicality."
 	icon_state = "mercenary_miner_armor"
 	flags_atom = MOB_LOCK_ON_EQUIP|NO_SNOW_TYPE|NO_NAME_OVERRIDE
 
@@ -1320,7 +1320,7 @@
 
 /obj/item/clothing/suit/storage/marine/faction/UPP
 	name = "\improper UM5 personal armor"
-	desc = "Standard body armor of the UPP military, the UM5 (Union Medium MK5) is a medium body armor, roughly on par with the M3 pattern body armor in service with the USCM, specialized towards ballistics protection. Unlike the M3, however, the plate has a heavier neckplate. This has earned many UA members to refer to UPP soldiers as 'tin men'."
+	desc = "Standard body armor of the UPP military, the UM5 (Union Medium MK5) is a medium body armor, roughly on par with the M3 pattern body armor in service with the UACM, specialized towards ballistics protection. Unlike the M3, however, the plate has a heavier neckplate. This has earned many UA members to refer to UPP soldiers as 'tin men'."
 	icon_state = "upp_armor"
 	armor_bullet = CLOTHING_ARMOR_HIGH
 	armor_energy = CLOTHING_ARMOR_MEDIUM
@@ -1332,7 +1332,7 @@
 
 /obj/item/clothing/suit/storage/marine/faction/UPP/support
 	name = "\improper UL6 personal armor"
-	desc = "Standard body armor of the UPP military, the UL6 (Union Light MK6) is a light body armor, slightly weaker than the M3 pattern body armor in service with the USCM, specialized towards ballistics protection. This set of personal armor lacks the iconic neck piece and some of the armor in favor of user mobility."
+	desc = "Standard body armor of the UPP military, the UL6 (Union Light MK6) is a light body armor, slightly weaker than the M3 pattern body armor in service with the UACM, specialized towards ballistics protection. This set of personal armor lacks the iconic neck piece and some of the armor in favor of user mobility."
 	storage_slots = 4
 	icon_state = "upp_armor_support"
 	slowdown = SLOWDOWN_ARMOR_LIGHT
@@ -1443,7 +1443,7 @@
 
 /obj/item/clothing/suit/storage/marine/faction/freelancer
 	name = "freelancer cuirass"
-	desc = "An armored protective chestplate scrapped together from various plates. It keeps up remarkably well, as the craftsmanship is solid, and the design mirrors such armors in the UPP and the USCM. The many skilled craftsmen in the freelancers ranks produce these vests at a rate about one a month."
+	desc = "An armored protective chestplate scrapped together from various plates. It keeps up remarkably well, as the craftsmanship is solid, and the design mirrors such armors in the UPP and the UACM. The many skilled craftsmen in the freelancers ranks produce these vests at a rate about one a month."
 	icon_state = "freelancer_armor"
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN|BODY_FLAG_LEGS
@@ -1595,7 +1595,7 @@
 
 /obj/item/clothing/suit/storage/RO
 	name = "quartermaster jacket"
-	desc = "A green jacket worn by USCM personnel. The back has the flag of the United Americas on it."
+	desc = "A green jacket worn by UACM personnel. The back has the flag of the United Americas on it."
 	icon_state = "RO_jacket"
 	blood_overlay_type = "coat"
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_ARMS
@@ -1743,7 +1743,7 @@
 
 /obj/item/clothing/suit/storage/marine/uaac/tis/sa
 	name = "\improper M3 pattern UAAC-TIS Special Agent Armor"
-	desc = "A modified luxury armor, originally meant for a USCM Provost Marshall, modified to use the colors and insignia of the TIS. The Three Eyes is technically able to requisition any equipment or personnel to fulfill its mission and often uses this privilege to outfit their agents with high-quality gear from other UA military forces."
+	desc = "A modified luxury armor, originally meant for a UACM Provost Marshall, modified to use the colors and insignia of the TIS. The Three Eyes is technically able to requisition any equipment or personnel to fulfill its mission and often uses this privilege to outfit their agents with high-quality gear from other UA military forces."
 	icon_state = "tis"
 	item_state_slots = list(WEAR_JACKET = "tis")
 	armor_melee = CLOTHING_ARMOR_MEDIUMHIGH
@@ -1781,7 +1781,7 @@
 
 /obj/item/clothing/suit/storage/marine/veteran/ua_riot
 	name = "\improper UA-M1 body armor"
-	desc = "Based on the M-3 pattern employed by the USCM, the UA-M1 body armor is employed by UA security, riot control and union-busting teams. While robust against melee and bullet attacks, it critically lacks coverage of the legs and arms."
+	desc = "Based on the M-3 pattern employed by the UACM, the UA-M1 body armor is employed by UA security, riot control and union-busting teams. While robust against melee and bullet attacks, it critically lacks coverage of the legs and arms."
 	icon_state = "ua_riot"
 	flags_armor_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN
 	flags_cold_protection = BODY_FLAG_CHEST|BODY_FLAG_GROIN
@@ -1811,7 +1811,7 @@
 
 /obj/item/clothing/suit/storage/marine/veteran/royal_marine
 	name = "kestrel armoured vest"
-	desc = "A customizable personal armor system used by the Three World Empire's Royal Marines Commandos. Designers from a Weyland Yutani subsidary, Lindenthal-Ehrenfeld Militärindustrie, iterated on the USCMC's M3 pattern personal armor in their Tokonigara lab to create an armor systemed to suit the unique needs of the Three World Empire's smaller but better equipped Royal Marines."
+	desc = "A customizable personal armor system used by the Three World Empire's Royal Marines Commandos. Designers from a Weyland Yutani subsidary, Lindenthal-Ehrenfeld Militärindustrie, iterated on the UACM's M3 pattern personal armor in their Tokonigara lab to create an armor systemed to suit the unique needs of the Three World Empire's smaller but better equipped Royal Marines."
 	icon_state = "rmc_light"
 	item_state = "rmc_light"
 	flags_atom = NO_NAME_OVERRIDE|NO_SNOW_TYPE
@@ -1855,7 +1855,7 @@
 
 /obj/item/clothing/suit/storage/marine/veteran/royal_marine/pointman //Pointman Spec Armor
 	name = "kestrel pointman armour"
-	desc = "A heavier version of the armor system used by the Three World Empire's Royal Marines Commandos. Designers from a Weyland Yutani subsidary, Lindenthal-Ehrenfeld Militärindustrie, iterated on the USCMC's M3 pattern personal armor in their Tokonigara lab to create an armor systemed to suit the unique needs of the Three World Empire's smaller but better equipped Royal Marines."
+	desc = "A heavier version of the armor system used by the Three World Empire's Royal Marines Commandos. Designers from a Weyland Yutani subsidary, Lindenthal-Ehrenfeld Militärindustrie, iterated on the UACM's M3 pattern personal armor in their Tokonigara lab to create an armor systemed to suit the unique needs of the Three World Empire's smaller but better equipped Royal Marines."
 	icon_state = "rmc_pointman"
 	item_state = "rmc_pointman"
 	armor_melee = CLOTHING_ARMOR_HIGH

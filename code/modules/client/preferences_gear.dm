@@ -166,24 +166,24 @@ var/global/list/gear_datums_by_name = list()
 	allowed_origins = USCM_ORIGINS
 
 /datum/gear/mask/uscm/balaclava_green
-	display_name = "USCM balaclava, green"
+	display_name = "UACM balaclava, green"
 	path = /obj/item/clothing/mask/rebreather/scarf/green
 
 /datum/gear/mask/uscm/balaclava_grey
-	display_name = "USCM balaclava, grey"
+	display_name = "UACM balaclava, grey"
 	path = /obj/item/clothing/mask/rebreather/scarf/gray
 
 /datum/gear/mask/uscm/balaclava_tan
-	display_name = "USCM balaclava, tan"
+	display_name = "UACM balaclava, tan"
 	path = /obj/item/clothing/mask/rebreather/scarf/tan
 
 /datum/gear/mask/uscm/skull_balaclava_blue
-	display_name = "USCM balaclava, blue skull"
+	display_name = "UACM balaclava, blue skull"
 	path = /obj/item/clothing/mask/rebreather/skull
 	cost = 4
 
 /datum/gear/mask/uscm/skull_balaclava_black
-	display_name = "USCM balaclava, black skull"
+	display_name = "UACM balaclava, black skull"
 	path = /obj/item/clothing/mask/rebreather/skull/black
 	cost = 4
 
@@ -204,123 +204,123 @@ var/global/list/gear_datums_by_name = list()
 	allowed_origins = USCM_ORIGINS
 
 /datum/gear/headwear/uscm/bandana_green
-	display_name = "USCM bandana, green"
+	display_name = "UACM bandana, green"
 	path = /obj/item/clothing/head/cmbandana
 
 /datum/gear/headwear/uscm/bandana_tan
-	display_name = "USCM bandana, tan"
+	display_name = "UACM bandana, tan"
 	path = /obj/item/clothing/head/cmbandana/tan
 
 /datum/gear/headwear/uscm/beanie_grey
-	display_name = "USCM beanie, grey"
+	display_name = "UACM beanie, grey"
 	path = /obj/item/clothing/head/beanie/gray
 
 /datum/gear/headwear/uscm/beanie_green
-	display_name = "USCM beanie, green"
+	display_name = "UACM beanie, green"
 	path = /obj/item/clothing/head/beanie/green
 
 /datum/gear/headwear/uscm/beanie_tan
-	display_name = "USCM beanie, tan"
+	display_name = "UACM beanie, tan"
 	path = /obj/item/clothing/head/beanie/tan
 
 /datum/gear/headwear/uscm/beret_green
-	display_name = "USCM beret, green"
+	display_name = "UACM beret, green"
 	path = /obj/item/clothing/head/beret/cm
 
 /datum/gear/headwear/uscm/beret_tan
-	display_name = "USCM beret, tan"
+	display_name = "UACM beret, tan"
 	path = /obj/item/clothing/head/beret/cm/tan
 
 /datum/gear/headwear/uscm/beret_black
-	display_name = "USCM beret, black"
+	display_name = "UACM beret, black"
 	path = /obj/item/clothing/head/beret/cm/black
 
 /datum/gear/headwear/uscm/beret_white
-	display_name = "USCM beret, white"
+	display_name = "UACM beret, white"
 	path = /obj/item/clothing/head/beret/cm/white
 
 /datum/gear/headwear/uscm/beret_alpha
-	display_name = "USCM beret, red flash"
+	display_name = "UACM beret, red flash"
 	path = /obj/item/clothing/head/beret/cm/alpha
 
 /datum/gear/headwear/uscm/beret_bravo
-	display_name = "USCM beret, yellow flash"
+	display_name = "UACM beret, yellow flash"
 	path = /obj/item/clothing/head/beret/cm/bravo
 
 /datum/gear/headwear/uscm/beret_charlie
-	display_name = "USCM beret, purple flash"
+	display_name = "UACM beret, purple flash"
 	path = /obj/item/clothing/head/beret/cm/charlie
 
 /datum/gear/headwear/uscm/beret_delta
-	display_name = "USCM beret, blue flash"
+	display_name = "UACM beret, blue flash"
 	path = /obj/item/clothing/head/beret/cm/delta
 
 /datum/gear/headwear/uscm/beret_echo
-	display_name = "USCM beret, green flash"
+	display_name = "UACM beret, green flash"
 	path = /obj/item/clothing/head/beret/cm/echo
 
 /datum/gear/headwear/uscm/beret_foxtrot
-	display_name = "USCM beret, brown flash"
+	display_name = "UACM beret, brown flash"
 	path = /obj/item/clothing/head/beret/cm/foxtrot
 
 /datum/gear/headwear/uscm/beret_intel
-	display_name = "USCM beret, black flash"
+	display_name = "UACM beret, black flash"
 	path = /obj/item/clothing/head/beret/cm/intel
 
 /datum/gear/headwear/uscm/boonie_olive
-	display_name = "USCM boonie hat, olive"
+	display_name = "UACM boonie hat, olive"
 	path = /obj/item/clothing/head/cmcap/boonie
 
 /datum/gear/headwear/uscm/boonie_tan
-	display_name = "USCM boonie hat, tan"
+	display_name = "UACM boonie hat, tan"
 	path = /obj/item/clothing/head/cmcap/boonie/tan
 
 /datum/gear/headwear/uscm/cap
-	display_name = "USCM cap"
+	display_name = "UACM cap"
 	path = /obj/item/clothing/head/cmcap
 
 /datum/gear/headwear/uscm/headband_brown
-	display_name = "USCM headband, brown"
+	display_name = "UACM headband, brown"
 	path = /obj/item/clothing/head/headband/brown
 
 /datum/gear/headwear/uscm/headband_green
-	display_name = "USCM headband, green"
+	display_name = "UACM headband, green"
 	path = /obj/item/clothing/head/headband
 
 /datum/gear/headwear/uscm/headband_grey
-	display_name = "USCM headband, grey"
+	display_name = "UACM headband, grey"
 	path = /obj/item/clothing/head/headband/gray
 
 /datum/gear/headwear/uscm/headband_red
-	display_name = "USCM headband, red"
+	display_name = "UACM headband, red"
 	path = /obj/item/clothing/head/headband/red
 
 /datum/gear/headwear/uscm/headband_tan
-	display_name = "USCM headband, tan"
+	display_name = "UACM headband, tan"
 	path = /obj/item/clothing/head/headband/tan
 
 /datum/gear/headwear/uscm/headband_intel
-	display_name = "USCM headband, black"
+	display_name = "UACM headband, black"
 	path = /obj/item/clothing/head/headband/intel
 
 /datum/gear/headwear/uscm/headband_bravo
-	display_name = "USCM headband, orange"
+	display_name = "UACM headband, orange"
 	path = /obj/item/clothing/head/headband/bravo
 
 /datum/gear/headwear/uscm/headband_charlie
-	display_name = "USCM headband, purple"
+	display_name = "UACM headband, purple"
 	path = /obj/item/clothing/head/headband/charlie
 
 /datum/gear/headwear/uscm/headband_delta
-	display_name = "USCM headband, blue"
+	display_name = "UACM headband, blue"
 	path = /obj/item/clothing/head/headband/delta
 
 /datum/gear/headwear/uscm/headband_echo
-	display_name = "USCM headband, cyan green"
+	display_name = "UACM headband, cyan green"
 	path = /obj/item/clothing/head/headband/echo
 
 /datum/gear/headwear/uscm/headset
-	display_name = "USCM headset"
+	display_name = "UACM headset"
 	path = /obj/item/clothing/head/headset
 
 /datum/gear/helmet_garb
@@ -340,7 +340,7 @@ var/global/list/gear_datums_by_name = list()
 	path = /obj/item/prop/helmetgarb/flair_peace
 
 /datum/gear/helmet_garb/flair_uscm
-	display_name = "Flair, USCM"
+	display_name = "Flair, UACM"
 	path = /obj/item/prop/helmetgarb/flair_uscm
 
 /datum/gear/helmet_garb/helmet_gasmask
@@ -421,7 +421,7 @@ var/global/list/gear_datums_by_name = list()
 	allowed_origins = USCM_ORIGINS
 
 /datum/gear/helmet_garb/chaplain_patch
-	display_name = "USCM chaplain helmet patch"
+	display_name = "UACM chaplain helmet patch"
 	path = /obj/item/prop/helmetgarb/chaplain_patch
 	allowed_origins = USCM_ORIGINS
 
@@ -834,7 +834,7 @@ var/global/list/gear_datums_by_name = list()
 	path = /obj/item/reagent_container/food/drinks/flask
 
 /datum/gear/flask/uscm
-	display_name = "USCM flask"
+	display_name = "UACM flask"
 	path = /obj/item/reagent_container/food/drinks/flask/marine
 
 /datum/gear/flask/vacuum
@@ -1071,13 +1071,13 @@ var/global/list/gear_datums_by_name = list()
 	cost = 3
 
 /datum/gear/misc/sunscreen_stick
-	display_name = "USCM issue sunscreen"
+	display_name = "UACM issue sunscreen"
 	path = /obj/item/facepaint/sunscreen_stick
 	cost = 1 //The cadmium poisoning pays for the discounted cost longterm
 	allowed_origins = USCM_ORIGINS
 
 /datum/gear/misc/patch_uscm
-	display_name = "USCM shoulder patch"
+	display_name = "UACM shoulder patch"
 	path = /obj/item/clothing/accessory/patch
 	cost = 1
 	slot = WEAR_IN_ACCESSORY

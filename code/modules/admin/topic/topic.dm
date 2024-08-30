@@ -1309,15 +1309,15 @@
 			to_chat(usr, "The person you are trying to contact is not wearing a headset")
 			return
 
-		var/input = input(src.owner, "Please enter a message to reply to [key_name(H)] via their headset.","Outgoing message from USCM", "")
+		var/input = input(src.owner, "Please enter a message to reply to [key_name(H)] via their headset.","Outgoing message from UACM", "")
 		if(!input)
 			return
 
 		to_chat(src.owner, "You sent [input] to [H] via a secure channel.")
-		log_admin("[src.owner] replied to [key_name(H)]'s USCM message with the message [input].")
+		log_admin("[src.owner] replied to [key_name(H)]'s UACM message with the message [input].")
 		for(var/client/X in GLOB.admins)
 			if((R_ADMIN|R_MOD) & X.admin_holder.rights)
-				to_chat(X, SPAN_STAFF_IC("<b>ADMINS/MODS: \red [src.owner] replied to [key_name(H)]'s USCM message with: \blue \")[input]\"</b>"))
+				to_chat(X, SPAN_STAFF_IC("<b>ADMINS/MODS: \red [src.owner] replied to [key_name(H)]'s UACM message with: \blue \")[input]\"</b>"))
 		to_chat(H, SPAN_DANGER("You hear something crackle in your headset before a voice speaks, please stand by for a message:\" \blue <b>\"[input]\"</b>"))
 
 	else if(href_list["SyndicateReply"])
@@ -1427,17 +1427,17 @@
 		var/mob/living/carbon/human/H = locate(href_list["USCMFaxReply"])
 		var/obj/structure/machinery/faxmachine/fax = locate(href_list["originfax"])
 
-		var/template_choice = tgui_input_list(usr, "Use which template or roll your own?", "Fax Templates", list("USCM High Command", "USCM Provost General", "Custom"))
+		var/template_choice = tgui_input_list(usr, "Use which template or roll your own?", "Fax Templates", list("UACM High Command", "UACM Provost General", "Custom"))
 		if(!template_choice) return
 		var/datum/fax/fax_message
 		switch(template_choice)
 			if("Custom")
-				var/input = input(src.owner, "Please enter a message to reply to [key_name(H)] via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from USCM", "") as message|null
+				var/input = input(src.owner, "Please enter a message to reply to [key_name(H)] via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from UACM", "") as message|null
 				if(!input)
 					return
 				fax_message = new(input)
-			if("USCM High Command", "USCM Provost General")
-				var/subject = input(src.owner, "Enter subject line", "Outgoing message from USCM", "") as message|null
+			if("UACM High Command", "UACM Provost General")
+				var/subject = input(src.owner, "Enter subject line", "Outgoing message from UACM", "") as message|null
 				if(!subject)
 					return
 				var/addressed_to = ""
@@ -1445,22 +1445,22 @@
 				if(address_option == "Sender")
 					addressed_to = "[H.real_name]"
 				else if(address_option == "Custom")
-					addressed_to = input(src.owner, "Enter Addressee Line", "Outgoing message from USCM", "") as message|null
+					addressed_to = input(src.owner, "Enter Addressee Line", "Outgoing message from UACM", "") as message|null
 					if(!addressed_to)
 						return
 				else
 					return
-				var/message_body = input(src.owner, "Enter Message Body, use <p></p> for paragraphs", "Outgoing message from Weyland USCM", "") as message|null
+				var/message_body = input(src.owner, "Enter Message Body, use <p></p> for paragraphs", "Outgoing message from Weyland UACM", "") as message|null
 				if(!message_body)
 					return
-				var/sent_by = input(src.owner, "Enter the name and rank you are sending from.", "Outgoing message from USCM", "") as message|null
+				var/sent_by = input(src.owner, "Enter the name and rank you are sending from.", "Outgoing message from UACM", "") as message|null
 				if(!sent_by)
 					return
 				var/sent_title = "Office of the Provost General"
-				if(template_choice == "USCM High Command")
-					sent_title = "USCM High Command"
+				if(template_choice == "UACM High Command")
+					sent_title = "UACM High Command"
 
-				fax_message = new(generate_templated_fax(0, "USCM CENTRAL COMMAND", subject,addressed_to, message_body,sent_by, sent_title, "United States Colonial Marine Corps"))
+				fax_message = new(generate_templated_fax(0, "UACM CENTRAL COMMAND", subject,addressed_to, message_body,sent_by, sent_title, "United States Colonial Marine Corps"))
 		show_browser(usr, "<body class='paper'>[fax_message.data]</body>", "uscmfaxpreview", "size=500x400")
 		var/send_choice = tgui_input_list(usr, "Send this fax?", "Fax Template", list("Send", "Cancel"))
 		if(send_choice != "Send")
@@ -1471,7 +1471,7 @@
 
 		GLOB.USCMFaxes.Add("<a href='?FaxView=\ref[fax_message]'>\[view '[customname]' from [key_name(usr)] at [time2text(world.timeofday, "hh:mm:ss")]\]</a>")
 
-		var/msg_ghost = SPAN_NOTICE("<b><font color='#1F66A0'>USCM FAX REPLY: </font></b> ")
+		var/msg_ghost = SPAN_NOTICE("<b><font color='#1F66A0'>UACM FAX REPLY: </font></b> ")
 		msg_ghost += "Transmitting '[customname]' via secure connection ... "
 		msg_ghost += "<a href='?FaxView=\ref[fax_message]'>view message</a>"
 		announce_fax( ,msg_ghost)
@@ -1486,7 +1486,7 @@
 					// give the sprite some time to flick
 					spawn(20)
 						var/obj/item/paper/P = new /obj/item/paper( F.loc )
-						P.name = "USCM High Command - [customname]"
+						P.name = "UACM High Command - [customname]"
 						P.info = fax_message.data
 						P.update_icon()
 
@@ -1499,7 +1499,7 @@
 							P.stamped = new
 						P.stamped += /obj/item/tool/stamp
 						P.overlays += stampoverlay
-						P.stamps += "<HR><i>This paper has been stamped by the USCM High Command Quantum Relay.</i>"
+						P.stamps += "<HR><i>This paper has been stamped by the UACM High Command Quantum Relay.</i>"
 
 				to_chat(src.owner, "Message reply to transmitted successfully.")
 				message_admins(SPAN_STAFF_IC("[key_name_admin(src.owner)] replied to a fax message from [key_name_admin(H)]"), 1)
@@ -2020,7 +2020,7 @@
 		supply_controller.ordernum++
 		new_order.object = supply_controller.supply_packs[nuketype]
 		new_order.orderedby = ref_person
-		new_order.approvedby = "USCM High Command"
+		new_order.approvedby = "UACM High Command"
 		supply_controller.shoppinglist += new_order
 
 		//Can no longer request a nuke
@@ -2034,7 +2034,7 @@
 		var/mob/ref_person = locate(href_list["nukedeny"])
 		if(!istype(ref_person))
 			return FALSE
-		marine_announcement("Your request for nuclear ordnance deployment has been reviewed and denied by USCM High Command for operational security and colonial preservation reasons. Have a good day.", "NUCLEAR ORDNANCE DENIED", 'sound/misc/notice2.ogg', logging = ARES_LOG_MAIN)
+		marine_announcement("Your request for nuclear ordnance deployment has been reviewed and denied by UACM High Command for operational security and colonial preservation reasons. Have a good day.", "NUCLEAR ORDNANCE DENIED", 'sound/misc/notice2.ogg', logging = ARES_LOG_MAIN)
 		log_game("[key_name_admin(usr)] has denied nuclear ordnance, requested by [key_name_admin(ref_person)]")
 		message_admins("[key_name_admin(usr)] has dnied nuclear ordnance, requested by [key_name_admin(ref_person)]")
 

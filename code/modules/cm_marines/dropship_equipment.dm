@@ -793,7 +793,7 @@
 /obj/structure/dropship_equipment/weapon/laser_beam_gun
 	name = "\improper LWU-6B Laser Cannon"
 	icon_state = "laser_beam"
-	desc = "State of the art technology recently acquired by the USCM, it fires a battery-fed pulsed laser beam at near lightspeed setting on fire everything it touches. Moving this will require some sort of lifter. Accepts the BTU-17/LW Hi-Cap Laser Batteries."
+	desc = "State of the art technology recently acquired by the UACM, it fires a battery-fed pulsed laser beam at near lightspeed setting on fire everything it touches. Moving this will require some sort of lifter. Accepts the BTU-17/LW Hi-Cap Laser Batteries."
 	icon = 'icons/obj/structures/props/almayer_props64.dmi'
 	firing_sound = 'sound/effects/phasein.ogg'
 	firing_delay = 50 //5 seconds

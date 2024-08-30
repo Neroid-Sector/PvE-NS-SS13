@@ -260,7 +260,7 @@
 
 /obj/item/clothing/accessory/medal/bronze/conduct
 	name = MARINE_CONDUCT_MEDAL
-	desc = "A bronze medal awarded for distinguished conduct. Whilst a great honor, this is the most basic award given by the USCM"
+	desc = "A bronze medal awarded for distinguished conduct. Whilst a great honor, this is the most basic award given by the UACM"
 	icon_state = "bronze_b"
 
 /obj/item/clothing/accessory/medal/bronze/heart
@@ -296,7 +296,7 @@
 
 /obj/item/clothing/accessory/medal/gold/heroism
 	name = MARINE_HEROISM_MEDAL
-	desc = "An extremely rare golden medal awarded only by the USCM. To receive such a medal is the highest honor and as such, very few exist."
+	desc = "An extremely rare golden medal awarded only by the UACM. To receive such a medal is the highest honor and as such, very few exist."
 
 /obj/item/clothing/accessory/medal/platinum
 	name = "platinum medal"
@@ -305,20 +305,20 @@
 
 /obj/item/clothing/accessory/medal/bronze/service
 	name = "bronze service medal"
-	desc = "A bronze medal awarded for a marine's service within the USCM. It is a very common medal, and is typically the first medal a marine would receive."
+	desc = "A bronze medal awarded for a marine's service within the UACM. It is a very common medal, and is typically the first medal a marine would receive."
 	icon_state = "bronze"
 
 /obj/item/clothing/accessory/medal/silver/service
 	name = "silver service medal"
-	desc = "A shiny silver medal awarded for a marine's service within the USCM. It is a somewhat common medal which signifies the amount of time a marine has spent in the line of duty."
+	desc = "A shiny silver medal awarded for a marine's service within the UACM. It is a somewhat common medal which signifies the amount of time a marine has spent in the line of duty."
 	icon_state = "silver"
 /obj/item/clothing/accessory/medal/gold/service
 	name = "gold service medal"
-	desc = "A prestigious gold medal awarded for a marine's service within the USCM. It is a rare medal which signifies the amount of time a marine has spent in the line of duty."
+	desc = "A prestigious gold medal awarded for a marine's service within the UACM. It is a rare medal which signifies the amount of time a marine has spent in the line of duty."
 	icon_state = "gold"
 /obj/item/clothing/accessory/medal/platinum/service
 	name = "platinum service medal"
-	desc = "The highest service medal that can be awarded to a marine; such medals are hand-given by USCM Generals to a marine. It signifies the sheer amount of time a marine has spent in the line of duty."
+	desc = "The highest service medal that can be awarded to a marine; such medals are hand-given by UACM Generals to a marine. It signifies the sheer amount of time a marine has spent in the line of duty."
 	icon_state = "platinum"
 //Armbands
 /obj/item/clothing/accessory/armband
@@ -372,24 +372,24 @@
 
 //patches
 /obj/item/clothing/accessory/patch
-	name = "USCM patch"
+	name = "UACM patch"
 	desc = "A fire-resistant shoulder patch, worn by the men and women of the United States Colonial Marines."
 	icon_state = "uscmpatch"
 	jumpsuit_hide_states = (UNIFORM_SLEEVE_CUT|UNIFORM_JACKET_REMOVED)
 
 /obj/item/clothing/accessory/patch/falcon
-	name = "USCM Falling Falcons patch"
-	desc = "A fire-resistant shoulder patch, worn by the men and women of the Falling Falcons, the 2nd battalion of the 4th brigade of the USCM."
+	name = "UACM Falling Falcons patch"
+	desc = "A fire-resistant shoulder patch, worn by the men and women of the Falling Falcons, the 2nd battalion of the 4th brigade of the UACM."
 	icon_state = "fallingfalconspatch"
 
 /obj/item/clothing/accessory/patch/devils
-	name = "USCM Solar Devils patch"
-	desc = "A fire-resistant shoulder patch, worn by the men and women of the Solar Devils, the 3rd battalion of the 2nd division of the USCM."
+	name = "UACM Solar Devils patch"
+	desc = "A fire-resistant shoulder patch, worn by the men and women of the Solar Devils, the 3rd battalion of the 2nd division of the UACM."
 	icon_state = "solardevilspatch"
 
 /obj/item/clothing/accessory/patch/forecon
-	name = "USCM Force Reconnaissance patch"
-	desc = "A fire-resistant shoulder patch, worn by the men and women of USCM FORECON. Swift, Silent, Deadly."
+	name = "UACM Force Reconnaissance patch"
+	desc = "A fire-resistant shoulder patch, worn by the men and women of UACM FORECON. Swift, Silent, Deadly."
 	icon_state = "forecon_patch"
 
 /obj/item/clothing/accessory/patch/royal_marines
@@ -413,8 +413,8 @@
 	icon_state = "navalpatch"
 
 /obj/item/clothing/accessory/poncho
-	name = "USCM Poncho"
-	desc = "The standard USCM poncho has variations for every climate. Custom fitted to be attached to standard USCM armor variants it is comfortable, warming or cooling as needed, and well-fit. A marine couldn't ask for more. Affectionately referred to as a \"woobie\"."
+	name = "UACM Poncho"
+	desc = "The standard UACM poncho has variations for every climate. Custom fitted to be attached to standard UACM armor variants it is comfortable, warming or cooling as needed, and well-fit. A marine couldn't ask for more. Affectionately referred to as a \"woobie\"."
 	icon_state = "poncho"
 	slot = ACCESSORY_SLOT_PONCHO
 	var/has_variation = TRUE
@@ -704,7 +704,7 @@
 
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "M272 pattern knife vest"
-	desc = "An older generation M272 pattern knife vest once employed by the USCM. Can hold up to 5 knives. It is made of synthcotton."
+	desc = "An older generation M272 pattern knife vest once employed by the UACM. Can hold up to 5 knives. It is made of synthcotton."
 	icon_state = "vest_knives"
 	hold = /obj/item/storage/internal/accessory/knifeharness
 

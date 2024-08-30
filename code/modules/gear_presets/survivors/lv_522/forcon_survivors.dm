@@ -101,7 +101,7 @@
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine(new_human), WEAR_HEAD)
 
 /datum/equipment_preset/survivor/forecon/standard
-	name = "Survivor - USCM Reconnaissance Marine"
+	name = "Survivor - UACM Reconnaissance Marine"
 	assignment = JOB_FORECON_RIFLEMAN
 	skills = /datum/skills/military/survivor/forecon_standard
 
@@ -115,7 +115,7 @@
 ///*****************************//
 
 /datum/equipment_preset/survivor/forecon/tech
-	name = "Survivor - USCM Reconnaissance Support Technician"
+	name = "Survivor - UACM Reconnaissance Support Technician"
 	assignment = JOB_FORECON_SUPPORT
 	skills = /datum/skills/military/survivor/forecon_techician
 
@@ -137,7 +137,7 @@
 ///*****************************//
 
 /datum/equipment_preset/survivor/forecon/marksman
-	name = "Survivor - USCM Reconnaissance Designated Marksman"
+	name = "Survivor - UACM Reconnaissance Designated Marksman"
 	assignment = JOB_FORECON_MARKSMAN
 	skills = /datum/skills/military/survivor/forecon_marksman
 
@@ -153,7 +153,7 @@
 ///*****************************//
 
 /datum/equipment_preset/survivor/forecon/smartgunner
-	name = "Survivor - USCM Reconnaissance Smartgunner"
+	name = "Survivor - UACM Reconnaissance Smartgunner"
 	assignment = JOB_FORECON_SMARTGUNNER
 	skills = /datum/skills/military/survivor/forecon_smartgunner
 
@@ -171,7 +171,7 @@
 ///*****************************//
 
 /datum/equipment_preset/survivor/forecon/sniper
-	name = "Survivor - USCM Reconnaissance Sniper"
+	name = "Survivor - UACM Reconnaissance Sniper"
 	assignment = JOB_FORECON_SNIPER
 	skills = /datum/skills/military/survivor/forecon_sniper
 
@@ -205,7 +205,7 @@
 //---------------------------\\
 
 /datum/equipment_preset/survivor/forecon/squad_leader
-	name = "Survivor - USCM Reconnaissance Squad Leader"
+	name = "Survivor - UACM Reconnaissance Squad Leader"
 	assignment = JOB_FORECON_SL
 	skills = /datum/skills/military/survivor/forecon_squad_leader
 	paygrade = "MO1"
@@ -231,7 +231,7 @@
 //---------------------------\\
 
 /datum/equipment_preset/survivor/forecon/major
-	name = "Survivor - USCM Reconnaissance Major"
+	name = "Survivor - UACM Reconnaissance Major"
 	assignment = JOB_FORECON_CO
 	skills = /datum/skills/commander
 	paygrade = "MO4"
@@ -264,7 +264,7 @@
 //----------------------\\
 
 /datum/equipment_preset/synth/survivor/forecon
-	name = "Survivor - USCM Synthetic"
+	name = "Survivor - UACM Synthetic"
 	assignment = JOB_FORECON_SYN
 	faction_group = list(FACTION_MARINE, FACTION_SURVIVOR)
 	idtype = /obj/item/card/id/gold

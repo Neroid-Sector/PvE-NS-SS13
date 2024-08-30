@@ -106,7 +106,7 @@
 
 /obj/item/explosive/grenade/high_explosive/m15
 	name = "\improper M15 fragmentation grenade"
-	desc = "An outdated USCM Fragmentation Grenade. With decades of service in the USCM, the old M15 Fragmentation Grenade is slowly being replaced by the slightly safer M40-series grenades. It is set to detonate in 4 seconds."
+	desc = "An outdated UACM Fragmentation Grenade. With decades of service in the UACM, the old M15 Fragmentation Grenade is slowly being replaced by the slightly safer M40-series grenades. It is set to detonate in 4 seconds."
 	icon_state = "grenade_ex"
 	item_state = "grenade_ex"
 	throw_speed = SPEED_FAST

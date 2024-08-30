@@ -259,7 +259,7 @@
 
 /obj/item/storage/box/guncase/nsg23_marine
 	name = "\improper NSG-23 assault rifle case"
-	desc = "A gun case containing the NSG 23 assault rifle. While usually seen in the hands of PMCs, this weapon is sometimes issued to USCM personnel."
+	desc = "A gun case containing the NSG 23 assault rifle. While usually seen in the hands of PMCs, this weapon is sometimes issued to UACM personnel."
 	storage_slots = 6
 	can_hold = list(/obj/item/weapon/gun/rifle/nsg23/no_lock, /obj/item/ammo_magazine/rifle/nsg23)
 
@@ -273,7 +273,7 @@
 
 /obj/item/storage/box/guncase/m3717
 	name = "\improper M37-17 pump shotgun case"
-	desc = "A gun case containing the M37-17 pump shotgun. Rarely seen issued to USCM vessels on the edges of inhabited space who need the extra bang for their buck (literally) the M37-17 has. Like this one! Well, if it had the budget for it."
+	desc = "A gun case containing the M37-17 pump shotgun. Rarely seen issued to UACM vessels on the edges of inhabited space who need the extra bang for their buck (literally) the M37-17 has. Like this one! Well, if it had the budget for it."
 	storage_slots = 4
 	can_hold = list(/obj/item/weapon/gun/shotgun/pump/dual_tube/cmb/m3717, /obj/item/ammo_magazine/shotgun/buckshot)
 

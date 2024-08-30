@@ -1,5 +1,5 @@
 /datum/equipment_preset/uscm_ship
-	name = "USCM (ship roles)"
+	name = "UACM (ship roles)"
 	faction = FACTION_MARINE
 	faction_group = FACTION_LIST_MARINE
 	minimum_age = 20
@@ -51,7 +51,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/liaison
-	name = "USCM Corporate Liaison (CL)"
+	name = "UACM Corporate Liaison (CL)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND
 
 	idtype = /obj/item/card/id/silver/cl
@@ -168,7 +168,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/notepad(new_human), WEAR_IN_BACK)
 
 /datum/equipment_preset/uscm_ship/reporter_uscm
-	name = "Combat Correspondent (USCM)"
+	name = "Combat Correspondent (UACM)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 	access = list(
 		ACCESS_MARINE_COMMAND,
@@ -212,7 +212,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/chief_engineer
-	name = "USCM Chief Engineer (CE)"
+	name = "UACM Chief Engineer (CE)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/silver
@@ -255,7 +255,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/maint
-	name = "USCM Maintenance Technician (MT)"
+	name = "UACM Maintenance Technician (MT)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	access = list(
@@ -299,7 +299,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/ordn
-	name = "USCM Ordnance Technician (OT)"
+	name = "UACM Ordnance Technician (OT)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	access = list(
@@ -336,7 +336,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/qm
-	name = "USCM Quartermaster (QM)"
+	name = "UACM Quartermaster (QM)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/silver
@@ -379,7 +379,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/cargo
-	name = "USCM Cargo Technician (CT)"
+	name = "UACM Cargo Technician (CT)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_CARGO, ACCESS_MARINE_PREP)
@@ -416,7 +416,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/commander
-	name = "USCM Commanding Officer (CO)"
+	name = "UACM Commanding Officer (CO)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/gold
@@ -490,7 +490,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/commander/council
-	name = "USCM Commanding Officer (CO+)"
+	name = "UACM Commanding Officer (CO+)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/gold/council
@@ -512,7 +512,7 @@
 	. = ..()
 
 /datum/equipment_preset/uscm_ship/commander/council/plus
-	name = "USCM Commanding Officer (CO++)"
+	name = "UACM Commanding Officer (CO++)"
 	idtype = /obj/item/card/id/general
 	paygrade = "MO6"
 
@@ -523,7 +523,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/xo
-	name = "USCM Executive Officer (XO)"
+	name = "UACM Executive Officer (XO)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/silver
@@ -561,7 +561,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/so
-	name = "USCM Platoon Commander (PltCo)"
+	name = "UACM Platoon Commander (PltCo)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/silver
@@ -630,7 +630,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/sea
-	name = "USCM Senior Enlisted Advisor (SEA)"
+	name = "UACM Senior Enlisted Advisor (SEA)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/silver
@@ -675,7 +675,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/auxiliary_officer
-	name = "USCM Auxiliary Support Officer (ASO)"
+	name = "UACM Auxiliary Support Officer (ASO)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/silver
@@ -733,7 +733,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/po
-	name = "USCM Pilot (DP) (Cryo)"
+	name = "UACM Pilot (DP) (Cryo)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/silver
@@ -759,7 +759,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/po/full
-	name = "USCM Pilot Officer (PO)"
+	name = "UACM Pilot Officer (PO)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	utility_under = list(/obj/item/clothing/under/marine/officer/pilot)
@@ -783,7 +783,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/po/recon
-	name = "USCM Reconnaissance Pilot"
+	name = "UACM Reconnaissance Pilot"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 	assignment = "Reconnaissance Pilot"
 
@@ -826,7 +826,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/dcc
-	name = "USCM Dropship Crew Chief (DCC) (Cryo)"
+	name = "UACM Dropship Crew Chief (DCC) (Cryo)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/silver
@@ -852,7 +852,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/dcc/full
-	name = "USCM Dropship Crew Chief (DCC)"
+	name = "UACM Dropship Crew Chief (DCC)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	utility_under = list(/obj/item/clothing/under/marine/officer/pilot/dcc)
@@ -876,13 +876,13 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/officer
-	name = "USCM Officer (USCM Command)"
+	name = "UACM Officer (UACM Command)"
 	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
 
 	idtype = /obj/item/card/id/general
 	access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_MORGUE)
-	assignment = "USCM Officer"
-	rank = "USCM Officer"
+	assignment = "UACM Officer"
+	rank = "UACM Officer"
 	paygrade = "MO3"
 	role_comm_title = "Cpt"
 	minimum_age = 40
@@ -917,7 +917,7 @@
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/chef
-	name = "USCM Mess Technician (MST)"
+	name = "UACM Mess Technician (MST)"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
 
 	access = list(ACCESS_MARINE_KITCHEN)

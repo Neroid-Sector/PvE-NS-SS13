@@ -45,7 +45,7 @@
 /datum/decorator/christmas/marine_helmet/decorate(obj/item/clothing/head/helmet/marine/helmet)
 	if(!istype(helmet))
 		return
-	helmet.name = "\improper USCM [helmet.specialty] santa hat"
+	helmet.name = "\improper UACM [helmet.specialty] santa hat"
 	helmet.desc = "Ho ho ho, Merry Christmas!"
 	helmet.icon = 'icons/obj/items/clothing/hats.dmi'
 	helmet.icon_override = 'icons/mob/humans/onmob/head_0.dmi'
@@ -84,7 +84,7 @@
 		list("FLASKS", -1, null, null),
 		list("Canteen", 10, /obj/item/reagent_container/food/drinks/flask/canteen, VENDOR_ITEM_REGULAR),
 		list("Metal Flask", 10, /obj/item/reagent_container/food/drinks/flask, VENDOR_ITEM_REGULAR),
-		list("USCM Flask", 5, /obj/item/reagent_container/food/drinks/flask/marine, VENDOR_ITEM_REGULAR),
+		list("UACM Flask", 5, /obj/item/reagent_container/food/drinks/flask/marine, VENDOR_ITEM_REGULAR),
 		list("W-Y Flask", 5, /obj/item/reagent_container/food/drinks/flask/weylandyutani, VENDOR_ITEM_REGULAR),
 
 		list("UTILITIES", -1, null, null),

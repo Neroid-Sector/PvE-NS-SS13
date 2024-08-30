@@ -1,7 +1,7 @@
 //Commander
 /datum/job/command/commander
 	title = JOB_CO
-	supervisors = "USCM high command"
+	supervisors = "UACM high command"
 	selection_class = "job_co"
 	flags_startup_parameters = ROLE_ADD_TO_DEFAULT|ROLE_ADMIN_NOTIFY|ROLE_WHITELISTED
 	flags_whitelist = WHITELIST_COMMANDER

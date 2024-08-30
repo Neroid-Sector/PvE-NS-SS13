@@ -274,7 +274,7 @@
 //Others
 /turf/open/floor/almayer/uscm
 	icon_state = "logo_c"
-	name = "\improper USCM Logo"
+	name = "\improper UACM Logo"
 
 /turf/open/floor/almayer/uscm/directional
 	icon_state = "logo_directional"

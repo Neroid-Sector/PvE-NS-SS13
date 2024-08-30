@@ -90,7 +90,7 @@
 
 /obj/item/prop/helmetgarb/helmet_nvg
 	name = "\improper M2 night vision goggles"
-	desc = "USCM standard M2 Night vision goggles for military operations. Requires a battery in order to work"
+	desc = "UACM standard M2 Night vision goggles for military operations. Requires a battery in order to work"
 	icon_state = "nvg"
 	gender = PLURAL
 	garbage = FALSE
@@ -476,7 +476,7 @@
 	icon_state = "flair_peace_smiley"
 
 /obj/item/prop/helmetgarb/flair_uscm
-	name = "\improper USCM flair"
+	name = "\improper UACM flair"
 	desc = "These pins get handed out like candy at enlistment offices. Wear it with pride marine."
 	icon_state = "flair_uscm"
 
@@ -493,7 +493,7 @@
 
 /obj/item/prop/helmetgarb/helmet_gasmask
 	name = "\improper M5 integrated gasmask"
-	desc = "The USCM had its funding pulled for these when it became apparent that not every deployed enlisted was wearing a helmet 24/7; much to the bafflement of UA High Command."
+	desc = "The UACM had its funding pulled for these when it became apparent that not every deployed enlisted was wearing a helmet 24/7; much to the bafflement of UA High Command."
 	icon_state = "helmet_gasmask"
 
 /obj/item/prop/helmetgarb/helmet_gasmask/on_enter_storage(obj/item/storage/internal/helmet_internal_inventory)
@@ -527,11 +527,11 @@
 
 /obj/item/prop/helmetgarb/bullet_pipe
 	name = "10x99mm XM42B casing pipe"
-	desc = "The XM42B was an experimental weapons platform briefly fielded by the USCM and Wey-Yu PMC teams. It was manufactured by ARMAT systems at the Atlas weapons facility. Unfortunately the project had its funding pulled alongside the M5 integrated gasmask program. This spent casing has been converted into a pipe, but there is too much tar in the mouthpiece for it to be useable."
+	desc = "The XM42B was an experimental weapons platform briefly fielded by the UACM and Wey-Yu PMC teams. It was manufactured by ARMAT systems at the Atlas weapons facility. Unfortunately the project had its funding pulled alongside the M5 integrated gasmask program. This spent casing has been converted into a pipe, but there is too much tar in the mouthpiece for it to be useable."
 	icon_state = "bullet_pipe"
 
 /obj/item/prop/helmetgarb/chaplain_patch
-	name = "\improper USCM chaplain helmet patch"
+	name = "\improper UACM chaplain helmet patch"
 	desc = "This patch is all that remains of the Chaplaincy of the USS Almayer, along with the Chaplains themselves. Both no longer exist as a result of losses suffered during Operation Tychon Tackle."
 	icon_state = "chaplain_patch"
 	flags_obj = OBJ_NO_HELMET_BAND

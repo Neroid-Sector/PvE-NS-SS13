@@ -286,7 +286,7 @@
 	desc = "It's a backpack especially designed for use in a sterile environment."
 	icon_state = "medicalpack"
 
-/obj/item/storage/backpack/security //Universal between USCM MPs & Colony, should be split at some point.
+/obj/item/storage/backpack/security //Universal between UACM MPs & Colony, should be split at some point.
 	name = "security backpack"
 	desc = "It's a very robust backpack."
 	icon_state = "securitypack"
@@ -392,7 +392,7 @@
 	desc = "Useful for holding research materials."
 	icon_state = "satchel-tox"
 
-/obj/item/storage/backpack/satchel/sec //Universal between USCM MPs & Colony, should be split at some point.
+/obj/item/storage/backpack/satchel/sec //Universal between UACM MPs & Colony, should be split at some point.
 	name = "security satchel"
 	desc = "A robust satchel composed of two drop pouches and a large internal pocket. Made of a stiff fabric, it isn't very comfy to wear."
 	icon_state = "satchel-sec"
@@ -407,7 +407,7 @@
 
 /obj/item/storage/backpack/marine
 	name = "\improper lightweight IMP backpack"
-	desc = "The standard-issue pack of the USCM forces. Designed to lug gear into the battlefield."
+	desc = "The standard-issue pack of the UACM forces. Designed to lug gear into the battlefield."
 	icon_state = "marinepack"
 	item_state = "marinepack"
 	has_gamemode_skin = TRUE //replace this with the atom_flag NO_SNOW_TYPE at some point, just rename it to like, NO_MAP_VARIANT_SKIN
@@ -448,8 +448,8 @@
 	UnregisterSignal(user, COMSIG_HUMAN_POST_MOVE_DELAY)
 
 /obj/item/storage/backpack/marine/medic
-	name = "\improper USCM corpsman backpack"
-	desc = "A standard-issue backpack worn by USCM medics."
+	name = "\improper UACM corpsman backpack"
+	desc = "A standard-issue backpack worn by UACM medics."
 	icon_state = "marinepack_medic"
 	item_state = "marinepack_medic"
 	xeno_icon_state = "medicpack"
@@ -460,25 +460,25 @@
 
 /obj/item/storage/backpack/marine/medic/upp
 	name = "\improper UPP corpsman backpack"
-	desc = "Uncommon issue backpack worn by UPP medics from isolated sectors. You can swear you can see a faded USCM symbol."
+	desc = "Uncommon issue backpack worn by UPP medics from isolated sectors. You can swear you can see a faded UACM symbol."
 
 /obj/item/storage/backpack/marine/tech
-	name = "\improper USCM technician backpack"
-	desc = "A standard-issue backpack worn by USCM technicians."
+	name = "\improper UACM technician backpack"
+	desc = "A standard-issue backpack worn by UACM technicians."
 	icon_state = "marinepack_techi"
 	item_state = "marinepack_techi"
 	xeno_icon_state = "marinepack"
 	xeno_types = list(/mob/living/carbon/xenomorph/runner, /mob/living/carbon/xenomorph/praetorian, /mob/living/carbon/xenomorph/drone, /mob/living/carbon/xenomorph/warrior, /mob/living/carbon/xenomorph/defender, /mob/living/carbon/xenomorph/sentinel, /mob/living/carbon/xenomorph/spitter)
 
 /obj/item/storage/backpack/marine/satchel/intel
-	name = "\improper USCM lightweight expedition pack"
-	desc = "A heavy-duty IMP based backpack that can be slung around the front or to the side, and can quickly be accessed with only one hand. Usually issued to USCM intelligence officers."
+	name = "\improper UACM lightweight expedition pack"
+	desc = "A heavy-duty IMP based backpack that can be slung around the front or to the side, and can quickly be accessed with only one hand. Usually issued to UACM intelligence officers."
 	icon_state = "marinebigsatch"
 	max_storage_space = 20
 
 /obj/item/storage/backpack/marine/satchel
-	name = "\improper USCM satchel"
-	desc = "A heavy-duty satchel carried by some USCM soldiers and support personnel."
+	name = "\improper UACM satchel"
+	desc = "A heavy-duty satchel carried by some UACM soldiers and support personnel."
 	icon_state = "marinesatch"
 	worn_accessible = TRUE
 	storage_slots = null
@@ -489,7 +489,7 @@
 	has_gamemode_skin = FALSE
 
 /obj/item/storage/backpack/marine/satchel/big //wacky squad marine loadout item, its the IO backpack.
-	name = "\improper USCM logistics IMP backpack"
+	name = "\improper UACM logistics IMP backpack"
 	desc = "A standard-issue backpack worn by logistics personnel. It is occasionally issued to combat personnel for longer term expeditions and deep space incursions."
 	icon_state = "marinebigsatch"
 	worn_accessible = TRUE
@@ -497,20 +497,20 @@
 	max_storage_space = 21 //backpack size
 
 /obj/item/storage/backpack/marine/satchel/medic
-	name = "\improper USCM corpsman satchel"
-	desc = "A heavy-duty satchel used by USCM medics. It sacrifices capacity for usability. A small patch is sewn to the top flap."
+	name = "\improper UACM corpsman satchel"
+	desc = "A heavy-duty satchel used by UACM medics. It sacrifices capacity for usability. A small patch is sewn to the top flap."
 	icon_state = "marinesatch_medic"
 
 /obj/item/storage/backpack/marine/satchel/medic/standard
 	has_gamemode_skin = FALSE
 
 /obj/item/storage/backpack/marine/satchel/tech
-	name = "\improper USCM technician chestrig"
-	desc = "A heavy-duty chestrig used by some USCM technicians."
+	name = "\improper UACM technician chestrig"
+	desc = "A heavy-duty chestrig used by some UACM technicians."
 	icon_state = "marinesatch_techi"
 
 /obj/item/storage/backpack/marine/satchel/rto
-	name = "\improper USCM Radio Telephone Pack"
+	name = "\improper UACM Radio Telephone Pack"
 	desc = "A heavy-duty pack, used for telecommunications between central command. Commonly carried by RTOs."
 	icon_state = "rto_backpack"
 	item_state = "rto_backpack"
@@ -551,7 +551,7 @@
 	networks_transmit = list(FACTION_UPP)
 
 /obj/item/storage/backpack/marine/satchel/rto/small
-	name = "\improper USCM Small Radio Telephone Pack"
+	name = "\improper UACM Small Radio Telephone Pack"
 	max_storage_space = 10
 
 /obj/item/storage/backpack/marine/satchel/rto/small/upp_net
@@ -572,7 +572,7 @@
 	xeno_types = null
 
 /obj/item/storage/backpack/marine/marsoc
-	name = "\improper USCM SOF IMP tactical rucksack"
+	name = "\improper UACM SOF IMP tactical rucksack"
 	icon_state = "tacrucksack"
 	desc = "With a backpack like this, you'll forget you're on a hell march designed to kill you."
 	worn_accessible = TRUE
@@ -580,15 +580,15 @@
 	xeno_types = null
 
 /obj/item/storage/backpack/marine/rocketpack
-	name = "\improper USCM IMP M22 rocket bags"
-	desc = "A specially-designed backpack that fits to the IMP mounting frame on standard USCM pattern M3 armors. It's made of two waterproofed reinforced tubes and one smaller satchel slung at the bottom. The two silos are for rockets, but no one is stopping you from cramming other things in there."
+	name = "\improper UACM IMP M22 rocket bags"
+	desc = "A specially-designed backpack that fits to the IMP mounting frame on standard UACM pattern M3 armors. It's made of two waterproofed reinforced tubes and one smaller satchel slung at the bottom. The two silos are for rockets, but no one is stopping you from cramming other things in there."
 	icon_state = "rocketpack"
 	worn_accessible = TRUE
 	has_gamemode_skin = FALSE //monkeysfist101 never sprited a snowtype but included duplicate icons. Why?? Recolor and touch up sprite at a later date.
 	xeno_types = null
 
 /obj/item/storage/backpack/marine/grenadepack
-	name = "\improper USCM IMP M63A1 grenade satchel"
+	name = "\improper UACM IMP M63A1 grenade satchel"
 	desc = "A secure satchel with dedicated grenade pouches meant to minimize risks of secondary ignition."
 	icon_state = "grenadierpack"
 	overlays = list("+grenadierpack_unlocked")
@@ -607,7 +607,7 @@
 		return ..()
 
 /obj/item/storage/backpack/marine/mortarpack
-	name = "\improper USCM mortar shell backpack"
+	name = "\improper UACM mortar shell backpack"
 	desc = "A backpack specifically designed to hold ammunition for the M402 mortar."
 	icon_state = "mortarpack"
 	max_w_class = SIZE_HUGE
@@ -652,7 +652,7 @@
 // Scout Cloak
 /obj/item/storage/backpack/marine/satchel/scout_cloak
 	name = "\improper M68 Thermal Cloak"
-	desc = "The lightweight thermal dampeners and optical camouflage provided by this cloak are weaker than those found in standard USCM ghillie suits. In exchange, the cloak can be worn over combat armor and offers the wearer high maneuverability and adaptability to many environments."
+	desc = "The lightweight thermal dampeners and optical camouflage provided by this cloak are weaker than those found in standard UACM ghillie suits. In exchange, the cloak can be worn over combat armor and offers the wearer high maneuverability and adaptability to many environments."
 	icon_state = "scout_cloak"
 	uniform_restricted = list(/obj/item/clothing/suit/storage/marine/M3S) //Need to wear Scout armor and helmet to equip this.
 	has_gamemode_skin = FALSE //same sprite for all gamemode.
@@ -799,8 +799,8 @@
 // Welder Backpacks //
 
 /obj/item/storage/backpack/marine/engineerpack
-	name = "\improper USCM technician welderpack"
-	desc = "A specialized backpack worn by USCM technicians. It carries a fueltank for quick welder refueling and use."
+	name = "\improper UACM technician welderpack"
+	desc = "A specialized backpack worn by UACM technicians. It carries a fueltank for quick welder refueling and use."
 	icon_state = "welderbackpack"
 	item_state = "welderbackpack"
 	var/max_fuel = 260
@@ -879,8 +879,8 @@
 	. += "[reagents.total_volume] units of fuel left!"
 
 /obj/item/storage/backpack/marine/engineerpack/satchel
-	name = "\improper USCM technician welder-satchel"
-	desc = "A specialized satchel worn by USCM technicians and engineers. It carries two small fuel tanks for quick welder refueling and use."
+	name = "\improper UACM technician welder-satchel"
+	desc = "A specialized satchel worn by UACM technicians and engineers. It carries two small fuel tanks for quick welder refueling and use."
 	icon_state = "satchel_marine_welder"
 	item_state = "satchel_marine_welder"
 	max_storage_space = 12
@@ -900,8 +900,8 @@
 
 // Pyrotechnician Spec backpack fuel tank
 /obj/item/storage/backpack/marine/engineerpack/flamethrower
-	name = "\improper USCM Pyrotechnician G6-2 fueltank"
-	desc = "A specialized fueltank worn by USCM Pyrotechnicians for use with the M240-T incinerator unit. A small general storage compartment is installed."
+	name = "\improper UACM Pyrotechnician G6-2 fueltank"
+	desc = "A specialized fueltank worn by UACM Pyrotechnicians for use with the M240-T incinerator unit. A small general storage compartment is installed."
 	icon_state = "flamethrower_tank"
 	max_fuel = 500
 	fuel_type = "utnapthal"
@@ -960,7 +960,7 @@
 	. = ..()
 
 /obj/item/storage/backpack/marine/engineerpack/flamethrower/kit
-	name = "\improper USCM Pyrotechnician G4-1 fueltank"
+	name = "\improper UACM Pyrotechnician G4-1 fueltank"
 	desc = "A much older-generation back rig that holds fuel in two tanks. A small regulator sits between them. Has a few straps for holding up to three of the actual flamer tanks you'll be refilling."
 	icon_state = "flamethrower_backpack"
 	item_state = "flamethrower_backpack"

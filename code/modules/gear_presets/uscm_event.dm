@@ -1,5 +1,5 @@
 /datum/equipment_preset/uscm_event
-	name = "USCM (Event Roles)"
+	name = "UACM (Event Roles)"
 	faction = FACTION_MARINE
 	faction_group = FACTION_LIST_MARINE
 	minimum_age = 30
@@ -9,7 +9,7 @@
 /*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_event/colonel
-	name = "USCM O-6 - Colonel (High Command)"
+	name = "UACM O-6 - Colonel (High Command)"
 	flags = EQUIPMENT_PRESET_EXTRA
 
 	idtype = /obj/item/card/id/general
@@ -54,7 +54,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/device/flash, WEAR_IN_JACKET)
 
 /datum/equipment_preset/uscm_event/general
-	name = "USCM O-7 - Brigadier General (High Command)"
+	name = "UACM O-7 - Brigadier General (High Command)"
 	flags = EQUIPMENT_PRESET_EXTRA
 
 	idtype = /obj/item/card/id/general
@@ -101,30 +101,30 @@
 	new_human.equip_if_possible(new /obj/item/clothing/glasses/sunglasses(new_human), WEAR_EYES)
 
 /datum/equipment_preset/uscm_event/general/o7
-	name = "USCM O-7 - Brigadier General (High Command)"
+	name = "UACM O-7 - Brigadier General (High Command)"
 	paygrade = "MO7"
 
 /datum/equipment_preset/uscm_event/general/o8
-	name = "USCM O-8 - Major General (High Command)"
+	name = "UACM O-8 - Major General (High Command)"
 	paygrade = "MO8"
 
 /datum/equipment_preset/uscm_event/general/o9
-	name = "USCM O-9 - Lieutenant General (High Command)"
+	name = "UACM O-9 - Lieutenant General (High Command)"
 	paygrade = "MO9"
 
 /datum/equipment_preset/uscm_event/general/o10
-	name = "USCM O-10 - General (High Command)"
+	name = "UACM O-10 - General (High Command)"
 	paygrade = "MO10"
 
 /datum/equipment_preset/uscm_event/general/o10c
-	name = "USCM O-10C - Assistant Commandant of the Marine Corps (High Command)"
+	name = "UACM O-10C - Assistant Commandant of the Marine Corps (High Command)"
 	paygrade = "MO10C"
 	assignment = JOB_ACMC
 	rank = JOB_ACMC
 	role_comm_title = "ACMC"
 
 /datum/equipment_preset/uscm_event/general/o10s
-	name = "USCM O-10S - Commandant of the Marine Corps (High Command)"
+	name = "UACM O-10S - Commandant of the Marine Corps (High Command)"
 	paygrade = "MO10S"
 	assignment = JOB_CMC
 	rank = JOB_CMC
@@ -182,7 +182,7 @@
 /*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_event/provost
-	name = "USCM Provost"
+	name = "UACM Provost"
 
 	idtype = /obj/item/card/id/provost
 	skills = /datum/skills/provost

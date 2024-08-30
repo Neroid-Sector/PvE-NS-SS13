@@ -57,7 +57,7 @@
 /datum/emergency_call/contractors/print_backstory(mob/living/carbon/human/M)
 	if(ishuman_strict(M))
 		to_chat(M, SPAN_BOLD("You were born [pick(60;"in the United States", 20;"on Earth", 20;"on a colony")] to a [pick(75;"average", 15;"poor", 10;"well-established")] family."))
-		to_chat(M, SPAN_BOLD("Joining the USCM gave you a lot of combat experience and useful skills but changed you."))
+		to_chat(M, SPAN_BOLD("Joining the UACM gave you a lot of combat experience and useful skills but changed you."))
 		to_chat(M, SPAN_BOLD("After getting out, you couldn't hold a job with the things you saw and did, deciding to put your skills to use you joined a Military Contractor firm."))
 		to_chat(M, SPAN_BOLD("You are a skilled mercenary, making better pay than in the Corps."))
 	else
@@ -68,9 +68,9 @@
 	to_chat(M, SPAN_BOLD("You are [pick(80;"unaware", 15;"faintly aware", 5;"knowledgeable")] of the xenomorph threat."))
 	to_chat(M, SPAN_BOLD("You are employed by Vanguard's Arrow Incorporated(VAI), as a member of VAI Primary Operations(VAIPO)"))
 	to_chat(M, SPAN_BOLD("You are stationed on-board the USCSS Inheritor, a part of VAIPO Task-Force Charlie."))
-	to_chat(M, SPAN_BOLD("Under the directive of the VAI executive board, you have been assist in riot control, military aid, and to assist USCMC forces wherever possible."))
+	to_chat(M, SPAN_BOLD("Under the directive of the VAI executive board, you have been assist in riot control, military aid, and to assist UACM forces wherever possible."))
 	to_chat(M, SPAN_BOLD("The USCSS Inheritor is staffed with crew of roughly three hundred military contractors, and fifty support personnel."))
-	to_chat(M, SPAN_BOLD("Assist the USCMC Force of the [MAIN_SHIP_NAME] however you can."))
+	to_chat(M, SPAN_BOLD("Assist the UACM Force of the [MAIN_SHIP_NAME] however you can."))
 	to_chat(M, SPAN_BOLD("As a side-objective, VAI has been hired by an unknown benefactor to engage in corporate espionage and sabotage against Weyland-Yutani, avoid direct conflict; you aren't VAISO; but attempt to recover Wey-Yu secrets and plans if possible."))
 
 
@@ -97,11 +97,11 @@
 /datum/emergency_call/contractors/covert/New()
 	..()
 	arrival_message = "[MAIN_SHIP_NAME], this is USCSS Samburan, with Vanguard's Arrow Incorporated, Special Operations; we are boarding in accordance with the 2177 Military Aid Act; authorisation code X-Ray 19601."
-	objectives = "Assist USCMC forces in whatever way is possible, sabotage Weyland-Yutani efforts."
+	objectives = "Assist UACM forces in whatever way is possible, sabotage Weyland-Yutani efforts."
 
 /datum/emergency_call/contractors/covert/proc/check_objective_info()
 	if(objective_info)
-		objectives = "Assist USCMC forces in whatever way is possible."
+		objectives = "Assist UACM forces in whatever way is possible."
 	objectives += "Sabotage Weyland-Yutani efforts."
 	checked_objective = TRUE
 

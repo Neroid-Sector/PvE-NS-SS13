@@ -399,7 +399,7 @@
 
 //This crate has a little bit of everything, mostly okay stuff, but it does have some really unique picks.
 /datum/supply_packs/ammo_surplus
-	name = "Surplus ammo crate (various USCM magazines x10)"
+	name = "Surplus ammo crate (various UACM magazines x10)"
 	randomised_num_contained = 10
 	contains = list(
 		/obj/item/ammo_magazine/rifle,

@@ -403,3 +403,26 @@
 		return
 
 	harness.try_extract(H)
+
+/obj/item/tacmap_view
+	name = "Tactical Map tablet"
+	desc = "A device to access the tactical map feed. Standard issue for all Marines."
+	icon_state = "tac_map"
+	var/datum/tacmap/map
+	var/minimap_type = MINIMAP_FLAG_USCM
+	var/faction = FACTION_MARINE
+
+/obj/item/tacmap_view/Initialize()
+	. = ..()
+
+	map = new /datum/tacmap/drawing(src, minimap_type)
+
+
+/obj/item/tacmap_view/Destroy()
+	QDEL_NULL(map)
+	return ..()
+
+/obj/item/tacmap_view/attack_self(mob/user)
+	. = ..()
+
+	map.tgui_interact(user)

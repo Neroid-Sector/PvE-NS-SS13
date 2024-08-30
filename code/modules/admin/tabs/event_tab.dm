@@ -652,13 +652,30 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	var/msg = input("Message:", text("Enter the text you wish to appear to everyone:")) as text
+	var/narrate_body_text
+	var/narrate_header_text
+	var/narrate_output
 
-	if(!msg)
+	if(tgui_alert(src, "Do you want your narration to include a header paragraph?", "Global Narrate", list("Yes", "No"), timeout = 0) == "Yes")
+		narrate_header_text = tgui_input_text(src, "Please type the header paragraph below. One or two sentences or a title work best. HTML style tags are available. Paragraphs are not recommended.", "Global Narrate Header", max_length = MAX_BOOK_MESSAGE_LEN, multiline = TRUE, encode = FALSE, timeout = 0)
+		if(!narrate_header_text)
+			return
+	narrate_body_text = tgui_input_text(src, "Please enter the text for your narration. Paragraphs without line breaks produce the best visual results, but HTML tags in general are respected.", "Global Narrate Text", max_length = MAX_BOOK_MESSAGE_LEN, multiline = TRUE, encode = FALSE, timeout = 0)
+	if(!narrate_body_text)
 		return
 
-	to_chat_spaced(world, html = SPAN_ANNOUNCEMENT_HEADER_BLUE(msg))
-	message_admins("\bold GlobalNarrate: [key_name_admin(usr)] : [msg]")
+	if(!narrate_header_text)
+		narrate_output = "[narrate_body("[narrate_body_text]")]"
+	else
+		narrate_output = "[narrate_head("[narrate_header_text]")]" + "[narrate_body("[narrate_body_text]")]"
+
+	to_chat(world, "[narrate_output]")
+	while(narrate_body_text != null)
+		narrate_body_text = tgui_input_text(src, "Please enter the text for your narration. Paragraphs without line breaks produce the best visual results, but HTML tags in general are respected.", "Global Narrate Text", max_length = MAX_BOOK_MESSAGE_LEN, multiline = TRUE, encode = FALSE, timeout = 0)
+		if(!narrate_body_text)
+			return
+		to_chat(world, narrate_body("[narrate_body_text]"))
+
 
 /client/proc/cmd_admin_ground_narrate()
 	set name = "Narrate to Ground Levels"
@@ -1055,3 +1072,71 @@
 		return FALSE
 	show_blurb(GLOB.player_list, duration, message, TRUE, "center", "center", "#bd2020", "ADMIN")
 	message_admins("[key_name(usr)] sent an admin blurb alert to all players. Alert reads: '[message]' and lasts [(duration / 10)] seconds.")
+
+/client/proc/set_narration_preset()
+	set name = "Speak as NPC over comms - setup NPC"
+	set category = "DM.Narration"
+	if(!check_rights(R_ADMIN)) return
+
+	var/list/comms_presets = list("Mission Control","Custom")
+	switch(tgui_input_list(usr,"Select a Comms Preset","PRESET",comms_presets,timeout = 0))
+		if(null)
+			return
+		if("Mission Control")
+			usr.narration_settings["Name"] = "Mission Control"
+			usr.narration_settings["Location"] = "Arrowhead Command"
+			usr.narration_settings["Position"] = "SO"
+		if("Custom")
+			usr.narration_settings["Name"] = tgui_input_text(usr, "Enter the name, complete with a rank prefix.", "NAME entry", usr.narration_settings["Name"], timeout = 0)
+			usr.narration_settings["Location"] = tgui_input_text(usr, "Enter assignment or location, when in doubt, OV-PST works.", "LOCATION entry", usr.narration_settings["Location"], timeout = 0)
+			usr.narration_settings["Position"] = tgui_input_text(usr, "Enter held position like CE, CO, RFN or whatnot. Prefaced with some specialty acronym also can work.", "POSITION entry", usr.narration_settings["Position"], timeout = 0)
+	return
+
+/client/proc/speak_to_comms()
+	set name = "Speak as NPC over comms"
+	set category = "DM.Narration"
+	if(!check_rights(R_ADMIN)) return
+
+	if(usr.narration_settings["Name"] == null || usr.narration_settings["Location"] == null || usr.narration_settings["Position"] == null) set_narration_preset()
+	var/text_to_comm = tgui_input_text(usr, "Enter what to say as [usr.narration_settings["Name"]],[usr.narration_settings["Location"]],[usr.narration_settings["Position"]] or cancel to exit.")
+
+	while(text_to_comm != null)
+		to_chat(world, "<span class='big'><span class='radio'><span class='name'>[usr.narration_settings["Name"]]<b>[icon2html('icons/obj/items/radio.dmi', usr, "beacon")] \u005B[usr.narration_settings["Location"]] \u0028[usr.narration_settings["Position"]]\u0029\u005D </b></span><span class='message'>, says \"[text_to_comm]\"</span></span></span>", type = MESSAGE_TYPE_RADIO)
+		text_to_comm = tgui_input_text(usr, "Enter what to say as [usr.narration_settings["Name"]],[usr.narration_settings["Location"]],[usr.narration_settings["Position"]] or cancel to exit.")
+	return
+
+/proc/show_blurb_song(title = "Song Name",additional = "Song Artist - Song Album",)//Shows song blurb, a two line blurb. The first line passes
+	var/message_to_display = "<b>[title]</b>\n[additional]"
+	show_blurb(GLOB.player_list, 10 SECONDS, "[message_to_display]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "song[title]", ignore_key = TRUE, speed = 1)
+
+/client/proc/call_tgui_play_directly()
+	set category = "Admin.Fun"
+	set name = "Play Music From Direct Link"
+	set desc = "Plays a music file from a https:// link through tguis music player, bypassing the filtering done by the other admin command. This will play as an admin atmospheric and will be muted by clinets who have that setting turned on as expected. A blurb displaying song info can also be displayed as an extra option."
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/targets = GLOB.mob_list
+	var/list/music_extra_data = list()
+	var/web_sound_url = tgui_input_text(usr, "Enter link to sound file. Must use https://","LINK to play", timeout = 0)
+	music_extra_data["title"] = tgui_input_text(usr, "Enter song Title, leaving this blank/null will use its url instead.","Title input", timeout = 0)
+	music_extra_data["artist"] = tgui_input_text(usr, "Enter song Artist, or leave blank to not display.", "Artist input", timeout = 0)
+	music_extra_data["album"] = tgui_input_text(usr, "Enter song Album, or leave blank to not display.","Album input", timeout = 0)
+	if(music_extra_data["title"] == null) music_extra_data["title"] = web_sound_url
+	if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Unknown Artist"
+	if(music_extra_data["album"] == null) music_extra_data["album"] = "Unknown Album"
+	music_extra_data["link"] = "Song Link Hidden"
+	music_extra_data["duration"] = "None"
+	for(var/mob/mob as anything in targets)
+		var/client/client = mob?.client
+		if((client?.prefs?.toggles_sound & SOUND_MIDI) && (client?.prefs?.toggles_sound & SOUND_ADMIN_ATMOSPHERIC))
+			if(tgui_alert(usr, "Show title blurb?", "Blurb", list("No","Yes"), timeout = 0) == "Yes") show_blurb_song(title = music_extra_data["title"], additional = "[music_extra_data["artist"]] - [music_extra_data["album"]]")
+			client?.tgui_panel?.play_music(web_sound_url, music_extra_data)
+		else
+			client?.tgui_panel?.stop_music()
+
+/client/proc/opener_blurb()
+	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "<b>The year is 2224.</b>\n\nLocated on the edge of the <b>Neroid Sector</b>\n<b>LV-624</b> grew from an insignificant prison\nplanet with a minor corporate interest\nto an <b>important way-station</b>, with all\nthree major factions maintaining\ninstallations on the planet.\n\n<b>On February 11th, 2224</b>, an <b>unidentified\nflying object</b> enters the solar system\nand impacts the planets communications\narray.\n<b>All contact</b> with the planet and its\nsurrounding infrastructure <b>is lost.</b>",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+4.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
+	sleep(600)
+	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "Due to the politics involved, <b>it takes\nmonths</b> to organize a rescue. Now, thanks\nto an one-of-a-kind agreement\nthe <b>1st United Expeditionary Response</b>\nconsisting of elements coming from all\nthree of the major political players\nback on Earth is finally close to\narriving in the system.\n\nYou are part of the <b>United Americas\nColonial Marines</b> element of the <b>UER</b>.\nYou have been hand picked from a narrow\nfield of qualified volunteers to take\npart in this operation and have been\nassigned to the <b>UAS Arrowhead</b>.\nYou are the first organized military\nresponse in the system since it lost\ncontact.\n\n<b>Your mission begins now.</b>",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+3.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)

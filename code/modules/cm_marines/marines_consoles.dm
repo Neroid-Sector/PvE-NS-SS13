@@ -10,7 +10,7 @@
 
 /obj/structure/machinery/computer/card
 	name = "Identification Computer"
-	desc = "Terminal for programming USCM employee ID card access."
+	desc = "Terminal for programming UACM employee ID card access."
 	icon_state = "id"
 	req_access = list(ACCESS_MARINE_DATABASE)
 	circuit = /obj/item/circuitboard/computer/card
@@ -241,7 +241,7 @@
 
 			target_id_card.access |= (is_centcom ? get_access(ACCESS_LIST_WY_ALL) : get_access(ACCESS_LIST_MARINE_MAIN))
 			target_id_card.faction_group |= factions
-			log_idmod(target_id_card, "<font color='green'> [key_name_admin(usr)] granted the ID all access and USCM IFF. </font>")
+			log_idmod(target_id_card, "<font color='green'> [key_name_admin(usr)] granted the ID all access and UACM IFF. </font>")
 			return TRUE
 		if("PRG_denyall")
 			if(!authenticated || !target_id_card)
@@ -250,7 +250,7 @@
 			var/list/access = target_id_card.access
 			access.Cut()
 			target_id_card.faction_group -= factions
-			log_idmod(target_id_card, "<font color='red'> [key_name_admin(usr)] removed all accesses and USCM IFF. </font>")
+			log_idmod(target_id_card, "<font color='red'> [key_name_admin(usr)] removed all accesses and UACM IFF. </font>")
 			return TRUE
 		if("PRG_grantregion")
 			if(!authenticated || !target_id_card)
@@ -258,7 +258,7 @@
 
 			if(params["region"] == "Faction (IFF system)")
 				target_id_card.faction_group |= factions
-				log_idmod(target_id_card, "<font color='green'> [key_name_admin(usr)] granted USCM IFF. </font>")
+				log_idmod(target_id_card, "<font color='green'> [key_name_admin(usr)] granted UACM IFF. </font>")
 				return TRUE
 			var/region = text2num(params["region"])
 			if(isnull(region))
@@ -273,7 +273,7 @@
 
 			if(params["region"] == "Faction (IFF system)")
 				target_id_card.faction_group -= factions
-				log_idmod(target_id_card, "<font color='red'> [key_name_admin(usr)] revoked USCM IFF. </font>")
+				log_idmod(target_id_card, "<font color='red'> [key_name_admin(usr)] revoked UACM IFF. </font>")
 				return TRUE
 			var/region = text2num(params["region"])
 			if(isnull(region))

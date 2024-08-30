@@ -108,7 +108,7 @@
 
 /obj/item/weapon/gun/pistol/m1911
 	name = "\improper M1911 service pistol"
-	desc = "A timeless classic since the first World War. Once standard issue for the USCM, now back order only. Chambered in .45 ACP. Unfortunately, due to the progression of IFF technology, M1911 .45 ACP is NOT compatible with the SU-6."
+	desc = "A timeless classic since the first World War. Once standard issue for the UACM, now back order only. Chambered in .45 ACP. Unfortunately, due to the progression of IFF technology, M1911 .45 ACP is NOT compatible with the SU-6."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/uscm.dmi'
 	icon_state = "m4a345"
 	item_state = "m4a3"
@@ -133,7 +133,7 @@
 
 /obj/item/weapon/gun/pistol/m1911/socom
 	name = "\improper M48A4 service pistol"
-	desc = "A timeless classic since the first World War, the M1911A1 has limited use with the USCM, and is often used as a sidearm by non-governmental bodies due to its reliability. This is a modernized version with an ammo counter and a polymer grip, designated M48A4. Chambered in .45 ACP."
+	desc = "A timeless classic since the first World War, the M1911A1 has limited use with the UACM, and is often used as a sidearm by non-governmental bodies due to its reliability. This is a modernized version with an ammo counter and a polymer grip, designated M48A4. Chambered in .45 ACP."
 	icon_state = "m4a345_s"
 	item_state = "m4a3"
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_CAN_POINTBLANK|GUN_ONE_HAND_WIELDED|GUN_AMMO_COUNTER
@@ -488,11 +488,11 @@
 //-------------------------------------------------------
 //.45 MARSHALS PISTOL //Inspired by the Browning Hipower
 // rebalanced - singlefire, very strong bullets but slow to fire and heavy recoil
-// redesigned - now rejected USCM sidearm model, utilized by Colonial Marshals and other stray groups.
+// redesigned - now rejected UACM sidearm model, utilized by Colonial Marshals and other stray groups.
 
 /obj/item/weapon/gun/pistol/highpower
 	name = "\improper MK-45 'High-Power' Automagnum"
-	desc = "Originally designed as a replacement for the USCM's M44 combat revolver, it was rejected at the last minute by a committee, citing its need to be cocked after every loaded magazine to be too cumbersone and antiquated. The design has recently been purchased by the Henjin-Garcia company, refitted for .45 ACP, and sold to the Colonial Marshals and other various unscrupulous armed groups."
+	desc = "Originally designed as a replacement for the UACM's M44 combat revolver, it was rejected at the last minute by a committee, citing its need to be cocked after every loaded magazine to be too cumbersone and antiquated. The design has recently been purchased by the Henjin-Garcia company, refitted for .45 ACP, and sold to the Colonial Marshals and other various unscrupulous armed groups."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/colony.dmi'
 	icon_state = "highpower"
 	item_state = "highpower"
@@ -574,7 +574,7 @@
 //unimplemented
 /obj/item/weapon/gun/pistol/highpower/tactical
 	name = "\improper MK-44 SOCOM Automagnum"
-	desc = "Originally designed as a replacement for the USCM's M44 combat revolver, it was rejected at the last minute by a committee, citing its need to be cocked after every loaded magazine to be too cumbersone and antiquated. The design has recently been purchased by the Henjin-Garcia company and sold to the Colonial Marshals and other various unscrupulous armed groups. This one has a sleek, dark design."
+	desc = "Originally designed as a replacement for the UACM's M44 combat revolver, it was rejected at the last minute by a committee, citing its need to be cocked after every loaded magazine to be too cumbersone and antiquated. The design has recently been purchased by the Henjin-Garcia company and sold to the Colonial Marshals and other various unscrupulous armed groups. This one has a sleek, dark design."
 	current_mag = /obj/item/ammo_magazine/pistol/highpower/black
 	icon_state = "highpower_tac"
 	item_state = "highpower_tac"
@@ -586,7 +586,7 @@
 
 /obj/item/weapon/gun/pistol/mod88
 	name = "\improper 88 Mod 4 combat pistol"
-	desc = "Standard issue USCM firearm. Also found in the hands of Weyland-Yutani PMC teams. Fires 9mm armor shredding rounds and is capable of 3-round burst."
+	desc = "Standard issue UACM firearm. Also found in the hands of Weyland-Yutani PMC teams. Fires 9mm armor shredding rounds and is capable of 3-round burst."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/uscm.dmi'
 	icon_state = "88m4"
 	item_state = "88m4"
@@ -681,7 +681,7 @@
 
 /obj/item/weapon/gun/pistol/vp78
 	name = "\improper VP78 pistol"
-	desc = "A massive, formidable semi-automatic handgun chambered in 9mm squash-head rounds. A common sight throughout both UA and 3WE space, often held by both Weyland-Yutani PMC units and corporate executives. This weapon is also undergoing limited field testing as part of the USCM's next generation pistol program. The slide is engraved with the Weyland-Yutani logo reminding you who's really in charge."
+	desc = "A massive, formidable semi-automatic handgun chambered in 9mm squash-head rounds. A common sight throughout both UA and 3WE space, often held by both Weyland-Yutani PMC units and corporate executives. This weapon is also undergoing limited field testing as part of the UACM's next generation pistol program. The slide is engraved with the Weyland-Yutani logo reminding you who's really in charge."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/uscm.dmi'
 	icon_state = "vp78"
 	item_state = "vp78"

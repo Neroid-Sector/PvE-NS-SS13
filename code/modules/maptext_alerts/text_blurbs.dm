@@ -64,7 +64,7 @@ base = the base the marines are staging from. The ship, Whiskey Outpost etc. Non
 				mobarray["misc"] += H
 
 	for(var/L in mobarray)
-		show_blurb(mobarray[L], 3 SECONDS, "[base_text][post_text[L]]", TRUE, blurb_key = "USCM")
+		show_blurb(mobarray[L], 3 SECONDS, "[base_text][post_text[L]]", TRUE, blurb_key = "UACM")
 
 /**Shows a ticker reading out the given text on a client's screen.
 targets = mob or list of mobs to show it to.
@@ -87,8 +87,8 @@ text_color = color of the text.
 
 blurb_key = a key used for specific blurb types so they are not shown repeatedly. Ex. someone who joins as CLF repeatedly only seeing the mission blurb the first time.
 
-ignore_key = used to skip key checks. Ex. a USCM ERT member shouldn't see the normal USCM drop message,
-but should see their own spawn message even if the player already dropped as USCM.**/
+ignore_key = used to skip key checks. Ex. a UACM ERT member shouldn't see the normal UACM drop message,
+but should see their own spawn message even if the player already dropped as UACM.**/
 /proc/show_blurb(list/mob/targets, duration = 3 SECONDS, message, scroll_down, screen_position = "LEFT+0:16,BOTTOM+1:16",\
 	text_alignment = "left", text_color = "#FFFFFF", blurb_key, ignore_key = FALSE, speed = 1)
 	set waitfor = 0

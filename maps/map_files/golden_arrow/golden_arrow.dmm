@@ -10944,7 +10944,7 @@
 "PV" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/prop/dam/crane/cargo{
-	desc = "Standard cargo crane used by the USCM. Looks like this one has replacement parts for the Tripoli on it. You probably couldn't name half of these.";
+	desc = "Standard cargo crane used by the UACM. Looks like this one has replacement parts for the Tripoli on it. You probably couldn't name half of these.";
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -13257,11 +13257,11 @@
 "Yc" = (
 /obj/structure/closet/secure_closet,
 /obj/structure/machinery/prop{
-	desc = "This stylized recruitment poster for the USCM depicts a the head of a screaming eagle breaking into orbit, surrounded by flames. Death from above.";
+	desc = "This stylized recruitment poster for the UACM depicts a the head of a screaming eagle breaking into orbit, surrounded by flames. Death from above.";
 	icon = 'icons/obj/structures/props/posters.dmi';
 	icon_state = "poster41";
 	layer = 3.5;
-	name = "USCM recruitment poster";
+	name = "UACM recruitment poster";
 	pixel_x = -1;
 	pixel_y = 34
 	},

@@ -179,17 +179,17 @@ GLOBAL_LIST_EMPTY(jelly_awards)
 		return
 
 	if(!card.registered_ref)
-		user.visible_message("ERROR: ID card not registered in USCM registry. Potential medal fraud detected.")
+		user.visible_message("ERROR: ID card not registered in UACM registry. Potential medal fraud detected.")
 		return
 
 	var/real_owner_ref = card.registered_ref
 
 	if(real_owner_ref != WEAKREF(user))
-		user.visible_message("ERROR: ID card not registered for [user.real_name] in USCM registry. Potential medal fraud detected.")
+		user.visible_message("ERROR: ID card not registered for [user.real_name] in UACM registry. Potential medal fraud detected.")
 		return
 
 	if(!(FACTION_USCM in user.faction_group))
-		to_chat(user, SPAN_WARNING("Medals only available for USCM personnel."))
+		to_chat(user, SPAN_WARNING("Medals only available for UACM personnel."))
 		return
 
 	if(length(GLOB.medal_awards))

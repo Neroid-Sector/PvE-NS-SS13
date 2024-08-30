@@ -1767,7 +1767,7 @@
 /area/lv624/lazarus/crashed_ship)
 "Tx" = (
 /obj/structure/largecrate/supply/supplies/mre{
-	desc = "A supply crate containing fifty reposessed USCM MRE packets.";
+	desc = "A supply crate containing fifty reposessed UACM MRE packets.";
 	name = "\improper CLF Supply MRE crate (x50)"
 	},
 /turf/open/floor/plating{

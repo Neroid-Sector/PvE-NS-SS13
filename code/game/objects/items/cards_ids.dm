@@ -253,7 +253,7 @@
 	name = "general officer holo-badge"
 	desc = "Top brass of the top brass. Issued to only the most dedicated."
 	icon_state = "general"
-	registered_name = "The USCM"
+	registered_name = "The UACM"
 	assignment = "General"
 
 /obj/item/card/id/general/New()

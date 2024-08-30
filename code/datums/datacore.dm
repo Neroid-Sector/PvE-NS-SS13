@@ -141,7 +141,7 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 				continue
 			dept_flags |= FLAG_SHOW_MARINES
 			squad_sublists[squad_name] = TRUE
-			///If it is a real squad in the USCM squad list to prevent the crew manifest from breaking
+			///If it is a real squad in the UACM squad list to prevent the crew manifest from breaking
 			if(!(squad_name in ROLES_SQUAD_ALL))
 				continue
 			LAZYSET(marines_by_squad[squad_name][real_rank], name, rank)

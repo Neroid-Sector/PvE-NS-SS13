@@ -37888,7 +37888,7 @@
 	pixel_x = -8
 	},
 /obj/item/toy/plush/therapy/red{
-	desc = "A USCM approved plush doll. It's not soft and hardly comforting!";
+	desc = "A UACM approved plush doll. It's not soft and hardly comforting!";
 	force = 15;
 	layer = 4.1;
 	name = "Sergeant Huggs";
@@ -51879,7 +51879,7 @@
 	pixel_y = 13
 	},
 /obj/item/toy/plush/therapy/red{
-	desc = "A USCM approved plush doll. It's not soft and hardly comforting!";
+	desc = "A UACM approved plush doll. It's not soft and hardly comforting!";
 	force = 15;
 	layer = 4.1;
 	name = "Sergeant Huggs";
@@ -78377,7 +78377,7 @@
 "xgS" = (
 /obj/structure/largecrate/supply/supplies/mre{
 	desc = "A supply crate containing everything you need to stop a CLF uprising.";
-	name = "\improper USCM crate 'FOB supplies'"
+	name = "\improper UACM crate 'FOB supplies'"
 	},
 /obj/structure/sign/arcturianstopsign{
 	pixel_y = 32

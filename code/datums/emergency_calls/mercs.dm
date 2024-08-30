@@ -1,7 +1,7 @@
 
 
 
-//Randomly-equipped mercenaries. May be friendly or hostile to the USCM, hostile to xenos.
+//Randomly-equipped mercenaries. May be friendly or hostile to the UACM, hostile to xenos.
 /datum/emergency_call/mercs
 	name = "Freelancers (Squad)"
 	mob_max = 8
@@ -103,7 +103,7 @@
 		objectives = "Help the crew of the [MAIN_SHIP_NAME] in exchange for payment, and choose your payment well. Do what your Captain says. Ensure your survival at all costs."
 
 /datum/emergency_call/heavy_mercs/hostile
-	name = "Elite Mercenaries (HOSTILE to USCM)"
+	name = "Elite Mercenaries (HOSTILE to UACM)"
 
 /datum/emergency_call/heavy_mercs/hostile/New()
 	. = ..()

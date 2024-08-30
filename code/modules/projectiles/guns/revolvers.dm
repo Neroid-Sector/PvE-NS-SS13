@@ -289,7 +289,7 @@
 
 /obj/item/weapon/gun/revolver/m44
 	name = "\improper M44 revolver"
-	desc = ".44 Magnum revolver, in limited service with the USCMC for personal defense against larger xenofauna. For best results, aim carefully."
+	desc = ".44 Magnum revolver, in limited service with the UACM for personal defense against larger xenofauna. For best results, aim carefully."
 	icon = 'icons/obj/items/weapons/guns/guns_by_faction/uscm.dmi'
 	icon_state = "m44r"
 	item_state = "m44r"
@@ -667,7 +667,7 @@
 
 /obj/item/weapon/gun/revolver/mateba/cmateba
 	name = "\improper Mateba autorevolver custom"
-	desc = "The .454 Mateba 6 Unica autorevolver is a semi-automatic handcannon that uses its own recoil to rotate the cylinders. Extremely rare, prohibitively costly, and unyieldingly powerful, it's found in the hands of a select few high-ranking USCM officials. Stylish, sophisticated, and above all, extremely deadly."
+	desc = "The .454 Mateba 6 Unica autorevolver is a semi-automatic handcannon that uses its own recoil to rotate the cylinders. Extremely rare, prohibitively costly, and unyieldingly powerful, it's found in the hands of a select few high-ranking UACM officials. Stylish, sophisticated, and above all, extremely deadly."
 	icon_state = "cmateba"
 	item_state = "cmateba"
 	current_mag = /obj/item/ammo_magazine/internal/revolver/mateba/impact

@@ -1,5 +1,5 @@
 /obj/structure/droppod/tech
-	name = "\improper USCM droppod"
+	name = "\improper UACM droppod"
 	var/time_until_return = 2 MINUTES
 
 /obj/structure/droppod/tech/Initialize(mapload, contents_name = "Empty")

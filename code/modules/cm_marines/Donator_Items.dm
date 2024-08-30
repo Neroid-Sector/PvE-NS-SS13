@@ -454,7 +454,7 @@
 
 /obj/item/clothing/suit/storage/marine/fluff/jackmcintyre //CKEY=jackmcintyre (UNIQUE)
 	name = "Exo-Suit Jackert"
-	desc = "Some sort of strange Exo-suit jacket.  It has the letters USCM stamped over a faded word that appears to be ATLAS...  UNIQUE DONOR ITEM"
+	desc = "Some sort of strange Exo-suit jacket.  It has the letters UACM stamped over a faded word that appears to be ATLAS...  UNIQUE DONOR ITEM"
 	icon_state = "Adam_jacket_u"
 	item_state = "Adam_jacket_u"
 
@@ -819,7 +819,7 @@
 	flags_inv_hide = HIDEEARS|HIDEMASK|HIDEALLHAIR
 
 /obj/item/clothing/head/helmet/marine/fluff/leondark //CKEY=leondark16
-	name = "Hunter's USCM Cap"
+	name = "Hunter's UACM Cap"
 	desc = "A well-worn cap with the name 'Barrientos' written on the inside.  DONOR ITEM"
 	icon_state = "USCM_cap"
 	item_state = "USCM_cap"
@@ -889,8 +889,8 @@
 	flags_inv_hide = HIDEEARS|HIDEMASK|HIDEEYES|HIDEALLHAIR
 
 /obj/item/clothing/head/helmet/marine/fluff/jackmcintyre //CKEY=jackmcintyre (UNIQUE)
-	name = "USCM Ball Cap"
-	desc = "USCM Cold Weather Ball Cap...  DONOR ITEM"
+	name = "UACM Ball Cap"
+	desc = "UACM Cold Weather Ball Cap...  DONOR ITEM"
 	icon_state = "Adam_hat"
 	item_state = "Adam_hat"
 	flags_inventory = BLOCKSHARPOBJ
@@ -942,7 +942,7 @@
 
 /obj/item/clothing/head/helmet/marine/fluff/edgelord
 	name = "Operator Cap"
-	desc = "A sturdy brown USCM cap with an attached radio headset. This one has the name 'Mann' printed on the back.  DONOR ITEM"
+	desc = "A sturdy brown UACM cap with an attached radio headset. This one has the name 'Mann' printed on the back.  DONOR ITEM"
 	icon_state = "edgelord_cap"
 	item_state = "edgelord_cap"
 
@@ -1214,8 +1214,8 @@
 	flags_jumpsuit = FALSE
 
 /obj/item/clothing/under/marine/fluff/sailordave //CKEY=sailordave
-	name = "Eden USCM uniform"
-	desc = "An older model USCM uniform.  UNIQUE DONOR ITEM"
+	name = "Eden UACM uniform"
+	desc = "An older model UACM uniform.  UNIQUE DONOR ITEM"
 	icon_state = "syndicate"
 	worn_state = "syndicate"
 	flags_jumpsuit = FALSE

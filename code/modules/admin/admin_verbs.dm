@@ -21,7 +21,7 @@ var/list/admin_verbs_default = list(
 	/client/proc/cmd_admin_create_AI_report,  //Allows creation of IC reports by the ships AI utilizing Almayer General channel. Relies on ARES being intact and tcomms being powered.
 	/client/proc/cmd_admin_create_AI_shipwide_report,  //Allows creation of IC reports by the ships AI utilizing announcement code. Will be shown to every conscious human on Almayer z-level regardless of ARES and tcomms status.
 	/client/proc/cmd_admin_create_AI_apollo_report,  //Allows creation of IC reports to the Apollo subprocessor, transmitting to Working Joes and Maintenance Drones.
-	/client/proc/cmd_admin_create_centcom_report, //Messages from USCM command/other factions.
+	/client/proc/cmd_admin_create_centcom_report, //Messages from UACM command/other factions.
 	/client/proc/cmd_admin_create_predator_report, //Predator ship AI report
 	/client/proc/admin_ghost, /*allows us to ghost/reenter body at will*/
 	/client/proc/invismin,
@@ -119,7 +119,7 @@ var/list/admin_verbs_minor_event = list(
 	/client/proc/cmd_admin_world_narrate, /*sends text to all players with no padding*/
 	/client/proc/cmd_admin_ground_narrate,
 	/client/proc/cmd_admin_atom_narrate,
-	/client/proc/cmd_admin_create_centcom_report, //Messages from USCM command/other factions.
+	/client/proc/cmd_admin_create_centcom_report, //Messages from UACM command/other factions.
 	/client/proc/cmd_admin_create_predator_report, //Predator ship AI report
 	/client/proc/toggle_ob_spawn,
 	/client/proc/toggle_sniper_upgrade,
@@ -144,6 +144,10 @@ var/list/admin_verbs_minor_event = list(
 	/client/proc/create_spawner,
 	/client/proc/setup_surge,
 	/client/proc/start_surge,
+	/client/proc/set_narration_preset,
+	/client/proc/speak_to_comms,
+	/client/proc/call_tgui_play_directly,
+	/client/proc/opener_blurb,
 )
 
 var/list/admin_verbs_major_event = list(

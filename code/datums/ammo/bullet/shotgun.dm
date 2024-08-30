@@ -155,7 +155,7 @@
 	knockback(M,P)
 
 /datum/ammo/bullet/shotgun/buckshot/special
-	name = "buckshot shell, USCM special type"
+	name = "buckshot shell, UACM special type"
 	handful_state = "special_buck"
 	bonus_projectiles_type = /datum/ammo/bullet/shotgun/spread/special
 
@@ -192,7 +192,7 @@
 	damage = 20
 
 /datum/ammo/bullet/shotgun/spread/special
-	name = "additional buckshot, USCM special type"
+	name = "additional buckshot, UACM special type"
 
 	accurate_range = 8
 	max_range = 8
