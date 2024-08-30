@@ -1,5 +1,5 @@
 
-GLOBAL_VAR_INIT(main_platoon_name, SQUAD_MARINE_1)
+GLOBAL_VAR_INIT(main_platoon_name, "UER-1")
 GLOBAL_VAR_INIT(main_platoon_initial_name, GLOB.main_platoon_name)
 
 /// Ability to rename the platoon
