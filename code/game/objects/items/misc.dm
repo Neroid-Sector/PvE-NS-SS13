@@ -457,7 +457,7 @@
 
 /obj/item/stim_injector/attack(mob/living/M, mob/living/user)
 	if(volume <= 0)
-		to_chat(SPAN_WARNING("Your stim is empty!"))
+		to_chat(usr, SPAN_WARNING("Your stim is empty!"))
 	if(cooldown_time > world.time)
 		return
 	if(!do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, M, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
