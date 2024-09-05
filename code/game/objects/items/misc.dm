@@ -426,3 +426,47 @@
 	. = ..()
 
 	map.tgui_interact(user)
+
+/obj/item/stim_injector
+	desc = "An autoinjector with five compartments."
+	icon = 'icons/obj/items/syringe.dmi'
+	item_state = "stim_5"
+	var/owner_mob
+	var/volume = 25
+	var/cooldown_time = 0
+	var/cooldown_val = 50
+
+
+/obj/item/stim_injector/update_icon()
+	if(volume > 0)
+		var/text_to_append = num2text(floor(volume / 5))
+		icon_state = "stim_[text_to_append]"
+	else
+		icon_state = "stim_empty"
+	. = ..()
+
+
+/obj/item/stim_injector/Initialize(mapload, ...)
+	. = ..()
+	create_reagents(volume)
+	reagents.add_reagent("SuperStim", volume)
+
+/obj/item/stim_injector/attack_self(mob/user)
+	. = ..()
+	attack(user, user)
+
+/obj/item/stim_injector/attack(mob/living/M, mob/living/user)
+	if(volume <= 0)
+		to_chat(SPAN_WARNING("Your stim is empty!"))
+	if(cooldown_time > world.time)
+		return
+	if(!do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, M, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
+		return
+	cooldown_time = world.time + cooldown_val
+	playsound(loc, 'sound/items/hypospray.ogg', 60, 1)
+	reagents.reaction(M, INGEST)
+	reagents.trans_to(M, 5)
+	user.visible_message("[user] injects [M] with the Super Stimulant!", "You inject [M] with the Super Stimulant!")
+	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been injected with a SuperStim by [key_name(user)].")
+	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has injected [key_name(M)] with a SuperStim.")
+	update_icon()

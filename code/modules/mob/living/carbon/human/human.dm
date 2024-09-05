@@ -1714,3 +1714,19 @@
 			item.showoff(src)
 			return TRUE
 	return ..()
+
+/mob/living/carbon/human/proc/bind_stimpack(obj/item/stim_injector/pack_to_bind)
+	bound_injector = pack_to_bind
+
+/mob/living/carbon/human/verb/find_injector()
+	set name = "Recall Injector"
+	set desc = "Recalls a bound injector."
+	set category = "IC"
+
+	if(bound_injector != null)
+		usr.put_in_any_hand_if_possible(bound_injector)
+		to_chat(usr, SPAN_INFO("Injector returned to hand or turf underneath."))
+		return
+	else
+		to_chat(usr, SPAN_WARNING("No bound Injector found!"))
+		return

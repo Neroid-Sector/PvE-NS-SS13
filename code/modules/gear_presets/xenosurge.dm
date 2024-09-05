@@ -45,6 +45,8 @@
 		back_item = /obj/item/storage/backpack/marine
 
 	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
+	var/obj/item/stim_injector/injector = new_human.put_in_any_hand_if_possible(new /obj/item/stim_injector(new_human))
+	new_human.bind_stimpack(injector)
 
 
 /datum/job/marine/pve/point
@@ -74,6 +76,8 @@
 		back_item = /obj/item/storage/backpack/marine
 
 	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
+	var/obj/item/stim_injector/injector = new_human.put_in_any_hand_if_possible(new /obj/item/stim_injector(new_human))
+	new_human.bind_stimpack(injector)
 
 /datum/job/marine/pve/lead
 	title = JOB_UER_MARINE_LEAD
@@ -102,3 +106,5 @@
 		back_item = /obj/item/storage/backpack/marine
 
 	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
+	var/obj/item/stim_injector/injector = new_human.put_in_any_hand_if_possible(new /obj/item/stim_injector(new_human))
+	new_human.bind_stimpack(injector)
