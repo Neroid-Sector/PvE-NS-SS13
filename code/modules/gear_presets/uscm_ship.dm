@@ -594,14 +594,6 @@
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/general/medium(new_human), WEAR_R_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/device/binoculars/range(new_human), WEAR_L_HAND)
 
-/datum/equipment_preset/uscm_ship/so/load_status(mob/living/carbon/human/new_human, client/mob_client)
-	. = ..()
-
-	if(!new_human.client)
-		return
-
-	add_verb(new_human.client, /client/proc/commander_rename_platoon)
-
 /datum/equipment_preset/uscm_ship/so/lesser_rank
 	paygrade = "MO1"
 

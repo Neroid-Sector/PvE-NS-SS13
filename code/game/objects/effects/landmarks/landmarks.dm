@@ -255,8 +255,6 @@
 		else
 			LAZYADD(GLOB.spawns_by_job[job], src)
 
-	RegisterSignal(SSdcs, COMSIG_GLOB_PLATOON_NAME_CHANGE, PROC_REF(rename_platoon))
-
 /obj/effect/landmark/start/Destroy()
 	if(job)
 		if(squad)
@@ -264,17 +262,6 @@
 		else
 			LAZYREMOVE(GLOB.spawns_by_job[job], src)
 	return ..()
-
-/obj/effect/landmark/start/proc/rename_platoon(datum/source, new_name, old_name)
-	SIGNAL_HANDLER
-	if(squad != old_name)
-		return
-
-	LAZYREMOVE(GLOB.spawns_by_squad_and_job, squad)
-	squad = new_name
-	LAZYINITLIST(GLOB.spawns_by_squad_and_job)
-	LAZYINITLIST(GLOB.spawns_by_squad_and_job[squad])
-	LAZYADD(GLOB.spawns_by_squad_and_job[squad][job], src)
 
 /obj/effect/landmark/start/AISloc
 	name = "AI"
@@ -398,16 +385,6 @@
 	name = "alpha late join"
 	squad = SQUAD_MARINE_1
 
-/obj/effect/landmark/late_join/alpha/Initialize(mapload, ...)
-	. = ..()
-
-	RegisterSignal(SSdcs, COMSIG_GLOB_PLATOON_NAME_CHANGE, PROC_REF(rename_platoon))
-
-/obj/effect/landmark/late_join/proc/rename_platoon(datum/source, new_name, old_name)
-	SIGNAL_HANDLER
-
-	squad = new_name
-
 /obj/effect/landmark/late_join/bravo
 	name = "bravo late join"
 	squad = SQUAD_MARINE_2
@@ -423,11 +400,6 @@
 /obj/effect/landmark/late_join/upp
 	name = "upp late join"
 	squad = SQUAD_UPP
-
-/obj/effect/landmark/late_join/upp/Initialize(mapload, ...)
-	. = ..()
-
-	RegisterSignal(SSdcs, COMSIG_GLOB_PLATOON_NAME_CHANGE, PROC_REF(rename_platoon))
 
 /obj/effect/landmark/late_join/working_joe
 	name = "working joe late join"
