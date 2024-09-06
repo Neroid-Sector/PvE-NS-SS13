@@ -171,6 +171,10 @@
 	//hypo shenanigans
 	var/obj/item/stim_injector/bound_injector
 
+	//talking npc identifier to limit speaking picker
+
+	var/talking_npc = 0
+
 /client/var/cached_human_playtime
 
 /client/proc/get_total_human_playtime(skip_cache = FALSE)
@@ -279,8 +283,9 @@
 /mob/living/carbon/human/proc/talkas(str, delay, radio) //Talk as. Delay in BYOND ticks (about 1/10 of a second per tick) If not provided, delay calculated automatically depending in message length.
 	if (!str) return
 	var/list/heard = get_mobs_in_view(world_view_size, src)
+	var/rank_text = src.get_paygrade()
 	src.langchat_speech(str, heard, GLOB.all_languages, skip_language_check = TRUE)
-	src.visible_message("<b>[src]</b> says, \"[str]\"")
+	src.visible_message("<b>[rank_text] [src]</b> says, \"[str]\"")
 	var/talkdelay = delay
 	if (!talkdelay)
 		if ((length("[str]")) <= 64)
@@ -288,15 +293,16 @@
 		if ((length("[str]")) > 64)
 			talkdelay = 60
 	if(radio)
-		to_chat(world, "<span class='big'><span class='radio'><span class='name'>[src]<b>[icon2html('icons/obj/items/radio.dmi', usr, "beacon")] \u005BUAS Arrowhead\u0028[src.job]\u0029\u005D </b></span><span class='message'>, says \"[str]\"</span></span></span>", type = MESSAGE_TYPE_RADIO)
+		to_chat(world, "<span class='big'><span class='radio'><span class='name'>[rank_text] [src]<b>[icon2html('icons/obj/items/radio.dmi', usr, "beacon")] \u005BUAS Arrowhead\u0028[src.comm_title]\u0029\u005D </b></span><span class='message'>, says \"[str]\"</span></span></span>", type = MESSAGE_TYPE_RADIO)
 	sleep(talkdelay)
 	return
 
 /mob/living/carbon/human/proc/emoteas(str, delay, radio) //Emote as. Delay in BYOND ticks (about 1/10 of a second per tick) If not provided, delay calculated automatically depending in message length.
 	if (!str) return
 	var/list/heard = get_mobs_in_view(world_view_size, src)
+	var/rank_text = src.get_paygrade()
 	src.langchat_speech(str, heard, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
-	src.visible_message("<b>[src]</b> [str]")
+	src.visible_message("<b>[rank_text] [src]</b> [str]")
 	var/talkdelay = delay
 	if (!talkdelay)
 		if ((length("[str]")) <= 64)
@@ -304,6 +310,6 @@
 		if ((length("[str]")) > 64)
 			talkdelay = 60
 	if(radio)
-		to_chat(world, "<span class='big'><span class='radio'><span class='name'>[src]<b>[icon2html('icons/obj/items/radio.dmi', usr, "beacon")] \u005BUAS Arrowhead\u0028[usr.job]\u0029\u005D </b></span><span class='message'>[str]</span></span></span>", type = MESSAGE_TYPE_RADIO)
+		to_chat(world, "<span class='big'><span class='radio'><span class='name'>[rank_text] [src]<b>[icon2html('icons/obj/items/radio.dmi', usr, "beacon")] \u005BUAS Arrowhead\u0028[src.comm_title]\u0029\u005D </b></span><span class='message'>[str]</span></span></span>", type = MESSAGE_TYPE_RADIO)
 	sleep(talkdelay)
 	return

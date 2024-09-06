@@ -544,6 +544,8 @@
 	H.name = npc_name
 	H.langchat_color = npc_chat_color
 	H.gender = gender_to_set
+	H.talking_npc = 1
+	H.wear_id.set_user_data(H)
 	for(var/obj/structure/bed/chair/dropship/pilot/chair in get_area(H))
 		if(chair != null)
 			if(get_turf(chair) == get_turf(H))

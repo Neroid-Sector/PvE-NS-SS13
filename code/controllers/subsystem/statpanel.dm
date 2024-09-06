@@ -34,6 +34,9 @@ SUBSYSTEM_DEF(statpanels)
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
 			"Round Time: [duration2text()]",
 			"Operation Time: [worldtime2text()]",
+			"------",
+			"Primary Objective:",
+
 		)
 
 		src.currentrun = GLOB.clients.Copy()

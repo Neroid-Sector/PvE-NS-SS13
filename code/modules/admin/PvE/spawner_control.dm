@@ -1,6 +1,6 @@
 /client/proc/create_spawner_setup()
-	set category = "Xenosurge.Spawners"
-	set name = "Spawners - Create Setup"
+	set category = "DM.Xenosurge.Spawners"
+	set name = "Create Setup"
 	set desc = "Configures spawner creation variables."
 
 	if(!check_rights(R_ADMIN))
@@ -13,8 +13,8 @@
 	GLOB.xenosurge_spawner_delay = delay_to_pass
 
 /client/proc/create_spawner()
-	set category = "Xenosurge.Spawners"
-	set name = "Spawners - Create"
+	set category = "DM.Xenosurge.Spawners"
+	set name = "Create Action"
 	set desc = "Starts the spawner creation loop."
 
 	if(!check_rights(R_ADMIN))
@@ -33,8 +33,8 @@
 
 
 /client/proc/setup_surge()
-	set category = "Xenosurge.Spawners"
-	set name = "Xenosurge - Setup"
+	set category = "DM.Xenosurge.Surge"
+	set name = "Setup"
 	set desc = "Sets parameters for next wave surge."
 
 	if(!check_rights(R_ADMIN))
@@ -81,8 +81,8 @@
 
 
 /client/proc/start_surge()
-	set category = "Xenosurge.Spawners"
-	set name = "Xenosurge - Start"
+	set category = "DM.Xenosurge.Surge"
+	set name = "Start"
 	set desc = "Checks critcial params, starts surge."
 
 	if(!check_rights(R_ADMIN))
@@ -100,8 +100,8 @@
 		log_admin("[usr] has activated a [spawner_count] spawner Xenosurge. Parameters: Max:[GLOB.xenosurge_spawner_limit], Xenos:[GLOB.xenosurge_wave_xenos_max]")
 
 /client/proc/stop_surge()
-	set category = "Xenosurge.Spawners"
-	set name = "Xenosurge - Stop"
+	set category = "DM.Xenosurge.Surge"
+	set name = "Stop"
 	set desc = "Deinitalizes all spawners, stopping them."
 
 	if(!check_rights(R_ADMIN))
@@ -115,8 +115,8 @@
 		to_chat(usr, SPAN_INFO("All spawners have been deactivated, the surge is effectively stopped."))
 
 /client/proc/remove_spawners()
-	set category = "Xenosurge.Spawners"
-	set name = "Spawners - Remove All"
+	set category = "DM.Xenosurge.Spawners"
+	set name = "Remove All"
 	set desc = "Removes all spawners."
 	if(!check_rights(R_ADMIN))
 		return
