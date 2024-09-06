@@ -740,15 +740,6 @@ SUBSYSTEM_DEF(minimaps)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		if(!wiki_map_fallback)
-			var/wiki_url = CONFIG_GET(string/wikiurl)
-			var/obj/item/map/current_map/new_map = new
-			if(wiki_url && new_map.html_link)
-				wiki_map_fallback ="[wiki_url]/[new_map.html_link]"
-			else
-				debug_log("Failed to determine fallback wiki map! Attempted '[wiki_url]/[new_map.html_link]'")
-			qdel(new_map)
-
 		// Ensure we actually have the map image sent
 		resend_current_map_png(user)
 

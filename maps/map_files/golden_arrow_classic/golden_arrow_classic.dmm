@@ -5734,7 +5734,6 @@
 /obj/structure/machinery/prop/almayer/CICmap{
 	pixel_y = 29
 	},
-/obj/effect/landmark/map_item,
 /turf/open/floor/almayer{
 	icon_state = "plate"
 	},

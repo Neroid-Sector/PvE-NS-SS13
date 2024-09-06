@@ -133,7 +133,6 @@ GLOBAL_LIST_INIT(cm_vending_clothing_commanding_officer, list(
 /obj/effect/essentials_set/commanding_officer
 	spawned_gear_list = list(
 		/obj/item/device/binoculars/range/designator,
-		/obj/item/map/current_map,
 		/obj/item/device/whistle,
 		/obj/item/weapon/gun/energy/taser,
 		/obj/item/device/megaphone,

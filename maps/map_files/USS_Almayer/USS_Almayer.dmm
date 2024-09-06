@@ -964,7 +964,6 @@
 	name = "General Listening Channel";
 	pixel_y = 28
 	},
-/obj/effect/landmark/map_item,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -8362,7 +8361,6 @@
 /area/almayer/command/lifeboat)
 "aBw" = (
 /obj/structure/surface/table/almayer,
-/obj/effect/landmark/map_item,
 /obj/item/storage/box/cups,
 /turf/open/floor/almayer{
 	icon_state = "plate"
@@ -19123,7 +19121,6 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/effect/landmark/map_item,
 /turf/open/floor/almayer{
 	icon_state = "cargo"
 	},
@@ -21514,7 +21511,6 @@
 /obj/effect/spawner/random/tool,
 /obj/item/tool/hand_labeler,
 /obj/item/clipboard,
-/obj/effect/landmark/map_item,
 /turf/open/floor/almayer{
 	icon_state = "plate"
 	},
@@ -23602,11 +23598,6 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
-/obj/effect/landmark/map_item{
-	layer = 3.03;
-	pixel_x = -7;
-	pixel_y = 4
-	},
 /obj/item/reagent_container/food/snacks/mre_pack/xmas3{
 	pixel_x = 5
 	},
@@ -24197,7 +24188,6 @@
 /area/almayer/hull/upper_hull/u_f_p)
 "bZJ" = (
 /obj/structure/surface/table/reinforced/almayer_B,
-/obj/effect/landmark/map_item,
 /obj/item/device/binoculars,
 /turf/open/floor/plating/plating_catwalk,
 /area/almayer/command/cic)
@@ -28314,10 +28304,6 @@
 	},
 /obj/structure/machinery/light{
 	dir = 8
-	},
-/obj/effect/landmark/map_item{
-	pixel_y = 3;
-	pixel_x = -1
 	},
 /turf/open/floor/wood/ship,
 /area/almayer/living/commandbunks)
@@ -34624,7 +34610,6 @@
 	dir = 8;
 	req_access_txt = "19"
 	},
-/obj/effect/landmark/map_item,
 /obj/structure/machinery/door/window/eastleft{
 	req_access_txt = "19"
 	},
@@ -37884,9 +37869,6 @@
 /area/almayer/command/combat_correspondent)
 "gGo" = (
 /obj/structure/surface/table/almayer,
-/obj/effect/landmark/map_item{
-	pixel_x = -8
-	},
 /obj/item/toy/plush/therapy/red{
 	desc = "A UACM approved plush doll. It's not soft and hardly comforting!";
 	force = 15;
@@ -42642,7 +42624,6 @@
 /area/almayer/living/pilotbunks)
 "iFC" = (
 /obj/structure/surface/table/almayer,
-/obj/effect/landmark/map_item,
 /obj/item/clothing/ears/earmuffs,
 /turf/open/floor/almayer{
 	icon_state = "mono"
@@ -51186,7 +51167,6 @@
 /area/almayer/hull/lower_hull/l_a_p)
 "mfM" = (
 /obj/structure/surface/table/almayer,
-/obj/effect/landmark/map_item,
 /obj/item/device/megaphone,
 /obj/structure/window/reinforced/ultra,
 /obj/structure/window/reinforced/ultra{
@@ -57844,7 +57824,6 @@
 /obj/structure/surface/table/almayer{
 	layer = 3
 	},
-/obj/effect/landmark/map_item,
 /obj/item/device/megaphone,
 /turf/open/floor/almayer{
 	icon_state = "plate"
@@ -58396,9 +58375,6 @@
 /area/almayer/engineering/upper_engineering/starboard)
 "pfe" = (
 /obj/structure/surface/table/almayer,
-/obj/effect/landmark/map_item{
-	pixel_x = 5
-	},
 /obj/item/facepaint/black{
 	pixel_x = -10
 	},
@@ -58898,7 +58874,6 @@
 "pth" = (
 /obj/structure/surface/table/almayer,
 /obj/item/folder/blue,
-/obj/effect/landmark/map_item,
 /obj/structure/pipes/vents/scrubber{
 	dir = 8
 	},
@@ -64044,7 +64019,6 @@
 /area/almayer/living/commandbunks)
 "rub" = (
 /obj/structure/surface/table/almayer,
-/obj/effect/landmark/map_item,
 /turf/open/floor/almayer{
 	icon_state = "silver"
 	},
@@ -71779,7 +71753,6 @@
 /area/almayer/hull/lower_hull/l_m_p)
 "uFH" = (
 /obj/structure/surface/table/almayer,
-/obj/effect/landmark/map_item,
 /turf/open/floor/almayer,
 /area/almayer/living/briefing)
 "uFL" = (
@@ -75494,11 +75467,6 @@
 /area/almayer/hallways/aft_hallway)
 "wbe" = (
 /obj/structure/surface/table/almayer,
-/obj/effect/landmark/map_item{
-	layer = 3.03;
-	pixel_x = 7;
-	pixel_y = 4
-	},
 /obj/item/prop/helmetgarb/spacejam_tickets{
 	pixel_x = -8;
 	pixel_y = 5
@@ -78705,7 +78673,6 @@
 /area/almayer/hull/upper_hull/u_a_s)
 "xot" = (
 /obj/structure/surface/table/almayer,
-/obj/effect/landmark/map_item,
 /obj/item/folder/red,
 /obj/structure/phone_base/rotary{
 	name = "Brig CMP's Office Telephone";
