@@ -1173,3 +1173,50 @@
 				INVOKE_ASYNC(mob_to_talk_as, TYPE_PROC_REF(/mob/living/carbon/human, talkas), text_to_say, 0, use_radio)
 				text_to_say = tgui_input_text(usr, "[speaking_mode] as [target_mob]","[uppertext(speaking_mode)]-[uppertext(target_mob)]",timeout = 0)
 	return
+
+/client/proc/change_objective()
+	set category = "DM.Narration"
+	set name = "Objectives"
+	set desc = "Speaks as NPC from spawners or otherwise with the talking_npc var turned on."
+
+	if(!check_rights(R_ADMIN))
+		return
+	var/new_objective
+	var/type_to_change = tgui_alert(usr, "Chnage which Objective?", "Objective", list("Primary","Secondary"), timeout = 0)
+	if(type_to_change == null) return
+	if(type_to_change == "Primary")
+		new_objective = tgui_input_text(usr, "Enter new objective", "Objective", default = GLOB.primary_objective, timeout = 0)
+	else
+		new_objective = tgui_input_text(usr, "Enter new objective", "Objective", default = GLOB.secondary_objective, timeout = 0)
+	if(new_objective == null) return
+	switch(tgui_alert(usr, "Pick Outcome for previous objective", "Objective", list("Success", "Failure", "None"), timeout = 0))
+		if(null)
+			return
+		if("Success")
+			if(type_to_change == "Primary")
+				show_blurb(GLOB.player_list, 10 SECONDS, "Primary Objective\nAccomplished!", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+				GLOB.primary_objective = "Recieving new orders..."
+			else
+				show_blurb(GLOB.player_list, 10 SECONDS, "Secondary Objective\nAccomplished!", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+				GLOB.secondary_objective = "Recieving new orders..."
+			sleep(150)
+		if("Failure")
+			if(type_to_change == "Primary")
+				show_blurb(GLOB.player_list, 10 SECONDS, "Primary Objective\nFailed!", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+			else
+				show_blurb(GLOB.player_list, 10 SECONDS, "Secondary Objective\nFailed!", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+				GLOB.secondary_objective = "Recieving new orders..."
+			sleep(150)
+		if("None")
+			if(type_to_change == "Primary")
+				GLOB.primary_objective = "Recieving new orders..."
+			else
+				GLOB.secondary_objective = "Recieving new orders..."
+			sleep(50)
+	if(type_to_change == "Primary")
+		GLOB.primary_objective = new_objective
+		show_blurb(GLOB.player_list, 10 SECONDS, "New Primary Objective:\n[GLOB.primary_objective]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+
+	else
+		GLOB.secondary_objective = new_objective
+		show_blurb(GLOB.player_list, 10 SECONDS, "New Secondary Objective:\n[GLOB.secondary_objective]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)

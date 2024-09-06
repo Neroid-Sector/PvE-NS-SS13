@@ -36,7 +36,9 @@ SUBSYSTEM_DEF(statpanels)
 			"Operation Time: [worldtime2text()]",
 			"------",
 			"Primary Objective:",
-
+			"[GLOB.primary_objective]",
+			"Secondary Objective:",
+			"[GLOB.secondary_objective]"
 		)
 
 		src.currentrun = GLOB.clients.Copy()
