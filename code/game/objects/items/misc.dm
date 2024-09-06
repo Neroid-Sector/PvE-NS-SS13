@@ -428,9 +428,10 @@
 	map.tgui_interact(user)
 
 /obj/item/stim_injector
+	name = "UACM GA-8 WY brand Combat Stimulant Syringe"
 	desc = "An autoinjector with five compartments."
 	icon = 'icons/obj/items/syringe.dmi'
-	item_state = "stim_5"
+	icon_state = "stim_5"
 	var/owner_mob
 	var/volume = 25
 	var/cooldown_time = 0
@@ -438,9 +439,13 @@
 
 
 /obj/item/stim_injector/update_icon()
-	if(volume > 0)
-		var/text_to_append = num2text(floor(volume / 5))
-		icon_state = "stim_[text_to_append]"
+	if(reagents.total_volume > 0)
+		var/num_to_append = floor(reagents.total_volume / 5)
+		var/text_to_append = num2text(num_to_append)
+		if(num_to_append > 1)
+			icon_state = "stim_[text_to_append]"
+		else
+			icon_state = "stim_empty"
 	else
 		icon_state = "stim_empty"
 	. = ..()

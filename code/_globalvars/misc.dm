@@ -68,3 +68,7 @@ GLOBAL_VAR_INIT(xenosurge_wave_xenos_current, 0)
 GLOBAL_LIST_EMPTY(xenosurge_configured_spawners)
 
 GLOBAL_VAR_INIT(spawner_number, 1)
+
+GLOBAL_VAR_INIT(ammo_restock_next, 0)
+GLOBAL_VAR_INIT(ammo_restock_full, 0)
+GLOBAL_VAR_INIT(ammo_restock_delay, 6000)

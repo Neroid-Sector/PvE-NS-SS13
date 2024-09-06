@@ -20,7 +20,6 @@
 	. = ..()
 	move_equipment()
 	equipment_to_spawn = null
-	qdel(src)
 
 /obj/structure/droppod/equipment/proc/move_equipment()
 	if(equipment_to_spawn)

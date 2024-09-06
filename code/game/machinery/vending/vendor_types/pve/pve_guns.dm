@@ -5,7 +5,7 @@
 	req_access = list()
 	req_one_access = list()
 	hackable = TRUE
-	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND | VEND_LIMITED_INVENTORY
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/guns/ui_state(mob/user)
 	return GLOB.not_incapacitated_and_adjacent_strict_state
@@ -34,7 +34,7 @@
 	req_access = list()
 	req_one_access = list()
 	hackable = TRUE
-	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND | VEND_LIMITED_INVENTORY
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/attachies/ui_state(mob/user)
 	return GLOB.not_incapacitated_and_adjacent_strict_state
@@ -88,7 +88,7 @@
 	req_access = list()
 	req_one_access = list()
 	hackable = TRUE
-	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND | VEND_LIMITED_INVENTORY
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/extra_munitions/ui_state(mob/user)
 	return GLOB.not_incapacitated_and_adjacent_strict_state
@@ -124,7 +124,7 @@
 	req_access = list()
 	req_one_access = list()
 	hackable = TRUE
-	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND | VEND_LIMITED_INVENTORY
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo/ui_state(mob/user)
 	return GLOB.not_incapacitated_and_adjacent_strict_state
@@ -161,7 +161,7 @@
 	req_access = list()
 	req_one_access = list()
 	hackable = TRUE
-	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND | VEND_LIMITED_INVENTORY
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/accesories/ui_state(mob/user)
 	return GLOB.not_incapacitated_and_adjacent_strict_state
@@ -239,10 +239,123 @@
 		list("Fire Extinguisher (Portable)", 20, /obj/item/tool/extinguisher/mini, VENDOR_ITEM_REGULAR),
 		)
 
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/
+	name = "\improper UAR Automated Resuply Locker"
+	desc = "A supply rack fed directly from the Dropships own stores."
+	icon_state = "req_ammo"
+	req_access = list()
+	req_one_access = list()
+	hackable = TRUE
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND | VEND_LIMITED_INVENTORY
+	var/list/refilled_stims = list()
+	needs_power = FALSE
+
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/ui_state(mob/user)
+	return GLOB.not_incapacitated_and_adjacent_strict_state
+
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/populate_product_list(scale)
+	listed_products = list(
+		list("PRIMARY AMMUNITION", -1, null, null),
+		list("Box Of Buckshot Shells", 200, /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
+		list("Box Of Flechette Shells", 200, /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
+		list("Box Of Shotgun Slugs", 200, /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR),
+		list("M4RA Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle/m4ra, VENDOR_ITEM_REGULAR),
+		list("M4RA AP Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle/m4ra/ap, VENDOR_ITEM_RECOMMENDED),
+		list("M41A MK2 Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 AP Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle/ap, VENDOR_ITEM_RECOMMENDED),
+		list("M41A MK2 Extended Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle/extended, VENDOR_ITEM_REGULAR),
+		list("M39 HV Magazine (10x20mm)", 200, /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR),
+		list("M39 AP Magazine (10x20mm)", 200, /obj/item/ammo_magazine/smg/m39/ap, VENDOR_ITEM_RECOMMENDED),
+		list("M39 Extended Magazine (10x20mm)", 200 + 3, /obj/item/ammo_magazine/smg/m39/extended, VENDOR_ITEM_REGULAR),
+		list("XM88 .458 bullets box (.458 x 300)", 200, /obj/item/ammo_magazine/lever_action/xm88, VENDOR_ITEM_REGULAR),
+		list("SECONDARY AMMUNITION", -1, null, null),
+		list("M44 Speed Loader (.44)", 200, /obj/item/ammo_magazine/revolver, VENDOR_ITEM_REGULAR),
+		list("M44 Heavy Speed Loader (.44)", 200, /obj/item/ammo_magazine/revolver/heavy, VENDOR_ITEM_REGULAR),
+		list("M44 Marksman Speed Loader (.44)", 200, /obj/item/ammo_magazine/revolver/marksman, VENDOR_ITEM_REGULAR),
+		list("M4A3 Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol, VENDOR_ITEM_REGULAR),
+		list("M4A3 AP Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/ap, VENDOR_ITEM_RECOMMENDED),
+		list("M4A3 HP Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/hp, VENDOR_ITEM_REGULAR),
+		list("88 Mod 4 Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/mod88/normalpoint, VENDOR_ITEM_REGULAR),
+		list("EXPLOSIVES", -1, null, null),
+		list("M15 Fragmentation Grenade", 200, /obj/item/explosive/grenade/high_explosive/m15, VENDOR_ITEM_REGULAR),
+		list("M20 Claymore Anti-Personnel Mine", 200, /obj/item/explosive/mine, VENDOR_ITEM_REGULAR),
+		list("M40 HEDP Grenade", 200, /obj/item/explosive/grenade/high_explosive, VENDOR_ITEM_REGULAR),
+		list("M40 HIDP Incendiary Grenade", 200, /obj/item/explosive/grenade/incendiary, VENDOR_ITEM_REGULAR),
+		list("M40 HPDP White Phosphorus Smoke Grenade", 200, /obj/item/explosive/grenade/phosphorus, VENDOR_ITEM_REGULAR),
+		list("M40 HSDP Smoke Grenade", 200, /obj/item/explosive/grenade/smokebomb, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Frag Airburst Grenade", 200, /obj/item/explosive/grenade/high_explosive/airburst, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Icendiary Airburst Grenade", 200, /obj/item/explosive/grenade/incendiary/airburst, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Smoke Airburst Grenade", 200, /obj/item/explosive/grenade/smokebomb/airburst, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Star Shell", 200, /obj/item/explosive/grenade/high_explosive/airburst/starshell, VENDOR_ITEM_REGULAR),
+		list("M74 AGM-Hornet Shell", 200, /obj/item/explosive/grenade/high_explosive/airburst/hornet_shell, VENDOR_ITEM_REGULAR),
+		list("M40 HIRR Baton Slug", 200, /obj/item/explosive/grenade/slug/baton, VENDOR_ITEM_REGULAR),
+		list("M40 MFHS Metal Foam Grenade", 200, /obj/item/explosive/grenade/metal_foam, VENDOR_ITEM_REGULAR),
+		list("Plastic Explosives", 100, /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
+		list("Breaching Charge", 100, /obj/item/explosive/plastic/breaching_charge, VENDOR_ITEM_REGULAR),
+	)
 
 
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/stim_injector/))
+		var/obj/item/stim_injector/injector_to_refill = W
+		if(refilled_stims.Find(injector_to_refill) == 0)
+			injector_to_refill.reagents.del_reagent("SuperStim")
+			injector_to_refill.reagents.add_reagent("SuperStim", injector_to_refill.volume)
+			refilled_stims.Add(injector_to_refill)
+			to_chat(usr, SPAN_INFO("Injector refilled"))
+			return
+		else
+			to_chat(usr, SPAN_WARNING("This injector was already refilled in this resupply locker"))
+			return
+	. = ..()
 
+/obj/structure/droppod/equipment/vendor
+	var/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/dropped_vendor
 
+/obj/structure/droppod/equipment/vendor/spawn_equipment(equipment, mob/M)
+	var/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/S = ..()
+	dropped_vendor = S
+	return S
 
+/obj/structure/droppod/equipment/vendor/proc/go_back()
+	sleep(2400)
+	talkas("Warning: One Minute of Deployment time left. Please conclude your resupply.")
+	sleep(600)
+	talkas("Resupply station withdrawing to dropship. Please stand back.")
+	if(dropped_vendor) qdel(dropped_vendor)
+	recall()
 
+/obj/structure/droppod/equipment/vendor/move_equipment()
+	..()
+	dropped_vendor.talkas("Munitions restock is now available.")
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/droppod/equipment/vendor/, go_back))
 
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/partial
+	name = "\improper UAR Automated Field Resupply Locker"
+	needs_power = FALSE
+
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/partial/ui_state(mob/user)
+	return GLOB.not_incapacitated_and_adjacent_strict_state
+
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/partial/populate_product_list(scale)
+	listed_products = list(
+		list("PRIMARY AMMUNITION", -1, null, null),
+		list("Box Of Buckshot Shells", 200, /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
+		list("Box Of Shotgun Slugs", 200, /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR),
+		list("M4RA Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle/m4ra, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR),
+		list("M39 HV Magazine (10x20mm)", 200, /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR),
+		list("XM88 .458 bullets box (.458 x 300)", 200, /obj/item/ammo_magazine/lever_action/xm88, VENDOR_ITEM_REGULAR),
+		list("SECONDARY AMMUNITION", -1, null, null),
+		list("M44 Speed Loader (.44)", 200, /obj/item/ammo_magazine/revolver, VENDOR_ITEM_REGULAR),
+		list("M4A3 Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol, VENDOR_ITEM_REGULAR),
+		list("88 Mod 4 Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/mod88/normalpoint, VENDOR_ITEM_REGULAR),
+	)
+
+/obj/structure/droppod/equipment/vendor/partial
+	name = "\improper UAR Automated Field Resupply Locker"
+
+/obj/structure/droppod/equipment/vendor/partial/spawn_equipment(equipment, mob/M)
+	var/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/partial/S = ..()
+	dropped_vendor = S
+	return S

@@ -458,3 +458,31 @@
 /// override for subtypes that require extra behaviour when spawned from a vendor
 /obj/proc/post_vendor_spawn_hook(mob/living/carbon/human/user)
 	return
+
+/obj/proc/talkas(str, delay) //Talk as. Delay in BYOND ticks (about 1/10 of a second per tick) If not provided, delay calculated automatically depending in message length.
+	if (!str) return
+	var/list/heard = get_mobs_in_view(world_view_size, src)
+	src.langchat_speech(str, heard, GLOB.all_languages, skip_language_check = TRUE)
+	src.visible_message("<b>[src]</b> says, \"[str]\"")
+	var/talkdelay = delay
+	if (!talkdelay)
+		if ((length("[str]")) <= 64)
+			talkdelay = 40
+		if ((length("[str]")) > 64)
+			talkdelay = 60
+	sleep(talkdelay)
+	return
+
+/obj/proc/emoteas(str, delay) //Emote as. Delay in BYOND ticks (about 1/10 of a second per tick) If not provided, delay calculated automatically depending in message length.
+	if (!str) return
+	var/list/heard = get_mobs_in_view(world_view_size, src)
+	src.langchat_speech(str, heard, GLOB.all_languages, skip_language_check = TRUE, animation_style = LANGCHAT_FAST_POP, additional_styles = list("langchat_small", "emote"))
+	src.visible_message("<b>[src]</b> [str]")
+	var/talkdelay = delay
+	if (!talkdelay)
+		if ((length("[str]")) <= 64)
+			talkdelay = 40
+		if ((length("[str]")) > 64)
+			talkdelay = 60
+	sleep(talkdelay)
+	return

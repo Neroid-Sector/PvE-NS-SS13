@@ -1715,7 +1715,7 @@
 			return TRUE
 	return ..()
 
-/mob/living/carbon/human/proc/bind_stimpack(obj/item/stim_injector/pack_to_bind)
+/mob/living/carbon/human/proc/bind_stimpack(pack_to_bind)
 	bound_injector = pack_to_bind
 
 /mob/living/carbon/human/verb/find_injector()
@@ -1729,4 +1729,28 @@
 		return
 	else
 		to_chat(usr, SPAN_WARNING("No bound Injector found!"))
+		return
+
+/mob/living/carbon/human/verb/call_resupply()
+	set name = "Call resupply"
+	set desc = "Calls a resupply droppod. Depending on round state, it may be a partial or full resupply vendor."
+	set category = "IC"
+
+	var/turf_to_spawn = get_turf(src)
+	if(GLOB.ammo_restock_next > world.time)
+		return
+	if(!do_after(usr, 20, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, turf_to_spawn, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
+		return
+	if(GLOB.ammo_restock_next <= world.time)
+		GLOB.ammo_restock_next = world.time + GLOB.ammo_restock_delay
+		var/obj/structure/droppod/equipment/vendor/droppod
+		if(GLOB.ammo_restock_full == 0)
+			droppod = new /obj/structure/droppod/equipment/vendor/partial(turf_to_spawn, /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/partial/, src)
+		else
+			droppod = new /obj/structure/droppod/equipment/vendor/(turf_to_spawn, /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/, src)
+		droppod.drop_time = 5 SECONDS
+		droppod.launch(turf_to_spawn)
+		return
+	else
+		to_chat(src, SPAN_WARNING("The Ammo Resupply is on cooldown!"))
 		return
