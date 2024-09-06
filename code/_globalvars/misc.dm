@@ -57,15 +57,14 @@ GLOBAL_VAR(obfs_y)
 GLOBAL_VAR_INIT(ai_xeno_weeding, TRUE)
 
 GLOBAL_VAR_INIT(xenosurge_spawner_limit, 30)
-
-GLOBAL_VAR_INIT(xenosurge_wave_max, 3)
-GLOBAL_VAR_INIT(xenosurge_wave_current, 0)
-GLOBAL_VAR_INIT(xenosurge_wave_delay, 60)
-
 GLOBAL_VAR_INIT(xenosurge_wave_xenos_max, 100)
 GLOBAL_VAR_INIT(xenosurge_wave_xenos_current, 0)
+GLOBAL_VAR_INIT(xenosurge_wave_xenos_hp_factor, 1)
+GLOBAL_VAR_INIT(xenosurge_wave_xenos_dam_factor, 1)
 
 GLOBAL_LIST_EMPTY(xenosurge_configured_spawners)
+GLOBAL_VAR_INIT(xenosurge_spawner_xenos, 5)
+GLOBAL_VAR_INIT(xenosurge_spawner_delay, 100)
 
 GLOBAL_VAR_INIT(spawner_number, 1)
 

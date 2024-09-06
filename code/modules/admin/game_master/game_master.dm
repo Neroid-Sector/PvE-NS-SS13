@@ -351,8 +351,11 @@ GLOBAL_VAR_INIT(radio_communication_clarity, 100)
 			var/turf/spawn_turf = get_turf(object)
 
 			for(var/i = 1 to xeno_spawn_count)
-				new spawning_xeno_type(spawn_turf, null, selected_hive, !spawn_ai)
-
+				var/mob/living/carbon/xenomorph/spawned_xeno = new spawning_xeno_type(spawn_turf, null, selected_hive, !spawn_ai)
+				spawned_xeno.health *= GLOB.xenosurge_wave_xenos_hp_factor
+				spawned_xeno.maxHealth *= GLOB.xenosurge_wave_xenos_hp_factor
+				spawned_xeno.melee_damage_lower = ceil(spawned_xeno.melee_damage_lower * GLOB.xenosurge_wave_xenos_dam_factor)
+				spawned_xeno.melee_damage_upper = ceil(spawned_xeno.melee_damage_upper * GLOB.xenosurge_wave_xenos_dam_factor)
 			return TRUE
 
 		if(BEHAVIOR_CLICK_INTERCEPT_ACTION)
