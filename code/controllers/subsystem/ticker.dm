@@ -246,7 +246,7 @@ SUBSYSTEM_DEF(ticker)
 	save_mode(CONFIG_GET(string/gamemode_default))
 
 	if(round_statistics)
-		to_chat_spaced(world, html = FONT_SIZE_BIG(SPAN_ROLE_BODY("<B>Welcome to [round_statistics.round_name]</B>")))
+		to_chat_spaced(world, html = narrate_head("<B>Welcome to [round_statistics.round_name]</B>"))
 
 	supply_controller.process() //Start the supply shuttle regenerating points -- TLE
 

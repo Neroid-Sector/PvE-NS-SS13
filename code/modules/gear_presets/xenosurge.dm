@@ -25,8 +25,6 @@
 	gear_preset = /datum/equipment_preset/pve/base
 	entry_message_body = "haha"
 
-
-
 /datum/equipment_preset/pve/base
 	name = "UER Marine Operator"
 	flags = EQUIPMENT_PRESET_START_OF_ROUND|EQUIPMENT_PRESET_MARINE
@@ -49,6 +47,18 @@
 	new_human.bind_stimpack(injector)
 	new_human.put_in_any_hand_if_possible(injector)
 
+/obj/effect/landmark/start/marine/pve/base/
+	name = JOB_UER_MARINE
+	icon_state = "smartgunner_spawn"
+	job = /datum/job/marine/pve/base
+
+/obj/effect/landmark/start/marine/pve/base/squad1
+	icon_state = "smartgunner_spawn_alpha"
+	squad = SQUAD_MARINE_1
+
+/obj/effect/landmark/start/marine/pve/base/squad2
+	icon_state = "smartgunner_spawn_delta"
+	squad = SQUAD_MARINE_4
 
 /datum/job/marine/pve/point
 	title = JOB_UER_MARINE_POINT
@@ -81,6 +91,20 @@
 	new_human.bind_stimpack(injector)
 	new_human.put_in_any_hand_if_possible(injector)
 
+
+/obj/effect/landmark/start/marine/pve/point/
+	name = JOB_UER_MARINE_POINT
+	icon_state = "spec_spawn"
+	job = /datum/job/marine/pve/point
+
+/obj/effect/landmark/start/marine/pve/point/squad1
+	icon_state = "spec_spawn_alpha"
+	squad = SQUAD_MARINE_1
+
+/obj/effect/landmark/start/marine/pve/point/squad2
+	icon_state = "spec_spawn_delta"
+	squad = SQUAD_MARINE_4
+
 /datum/job/marine/pve/lead
 	title = JOB_UER_MARINE_LEAD
 	total_positions = 2
@@ -111,3 +135,16 @@
 	var/obj/item/stim_injector/injector = new /obj/item/stim_injector(get_turf(new_human))
 	new_human.bind_stimpack(injector)
 	new_human.put_in_any_hand_if_possible(injector)
+
+/obj/effect/landmark/start/marine/pve/lead/
+	name = JOB_UER_MARINE_LEAD
+	icon_state = "leader_spawn"
+	job = /datum/job/marine/pve/lead
+
+/obj/effect/landmark/start/marine/pve/lead/squad1
+	icon_state = "leader_spawn_alpha"
+	squad = SQUAD_MARINE_1
+
+/obj/effect/landmark/start/marine/pve/lead/squad2
+	icon_state = "leader_spawn_delta"
+	squad = SQUAD_MARINE_4

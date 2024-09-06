@@ -433,14 +433,14 @@
 	icon = 'icons/obj/items/syringe.dmi'
 	icon_state = "stim_5"
 	var/owner_mob
-	var/volume = 25
+	var/volume = 50
 	var/cooldown_time = 0
 	var/cooldown_val = 50
 
 
 /obj/item/stim_injector/update_icon()
 	if(reagents.total_volume > 0)
-		var/num_to_append = floor(reagents.total_volume / 5)
+		var/num_to_append = floor(reagents.total_volume / 10)
 		var/text_to_append = num2text(num_to_append)
 		if(num_to_append > 1)
 			icon_state = "stim_[text_to_append]"
@@ -470,7 +470,7 @@
 	cooldown_time = world.time + cooldown_val
 	playsound(loc, 'sound/items/hypospray.ogg', 60, 1)
 	reagents.reaction(M, INGEST)
-	reagents.trans_to(M, 5)
+	reagents.trans_to(M, 10)
 	user.visible_message("[user] injects [M] with the Super Stimulant!", "You inject [M] with the Super Stimulant!")
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been injected with a SuperStim by [key_name(user)].")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has injected [key_name(M)] with a SuperStim.")
