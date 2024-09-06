@@ -1220,3 +1220,19 @@
 	else
 		GLOB.secondary_objective = new_objective
 		show_blurb(GLOB.player_list, 10 SECONDS, "New Secondary Objective:\n[GLOB.secondary_objective]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+
+/client/proc/enable_full_restock()
+	set category = "DM.Narration"
+	set name = "Enable/Disable Full Restock"
+	set desc = "Makes the next ressuply drop a big one (or not)."
+
+	if(!check_rights(R_ADMIN))
+		return
+	if(GLOB.ammo_restock_full == 0)
+		GLOB.ammo_restock_full = 1
+		to_chat(usr, SPAN_INFO("Full restock ENABLED."))
+		return
+	if(GLOB.ammo_restock_full == 1)
+		GLOB.ammo_restock_full = 0
+		to_chat(usr, SPAN_INFO("Full restock DISABLED."))
+		return

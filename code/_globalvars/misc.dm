@@ -59,6 +59,7 @@ GLOBAL_VAR_INIT(ai_xeno_weeding, TRUE)
 GLOBAL_VAR_INIT(xenosurge_spawner_limit, 30)
 GLOBAL_VAR_INIT(xenosurge_wave_xenos_max, 100)
 GLOBAL_VAR_INIT(xenosurge_wave_xenos_current, 0)
+
 GLOBAL_VAR_INIT(xenosurge_wave_xenos_hp_factor, 1)
 GLOBAL_VAR_INIT(xenosurge_wave_xenos_dam_factor, 1)
 

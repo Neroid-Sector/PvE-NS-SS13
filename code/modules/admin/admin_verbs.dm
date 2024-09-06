@@ -153,6 +153,7 @@ var/list/admin_verbs_minor_event = list(
 	/client/proc/opener_blurb,
 	/client/proc/npc_interaction,
 	/client/proc/change_objective,
+	/client/proc/enable_full_restock,
 )
 
 var/list/admin_verbs_major_event = list(

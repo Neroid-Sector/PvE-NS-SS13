@@ -1738,8 +1738,13 @@
 
 	var/turf_to_spawn = get_turf(src)
 	if(GLOB.ammo_restock_next > world.time)
+		to_chat(usr, SPAN_WARNING("The ammo restock is not ready."))
 		return
-	if(!do_after(usr, 20, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, turf_to_spawn, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
+	if(GLOB.ship_areas.Find(get_area(src)) != 0)
+		to_chat(usr, SPAN_WARNING("You cannot use this on the ship."))
+		return
+	to_chat(usr, SPAN_WARNING("Calling ammo restock. This will put the ability on cooldown <b>for the whole team</b>. Move to cancel."))
+	if(!do_after(usr, 20, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, turf_to_spawn, INTERRUPT_MOVED, BUSY_ICON_BUILD))
 		return
 	if(GLOB.ammo_restock_next <= world.time)
 		GLOB.ammo_restock_next = world.time + GLOB.ammo_restock_delay
@@ -1748,6 +1753,7 @@
 			droppod = new /obj/structure/droppod/equipment/vendor/partial(turf_to_spawn, /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/partial/, src)
 		else
 			droppod = new /obj/structure/droppod/equipment/vendor/(turf_to_spawn, /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/, src)
+			GLOB.ammo_restock_full = 0
 		droppod.drop_time = 5 SECONDS
 		droppod.launch(turf_to_spawn)
 		return
