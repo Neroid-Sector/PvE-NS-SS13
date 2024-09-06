@@ -151,3 +151,36 @@
 /obj/effect/landmark/start/marine/pve/lead/squad2
 	icon_state = "leader_spawn_delta"
 	squad = SQUAD_MARINE_4
+
+/datum/job/marine/pve/pilot_npc
+	title = JOB_UER_PO
+	total_positions = 0
+	spawn_positions = 0
+	supervisors = "Mission Control"
+	gear_preset = /datum/equipment_preset/pve/pilot_npc
+	entry_message_body = "haha"
+
+/datum/equipment_preset/pve/pilot_npc
+	name = "UER Marine Lead"
+	flags = EQUIPMENT_PRESET_EXTRA|EQUIPMENT_PRESET_MARINE
+
+	access = list(ACCESS_MARINE_PREP)
+	assignment = JOB_UER_PO
+	rank = JOB_UER_PO
+	faction = FACTION_MARINE
+	paygrade = "NO3"
+	role_comm_title = "PO"
+	skills = /datum/skills/pve/standard
+
+/datum/equipment_preset/pve/pilot_npc/load_gear(mob/living/carbon/human/new_human)
+
+	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/almayer/po(new_human), WEAR_L_EAR)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine(new_human), WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/officer/pilot(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/knife(new_human), WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow(new_human), WEAR_HANDS)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/gun/m4a3/mod88(new_human), WEAR_WAIST)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/bomber(new_human), WEAR_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/general/large(new_human), WEAR_R_STORE)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/pilot(new_human), WEAR_HEAD)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(new_human), WEAR_EYES)

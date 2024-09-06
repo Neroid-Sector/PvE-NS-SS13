@@ -335,7 +335,7 @@
 
 /obj/docking_port/stationary/marine_dropship/arrowhead_hangar
 	name = "Wraith Launch Bay"
-	id = GOLDEN_ARROW_LZ
+	id = ARROWHEAD_LZ
 	auto_open = TRUE
 	roundstart_template = /datum/map_template/shuttle/wraith
 

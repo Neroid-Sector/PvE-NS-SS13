@@ -44,6 +44,8 @@
 #define JOB_UER_MARINE_POINT "UER Marine Point"
 #define JOB_UER_MARINE_LEAD "UER Marine Team Lead"
 
+#define JOB_UER_PO "UER Dropship Pilot"
+
 var/global/list/job_squad_roles = JOB_SQUAD_ROLES_LIST
 
 #define JOB_COLONIST "Colonist"

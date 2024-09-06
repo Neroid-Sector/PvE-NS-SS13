@@ -91,6 +91,7 @@
 /obj/structure/bed/chair/dropship/pilot{
 	dir = 1
 	},
+/obj/effect/landmark/npc_spawner/pilot_left,
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
 	},
@@ -136,6 +137,7 @@
 /obj/structure/bed/chair/dropship/pilot{
 	dir = 1
 	},
+/obj/effect/landmark/npc_spawner/pilot_right,
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
 	},
