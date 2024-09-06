@@ -17,14 +17,21 @@ map almayer
 endmap
 
 map golden_arrow
-	default
+	disabled
 endmap
 
 map chapaev
+	disabled
 endmap
 
 map rover
+	disabled
 endmap
 
 map golden_arrow_classic
+	disabled
+endmap
+
+map arrowhead
+	default
 endmap

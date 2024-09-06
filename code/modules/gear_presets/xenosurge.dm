@@ -32,6 +32,7 @@
 	access = list(ACCESS_MARINE_PREP)
 	assignment = JOB_UER_MARINE
 	rank = JOB_UER_MARINE
+	faction = FACTION_MARINE
 	paygrade = "ME3"
 	role_comm_title = "OPR"
 	skills = /datum/skills/pve/standard
@@ -76,6 +77,7 @@
 	access = list(ACCESS_MARINE_PREP)
 	assignment = JOB_UER_MARINE_POINT
 	rank = JOB_UER_MARINE_POINT
+	faction = FACTION_MARINE
 	paygrade = "ME4"
 	role_comm_title = "PNT"
 	skills = /datum/skills/pve/standard
@@ -121,6 +123,7 @@
 	access = list(ACCESS_MARINE_PREP)
 	assignment = JOB_UER_MARINE_LEAD
 	rank = JOB_UER_MARINE_LEAD
+	faction = FACTION_MARINE
 	paygrade = "ME5"
 	role_comm_title = "TML"
 	skills = /datum/skills/pve/standard

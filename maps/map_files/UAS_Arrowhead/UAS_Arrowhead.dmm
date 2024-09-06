@@ -1,0 +1,273 @@
+"an" = (/obj/structure/bed/chair/comfy/alpha,/turf/open/floor/almayer,/area/space)
+"aZ" = (/obj/structure/machinery/power/fusion_engine{name = "\improper S-52 fusion reactor 17"},/turf/open/floor/almayer,/area/space)
+"be" = (/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/accesories,/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"bA" = (/obj/structure/surface/table/reinforced/black,/turf/open/floor/almayer,/area/space)
+"bO" = (/obj/structure/machinery/door/poddoor/almayer/locked,/turf/open/floor/almayer{icon_state = "plate"},/area/space)
+"co" = (/turf/open/floor/almayer{icon_state = "bluecorner"; dir = 4},/area/space)
+"cA" = (/obj/structure/machinery/landinglight/ds1/delaytwo{dir = 8},/turf/open/floor/plating/plating_catwalk,/area/space)
+"cK" = (/turf/open/floor/almayer/empty,/area/space)
+"dx" = (/obj/structure/bed/chair/comfy/delta{dir = 4},/turf/open/floor/almayer,/area/space)
+"dz" = (/obj/structure/machinery/light_switch{pixel_x = -10; pixel_y = -30},/obj/structure/sink{dir = 8; pixel_x = -16},/obj/structure/mirror{pixel_x = -29; pixel_y = 3},/turf/open/floor/almayer{icon_state = "silverfull"},/area/space)
+"dF" = (/obj/structure/machinery/cryopod,/turf/open/floor/almayer,/area/space)
+"dO" = (/obj/structure/bed/chair/comfy/delta{dir = 1},/turf/open/floor/almayer{icon_state = "logo_directional1"; dir = 5},/area/space)
+"eJ" = (/obj/structure/machinery/light{dir = 4; invisibility = 101; unacidable = 1; unslashable = 1},/turf/open/floor/almayer{icon_state = "red"; dir = 5},/area/space)
+"eU" = (/turf/open/floor/almayer{icon_state = "logo_directional1"; dir = 10},/area/space)
+"fH" = (/obj/structure/surface/table/reinforced/black,/obj/item/newspaper{pixel_y = 8; pixel_x = -5},/obj/item/tool/pen,/turf/open/floor/almayer,/area/space)
+"fX" = (/obj/structure/bed/chair/comfy/alpha{dir = 1},/turf/open/floor/almayer{icon_state = "red"},/area/space)
+"gk" = (/obj/structure/machinery/light{dir = 8; invisibility = 101},/turf/open/floor/almayer{icon_state = "blue"; dir = 8},/area/space)
+"gP" = (/obj/structure/machinery/light{dir = 8; invisibility = 101},/turf/open/floor/almayer,/area/space)
+"gS" = (/obj/structure/machinery/light/small,/turf/open/floor/almayer{icon_state = "silverfull"},/area/space)
+"gZ" = (/obj/structure/machinery/light/small{dir = 1},/obj/effect/landmark/start/marine/pve/lead/squad2,/turf/open/floor/almayer,/area/space)
+"hl" = (/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo,/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"hr" = (/turf/open/floor/almayer{icon_state = "silverfull"},/area/space)
+"hA" = (/turf/open/floor/almayer{icon_state = "red"; dir = 10},/area/space)
+"hC" = (/obj/structure/machinery/landinglight/ds1/delayone{dir = 4},/turf/open/floor/plating/plating_catwalk,/area/space)
+"hH" = (/turf/open/floor/almayer{icon_state = "logo_directional1"; dir = 8},/area/space)
+"iR" = (/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/attachies,/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"kN" = (/obj/structure/machinery/light_switch{pixel_x = 1; pixel_y = -24},/obj/structure/surface/table/reinforced/black,/obj/item/storage/donut_box{pixel_x = 1; pixel_y = 7},/turf/open/floor/almayer,/area/space)
+"lf" = (/obj/structure/machinery/cm_vending/clothing/pve/standard{density = 0; pixel_y = 22},/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"li" = (/obj/structure/machinery/light{dir = 4; invisibility = 101; unacidable = 1; unslashable = 1},/turf/open/floor/almayer{icon_state = "red"; dir = 6},/area/space)
+"ln" = (/turf/open/floor/plating/plating_catwalk,/area/space)
+"ml" = (/obj/structure/machinery/cm_vending/sorted/pve/uniform,/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"mK" = (/obj/structure/machinery/light{dir = 8; invisibility = 101},/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"nh" = (/obj/structure/machinery/landinglight/ds1/delaythree{dir = 8},/turf/open/floor/plating/plating_catwalk,/area/space)
+"nn" = (/obj/structure/machinery/vending/cigarette/free,/turf/open/floor/almayer,/area/space)
+"nr" = (/turf/open/floor/almayer{icon_state = "logo_c"; dir = 1},/area/space)
+"nC" = (/obj/structure/machinery/landinglight/ds1,/turf/open/floor/plating/plating_catwalk,/area/space)
+"nH" = (/obj/structure/machinery/landinglight/ds1/delaythree{dir = 4},/turf/open/floor/plating/plating_catwalk,/area/space)
+"ph" = (/turf/open/floor/almayer{icon_state = "logo_directional1"; dir = 1},/area/space)
+"py" = (/obj/structure/machinery/light/small{dir = 1},/obj/effect/landmark/start/marine/pve/base/squad1,/turf/open/floor/almayer,/area/space)
+"pM" = (/obj/structure/machinery/landinglight/ds1{dir = 8},/turf/open/floor/plating/plating_catwalk,/area/space)
+"pO" = (/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/attachies,/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"qo" = (/turf/open/floor/almayer{icon_state = "logo_directional1"},/area/space)
+"qC" = (/turf/open/space/basic,/area/space)
+"rc" = (/turf/open/floor/plating,/area/space)
+"rv" = (/obj/effect/landmark/late_join/delta,/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"rY" = (/obj/docking_port/stationary/marine_dropship/arrowhead_hangar,/turf/open/floor/plating,/area/space)
+"sd" = (/obj/structure/bed/chair/comfy/delta{dir = 8},/turf/open/floor/almayer,/area/space)
+"tA" = (/obj/structure/machinery/door/airlock/almayer/marine/alpha,/turf/open/floor/almayer,/area/space)
+"tE" = (/obj/structure/bed/chair/comfy/alpha{dir = 4},/turf/open/floor/almayer,/area/space)
+"tG" = (/obj/structure/machinery/cm_vending/sorted/marine_food,/turf/open/floor/almayer,/area/space)
+"tP" = (/obj/effect/landmark/late_join/alpha,/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"ut" = (/turf/open/floor/almayer{icon_state = "plate"},/area/space)
+"vh" = (/obj/structure/machinery/cm_vending/sorted/pve/uniform,/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"vl" = (/obj/structure/bed/chair/comfy/delta{dir = 1},/turf/open/floor/almayer,/area/space)
+"vo" = (/turf/open/floor/almayer{icon_state = "blue"; dir = 5},/area/space)
+"vA" = (/obj/structure/machinery/light/small{dir = 1},/obj/effect/landmark/start/marine/pve/point/squad1,/turf/open/floor/almayer,/area/space)
+"vX" = (/obj/structure/machinery/landinglight/ds1/delayone,/turf/open/floor/plating/plating_catwalk,/area/space)
+"wD" = (/obj/structure/machinery/telecomms/relay/preset/tower,/turf/open/floor/almayer,/area/space)
+"wF" = (/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/accesories,/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"wH" = (/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/extra_munitions,/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"wU" = (/obj/structure/machinery/light{dir = 4; invisibility = 101; unacidable = 1; unslashable = 1},/turf/open/floor/almayer{icon_state = "red"; dir = 4},/area/space)
+"xl" = (/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/guns,/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"xn" = (/obj/structure/machinery/vending/cola,/turf/open/floor/almayer,/area/space)
+"yn" = (/obj/structure/machinery/landinglight/ds1/delayone{dir = 8},/turf/open/floor/plating/plating_catwalk,/area/space)
+"yC" = (/turf/open/floor/almayer{icon_state = "red"; dir = 8},/area/space)
+"zq" = (/turf/open/floor/almayer{icon_state = "blue"; dir = 6},/area/space)
+"zM" = (/turf/open/floor/almayer{icon_state = "bluecorner"},/area/space)
+"zO" = (/turf/closed/wall/almayer,/area/space)
+"AM" = (/obj/effect/landmark/observer_start,/turf/closed/wall/almayer,/area/space)
+"AV" = (/obj/structure/machinery/light{dir = 1},/turf/open/floor/almayer,/area/space)
+"By" = (/obj/structure/machinery/landinglight/ds1/delaytwo{dir = 1},/turf/open/floor/almayer{icon_state = "plate"},/area/space)
+"Ct" = (/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"CK" = (/obj/structure/machinery/light{dir = 8; invisibility = 101},/turf/open/floor/almayer{icon_state = "blue"; dir = 9},/area/space)
+"CQ" = (/turf/open/floor/almayer{icon_state = "redcorner"; dir = 1},/area/space)
+"Do" = (/turf/open/floor/almayer{icon_state = "red"; dir = 9},/area/space)
+"DE" = (/obj/structure/machinery/door/airlock/almayer/generic,/turf/open/floor/almayer,/area/space)
+"DS" = (/obj/structure/bookcase/manuals,/turf/open/floor/almayer,/area/space)
+"Eo" = (/obj/structure/machinery/cryopod/right,/turf/open/floor/almayer,/area/space)
+"EL" = (/obj/structure/surface/table/reinforced/black,/obj/item/device/flashlight/lamp{pixel_x = 7; pixel_y = 7},/turf/open/floor/almayer,/area/space)
+"Fa" = (/obj/effect/landmark/late_join,/turf/open/floor/almayer,/area/space)
+"Fs" = (/obj/structure/sink{dir = 4; pixel_x = 16},/obj/structure/mirror{pixel_x = 29; pixel_y = 3},/obj/structure/machinery/light/small,/obj/structure/machinery/light_switch{pixel_x = -10; pixel_y = -30},/turf/open/floor/almayer{icon_state = "silverfull"},/area/space)
+"Ft" = (/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/extra_munitions,/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"Fw" = (/obj/structure/machinery/light/small{dir = 1},/obj/effect/landmark/start/marine/pve/lead/squad1,/turf/open/floor/almayer,/area/space)
+"Gm" = (/obj/structure/machinery/light,/turf/open/floor/almayer,/area/space)
+"GD" = (/obj/structure/machinery/door/airlock/multi_tile/almayer/marine/alpha,/obj/structure/machinery/door/poddoor/almayer/locked,/turf/open/floor/almayer,/area/space)
+"Hg" = (/obj/structure/machinery/door/airlock/almayer/marine/delta,/turf/open/floor/almayer,/area/space)
+"Hp" = (/turf/open/floor/almayer,/area/space)
+"Hs" = (/obj/structure/machinery/light{dir = 4; invisibility = 101; unacidable = 1; unslashable = 1},/obj/structure/machinery/light_switch{pixel_x = 23},/turf/open/floor/almayer,/area/space)
+"Hy" = (/obj/structure/machinery/landinglight/ds1/delaytwo{dir = 1},/turf/open/floor/plating/plating_catwalk,/area/space)
+"HA" = (/obj/structure/machinery/light,/turf/open/floor/almayer{icon_state = "redcorner"},/area/space)
+"HP" = (/turf/open/floor/almayer{icon_state = "logo_directional1"; dir = 9},/area/space)
+"Ia" = (/obj/structure/machinery/landinglight/ds1/delayone{dir = 1},/turf/open/floor/plating/plating_catwalk,/area/space)
+"Ii" = (/turf/open/floor/almayer{icon_state = "blue"; dir = 4},/area/space)
+"Iu" = (/turf/open/floor/almayer{icon_state = "blue"; dir = 8},/area/space)
+"IE" = (/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo,/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"Jh" = (/turf/open/floor/almayer{icon_state = "red"; dir = 1},/area/space)
+"Jv" = (/obj/structure/machinery/light{dir = 8; invisibility = 101},/obj/effect/landmark/late_join/alpha,/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"Kt" = (/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"Kx" = (/obj/structure/machinery/light{dir = 4; invisibility = 101; unacidable = 1; unslashable = 1},/obj/effect/landmark/late_join/alpha,/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"KQ" = (/obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/guns,/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"Lk" = (/obj/structure/machinery/light{dir = 8; invisibility = 101},/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"Lq" = (/turf/open/floor/almayer{icon_state = "logo_directional1"; dir = 4},/area/space)
+"LB" = (/obj/structure/machinery/landinglight/ds1{dir = 4},/turf/open/floor/plating/plating_catwalk,/area/space)
+"Mi" = (/obj/structure/machinery/light/small{dir = 1},/obj/effect/landmark/start/marine/pve/base/squad2,/turf/open/floor/almayer,/area/space)
+"Mn" = (/turf/open/floor/almayer{icon_state = "blue"},/area/space)
+"Nw" = (/turf/open/floor/almayer{icon_state = "redcorner"; dir = 8},/area/space)
+"NN" = (/obj/structure/machinery/cm_vending/clothing/pve/standard{density = 0; pixel_y = 22},/turf/open/floor/almayer,/area/space)
+"Oq" = (/obj/structure/machinery/light{dir = 4; invisibility = 101; unacidable = 1; unslashable = 1},/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"OK" = (/turf/open/floor/almayer{icon_state = "blue"; dir = 1},/area/space)
+"OW" = (/obj/structure/machinery/landinglight/ds1/delaytwo{dir = 4},/turf/open/floor/plating/plating_catwalk,/area/space)
+"PJ" = (/obj/structure/machinery/door/airlock/multi_tile/almayer/marine/delta,/obj/structure/machinery/door/poddoor/almayer/locked,/turf/open/floor/almayer,/area/space)
+"Qe" = (/obj/structure/machinery/door/airlock/almayer/generic{dir = 2},/turf/open/floor/almayer,/area/space)
+"QB" = (/obj/structure/machinery/door/airlock/almayer/generic{dir = 1},/turf/open/floor/almayer,/area/space)
+"QX" = (/obj/structure/machinery/door/airlock/multi_tile/almayer/generic/autoname,/turf/open/floor/almayer,/area/space)
+"Rj" = (/obj/structure/machinery/light{dir = 8; invisibility = 101},/turf/open/floor/almayer{icon_state = "blue"; dir = 10},/area/space)
+"RS" = (/turf/open/floor/almayer{icon_state = "red"},/area/space)
+"Sq" = (/turf/open/floor/almayer{icon_state = "red"; dir = 4},/area/space)
+"Sy" = (/obj/structure/machinery/vending/snack/packaged,/turf/open/floor/almayer,/area/space)
+"SI" = (/obj/structure/bed/chair/comfy/alpha{dir = 1},/turf/open/floor/almayer,/area/space)
+"SR" = (/obj/structure/machinery/shower{pixel_y = 25},/turf/open/floor/almayer{icon_state = "silverfull"},/area/space)
+"SX" = (/obj/structure/machinery/landinglight/ds1/delaythree,/turf/open/floor/plating/plating_catwalk,/area/space)
+"SZ" = (/obj/structure/machinery/landinglight/ds1/delaythree{dir = 1},/turf/open/floor/plating/plating_catwalk,/area/space)
+"Tu" = (/obj/structure/machinery/landinglight/ds1{dir = 1},/turf/open/floor/plating/plating_catwalk,/area/space)
+"TU" = (/obj/structure/machinery/door/poddoor/almayer/locked,/turf/open/floor/almayer,/area/space)
+"TY" = (/obj/structure/bed/chair/comfy/delta,/turf/open/floor/almayer,/area/space)
+"Ug" = (/obj/structure/bed/chair/comfy/alpha{dir = 8},/turf/open/floor/almayer,/area/space)
+"Uy" = (/obj/structure/window/framed/almayer/hull,/turf/open/floor/almayer,/area/space)
+"UY" = (/obj/structure/machinery/door/airlock/multi_tile/almayer/generic/autoname{dir = 1},/turf/open/floor/almayer,/area/space)
+"Vk" = (/obj/structure/machinery/light{dir = 4; invisibility = 101; unacidable = 1; unslashable = 1},/turf/open/floor/almayer{icon_state = "bluefull"},/area/space)
+"Wu" = (/obj/structure/machinery/vending/walkman,/turf/open/floor/almayer,/area/space)
+"WR" = (/obj/structure/bed/chair/comfy/alpha{dir = 1},/turf/open/floor/almayer{icon_state = "logo_directional1"; dir = 6},/area/space)
+"Xa" = (/obj/structure/machinery/landinglight/ds1/delaytwo,/turf/open/floor/plating/plating_catwalk,/area/space)
+"Xo" = (/obj/structure/machinery/vending/coffee,/turf/open/floor/almayer,/area/space)
+"XB" = (/obj/structure/machinery/cm_vending/clothing/pve/standard{density = 0; pixel_y = 22},/turf/open/floor/almayer{icon_state = "redfull"},/area/space)
+"XK" = (/obj/structure/toilet{pixel_y = 18},/turf/open/floor/almayer{icon_state = "silverfull"},/area/space)
+"ZY" = (/obj/structure/machinery/light/small{dir = 1},/obj/effect/landmark/start/marine/pve/point/squad2,/turf/open/floor/almayer,/area/space)
+
+(1,1,1) = {"
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOzOzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOaZaZaZzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOaZwDaZzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOaZaZaZzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOaZaZaZzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOaZaZaZzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOdFFwzOXKSRzOXBXBXBzOcKcKcKcKcKcKcKcKcKzOlflflfzOSRXKzOgZEozOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOkNHpDEhrFszOJvtPKxzOcKcKcKcKcKcKcKcKcKzOrvrvrvzOdzgSDEHpkNzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOQezOQBzOzOCtCtCtzOcKcKcKcKcKcKcKcKcKzOmKKtVkzOzOQezOQBzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOHpHpNNHpHptACtCtCtzOcKcKcKcKcKcKcKcKcKzOKtKtKtHgHpHpNNHpHpzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOgPHpHpHpHszOCtCtCtzOcKcKcKcKcKcKcKcKcKzOKtKtKtzOgPHpHpHpHszOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzODSfHELHpHpzOCtCtCtzOcKcKcKcKcKcKcKcKcKzOKtKtKtzOHpHpfHELDSzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOzOzOzOzOzOCtCtCtzOcKcKcKcKcKcKcKcKcKzOKtKtKtzOzOzOzOzOzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOdFvAzOXKSRzOCtCtCtzOcKcKcKcKcKcKcKcKcKzOKtKtKtzOSRXKzOZYEozOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOkNHpDEhrFszOLkCtOqzOzOTUTUTUTUTUTUTUzOzOmKKtVkzOdzgSDEHpkNzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOQezOQBzOzOCtCtCtHpAVHpHpHpHpHpHpHpAVHpKtKtKtzOzOQezOQBzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOHpHpNNHpHptACtCtCtHpHpHpHpHpHpHpHpHpHpHpKtKtKtHgHpHpNNHpHpzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOgPHpHpHpHszOCtCtCtHpHpHpHpHpFaHpHpHpHpHpKtKtKtzOgPHpHpHpHszOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzODSfHELHpHpzOCtCtCtHpHpHpHptGzOtGHpHpHpHpKtKtKtzOHpHpfHELDSzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOzOzOzOzOzOCtCtCtHpHpHpHptGzOtGHpHpHpHpKtKtKtzOzOzOzOzOzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOdFpyzOXKSRzOCtCtCtHpHpananHpAVTYTYHpHpHpKtKtKtzOSRXKzOMiEozOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOkNHpDEhrFszOLkCtCtHptEbAbAUgdxbAbAsdHpHpKtKtVkzOdzgSDEHpkNzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOQezOQBzOzOCtCtCtHptEbAbAUgdxbAbAsdHpHpKtKtKtzOzOQezOQBzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOHpHpNNHpHptACtCtCtHptEbAbAUgdxbAbAsdHpHpKtKtKtHgHpHpNNHpHpzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOgPHpHpHpHszOCtCtCtHpHpSISIHpGmvlvlHpHpHpKtKtKtzOgPHpHpHpHszOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzODSfHELHpHpzOCtCtCtHpHpHpHpnnzOSyHpHpHpHpKtKtKtzOHpHpfHELDSzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOzOzOzOzOzOCtCtCtHpHpHpHpXozOxnHpHpHpHpKtKtKtzOzOzOzOzOzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOdFpyzOXKSRzOCtCtCtHpHpHpHpHpWuHpHpHpHpHpKtKtKtzOSRXKzOMiEozOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOkNHpDEhrFszOLkCtCtHpHpHpHpHpHpHpHpHpHpHpKtKtVkzOdzgSDEHpkNzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOQezOQBzOzOCtCtCtHpHpHpGmHpHpHpGmHpHpHpKtKtKtzOzOQezOQBzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOHpHpNNHpHptACtCtOqzOQXHpzOzOAMzOzOQXHpzOmKKtKtHgHpHpNNHpHpzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOgPHpHpHpHszOCtCtCtzOHpHpAVbAbAbAAVHpHpzOKtKtKtzOgPHpHpHpHszOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzODSfHELHpHpzOCtCtCtHpHpHpHpeUhHHPHpHpHpHpKtKtKtzOHpHpfHELDSzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOzOzOzOzOzOCtCtCtUYHpSISIqonrphvlvlHpUYKtKtKtzOzOzOzOzOzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOdFpyzOXKSRzOCtCtCtzOHpSISIWRLqdOvlvlHpzOKtKtKtzOSRXKzOMiEozOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOkNHpDEhrFszOLkCtCtzOHAfXfXNwHpHpvlvlGmzOKtKtVkzOdzgSDEHpkNzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOQezOQBzOzOCtCtOqzOzOGDTUzOzOzOPJTUzOzOmKKtKtzOzOQezOQBzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOHpHpNNHpHptACtCtCtzOvhDoJheJzOCKOKvomlzOKtKtKtHgHpHpNNHpHpzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOgPHpHpHpHszOCtCtCtzOvhyCHpSqUyIuHpIimlzOKtKtKtzOgPHpHpHpHszOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzODSfHELHpHpzOCtCtCtzOxlyCHpSqUyIuHpIiKQzOKtKtKtzOHpHpfHELDSzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOzOzOzOzOzOCtCtCtzOxlyCHpSqUyIuHpIiKQzOKtKtKtzOzOzOzOzOzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOdFpyzOXKSRzOCtCtCtzOxlhANwSqUyIuzMzqKQzOKtKtKtzOSRXKzOMiEozOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOkNHpDEhrFszOLkCtOqzOzOzOyCwUzOgkIizOzOzOmKKtVkzOdzgSDEHpkNzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOQezOQBzOzOCtCtCtzObeDoCQSqUyIucovowFzOKtKtKtzOzOQezOQBzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOHpHpNNHpHptACtCtCtzObeyCHpSqUyIuHpIiwFzOKtKtKtHgHpHpNNHpHpzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOgPHpHpHpHszOCtCtCtzOFtyCHpSqUyIuHpIiwHzOKtKtKtzOgPHpHpHpHszOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzODSfHELHpHpzOCtCtCtzOFthANwSqUyIuzMzqwHzOKtKtKtzOHpHpfHELDSzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOzOzOzOzOzOCtCtOqzOzOzOyCwUzOgkIizOzOzOmKKtKtzOzOzOzOzOzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOdFpyzOXKSRzOCtCtCtzOiRDoCQSqUyIucovopOzOKtKtKtzOSRXKzOMiEozOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOkNHpDEhrFszOLkCtCtzOiRyCHpSqUyIuHpIipOzOKtKtVkzOdzgSDEHpkNzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOQezOQBzOzOCtCtCtzOiRyCHpSqUyIuHpIipOzOKtKtKtzOzOQezOQBzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOHpHpNNHpHptACtCtCtzOhlyCHpSqUyIuHpIiIEzOKtKtKtHgHpHpNNHpHpzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOgPHpHpHpHszOCtCtCtzOhlyCHpSqUyIuHpIiIEzOKtKtKtzOgPHpHpHpHszOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzODSfHELHpHpzOCtCtCtzOhlhARSlizORjMnzqIEzOKtKtKtzOHpHpfHELDSzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOzOzOzOzOzOzOzOzOzOzOzOzOGDTUzOPJTUzOzOzOzOzOzOzOzOzOzOzOzOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutututututututututututututututzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutlnXavXnCSXXavXnCSXXavXnClnutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOuthCrcrcrcrcrcrcrcrcrcrcrcnhutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOuthCrcrcrcrcrcrcrcrcrcrcrccAutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOuthCrcrcrcrcrcrcrcrcrcrcrcynutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutOWrcrcrcrcrcrcrcrcrcrcrcpMutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutnHrcrcrcrcrcrcrcrcrcrcrcnhutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutLBrcrcrcrcrcrcrcrcrcrcrccAutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOuthCrcrcrcrcrcrcrcrcrcrcrcynutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutOWrcrcrcrcrcrcrcrcrcrcrcpMutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutnHrcrcrcrcrcrcrcrcrcrcrcnhutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutLBrcrcrcrcrcrcrcrcrcrcrccAutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOuthCrcrcrcrcrcrYrcrcrcrcrcynutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutOWrcrcrcrcrcrcrcrcrcrcrcpMutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutnHrcrcrcrcrcrcrcrcrcrcrcnhutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutLBrcrcrcrcrcrcrcrcrcrcrccAutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOuthCrcrcrcrcrcrcrcrcrcrcrcynutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutOWrcrcrcrcrcrcrcrcrcrcrcpMutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutnHrcrcrcrcrcrcrcrcrcrcrcnhutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutLBrcrcrcrcrcrcrcrcrcrcrccAutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOuthCrcrcrcrcrcrcrcrcrcrcrcynutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutOWrcrcrcrcrcrcrcrcrcrcrcpMutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutnHrcrcrcrcrcrcrcrcrcrcrcnhutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutlnTuIaHySZTuIaHySZTuIaBylnutzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzOutututututututututututututututzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCzObObObObObObObObObObObObObObObOzOqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+qCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqCqC
+"}
