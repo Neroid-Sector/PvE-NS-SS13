@@ -496,6 +496,15 @@
 /obj/structure/bookcase/manuals,
 /turf/open/floor/almayer,
 /area/arrowhead/delta_s4)
+"kp" = (
+/obj/structure/machinery/power/fusion_engine{
+	name = "\improper S-52 fusion reactor 17"
+	},
+/obj/structure/machinery/power/apc/almayer{
+	dir = 1
+	},
+/turf/open/floor/almayer,
+/area/arrowhead/engineering)
 "kH" = (
 /obj/structure/machinery/cryopod,
 /turf/open/floor/almayer,
@@ -664,6 +673,12 @@
 	icon_state = "bluefull"
 	},
 /area/arrowhead/canteen)
+"nk" = (
+/obj/structure/machinery/power/apc/almayer{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
 "ns" = (
 /obj/structure/bed/chair/comfy/delta{
 	dir = 1
@@ -3286,7 +3301,7 @@ LU
 LU
 LU
 LU
-LU
+nk
 LU
 LU
 LU
@@ -5836,7 +5851,7 @@ LU
 LU
 LU
 BD
-Fu
+kp
 Fu
 Fu
 Fu

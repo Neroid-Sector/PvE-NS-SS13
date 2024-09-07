@@ -18,8 +18,8 @@
 
 /datum/job/marine/pve/base
 	title = JOB_UER_MARINE
-	total_positions = 6
-	spawn_positions = 6
+	total_positions = 8
+	spawn_positions = 8
 	supervisors = "Mission Control"
 	flags_startup_parameters = ROLE_ADD_TO_DEFAULT|ROLE_ADD_TO_SQUAD
 	gear_preset = /datum/equipment_preset/pve/base
