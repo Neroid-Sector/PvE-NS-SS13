@@ -211,7 +211,7 @@
 	to_chat(H, narrate_body(entry_message_body))
 	if(!entry_message_end)
 		entry_message_end = "As the [title] you answer to [supervisors]. Special circumstances may change this!"
-	to_chat(H, narrate_body(entry_message_body))
+	to_chat(H, narrate_body(entry_message_end))
 	return
 
 /datum/job/proc/announce_entry_message(mob/living/carbon/human/H, datum/money_account/M, whitelist_status) //The actual message that is displayed to the mob when they enter the game as a new player.
@@ -222,7 +222,7 @@
 		//Document syntax cannot have tabs for proper formatting.
 		var/entrydisplay = " \
 			[flags_startup_parameters & ROLE_ADMIN_NOTIFY ? narrate_head("You are playing a job that is important for game progression. If you have to disconnect, please notify the admins via adminhelp.") : ""] \n\
-			[narrate_body("[generate_entry_message(H)]<br>[M ? "Your account number is: <b>[M.account_number]</b>. Your account pin is: <b>[M.remote_access_pin]</b>." : "You do not have a bank account."]")] \n\
+			[narrate_body("[M ? "Your account number is: <b>[M.account_number]</b>. Your account pin is: <b>[M.remote_access_pin]</b>." : "You do not have a bank account."]")] \n\
 		"
 		to_chat_spaced(H, html = narrate_body(entrydisplay))
 

@@ -15,7 +15,7 @@
 /turf/open/floor/almayer,
 /area/arrowhead/delta_pn)
 "an" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -217,7 +217,7 @@
 /turf/open/floor/almayer,
 /area/arrowhead/delta_s2)
 "fb" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -477,7 +477,7 @@
 	},
 /area/arrowhead/delta_s3)
 "jE" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -540,7 +540,7 @@
 /turf/open/floor/almayer,
 /area/arrowhead/canteen)
 "lx" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -899,7 +899,7 @@
 	},
 /area/arrowhead/hangar)
 "sY" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -1066,7 +1066,7 @@
 	},
 /area/arrowhead/alpha_tl)
 "vO" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -1328,7 +1328,7 @@
 /turf/open/floor/almayer,
 /area/arrowhead/alpha_s4)
 "Af" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -1354,7 +1354,7 @@
 	},
 /area/arrowhead/alpha_s1)
 "AL" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -1668,7 +1668,7 @@
 /turf/open/floor/almayer,
 /area/arrowhead/delta_s2)
 "Ge" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -1774,7 +1774,7 @@
 /turf/open/floor/almayer,
 /area/arrowhead/alpha_s1)
 "IO" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -1785,9 +1785,9 @@
 /turf/open/floor/almayer,
 /area/arrowhead/alpha_pn)
 "IY" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/general{
 	density = 0;
-	pixel_y = 22
+	pixel_y = 20
 	},
 /turf/open/floor/almayer{
 	icon_state = "redfull"
@@ -1932,9 +1932,9 @@
 /turf/open/floor/almayer,
 /area/arrowhead/delta_s1)
 "NC" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/general{
 	density = 0;
-	pixel_y = 22
+	pixel_y = 20
 	},
 /turf/open/floor/almayer{
 	icon_state = "bluefull"
@@ -2299,7 +2299,7 @@
 /turf/open/floor/almayer,
 /area/arrowhead/alpha_s1)
 "Vu" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},
@@ -2390,7 +2390,7 @@
 /turf/open/floor/almayer,
 /area/arrowhead/alpha_s4)
 "XN" = (
-/obj/structure/machinery/cm_vending/clothing/pve/standard{
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
 	pixel_y = 22
 	},

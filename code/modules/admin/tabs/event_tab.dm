@@ -1139,7 +1139,7 @@
 /client/proc/opener_blurb()
 	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "<b>The year is 2224.</b>\n\nLocated on the edge of the <b>Neroid Sector</b>\n<b>LV-624</b> grew from an insignificant prison\nplanet with a minor corporate interest\nto an <b>important way-station</b>, with all\nthree major factions maintaining\ninstallations on the planet.\n\n<b>On February 11th, 2224</b>, an <b>unidentified\nflying object</b> enters the solar system\nand impacts the planets communications\narray.\n<b>All contact</b> with the planet and its\nsurrounding infrastructure <b>is lost.</b>",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+4.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
 	sleep(600)
-	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "Due to the politics involved, <b>it takes\nmonths</b> to organize a rescue. Now, thanks\nto an one-of-a-kind agreement\nthe <b>1st United Expeditionary Response</b>\nconsisting of elements coming from all\nthree of the major political players\nback on Earth is finally close to\narriving in the system.\n\nYou are part of the <b>United Americas\nColonial Marines</b> element of the <b>UER</b>.\nYou have been hand picked from a narrow\nfield of qualified volunteers to take\npart in this operation and have been\nassigned to the <b>UAS Arrowhead</b>.\nYou are the first organized military\nresponse in the system since it lost\ncontact.\n\n<b>Your mission begins now.</b>",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+3.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
+	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "Due to the politics involved, <b>it takes\nmonths</b> to organize a rescue. Now, thanks\nto an one-of-a-kind agreement\nthe <b>1st United Expeditionary Response</b>\nconsisting of elements coming from all\nthree of the major political players\nback on Earth is finally close to\narriving in the system.\n\nYou are part of the <b>Force Recon</b> element of the <b>UER</b>.\nYou have been hand picked from a narrow\nfield of qualified volunteers to take\npart in this operation and have been\nassigned to the <b>UAS Arrowhead</b>.\nYou are the first organized military\nresponse in the system since it lost\ncontact.\n\n<b>Your mission begins now.</b>",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+3.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
 
 /client/proc/npc_interaction()
 	set category = "DM.Narration"
@@ -1214,11 +1214,11 @@
 				GLOB.secondary_objective = "Recieving new orders..."
 			sleep(50)
 	if(type_to_change == "Primary")
-		GLOB.primary_objective = new_objective
+		GLOB.primary_objective = "- [new_objective]"
 		show_blurb(GLOB.player_list, 10 SECONDS, "New Primary Objective:\n[GLOB.primary_objective]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
 
 	else
-		GLOB.secondary_objective = new_objective
+		GLOB.secondary_objective = "- [new_objective]"
 		show_blurb(GLOB.player_list, 10 SECONDS, "New Secondary Objective:\n[GLOB.secondary_objective]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
 
 /client/proc/enable_full_restock()

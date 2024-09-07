@@ -1,25 +1,40 @@
-/obj/structure/machinery/cm_vending/clothing/pve/standard
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal
 	name = "\improper UAR Personal Uniform Rack"
 	desc = "A secure personal uniform storage sollution, much like the bigger dispensers, but linked to a smaller, local storage"
 	req_access = list()
-	vendor_role = list()
-	vend_flags = VEND_CLUTTER_PROTECTION | VEND_UNIFORM_AUTOEQUIP
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_UNIFORM_AUTOEQUIP | VEND_LIMITED_INVENTORY
 
-/obj/structure/machinery/cm_vending/pve/standard/get_listed_products(mob/user)
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/personal/get_listed_products(mob/user)
 	return list(
-	list("STANDARD EQUIPMENT (TAKE ALL)", 0, null, null, null),
-	list("Gloves", 0, /obj/item/clothing/gloves/marine, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
-	list("Headset", 0, /obj/item/device/radio/headset/almayer/mmpo, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
-	list("Marine Combat Boots", 0, /obj/item/clothing/shoes/marine/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
-	list("UNIFORM (CHOOSE 1)", 0, null, null, null),
-	list("Standard", 0, /obj/item/clothing/under/marine/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
-	list("Medic", 0, /obj/item/clothing/under/marine/medic/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
-	list("Engineer", 0, /obj/item/clothing/under/marine/engineer/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
-	list("Engineer - alternative", 0, /obj/item/clothing/under/marine/engineer/darker, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
-	list("Radio Officer", 0, /obj/item/clothing/under/marine/rto/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
-	list("Sniper", 0, /obj/item/clothing/under/marine/sniper/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
-	list("Vehicle Operator", 0, /obj/item/clothing/under/marine/tanker/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+	list("WELCOME, UER MARINE!", 0, null, null, null),
+	list("Gloves", 1, /obj/item/clothing/gloves/marine, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
+	list("Headset", 1, /obj/item/device/radio/headset/almayer/mmpo, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
+	list("Marine Combat Boots", 1, /obj/item/clothing/shoes/marine/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
+	list("Standard Unifrom", 1, /obj/item/clothing/under/marine/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
 	)
+
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/general
+	name = "\improper UAR General Uniform Rack"
+	desc = "A secure uniform storage sollution, linked to a general, shared storage."
+	req_access = list()
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_UNIFORM_AUTOEQUIP | VEND_LIMITED_INVENTORY
+
+/obj/structure/machinery/cm_vending/sorted/pve/uniform/general/get_listed_products(mob/user)
+	return list(
+	list("STANDARD EQUIPMENT", 0, null, null, null),
+	list("Gloves", 20, /obj/item/clothing/gloves/marine, MARINE_CAN_BUY_GLOVES, VENDOR_ITEM_MANDATORY),
+	list("Headset", 20, /obj/item/device/radio/headset/almayer/mmpo, MARINE_CAN_BUY_EAR, VENDOR_ITEM_MANDATORY),
+	list("Marine Combat Boots", 20, /obj/item/clothing/shoes/marine/knife, MARINE_CAN_BUY_SHOES, VENDOR_ITEM_MANDATORY),
+	list("UNIFORMS", 0, null, null, null),
+	list("Standard", 20, /obj/item/clothing/under/marine/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+	list("Medic", 20, /obj/item/clothing/under/marine/medic/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+	list("Engineer", 20, /obj/item/clothing/under/marine/engineer/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+	list("Engineer - alternative", 20, /obj/item/clothing/under/marine/engineer/darker, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+	list("Radio Officer", 20, /obj/item/clothing/under/marine/rto/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+	list("Sniper", 20, /obj/item/clothing/under/marine/sniper/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+	list("Vehicle Operator", 20, /obj/item/clothing/under/marine/tanker/standard, MARINE_CAN_BUY_UNIFORM, VENDOR_ITEM_MANDATORY),
+	)
+
 
 /obj/structure/machinery/cm_vending/sorted/pve/uniform
 	name = "\improper UAR Armor Vendor"
@@ -28,7 +43,7 @@
 	req_access = list()
 	req_one_access = list()
 	hackable = TRUE
-	vend_flags = VEND_CLUTTER_PROTECTION | VEND_UNIFORM_AUTOEQUIP
+	vend_flags = VEND_CLUTTER_PROTECTION | VEND_UNIFORM_AUTOEQUIP | VEND_LIMITED_INVENTORY
 	vendor_theme = VENDOR_THEME_USCM
 
 	listed_products = list(

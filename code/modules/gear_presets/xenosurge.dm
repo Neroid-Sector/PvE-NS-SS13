@@ -23,7 +23,9 @@
 	supervisors = "Mission Control"
 	flags_startup_parameters = ROLE_ADD_TO_DEFAULT|ROLE_ADD_TO_SQUAD
 	gear_preset = /datum/equipment_preset/pve/base
-	entry_message_body = "haha"
+	entry_message_intro = "You are a <b>Marine Operator</b> serving as part of the <b>United Expeditionary Response</b> formation."
+	entry_message_body = "You have been hand-picked after volunteering by your original armed formation to <b>take part in the UER’s first mission on LV-624.</b> Whether you truly believe the ideas of humanity joining forces to fight outside threats, see the UER as a stepping stone for your career back home, or have other reasons for wanting to be a part of this force, you have spent the last months under intensive training getting to know both the joint protocols that the UER uses as well as some of your new formation-mates."
+	entry_message_end = "You have been assigned to one of the <b>Force Recon</b> teams serving on the <b>UAS Arrowhead</b>. With your squad mates, you will participate in reconnaissance and scouting operations, as well as assist in delicate information, personnel and equipment securing and retrieval operations. <b>Good luck!</b>"
 
 /datum/equipment_preset/pve/base
 	name = "UER Marine Operator"
@@ -68,7 +70,9 @@
 	supervisors = "Mission Control"
 	flags_startup_parameters = ROLE_ADD_TO_DEFAULT|ROLE_ADD_TO_SQUAD
 	gear_preset = /datum/equipment_preset/pve/point
-	entry_message_body = "haha"
+	entry_message_intro = "You are a <b>Marine Point</b> serving as part of the <b>United Expeditionary Response</b> formation."
+	entry_message_body = "You have been hand-picked after volunteering by your original armed formation to <b>take part in the UER’s first mission on LV-624.</b> Whether you truly believe the ideas of humanity joining forces to fight outside threats, see the UER as a stepping stone for your career back home, or have other reasons for wanting to be a part of this force, you have spent the last months under intensive training getting to know both the joint protocols that the UER uses as well as some of your new formation-mates."
+	entry_message_end = "You have been assigned to one of the <b>Force Recon</b> teams serving on the <b>UAS Arrowhead</b>. With your squad mates, you will participate in reconnaissance and scouting operations, as well as assist in delicate information, personnel and equipment securing and retrieval operations. <b>Good luck!</b>"
 
 /datum/equipment_preset/pve/point
 	name = "UER Marine Point"
@@ -114,7 +118,9 @@
 	supervisors = "Mission Control"
 	flags_startup_parameters = ROLE_ADD_TO_DEFAULT|ROLE_ADD_TO_SQUAD
 	gear_preset = /datum/equipment_preset/pve/lead
-	entry_message_body = "haha"
+	entry_message_intro = "You are a <b>Marine Team Lead</b> serving as part of the <b>United Expeditionary Response</b> formation."
+	entry_message_body = "You have been hand-picked after volunteering by your original armed formation to <b>take part in the UER’s first mission on LV-624.</b> Whether you truly believe the ideas of humanity joining forces to fight outside threats, see the UER as a stepping stone for your career back home, or have other reasons for wanting to be a part of this force, you have spent the last months under intensive training getting to know both the joint protocols that the UER uses as well as some of your new formation-mates."
+	entry_message_end = "You have been assigned to one of the <b>Force Recon</b> teams serving on the <b>UAS Arrowhead</b>. With your squad mates, you will participate in reconnaissance and scouting operations, as well as assist in delicate information, personnel and equipment securing and retrieval operations. <b>Good luck!</b>"
 
 /datum/equipment_preset/pve/lead
 	name = "UER Marine Lead"
