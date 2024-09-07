@@ -40,14 +40,14 @@
 	if(!check_rights(R_ADMIN))
 		return
 	var/surge_setup_value
-	switch(tgui_input_list(usr, "Max:[GLOB.xenosurge_spawner_limit]\nSpawned:[GLOB.xenosurge_wave_xenos_current] out of [GLOB.xenosurge_wave_xenos_max]", "SURGE", list("Max","Xenos","Factors","Spawns")))
+	switch(tgui_input_list(usr, "Max:[GLOB.xenosurge_spawner_limit]\nSpawned:[GLOB.xenosurge_wave_xenos_current] out of [GLOB.xenosurge_wave_xenos_max]", "SURGE", list("Global Xeno Limit","Number of Surge Xenos","Factors","Spawn List")))
 		if(null)
 			return
-		if("Max")
+		if("Global Xeno Limit")
 			surge_setup_value = tgui_input_number(usr, "Pick maximum xenos at once. This is a global control to prevent lag. Generally suggest leaving this alone.", "SURGE",GLOB.xenosurge_spawner_limit,timeout = 0)
 			if(surge_setup_value == null) return
 			GLOB.xenosurge_spawner_limit = surge_setup_value
-		if("Xenos")
+		if("Number of Surge Xenos")
 			surge_setup_value = tgui_input_number(usr, "Xenos to spawn in the wave", "SURGE",GLOB.xenosurge_wave_xenos_max,timeout = 0)
 			if(surge_setup_value == null) return
 			GLOB.xenosurge_wave_xenos_max = surge_setup_value
@@ -58,7 +58,7 @@
 			surge_setup_value = tgui_input_number(usr, "Damage Factor", "SURGE",GLOB.xenosurge_wave_xenos_dam_factor,timeout = 0)
 			if(surge_setup_value == null) return
 			GLOB.xenosurge_wave_xenos_dam_factor = surge_setup_value
-		if("Spawns")
+		if("Spawn List")
 			var/list/spawns_to_set = list()
 			var/current_number = 1
 			var/adding_finished = 0
@@ -106,7 +106,7 @@
 
 	if(!check_rights(R_ADMIN))
 		return
-	if(tgui_alert(usr, "Confirm: Stop Xenosurge?","START",list("Cancel","OK"), timeout = 0) == "OK")
+	if(tgui_alert(usr, "Confirm: Stop Xenosurge?","STOP",list("Cancel","OK"), timeout = 0) == "OK")
 		for (var/obj/structure/xenosurge_spawner/spawner in GLOB.xenosurge_configured_spawners)
 			if(spawner.spawner_initiated == TRUE)
 				spawner.spawner_initiated = FALSE
@@ -126,3 +126,83 @@
 			qdel(spawner)
 		GLOB.spawner_number = 1
 		to_chat(usr, SPAN_INFO("Spawners removed and ID number reset."))
+
+/client/proc/reinitialize_spawners()
+	set category = "DM.Xenosurge"
+	set name = "Spawners - Reinitialize"
+	set desc = "Reinits spawners to let them be used in active surges again."
+	if(!check_rights(R_ADMIN))
+		return
+	if(tgui_alert(usr, "Confirm: Reinit spawners?","REINIT",list("Cancel","OK"), timeout = 0) == "OK")
+		for (var/obj/structure/xenosurge_spawner/spawner in GLOB.xenosurge_configured_spawners)
+			if(spawner.spawner_initiated == FALSE)
+				spawner.spawner_initiated = TRUE
+		to_chat(usr, SPAN_INFO("Spawners reinitialized. You may now restart a surge."))
+
+/client/proc/surge_preset_hp()
+	set category = "DM.Xenosurge"
+	set name = "Presets - Xeno HP and Damage"
+	set desc = "Common use surge preset HP/attack values."
+	if(!check_rights(R_ADMIN))
+		return
+	switch(tgui_input_list(usr, "Selecta a HP/ATTACK factor ratio:","SURGE",list("Fodder","Very Weak","Weak","Normal","Strong","Very Strong"), timeout = 0, default = "Normal"))
+		if(null)
+			return
+		if("Fodder")
+			GLOB.xenosurge_wave_xenos_hp_factor = 0.3
+			GLOB.xenosurge_wave_xenos_dam_factor = 0.5
+		if("Very Weak")
+			GLOB.xenosurge_wave_xenos_hp_factor = 0.5
+			GLOB.xenosurge_wave_xenos_dam_factor = 0.5
+		if("Weak")
+			GLOB.xenosurge_wave_xenos_hp_factor = 0.7
+			GLOB.xenosurge_wave_xenos_dam_factor = 0.7
+		if("Normal")
+			GLOB.xenosurge_wave_xenos_hp_factor = 1
+			GLOB.xenosurge_wave_xenos_dam_factor = 1
+		if("Strong")
+			GLOB.xenosurge_wave_xenos_hp_factor = 1.3
+			GLOB.xenosurge_wave_xenos_dam_factor = 1.2
+		if("Very Strong")
+			GLOB.xenosurge_wave_xenos_hp_factor = 1.5
+			GLOB.xenosurge_wave_xenos_dam_factor = 1.5
+
+/client/proc/surge_preset_waves()
+	set category = "DM.Xenosurge"
+	set name = "Presets - Xeno types"
+	set desc = "Switch all spawner xeno lists to a specific type."
+	if(!check_rights(R_ADMIN))
+		return
+	var/list/list_to_set = list()
+	switch(tgui_input_list(usr, "Select a surge preset:","SURGE",list("Drones","Runners","Lurkers","Crushers","Drones-Runners","Drones-Lurkers","Runners-Lurkers","Drones-Runners-Lurkers","Drones-Crushers","Runners-Crushers","All-Out"), timeout = 0, default = "Normal"))
+		if(null)
+			return
+		if("Drones")
+			list_to_set = list(1 = XENO_CASTE_DRONE, 2 = null,)
+		if("Runners")
+			list_to_set = list(1 = XENO_CASTE_RUNNER, 2 = null,)
+		if("Lurkers")
+			list_to_set = list(1 = XENO_CASTE_LURKER, 2 = null,)
+		if("Crushers")
+			list_to_set = list(1 = XENO_CASTE_CRUSHER, 2 = null,)
+		if("Drones-Runners")
+			list_to_set = list(1 = XENO_CASTE_DRONE, 2 = XENO_CASTE_DRONE, 3 = XENO_CASTE_RUNNER, 4 = null)
+		if("Drones-Lurkers")
+			list_to_set = list(1 = XENO_CASTE_DRONE, 2 = XENO_CASTE_DRONE, 3 = XENO_CASTE_LURKER, 4 = null)
+		if("Runners-Lurkers")
+			list_to_set = list(1 = XENO_CASTE_RUNNER, 2 = XENO_CASTE_RUNNER, 3 = XENO_CASTE_LURKER, 4 = null)
+		if("Drones-Runners-Lurkers")
+			list_to_set = list(1 = XENO_CASTE_DRONE, 2 = XENO_CASTE_DRONE, 3 = XENO_CASTE_RUNNER, 4 = XENO_CASTE_LURKER, 5 = null)
+		if("Drones-Crushers")
+			list_to_set = list(1 = XENO_CASTE_DRONE, 2 = XENO_CASTE_DRONE, 3 = XENO_CASTE_DRONE, 4 = XENO_CASTE_CRUSHER, 5 = null)
+		if("Runners-Crushers")
+			list_to_set = list(1 = XENO_CASTE_RUNNER, 2 = XENO_CASTE_RUNNER, 3 = XENO_CASTE_RUNNER, 4 = XENO_CASTE_CRUSHER, 5 = null)
+		if("All-Out")
+			list_to_set = list(1 = XENO_CASTE_DRONE, 2 = XENO_CASTE_DRONE, 3 = XENO_CASTE_DRONE, 4 = XENO_CASTE_RUNNER, 5 = XENO_CASTE_RUNNER, 6 = XENO_CASTE_LURKER, 7 = XENO_CASTE_CRUSHER, 8 = null)
+	if(list_to_set.len != 0)
+		var/spawner_count = 0
+		for (var/obj/structure/xenosurge_spawner/spawner in GLOB.xenosurge_configured_spawners)
+			if(spawner.spawner_initiated == TRUE)
+				spawner.spawn_list = list_to_set
+				spawner_count += 1
+		to_chat(usr, SPAN_INFO("Done. [spawner_count] spawners set."))

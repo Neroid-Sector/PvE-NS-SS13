@@ -352,8 +352,8 @@ GLOBAL_VAR_INIT(radio_communication_clarity, 100)
 
 			for(var/i = 1 to xeno_spawn_count)
 				var/mob/living/carbon/xenomorph/spawned_xeno = new spawning_xeno_type(spawn_turf, null, selected_hive, !spawn_ai)
-				spawned_xeno.health *= GLOB.xenosurge_wave_xenos_hp_factor
-				spawned_xeno.maxHealth *= GLOB.xenosurge_wave_xenos_hp_factor
+				spawned_xeno.health = ceil(spawned_xeno.health * GLOB.xenosurge_wave_xenos_hp_factor)
+				spawned_xeno.maxHealth = ceil(spawned_xeno.maxHealth * GLOB.xenosurge_wave_xenos_hp_factor)
 				spawned_xeno.melee_damage_lower = ceil(spawned_xeno.melee_damage_lower * GLOB.xenosurge_wave_xenos_dam_factor)
 				spawned_xeno.melee_damage_upper = ceil(spawned_xeno.melee_damage_upper * GLOB.xenosurge_wave_xenos_dam_factor)
 			return TRUE

@@ -25,7 +25,6 @@
 
 /obj/structure/xenosurge_spawner/proc/spawner_loop()
 	sleep(xenos_to_spawn_delay + extra_delay)
-	if(extra_delay != 0) extra_delay = 0
 	if(spawner_initiated == FALSE)
 		return
 	else
@@ -34,14 +33,17 @@
 /obj/structure/xenosurge_spawner/proc/spawner_spawn()
 	var/global_xeno_count = 0
 	var/ai_count = 0
-	for (var/mob/living/carbon/xenomorph/xeno in GLOB.living_xeno_list)
+	for (var/mob/living/carbon/xenomorph/xeno in world)
 		if(xeno.loc != null)
 			global_xeno_count += 1
 			if(xeno.spawner_id == spawner_id)
 				ai_count += 1
 	if(global_xeno_count > GLOB.xenosurge_spawner_limit)
 		if(extra_delay != 0) extra_delay += 50
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/xenosurge_spawner/, spawner_loop))
+		return
 	if(ai_count >= xenos_to_spawn_max)
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/xenosurge_spawner/, spawner_loop))
 		return
 	else
 		var/xenos_to_spawn = xenos_to_spawn_max - ai_count
@@ -64,12 +66,13 @@
 			global_xeno_count += 1
 			GLOB.xenosurge_wave_xenos_current += 1
 			if(global_xeno_count >= GLOB.xenosurge_spawner_limit)
+				xenos_to_spawn = 0
 				extra_delay += 150
 				break
-	if(GLOB.xenosurge_wave_xenos_current >= GLOB.xenosurge_wave_xenos_max)
-		spawner_limit_reached()
-	else
-		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/xenosurge_spawner/, spawner_loop))
+		if(GLOB.xenosurge_wave_xenos_current >= GLOB.xenosurge_wave_xenos_max)
+			spawner_limit_reached()
+		else
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/xenosurge_spawner/, spawner_loop))
 
 /obj/structure/xenosurge_spawner/proc/setup_spawner(max = null, delay = null)
 	if(max == null)
