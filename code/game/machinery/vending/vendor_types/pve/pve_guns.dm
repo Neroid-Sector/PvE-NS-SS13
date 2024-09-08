@@ -246,6 +246,7 @@
 	req_access = list()
 	req_one_access = list()
 	hackable = TRUE
+	layer = 4
 	vend_flags = VEND_CLUTTER_PROTECTION | VEND_TO_HAND | VEND_LIMITED_INVENTORY
 	var/list/refilled_stims = list()
 	needs_power = FALSE
