@@ -17,7 +17,7 @@ list( \
 
 /client/proc/open_resin_panel()
 	set name = "Resin Panel"
-	set category = "Game Master"
+	set category = "DM.PvE"
 
 	if(!check_rights(R_ADMIN))
 		return

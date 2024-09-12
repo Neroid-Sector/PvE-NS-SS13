@@ -142,7 +142,6 @@ var/list/admin_verbs_minor_event = list(
 	/client/proc/toggle_hardcore_perma,
 	/client/proc/toggle_bypass_joe_restriction,
 	/client/proc/create_spawner_setup,
-	/client/proc/create_spawner,
 	/client/proc/remove_spawners,
 	/client/proc/reinitialize_spawners,
 	/client/proc/setup_surge,
@@ -177,7 +176,11 @@ var/list/admin_verbs_major_event = list(
 	/client/proc/enable_podlauncher,
 	/client/proc/change_taskbar_icon,
 	/client/proc/change_weather,
-	/client/proc/admin_blurb
+	/client/proc/admin_blurb,
+	/client/proc/create_surge_spawner,
+	/client/proc/create_veteran_spawner_setup,
+	/client/proc/veteran_setup,
+	/client/proc/create_veteran_surge_spawner,
 )
 
 var/list/admin_verbs_spawn = list(

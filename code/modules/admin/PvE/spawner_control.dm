@@ -12,26 +12,6 @@
 	if(delay_to_pass == null) return
 	GLOB.xenosurge_spawner_delay = delay_to_pass
 
-/client/proc/create_spawner()
-	set category = "DM.Xenosurge"
-	set name = "Spawners - Create Action"
-	set desc = "Starts the spawner creation loop."
-
-	if(!check_rights(R_ADMIN))
-		return
-	var/spawner_cycle
-	spawner_cycle = tgui_alert(usr, "Move your ghost to the postion of the spawner and press OK. Cancel to cancel.","SPAWNER",list("Cancel","OK"), timeout = 0)
-	while(spawner_cycle == "OK")
-		var/turf/spawner_turf = mob.loc
-		var/obj/structure/xenosurge_spawner/spawner = new(spawner_turf)
-		if(spawner.setup_spawner(max = GLOB.xenosurge_spawner_xenos, delay = GLOB.xenosurge_spawner_delay) == 0)
-			to_chat(usr, SPAN_WARNING("Spawner not configured. Discarding."))
-			qdel(spawner)
-		spawner_cycle = tgui_alert(usr, "Move your ghost to the postion of the spawner and press OK. Cancel to cancel.","SPAWNER",list("Cancel","OK"), timeout = 0)
-	return
-
-
-
 /client/proc/setup_surge()
 	set category = "DM.Xenosurge"
 	set name = "Surge - Setup"
@@ -47,17 +27,21 @@
 			surge_setup_value = tgui_input_number(usr, "Pick maximum xenos at once. This is a global control to prevent lag. Generally suggest leaving this alone.", "SURGE",GLOB.xenosurge_spawner_limit,timeout = 0)
 			if(surge_setup_value == null) return
 			GLOB.xenosurge_spawner_limit = surge_setup_value
+			to_chat(usr, SPAN_INFO("[surge_setup_value] set."))
 		if("Number of Surge Xenos")
 			surge_setup_value = tgui_input_number(usr, "Xenos to spawn in the wave", "SURGE",GLOB.xenosurge_wave_xenos_max,timeout = 0)
 			if(surge_setup_value == null) return
 			GLOB.xenosurge_wave_xenos_max = surge_setup_value
+			to_chat(usr, SPAN_INFO("[surge_setup_value] set."))
 		if("Factors")
 			surge_setup_value = tgui_input_number(usr, "HP Factor", "SURGE",GLOB.xenosurge_wave_xenos_hp_factor,timeout = 0)
 			if(surge_setup_value == null) return
 			GLOB.xenosurge_wave_xenos_hp_factor = surge_setup_value
+			to_chat(usr, SPAN_INFO("[surge_setup_value] set."))
 			surge_setup_value = tgui_input_number(usr, "Damage Factor", "SURGE",GLOB.xenosurge_wave_xenos_dam_factor,timeout = 0)
 			if(surge_setup_value == null) return
 			GLOB.xenosurge_wave_xenos_dam_factor = surge_setup_value
+			to_chat(usr, SPAN_INFO("[surge_setup_value] set."))
 		if("Spawn List")
 			var/list/spawns_to_set = list()
 			var/current_number = 1
@@ -89,6 +73,7 @@
 		return
 	if(tgui_alert(usr, "Confirm: Start Xenosurge?\nMax:[GLOB.xenosurge_spawner_limit]\nSpawned:[GLOB.xenosurge_wave_xenos_current] out of [GLOB.xenosurge_wave_xenos_max]","START",list("Cancel","OK"), timeout = 0) == "OK")
 		var/spawner_count = 0
+		var/veteran_spawner_count = 0
 		for (var/obj/structure/xenosurge_spawner/spawner in GLOB.xenosurge_configured_spawners)
 			if(spawner == null)
 				to_chat(usr, SPAN_WARNING("No spawner found. Aborted."))
@@ -96,7 +81,11 @@
 			if(spawner.spawner_initiated == TRUE)
 				spawner.start_spawning()
 				spawner_count += 1
-		to_chat(usr, SPAN_INFO("Spawner activation complete. Spawners activated: [spawner_count]."))
+		for (var/obj/structure/xenosurge_veteran_spawner/veteran_spawner in GLOB.xenosurge_configured_veteran_spawners)
+			if(veteran_spawner.spawner_initiated == TRUE)
+				veteran_spawner.start_spawning()
+				veteran_spawner_count += 1
+		to_chat(usr, SPAN_INFO("Spawner activation complete. Spawners activated: [spawner_count] and [veteran_spawner_count] veterans."))
 		log_admin("[usr] has activated a [spawner_count] spawner Xenosurge. Parameters: Max:[GLOB.xenosurge_spawner_limit], Xenos:[GLOB.xenosurge_wave_xenos_max]")
 
 /client/proc/stop_surge()
@@ -110,6 +99,9 @@
 		for (var/obj/structure/xenosurge_spawner/spawner in GLOB.xenosurge_configured_spawners)
 			if(spawner.spawner_initiated == TRUE)
 				spawner.spawner_initiated = FALSE
+		for (var/obj/structure/xenosurge_veteran_spawner/veteran_spawner in GLOB.xenosurge_configured_veteran_spawners)
+			if(veteran_spawner.spawner_initiated == TRUE)
+				veteran_spawner.spawner_initiated = FALSE
 		GLOB.xenosurge_wave_xenos_current = 0
 
 		to_chat(usr, SPAN_INFO("All spawners have been deactivated, the surge is effectively stopped."))
@@ -124,7 +116,12 @@
 	if(tgui_alert(usr, "Confirm: Remove spawners?","START",list("Cancel","OK"), timeout = 0) == "OK")
 		for (var/obj/structure/xenosurge_spawner/spawner in world)
 			qdel(spawner)
+		GLOB.xenosurge_configured_spawners = list()
 		GLOB.spawner_number = 1
+		for (var/obj/structure/xenosurge_veteran_spawner/veteran_spawner in world)
+			qdel(veteran_spawner)
+		GLOB.xenosurge_configured_veteran_spawners = list()
+		GLOB.veteran_spawner_number = 1
 		to_chat(usr, SPAN_INFO("Spawners removed and ID number reset."))
 
 /client/proc/reinitialize_spawners()
@@ -137,11 +134,14 @@
 		for (var/obj/structure/xenosurge_spawner/spawner in GLOB.xenosurge_configured_spawners)
 			if(spawner.spawner_initiated == FALSE)
 				spawner.spawner_initiated = TRUE
+		for (var/obj/structure/xenosurge_veteran_spawner/veteran_spawner in GLOB.xenosurge_configured_veteran_spawners)
+			if(veteran_spawner.spawner_initiated == FALSE)
+				veteran_spawner.spawner_initiated = TRUE
 		to_chat(usr, SPAN_INFO("Spawners reinitialized. You may now restart a surge."))
 
 /client/proc/surge_preset_hp()
 	set category = "DM.Xenosurge"
-	set name = "Presets - Xeno HP and Damage"
+	set name = "Surge - Xeno HP and Damage"
 	set desc = "Common use surge preset HP/attack values."
 	if(!check_rights(R_ADMIN))
 		return
@@ -169,7 +169,7 @@
 
 /client/proc/surge_preset_waves()
 	set category = "DM.Xenosurge"
-	set name = "Presets - Xeno types"
+	set name = "Surge - Xeno types"
 	set desc = "Switch all spawner xeno lists to a specific type."
 	if(!check_rights(R_ADMIN))
 		return
@@ -206,3 +206,84 @@
 				spawner.spawn_list = list_to_set
 				spawner_count += 1
 		to_chat(usr, SPAN_INFO("Done. [spawner_count] spawners set."))
+
+/client/proc/create_surge_spawner(turf/T in turfs)
+	set name = "Create Surge Spawner"
+	set category = null
+
+	if(!src.admin_holder || !(admin_holder.rights & R_MOD))
+		to_chat(src, "Only administrators may use this command.")
+		return
+
+	var/obj/structure/xenosurge_spawner/spawner = new(T)
+	if(spawner.setup_spawner(max = GLOB.xenosurge_spawner_xenos, delay = GLOB.xenosurge_spawner_delay) == 0)
+		to_chat(usr, SPAN_WARNING("Spawner not configured. Discarding."))
+		qdel(spawner)
+	return
+
+/client/proc/create_veteran_spawner_setup()
+	set category = "DM.Xenosurge"
+	set name = "Veterans - Creation"
+	set desc = "Configures Veteran spawner creation variables."
+
+	if(!check_rights(R_ADMIN))
+		return
+	var/max_to_pass = tgui_input_number(usr, "How many total veterans per spawner?","Spawner Setup",default = GLOB.xenosurge_veteran_spawner_xenos, timeout = 0)
+	if(max_to_pass == null) return
+	GLOB.xenosurge_veteran_spawner_xenos = max_to_pass
+	var/delay_to_pass = tgui_input_number(usr, "Base veteran spawn delay","Spawner Setup",default = GLOB.xenosurge_veteran_spawner_delay, timeout = 0)
+	if(delay_to_pass == null) return
+	GLOB.xenosurge_veteran_spawner_delay = delay_to_pass
+	var/variance_to_pass = tgui_input_number(usr, "Delay variance, added maximum between this and 1 is added to base delay","Spawner Setup",default = GLOB.xenosurge_veteran_spawner_variance, timeout = 0)
+	if(variance_to_pass == null) return
+	GLOB.xenosurge_veteran_spawner_variance = variance_to_pass
+
+/client/proc/veteran_setup()
+	set category = "DM.Xenosurge"
+	set name = "Veterans - Setup"
+	set desc = "Changes Veteran spawners"
+	if(!check_rights(R_ADMIN))
+		return
+	var/list/list_to_set = list()
+	switch(tgui_input_list(usr, "Select a veteran type:","VETERAN",list("Drones","Runners","Lurkers","Crushers"), timeout = 0, default = "Normal"))
+		if(null)
+			return
+		if("Drones")
+			list_to_set = list(1 = XENO_CASTE_DRONE, 2 = null,)
+		if("Runners")
+			list_to_set = list(1 = XENO_CASTE_RUNNER, 2 = null,)
+		if("Lurkers")
+			list_to_set = list(1 = XENO_CASTE_LURKER, 2 = null,)
+		if("Crushers")
+			list_to_set = list(1 = XENO_CASTE_CRUSHER, 2 = null,)
+	if(list_to_set.len != 0)
+		var/spawner_count = 0
+		for (var/obj/structure/xenosurge_veteran_spawner/spawner in GLOB.xenosurge_configured_veteran_spawners)
+			if(spawner.spawner_initiated == TRUE)
+				spawner.spawn_list = list_to_set
+				spawner_count += 1
+		to_chat(usr, SPAN_INFO("Done. [spawner_count] veteran spawners set."))
+	var/surge_setup_value
+
+	surge_setup_value = tgui_input_number(usr, "HP Factor", "VETERAN",GLOB.xenosurge_veteran_xenos_hp_factor,timeout = 0)
+	if(surge_setup_value == null) return
+	GLOB.xenosurge_veteran_xenos_hp_factor = surge_setup_value
+	to_chat(usr, SPAN_INFO("[surge_setup_value] set."))
+	surge_setup_value = tgui_input_number(usr, "Damage Factor", "VETERAN",GLOB.xenosurge_veteran_xenos_dam_factor,timeout = 0)
+	if(surge_setup_value == null) return
+	GLOB.xenosurge_veteran_xenos_dam_factor = surge_setup_value
+	to_chat(usr, SPAN_INFO("[surge_setup_value] set."))
+
+/client/proc/create_veteran_surge_spawner(turf/T in turfs)
+	set name = "Create Veteran Surge Spawner"
+	set category = null
+
+	if(!src.admin_holder || !(admin_holder.rights & R_MOD))
+		to_chat(src, "Only administrators may use this command.")
+		return
+
+	var/obj/structure/xenosurge_veteran_spawner/spawner = new(T)
+	if(spawner.setup_spawner(max = GLOB.xenosurge_veteran_spawner_xenos, delay = GLOB.xenosurge_veteran_spawner_delay, variance = GLOB.xenosurge_veteran_spawner_variance) == 0)
+		to_chat(usr, SPAN_WARNING("Spawner not configured. Discarding."))
+		qdel(spawner)
+	return

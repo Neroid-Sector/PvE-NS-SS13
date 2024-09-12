@@ -54,7 +54,7 @@ GLOBAL_VAR(obfs_x)
 /// A number between -500 and 500.
 GLOBAL_VAR(obfs_y)
 
-GLOBAL_VAR_INIT(ai_xeno_weeding, TRUE)
+GLOBAL_VAR_INIT(ai_xeno_weeding, FALSE)
 
 GLOBAL_VAR_INIT(xenosurge_spawner_limit, 30)
 GLOBAL_VAR_INIT(xenosurge_wave_xenos_max, 100)
@@ -67,11 +67,19 @@ GLOBAL_LIST_EMPTY(xenosurge_configured_spawners)
 GLOBAL_VAR_INIT(xenosurge_spawner_xenos, 5)
 GLOBAL_VAR_INIT(xenosurge_spawner_delay, 100)
 
+GLOBAL_LIST_EMPTY(xenosurge_configured_veteran_spawners)
+GLOBAL_VAR_INIT(xenosurge_veteran_spawner_xenos, 2)
+GLOBAL_VAR_INIT(xenosurge_veteran_spawner_delay, 200)
+GLOBAL_VAR_INIT(xenosurge_veteran_spawner_variance, 100)
+GLOBAL_VAR_INIT(xenosurge_veteran_xenos_hp_factor, 2)
+GLOBAL_VAR_INIT(xenosurge_veteran_xenos_dam_factor, 0.5)
+
 GLOBAL_VAR_INIT(spawner_number, 1)
+GLOBAL_VAR_INIT(veteran_spawner_number, 1)
 
 GLOBAL_VAR_INIT(ammo_restock_next, 0)
 GLOBAL_VAR_INIT(ammo_restock_full, 0)
 GLOBAL_VAR_INIT(ammo_restock_delay, 6000)
 
-GLOBAL_VAR_INIT(primary_objective, "- Awaiting Orders")
-GLOBAL_VAR_INIT(secondary_objective, "- Awaiting Orders")
+GLOBAL_VAR_INIT(primary_objective, "Awaiting Orders")
+GLOBAL_VAR_INIT(secondary_objective, "Awaiting Orders")

@@ -119,7 +119,7 @@
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo/
 	name = "\improper UAR Automated Ammunition Rack"
-	desc = "An automated weapon rack hooked up to a big storage of standard-issue weapons."
+	desc = "An automated weapon rack hooked up to a big storage of standard-issue weapons. Also includes fortification materials, just like the portable versions."
 	icon_state = "req_ammo"
 	req_access = list()
 	req_one_access = list()
@@ -152,6 +152,9 @@
 		list("M4A3 AP Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/ap, VENDOR_ITEM_RECOMMENDED),
 		list("M4A3 HP Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/hp, VENDOR_ITEM_REGULAR),
 		list("88 Mod 4 Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/mod88/normalpoint, VENDOR_ITEM_REGULAR),
+		list("FORTIFICATION MATERIALS", -1, null, null),
+		list("Stack of 50 Metal Plates", 10, /obj/item/stack/sheet/metal/large_stack, VENDOR_ITEM_REGULAR),
+		list("Stack of 50 Plasteel Plates", 5, /obj/item/stack/sheet/plasteel/large_stack, VENDOR_ITEM_REGULAR),
 	)
 
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/accesories/
@@ -258,24 +261,24 @@
 	listed_products = list(
 		list("PRIMARY AMMUNITION", -1, null, null),
 		list("Box Of Buckshot Shells", 200, /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
-		list("Box Of Flechette Shells", 200, /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
-		list("Box Of Shotgun Slugs", 200, /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR),
+		list("Box Of Flechette Shells", 100, /obj/item/ammo_magazine/shotgun/flechette, VENDOR_ITEM_REGULAR),
+		list("Box Of Shotgun Slugs", 100, /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR),
 		list("M4RA Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle/m4ra, VENDOR_ITEM_REGULAR),
-		list("M4RA AP Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle/m4ra/ap, VENDOR_ITEM_RECOMMENDED),
+		list("M4RA AP Magazine (10x24mm)", 100, /obj/item/ammo_magazine/rifle/m4ra/ap, VENDOR_ITEM_RECOMMENDED),
 		list("M41A MK2 Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR),
-		list("M41A MK2 AP Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle/ap, VENDOR_ITEM_RECOMMENDED),
-		list("M41A MK2 Extended Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle/extended, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 AP Magazine (10x24mm)", 100, /obj/item/ammo_magazine/rifle/ap, VENDOR_ITEM_RECOMMENDED),
+		list("M41A MK2 Extended Magazine (10x24mm)", 100, /obj/item/ammo_magazine/rifle/extended, VENDOR_ITEM_REGULAR),
 		list("M39 HV Magazine (10x20mm)", 200, /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR),
-		list("M39 AP Magazine (10x20mm)", 200, /obj/item/ammo_magazine/smg/m39/ap, VENDOR_ITEM_RECOMMENDED),
-		list("M39 Extended Magazine (10x20mm)", 200 + 3, /obj/item/ammo_magazine/smg/m39/extended, VENDOR_ITEM_REGULAR),
+		list("M39 AP Magazine (10x20mm)", 100, /obj/item/ammo_magazine/smg/m39/ap, VENDOR_ITEM_RECOMMENDED),
+		list("M39 Extended Magazine (10x20mm)", 100, /obj/item/ammo_magazine/smg/m39/extended, VENDOR_ITEM_REGULAR),
 		list("XM88 .458 bullets box (.458 x 300)", 200, /obj/item/ammo_magazine/lever_action/xm88, VENDOR_ITEM_REGULAR),
 		list("SECONDARY AMMUNITION", -1, null, null),
 		list("M44 Speed Loader (.44)", 200, /obj/item/ammo_magazine/revolver, VENDOR_ITEM_REGULAR),
-		list("M44 Heavy Speed Loader (.44)", 200, /obj/item/ammo_magazine/revolver/heavy, VENDOR_ITEM_REGULAR),
-		list("M44 Marksman Speed Loader (.44)", 200, /obj/item/ammo_magazine/revolver/marksman, VENDOR_ITEM_REGULAR),
+		list("M44 Heavy Speed Loader (.44)", 100, /obj/item/ammo_magazine/revolver/heavy, VENDOR_ITEM_REGULAR),
+		list("M44 Marksman Speed Loader (.44)", 100, /obj/item/ammo_magazine/revolver/marksman, VENDOR_ITEM_REGULAR),
 		list("M4A3 Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol, VENDOR_ITEM_REGULAR),
-		list("M4A3 AP Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/ap, VENDOR_ITEM_RECOMMENDED),
-		list("M4A3 HP Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/hp, VENDOR_ITEM_REGULAR),
+		list("M4A3 AP Magazine (9mm)", 100, /obj/item/ammo_magazine/pistol/ap, VENDOR_ITEM_RECOMMENDED),
+		list("M4A3 HP Magazine (9mm)", 100, /obj/item/ammo_magazine/pistol/hp, VENDOR_ITEM_REGULAR),
 		list("88 Mod 4 Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/mod88/normalpoint, VENDOR_ITEM_REGULAR),
 		list("EXPLOSIVES", -1, null, null),
 		list("M15 Fragmentation Grenade", 200, /obj/item/explosive/grenade/high_explosive/m15, VENDOR_ITEM_REGULAR),
@@ -293,6 +296,9 @@
 		list("M40 MFHS Metal Foam Grenade", 200, /obj/item/explosive/grenade/metal_foam, VENDOR_ITEM_REGULAR),
 		list("Plastic Explosives", 100, /obj/item/explosive/plastic, VENDOR_ITEM_REGULAR),
 		list("Breaching Charge", 100, /obj/item/explosive/plastic/breaching_charge, VENDOR_ITEM_REGULAR),
+		list("FORTIFICATION MATERIALS", -1, null, null),
+		list("Stack of 50 Metal Plates", 10, /obj/item/stack/sheet/metal/large_stack, VENDOR_ITEM_REGULAR),
+		list("Stack of 50 Plasteel Plates", 5, /obj/item/stack/sheet/plasteel/large_stack, VENDOR_ITEM_REGULAR),
 	)
 
 
@@ -341,16 +347,19 @@
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/partial/populate_product_list(scale)
 	listed_products = list(
 		list("PRIMARY AMMUNITION", -1, null, null),
-		list("Box Of Buckshot Shells", 200, /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
-		list("Box Of Shotgun Slugs", 200, /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR),
-		list("M4RA Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle/m4ra, VENDOR_ITEM_REGULAR),
-		list("M41A MK2 Magazine (10x24mm)", 200, /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR),
-		list("M39 HV Magazine (10x20mm)", 200, /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR),
-		list("XM88 .458 bullets box (.458 x 300)", 200, /obj/item/ammo_magazine/lever_action/xm88, VENDOR_ITEM_REGULAR),
+		list("Box Of Buckshot Shells", 120, /obj/item/ammo_magazine/shotgun/buckshot, VENDOR_ITEM_REGULAR),
+		list("Box Of Shotgun Slugs", 120, /obj/item/ammo_magazine/shotgun/slugs, VENDOR_ITEM_REGULAR),
+		list("M4RA Magazine (10x24mm)", 120, /obj/item/ammo_magazine/rifle/m4ra, VENDOR_ITEM_REGULAR),
+		list("M41A MK2 Magazine (10x24mm)", 120, /obj/item/ammo_magazine/rifle, VENDOR_ITEM_REGULAR),
+		list("M39 HV Magazine (10x20mm)", 120, /obj/item/ammo_magazine/smg/m39, VENDOR_ITEM_REGULAR),
+		list("XM88 .458 bullets box (.458 x 300)", 120, /obj/item/ammo_magazine/lever_action/xm88, VENDOR_ITEM_REGULAR),
 		list("SECONDARY AMMUNITION", -1, null, null),
-		list("M44 Speed Loader (.44)", 200, /obj/item/ammo_magazine/revolver, VENDOR_ITEM_REGULAR),
-		list("M4A3 Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol, VENDOR_ITEM_REGULAR),
-		list("88 Mod 4 Magazine (9mm)", 200, /obj/item/ammo_magazine/pistol/mod88/normalpoint, VENDOR_ITEM_REGULAR),
+		list("M44 Speed Loader (.44)", 120, /obj/item/ammo_magazine/revolver, VENDOR_ITEM_REGULAR),
+		list("M4A3 Magazine (9mm)", 120, /obj/item/ammo_magazine/pistol, VENDOR_ITEM_REGULAR),
+		list("88 Mod 4 Magazine (9mm)", 120, /obj/item/ammo_magazine/pistol/mod88/normalpoint, VENDOR_ITEM_REGULAR),
+		list("FORTIFICATION MATERIALS", -1, null, null),
+		list("Stack of 50 Metal Plates", 5, /obj/item/stack/sheet/metal/large_stack, VENDOR_ITEM_REGULAR),
+		list("Stack of 50 Plasteel Plates", 2, /obj/item/stack/sheet/plasteel/large_stack, VENDOR_ITEM_REGULAR),
 	)
 
 /obj/structure/droppod/equipment/vendor/partial

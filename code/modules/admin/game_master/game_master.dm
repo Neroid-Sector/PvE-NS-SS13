@@ -10,7 +10,7 @@ GLOBAL_VAR_INIT(radio_communication_clarity, 100)
 
 /proc/open_game_master_panel(client/using_client)
 	set name = "Game Master Panel"
-	set category = "Game Master"
+	set category = "DM.PvE"
 
 	if(using_client.game_master_menu)
 		using_client.game_master_menu.tgui_interact(using_client.mob)
@@ -20,7 +20,7 @@ GLOBAL_VAR_INIT(radio_communication_clarity, 100)
 
 /client/proc/toggle_game_master()
 	set name = "Game Master Panel"
-	set category = "Game Master"
+	set category = "DM.PvE"
 	if(!check_rights(R_ADMIN))
 		return
 
