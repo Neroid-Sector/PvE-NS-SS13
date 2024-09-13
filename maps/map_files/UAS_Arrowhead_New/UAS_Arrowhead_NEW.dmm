@@ -119,7 +119,6 @@
 /turf/open/floor/almayer{
 	dir = 9;
 	icon_state = "orange";
-	tag = "icon-orange (NORTHWEST)"
 	},
 /area/arrowhead/engineering)
 "bn" = (
@@ -306,7 +305,6 @@
 /turf/open/floor/almayer{
 	dir = 6;
 	icon_state = "orange";
-	tag = "icon-orange (SOUTHEAST)"
 	},
 /area/arrowhead/engineering)
 "cM" = (
@@ -689,7 +687,6 @@
 /turf/open/floor/almayer{
 	dir = 6;
 	icon_state = "orange";
-	tag = "icon-orange (SOUTHEAST)"
 	},
 /area/arrowhead/engineering)
 "hc" = (
@@ -905,7 +902,6 @@
 /turf/open/floor/almayer{
 	dir = 6;
 	icon_state = "orange";
-	tag = "icon-orange (SOUTHEAST)"
 	},
 /area/arrowhead/engineering)
 "je" = (
@@ -1041,7 +1037,6 @@
 /turf/open/floor/almayer{
 	dir = 9;
 	icon_state = "orange";
-	tag = "icon-orange (NORTHWEST)"
 	},
 /area/arrowhead/engineering)
 "kp" = (
@@ -1343,7 +1338,6 @@
 /turf/open/floor/almayer{
 	dir = 9;
 	icon_state = "orange";
-	tag = "icon-orange (NORTHWEST)"
 	},
 /area/arrowhead/engineering)
 "na" = (
@@ -4594,7 +4588,6 @@
 /turf/open/floor/almayer{
 	dir = 6;
 	icon_state = "orange";
-	tag = "icon-orange (SOUTHEAST)"
 	},
 /area/arrowhead/engineering)
 "Pd" = (
