@@ -1,6 +1,6 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 #define MAIN_SHIP_NAME SSmapping.get_main_ship_name()
-#define MAIN_SHIP_DEFAULT_NAME "USS Arrowhead"
+#define MAIN_SHIP_DEFAULT_NAME "UAS Arrowhead"
 #define SHIP_MAP_NAMES list("UAS Arrowhead")
 
 #define MAIN_SHIP_PLATOON text2path(SSmapping.get_main_ship_platoon())

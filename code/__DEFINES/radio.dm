@@ -18,7 +18,7 @@
 
 //Radio channels
 #define RADIO_CHANNEL_BLANK "UNSET"
-#define RADIO_CHANNEL_ALMAYER "Almayer"
+#define RADIO_CHANNEL_ALMAYER "Arrowhead"
 #define RADIO_CHANNEL_ALAMO "Alamo"
 #define RADIO_CHANNEL_COMMAND "Command"
 #define RADIO_CHANNEL_COLONY "Colony"
