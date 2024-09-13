@@ -28,7 +28,7 @@
 	icon_state = "food"
 
 /area/arrowhead/squad_one
-	name = "UAS Arrowhead - Force Recon Squad Alpha Prep"
+	name = "UAS Arrowhead - Force Recon Squad Prep"
 	icon_state = "alpha"
 
 /area/arrowhead/squad_two

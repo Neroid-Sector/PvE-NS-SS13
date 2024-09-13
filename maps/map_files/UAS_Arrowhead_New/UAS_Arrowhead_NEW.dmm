@@ -88,9 +88,7 @@
 	name = "\improper Team Lead Preperations"
 	},
 /turf/open/floor/plating/plating_catwalk,
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "aL" = (
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
@@ -116,9 +114,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "bk" = (
 /turf/open/floor/almayer{
 	dir = 9;
@@ -152,9 +148,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "bu" = (
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/attachies{
 	can_block_movement = 0;
@@ -166,9 +160,7 @@
 	pixel_y = 23
 	},
 /turf/open/floor/plating/plating_catwalk,
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "bB" = (
 /obj/structure/surface/rack,
 /obj/item/mortar_shell/incendiary,
@@ -214,9 +206,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "bM" = (
 /obj/structure/machinery/cryo_cell,
 /obj/structure/pipes/standard/cap/hidden,
@@ -265,9 +255,7 @@
 	},
 /obj/structure/machinery/light/spot,
 /turf/open/floor/plating/plating_catwalk,
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "cs" = (
 /obj/structure/machinery/autolathe/full{
 	can_block_movement = 0;
@@ -356,17 +344,13 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "cS" = (
 /turf/open/floor/almayer{
 	dir = 1;
 	icon_state = "green"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "cZ" = (
 /obj/structure/machinery/shower{
 	pixel_y = 10
@@ -631,9 +615,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor4"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "go" = (
 /obj/structure/window/framed/almayer/white,
 /obj/structure/machinery/door/firedoor/border_only/almayer{
@@ -836,9 +818,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "ii" = (
 /obj/structure/bed/chair/comfy/orange{
 	dir = 4
@@ -984,9 +964,7 @@
 	name = "\improper Pointman Preperations"
 	},
 /turf/open/floor/plating/plating_catwalk,
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "jI" = (
 /turf/open/floor/almayer{
 	dir = 4;
@@ -1321,9 +1299,7 @@
 	dir = 5;
 	icon_state = "green"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "mO" = (
 /obj/structure/platform,
 /turf/open/floor/almayer{
@@ -1494,9 +1470,7 @@
 /turf/open/floor/almayer{
 	icon_state = "cargo_arrow"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "oo" = (
 /obj/structure/window/framed/almayer/white,
 /obj/structure/machinery/door/firedoor/border_only/almayer{
@@ -1714,9 +1688,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "qg" = (
 /obj/structure/platform_decoration{
 	dir = 1
@@ -1825,9 +1797,7 @@
 	dir = 4;
 	icon_state = "green"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "qO" = (
 /obj/structure/platform,
 /turf/open/floor/almayer{
@@ -2181,9 +2151,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "tH" = (
 /obj/structure/bed{
 	buckling_y = 9;
@@ -2440,9 +2408,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "wf" = (
 /obj/structure/surface/table/reinforced,
 /obj/structure/closet/secure_closet/surgical{
@@ -2529,9 +2495,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "xf" = (
 /turf/open/floor/almayer{
 	dir = 5;
@@ -2652,9 +2616,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "yk" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -2721,9 +2683,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "yH" = (
 /obj/structure/machinery/power/apc/almayer,
 /turf/open/floor/wood/ship,
@@ -2926,9 +2886,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "AD" = (
 /obj/structure/machinery/power/apc/almayer,
 /turf/open/floor/wood/ship,
@@ -3309,9 +3267,7 @@
 /turf/open/floor/almayer{
 	icon_state = "plate"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Du" = (
 /obj/structure/stairs/perspective{
 	dir = 1
@@ -3374,9 +3330,7 @@
 	dir = 10;
 	icon_state = "green"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Ec" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -3427,9 +3381,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Ey" = (
 /obj/structure/surface/table/reinforced,
 /turf/open/floor/almayer{
@@ -3605,9 +3557,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "FK" = (
 /obj/structure/machinery/door/airlock/almayer/medical{
 	id_tag = "or02";
@@ -3938,9 +3888,7 @@
 /turf/open/floor/almayer{
 	icon_state = "plate"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Iv" = (
 /obj/structure/bookcase/manuals{
 	can_block_movement = 0;
@@ -3961,9 +3909,7 @@
 	dir = 4;
 	icon_state = "green"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "IF" = (
 /obj/structure/surface/table/almayer,
 /obj/item/device/flashlight/lamp/on,
@@ -4085,9 +4031,7 @@
 	dir = 9;
 	icon_state = "green"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Ke" = (
 /obj/structure/machinery/cm_vending/sorted/marine_food{
 	can_block_movement = 0;
@@ -4109,9 +4053,7 @@
 	dir = 4;
 	icon_state = "greencorner"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Kp" = (
 /obj/structure/morgue/crematorium{
 	id = "Arrow_Crem"
@@ -4264,9 +4206,7 @@
 	dir = 8;
 	icon_state = "green"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Lt" = (
 /obj/structure/window/framed/almayer/white,
 /obj/structure/machinery/door/firedoor/border_only/almayer{
@@ -4390,9 +4330,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "MT" = (
 /obj/structure/machinery/light/spot{
 	dir = 4;
@@ -4547,9 +4485,7 @@
 /area/space)
 "Oc" = (
 /turf/closed/wall/almayer,
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Od" = (
 /obj/structure/machinery/power/fusion_engine{
 	name = "\improper S-52 fusion reactor 2";
@@ -4666,9 +4602,7 @@
 	dir = 1;
 	icon_state = "cargo_arrow"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Pj" = (
 /obj/structure/machinery/power/apc/almayer/hardened{
 	dir = 8
@@ -4755,9 +4689,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Qm" = (
 /obj/structure/surface/table/reinforced/black,
 /obj/item/paper_bin/uscm{
@@ -4868,9 +4800,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Rj" = (
 /obj/structure/mirror{
 	pixel_x = -1;
@@ -4911,9 +4841,7 @@
 /area/arrowhead/delta_pn)
 "RF" = (
 /turf/open/floor/plating/plating_catwalk,
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "RL" = (
 /obj/structure/machinery/door/airlock/almayer/marine/delta{
 	dir = 1;
@@ -4963,9 +4891,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Sn" = (
 /obj/structure/machinery/door/airlock/almayer/generic{
 	name = "Bathroom"
@@ -5065,9 +4991,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Tq" = (
 /obj/structure/machinery/cm_vending/sorted/pve/uniform/personal{
 	density = 0;
@@ -5127,9 +5051,7 @@
 	dir = 4;
 	icon_state = "cargo_arrow"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "TI" = (
 /obj/structure/machinery/vending/sea{
 	can_block_movement = 0;
@@ -5182,9 +5104,7 @@
 	dir = 6;
 	icon_state = "green"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Uy" = (
 /obj/structure/platform{
 	dir = 4
@@ -5218,9 +5138,7 @@
 /turf/open/floor/almayer{
 	icon_state = "test_floor5"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "UL" = (
 /obj/structure/machinery/light/spot,
 /turf/open/floor/kutjevo/tan/grey_edge{
@@ -5551,9 +5469,7 @@
 	layer = 3
 	},
 /turf/closed/wall/almayer,
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Xr" = (
 /turf/open/floor/kutjevo/tan/grey_inner_edge,
 /area/space)
@@ -5642,9 +5558,7 @@
 /turf/open/floor/almayer{
 	icon_state = "green"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "XK" = (
 /obj/structure/machinery/pipedispenser,
 /turf/open/floor/almayer{
@@ -5801,9 +5715,7 @@
 	dir = 8;
 	icon_state = "green"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "Zv" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -5836,9 +5748,7 @@
 /turf/open/floor/almayer{
 	icon_state = "greencorner"
 	},
-/area/arrowhead/squad_one{
-	name = "UAS Arrowhead - Force Recon Squad Prep"
-	})
+/area/arrowhead/squad_one)
 "ZU" = (
 /turf/open/floor/almayer{
 	icon_state = "plate"
@@ -24265,7 +24175,7 @@ bd
 dd
 dd
 dd
-dd
+ya
 dd
 rI
 fW
