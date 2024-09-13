@@ -1262,7 +1262,7 @@
 /area/arrowhead/hangar)
 "mw" = (
 /obj/structure/bed{
-	bound_y = 9;
+	buckling_y = 9;
 	pixel_y = 9
 	},
 /obj/item/bedsheet/blue{
@@ -1654,7 +1654,7 @@
 /area/arrowhead)
 "pF" = (
 /obj/structure/bed{
-	bound_y = 9;
+	buckling_y = 9;
 	pixel_y = 9
 	},
 /obj/item/bedsheet/blue{
@@ -1846,7 +1846,7 @@
 /area/arrowhead/alpha_pn)
 "ra" = (
 /obj/structure/bed{
-	bound_y = 9;
+	buckling_y = 9;
 	pixel_y = 9
 	},
 /obj/item/bedsheet/blue{
@@ -2186,7 +2186,7 @@
 	})
 "tH" = (
 /obj/structure/bed{
-	bound_y = 9;
+	buckling_y = 9;
 	pixel_y = 9
 	},
 /obj/item/bedsheet/blue{
@@ -2259,7 +2259,7 @@
 /area/arrowhead/delta_s3)
 "ut" = (
 /obj/structure/bed{
-	bound_y = 9;
+	buckling_y = 9;
 	pixel_y = 9
 	},
 /obj/item/bedsheet/blue{
@@ -2396,7 +2396,7 @@
 /area/arrowhead/engineering)
 "vS" = (
 /obj/structure/bed{
-	bound_y = 9;
+	buckling_y = 9;
 	pixel_y = 9
 	},
 /obj/item/bedsheet/blue{
