@@ -3619,7 +3619,7 @@
 /obj/structure/machinery/door/poddoor/shutters/almayer{
 	dir = 8;
 	id = "supply_elevator_railing";
-	name = "\improper "Supply Elevator Shutter"
+	name = "\improper Supply Elevator Shutter"
 	},
 /turf/open/floor/almayer{
 	icon_state = "test_floor4"
