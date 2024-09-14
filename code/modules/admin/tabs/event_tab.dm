@@ -1078,7 +1078,7 @@
 	set category = "DM.Narration"
 	if(!check_rights(R_ADMIN)) return
 
-	var/list/comms_presets = list("Mission Control","Custom")
+	var/list/comms_presets = list("Mission Control","Groundside AI","Cassandra AI","Custom")
 	switch(tgui_input_list(usr,"Select a Comms Preset","PRESET",comms_presets,timeout = 0))
 		if(null)
 			return
@@ -1086,6 +1086,14 @@
 			usr.narration_settings["Name"] = "Mission Control"
 			usr.narration_settings["Location"] = "Arrowhead Command"
 			usr.narration_settings["Position"] = "SO"
+		if("Groundside AI")
+			usr.narration_settings["Name"] = "Automated Voice"
+			usr.narration_settings["Location"] = "Control"
+			usr.narration_settings["Position"] = "AI"
+		if("Cassandra AI")
+			usr.narration_settings["Name"] = "CASSANDRA"
+			usr.narration_settings["Location"] = "Unknown"
+			usr.narration_settings["Position"] = "AI?"
 		if("Custom")
 			usr.narration_settings["Name"] = tgui_input_text(usr, "Enter the name, complete with a rank prefix.", "NAME entry", usr.narration_settings["Name"], timeout = 0)
 			usr.narration_settings["Location"] = tgui_input_text(usr, "Enter assignment or location, when in doubt, OV-PST works.", "LOCATION entry", usr.narration_settings["Location"], timeout = 0)
@@ -1138,9 +1146,9 @@
 			client?.tgui_panel?.stop_music()
 
 /client/proc/opener_blurb()
-	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "<b>The year is 2224.</b>\n\nLocated on the edge of the <b>Neroid Sector</b>\n<b>LV-624</b> grew from an insignificant prison\nplanet with a minor corporate interest\nto an <b>important way-station</b>, with all\nthree major factions maintaining\ninstallations on the planet.\n\n<b>On February 11th, 2224</b>, an <b>unidentified\nflying object</b> enters the solar system\nand impacts the planets communications\narray.\n<b>All contact</b> with the planet and its\nsurrounding infrastructure <b>is lost.</b>",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+4.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
-	sleep(600)
-	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "Due to the politics involved, <b>it takes\nmonths</b> to organize a rescue. Now, thanks\nto an one-of-a-kind agreement\nthe <b>1st United Expeditionary Response</b>\nconsisting of elements coming from all\nthree of the major political players\nback on Earth is finally close to\narriving in the system.\n\nYou are part of the <b>Force Recon</b> element of the <b>UER</b>.\nYou have been hand picked from a narrow\nfield of qualified volunteers to take\npart in this operation and have been\nassigned to the <b>UAS Arrowhead</b>.\nYou are the first organized military\nresponse in the system since it lost\ncontact.\n\n<b>Your mission begins now.</b>",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+3.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
+	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "<b>September 15th, 2224.</b>\n\nA week ago, the first ship of the <b>UER</b>,\nthe joint task force that includes\nelements from the <b>UA</b>, <b>TWE</b> and <b>UPP</b>\narrived at <b>LV-624</b>, a tidally locked\nplanet on the edge of the <b>Neroid Sector</b>.\n\nThe planet seems to be overrun by a\nunheard type of <b>XX-121</b>, one seemingly\ndriven only by the desire to <b>destroy and</b>\n<b>kill</b> and with seemingly <b>limitless</b>\n<b>numbers.</b>",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+4.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
+	sleep(575)
+	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "So far, the <b>UER</b> has been denied access\nto the frozen hemisphere of the planet\nby an <b>unregistered corporate space</b>\n<b>station</b> known only as <b>CORSAT</b>.\n\nNow, with the arrival of the <b>UPS Kursk</b>,\na <b>UPP</b> special forces ship redirected\nto the <b>UER</b>, a plan has been formed to\ncrack <b>CORSAT's</b> defenses and finally\nallow the <b>UER full access</b> to the planet.\n\nTo that end, <b>UER Force Recon</b> squads\n<b>Alpha</b> and <b>Delta</b> will be deployed onto\nthe <b>Cellblocks</b> section of the <b>Fiorina</b>\n<b>Prision Complex</b> to recover <b>corporate</b>\n<b>identification disks</b> necessary to enter\n<b>CORSAT</b>.",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+3.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
 
 /client/proc/npc_interaction()
 	set category = "DM.Narration"
@@ -1237,3 +1245,28 @@
 		GLOB.ammo_restock_full = 0
 		to_chat(usr, SPAN_INFO("Full restock DISABLED."))
 		return
+
+/client/proc/admin_shutter_control()
+	set category = "DM.Narration"
+	set name = "Shutter Control"
+	set desc = "Opens Admin Shutters"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/list/shutter_numbers = list()
+	for(var/obj/structure/machinery/door/poddoor/admin_shutters/shutter in world)
+		if(shutter_numbers.Find(shutter.shutter_group) == 0)
+			shutter_numbers.Add(shutter.shutter_group)
+	if(shutter_numbers.len == 0)
+		to_chat(usr, SPAN_WARNING("Error: No Admin shutters present"))
+		return
+	var/shutter_choice = tgui_input_list(usr, "Select Shutter Group to Toggle", "SHUTTERS", shutter_numbers, timeout = 0)
+	if(shutter_choice == null) return
+	var/shutter_count = 0
+	for(var/obj/structure/machinery/door/poddoor/admin_shutters/shutter_to_open in world)
+		if(shutter_to_open.shutter_group == shutter_choice)
+			shutter_to_open.opening_sequence()
+			shutter_count += 1
+	message_admins("[usr] has openened shutter group [shutter_choice].")
+	return

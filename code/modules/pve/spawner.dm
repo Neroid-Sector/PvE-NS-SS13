@@ -18,7 +18,7 @@
 	var/extra_delay = 0
 
 /obj/structure/xenosurge_spawner/proc/spawner_limit_reached()
-	log_admin("Wave limit of [GLOB.xenosurge_wave_xenos_max] reached. Disabling spawners.")
+	message_admins("Wave limit of [GLOB.xenosurge_wave_xenos_max] reached. Disabling spawners.")
 	for (var/obj/structure/xenosurge_spawner/spawner in GLOB.xenosurge_configured_spawners)
 		spawner.spawner_initiated = FALSE
 	GLOB.xenosurge_wave_xenos_current = 0
@@ -101,7 +101,7 @@
 		to_chat(usr, SPAN_WARNING("Failed. Spawner not initiated."))
 		return
 	else
-		log_admin("Spawner [spawner_id] starting.")
+		message_admins("Spawner [spawner_id] starting.")
 		spawner_spawn()
 		return
 
@@ -123,10 +123,6 @@
 	var/spawner_id
 	var/extra_delay = 0
 
-/obj/structure/xenosurge_veteran_spawner/proc/spawner_limit_reached()
-	for (var/obj/structure/xenosurge_veteran_spawner/spawner in GLOB.xenosurge_configured_veteran_spawners)
-		spawner.spawner_initiated = FALSE
-
 /obj/structure/xenosurge_veteran_spawner/proc/spawner_loop()
 	sleep(xenos_to_spawn_delay + extra_delay + rand(1,spawner_variance))
 	if(spawner_initiated == FALSE)
@@ -135,48 +131,25 @@
 		spawner_spawn()
 
 /obj/structure/xenosurge_veteran_spawner/proc/spawner_spawn()
-	var/global_xeno_count = 0
-	var/ai_count = 0
-	for (var/mob/living/carbon/xenomorph/xeno in world)
-		if(xeno.loc != null)
-			global_xeno_count += 1
-			if(xeno.spawner_id == spawner_id)
-				ai_count += 1
-	if(global_xeno_count > GLOB.xenosurge_spawner_limit)
-		if(extra_delay != 0) extra_delay += 50
-		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/xenosurge_veteran_spawner/, spawner_loop))
-		return
-	if(ai_count >= xenos_to_spawn_max)
-		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/xenosurge_veteran_spawner/, spawner_loop))
-		return
-	else
-		var/xenos_to_spawn = xenos_to_spawn_max - ai_count
-		var/current_spawnlistpos = 1
-		while(xenos_to_spawn > 0)
-			var/xenos_to_spawn_type = spawn_list[current_spawnlistpos]
-			var/turf/spawner_xeno_turf = get_random_turf_in_range(src, 2, 0)
-			var/spawner_xeno_typepath = RoleAuthority.get_caste_by_text(xenos_to_spawn_type)
-			var/mob/living/carbon/xenomorph/drone/spawned_xeno = new spawner_xeno_typepath(spawner_xeno_turf, null, "xeno_hive_normal")
-			spawned_xeno.spawner_id = spawner_id
-			spawned_xeno.health *= GLOB.xenosurge_veteran_xenos_hp_factor
-			spawned_xeno.maxHealth *= GLOB.xenosurge_veteran_xenos_hp_factor
-			spawned_xeno.melee_damage_lower = ceil(spawned_xeno.melee_damage_lower * GLOB.xenosurge_veteran_xenos_dam_factor)
-			spawned_xeno.melee_damage_upper = ceil(spawned_xeno.melee_damage_upper * GLOB.xenosurge_veteran_xenos_dam_factor)
-			if(spawn_list[current_spawnlistpos + 1] != null)
-				current_spawnlistpos += 1
-			else
-				current_spawnlistpos = 1
-			xenos_to_spawn -= 1
-			global_xeno_count += 1
-			GLOB.xenosurge_wave_xenos_current += 1
-			if(global_xeno_count >= GLOB.xenosurge_spawner_limit)
-				xenos_to_spawn = 0
-				extra_delay += 50
-				INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/xenosurge_spawner/, spawner_loop))
-				break
-			sleep(rand(1,spawner_variance))
-		if(global_xeno_count < GLOB.xenosurge_spawner_limit)
-			spawner_limit_reached()
+	var/xenos_to_spawn = xenos_to_spawn_max
+	var/current_spawnlistpos = 1
+	while(xenos_to_spawn > 0)
+		var/xenos_to_spawn_type = spawn_list[current_spawnlistpos]
+		var/turf/spawner_xeno_turf = get_random_turf_in_range(src, 2, 0)
+		var/spawner_xeno_typepath = RoleAuthority.get_caste_by_text(xenos_to_spawn_type)
+		var/mob/living/carbon/xenomorph/drone/spawned_xeno = new spawner_xeno_typepath(spawner_xeno_turf, null, "xeno_hive_normal")
+		spawned_xeno.spawner_id = spawner_id
+		spawned_xeno.health *= GLOB.xenosurge_veteran_xenos_hp_factor
+		spawned_xeno.maxHealth *= GLOB.xenosurge_veteran_xenos_hp_factor
+		spawned_xeno.melee_damage_lower = ceil(spawned_xeno.melee_damage_lower * GLOB.xenosurge_veteran_xenos_dam_factor)
+		spawned_xeno.melee_damage_upper = ceil(spawned_xeno.melee_damage_upper * GLOB.xenosurge_veteran_xenos_dam_factor)
+		if(spawn_list[current_spawnlistpos + 1] != null)
+			current_spawnlistpos += 1
+		else
+			current_spawnlistpos = 1
+		xenos_to_spawn -= 1
+		sleep(rand(1,spawner_variance))
+	spawner_initiated = FALSE
 
 
 /obj/structure/xenosurge_veteran_spawner/proc/setup_spawner(max = null, delay = null, variance = null)
@@ -212,7 +185,7 @@
 		to_chat(usr, SPAN_WARNING("Failed. Spawner not initiated."))
 		return
 	else
-		log_admin("Veteran Spawner [spawner_id] starting.")
+		message_admins("Veteran Spawner [spawner_id] starting.")
 		spawner_loop()
 		return
 

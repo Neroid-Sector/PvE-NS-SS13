@@ -334,3 +334,24 @@
 /obj/structure/machinery/door/poddoor/almayer/planet_side_blastdoor
 	density = TRUE
 	opacity = TRUE
+
+/obj/structure/machinery/door/poddoor/admin_shutters
+	name = "security separator"
+	desc = "A multilayered, heavy metal separator used to sealed off parts of the station. There is no getting through this unless it is open remotly."
+	icon = 'icons/obj/structures/doors/blastdoors_shutters.dmi'
+	icon_state = "almayer_pdoor1"
+	base_icon_state = "almayer_pdoor"
+	id = "admin_"
+	var/shutter_group = 1
+	indestructible = TRUE
+	unacidable = TRUE
+	density = TRUE
+	opacity = TRUE
+
+/obj/structure/machinery/door/poddoor/admin_shutters/Initialize()
+	. = ..()
+	id = "[id][num2text(shutter_group)]"
+
+/obj/structure/machinery/door/poddoor/admin_shutters/proc/opening_sequence()
+	sleep(pick(10,20,30,40,50))
+	open()

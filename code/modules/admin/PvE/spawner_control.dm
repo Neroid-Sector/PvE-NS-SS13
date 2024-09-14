@@ -86,7 +86,7 @@
 				veteran_spawner.start_spawning()
 				veteran_spawner_count += 1
 		to_chat(usr, SPAN_INFO("Spawner activation complete. Spawners activated: [spawner_count] and [veteran_spawner_count] veterans."))
-		log_admin("[usr] has activated a [spawner_count] spawner Xenosurge. Parameters: Max:[GLOB.xenosurge_spawner_limit], Xenos:[GLOB.xenosurge_wave_xenos_max]")
+		message_admins("[usr] has activated a [spawner_count] spawner Xenosurge. Parameters: Max:[GLOB.xenosurge_spawner_limit], Xenos:[GLOB.xenosurge_wave_xenos_max]")
 
 /client/proc/stop_surge()
 	set category = "DM.Xenosurge"
@@ -246,9 +246,7 @@
 		return
 	var/list/list_to_set = list()
 	switch(tgui_input_list(usr, "Select a veteran type:","VETERAN",list("Drones","Runners","Lurkers","Crushers"), timeout = 0, default = "Normal"))
-		if(null)
-			return
-		if("Drones")
+		if(null, "Drones")
 			list_to_set = list(1 = XENO_CASTE_DRONE, 2 = null,)
 		if("Runners")
 			list_to_set = list(1 = XENO_CASTE_RUNNER, 2 = null,)
@@ -264,13 +262,12 @@
 				spawner_count += 1
 		to_chat(usr, SPAN_INFO("Done. [spawner_count] veteran spawners set."))
 	var/surge_setup_value
-
 	surge_setup_value = tgui_input_number(usr, "HP Factor", "VETERAN",GLOB.xenosurge_veteran_xenos_hp_factor,timeout = 0)
-	if(surge_setup_value == null) return
+	if(surge_setup_value == null) surge_setup_value = GLOB.xenosurge_veteran_xenos_hp_factor
 	GLOB.xenosurge_veteran_xenos_hp_factor = surge_setup_value
 	to_chat(usr, SPAN_INFO("[surge_setup_value] set."))
 	surge_setup_value = tgui_input_number(usr, "Damage Factor", "VETERAN",GLOB.xenosurge_veteran_xenos_dam_factor,timeout = 0)
-	if(surge_setup_value == null) return
+	if(surge_setup_value == null) surge_setup_value = GLOB.xenosurge_veteran_xenos_dam_factor
 	GLOB.xenosurge_veteran_xenos_dam_factor = surge_setup_value
 	to_chat(usr, SPAN_INFO("[surge_setup_value] set."))
 

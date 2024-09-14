@@ -1071,6 +1071,7 @@
 #include "code\game\objects\items\shards.dm"
 #include "code\game\objects\items\stock_parts.dm"
 #include "code\game\objects\items\trash.dm"
+#include "code\game\objects\items\quest_items.dm"
 #include "code\game\objects\items\XMAS.dm"
 #include "code\game\objects\items\beacons\deployable_beacons.dm"
 #include "code\game\objects\items\beacons\handheld_beacon.dm"

@@ -432,6 +432,7 @@
 	desc = "An autoinjector with five compartments."
 	icon = 'icons/obj/items/syringe.dmi'
 	icon_state = "stim_5"
+	w_class = SIZE_TINY
 	var/owner_mob
 	var/volume = 50
 	var/cooldown_time = 0

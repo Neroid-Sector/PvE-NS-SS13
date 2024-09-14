@@ -77,6 +77,9 @@ GLOBAL_VAR_INIT(xenosurge_veteran_xenos_dam_factor, 0.5)
 GLOBAL_VAR_INIT(spawner_number, 1)
 GLOBAL_VAR_INIT(veteran_spawner_number, 1)
 
+GLOBAL_VAR_INIT(quest_items_number, 1)
+GLOBAL_VAR_INIT(quest_items_found, 0)
+
 GLOBAL_VAR_INIT(ammo_restock_next, 0)
 GLOBAL_VAR_INIT(ammo_restock_full, 0)
 GLOBAL_VAR_INIT(ammo_restock_delay, 6000)
