@@ -1263,6 +1263,7 @@
 		return
 	var/shutter_choice = tgui_input_list(usr, "Select Shutter Group to Toggle", "SHUTTERS", shutter_numbers, timeout = 0)
 	if(shutter_choice == null) return
+	shutter_choice = text2num(shutter_choice)
 	var/shutter_count = 0
 	for(var/obj/structure/machinery/door/poddoor/admin_shutters/shutter_to_open in world)
 		if(shutter_to_open.shutter_group == shutter_choice)
