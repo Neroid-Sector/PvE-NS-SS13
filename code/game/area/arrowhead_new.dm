@@ -284,6 +284,7 @@
 
 /area/arrowhead_new/middle/weapon_room/notunnel
 	flags_area = AREA_NOTUNNEL
+	requires_power = 0
 
 
 // Medical
