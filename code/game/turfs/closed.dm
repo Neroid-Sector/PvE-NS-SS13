@@ -282,6 +282,28 @@
 /turf/closed/shuttle/twe_dropship/transparent
 	opacity = FALSE
 
+/turf/closed/shuttle/midway
+	name = "\improper Midway"
+	icon = 'icons/turf/dropship.dmi'
+	icon_state = "1"
+
+/turf/closed/shuttle/midway/transparent
+	opacity = FALSE
+
+/turf/closed/shuttle/cyclone
+	name = "\improper Cyclone"
+	icon = 'icons/turf/dropship2.dmi'
+	icon_state = "1"
+
+/turf/closed/shuttle/cyclone/transparent
+	opacity = FALSE
+
+/turf/closed/shuttle/dropship2/tornado
+	name = "\improper Tornado"
+	icon = 'icons/turf/dropship3.dmi'
+
+/turf/closed/shuttle/dropship2/tornado/typhoon
+
 /turf/closed/shuttle/dropship3
 	name = "\improper Saipan"
 	icon = 'icons/turf/dropship3.dmi'

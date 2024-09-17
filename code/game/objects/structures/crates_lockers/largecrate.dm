@@ -625,21 +625,25 @@
 	new /obj/item/weapon/shield/riot(src)
 
 /obj/structure/largecrate/random/barrel/medical
+	icon = 'icons/obj/structures/props/hybrisarandomprops.dmi'
 	name = "white barrel"
 	desc = "A white storage barrel."
 	icon_state = "barrel_medical"
 
 /obj/structure/largecrate/random/barrel/black
+	icon = 'icons/obj/structures/props/hybrisarandomprops.dmi'
 	name = "black barrel"
 	desc = "A black storage barrel."
 	icon_state = "barrel_wy"
 
 /obj/structure/largecrate/random/barrel/brown
+	icon = 'icons/obj/structures/props/hybrisarandomprops.dmi'
 	name = "brown barrel"
 	desc = "A brown storage barrel."
 	icon_state = "barrel_tan"
 
 /obj/structure/largecrate/random/barrel/purewhite
+	icon = 'icons/obj/structures/props/hybrisarandomprops.dmi'
 	name = "white barrel"
 	desc = "A white storage barrel."
 	icon_state = "barrel_purewhite"
