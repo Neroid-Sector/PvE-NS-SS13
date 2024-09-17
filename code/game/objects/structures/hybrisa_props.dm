@@ -2401,89 +2401,6 @@
 
 // Billboards, Signs and Posters
 
-/// Alien Isolation - posters used as reference (direct downscale of the image for some) If anyone wants to name the billboards individually ///
-
-/obj/structure/roof/hybrisa/billboardsandsigns
-	name = "billboard"
-	desc = "An advertisement billboard."
-	icon = 'icons/obj/structures/props/32x64_hybrisabillboards.dmi'
-	icon_state = "billboard_bigger"
-	health = 500
-	bound_width = 64
-	bound_height = 32
-	density = FALSE
-	anchored = TRUE
-
-/obj/structure/roof/hybrisa/billboardsandsigns/bullet_act(obj/projectile/P)
-	health -= P.damage
-	playsound(src, 'sound/effects/metalping.ogg', 35, 1)
-	..()
-	healthcheck()
-	return TRUE
-
-/obj/structure/roof/hybrisa/billboardsandsigns/proc/explode()
-	visible_message(SPAN_DANGER("[src] breaks apart!"), max_distance = 1)
-	deconstruct(FALSE)
-
-/obj/structure/roof/hybrisa/billboardsandsigns/proc/healthcheck()
-	if(health <= 0)
-		explode()
-
-/obj/structure/roof/hybrisa/billboardsandsigns/ex_act(severity)
-	switch(severity)
-		if(EXPLOSION_THRESHOLD_LOW to EXPLOSION_THRESHOLD_MEDIUM)
-			if(prob(50))
-				deconstruct(FALSE)
-		if(EXPLOSION_THRESHOLD_MEDIUM to INFINITY)
-			deconstruct(FALSE)
-
-/obj/structure/roof/hybrisa/billboardsandsigns/attack_alien(mob/living/carbon/xenomorph/current_xenomorph)
-	if(unslashable)
-		return XENO_NO_DELAY_ACTION
-	current_xenomorph.animation_attack_on(src)
-	playsound(src, 'sound/effects/metalhit.ogg', 25, 1)
-	current_xenomorph.visible_message(SPAN_DANGER("[current_xenomorph] slashes at [src]!"),
-	SPAN_DANGER("You slash at [src]!"), null, 5, CHAT_TYPE_XENO_COMBAT)
-	update_health(rand(current_xenomorph.melee_damage_lower, current_xenomorph.melee_damage_upper))
-	return XENO_ATTACK_ACTION
-
-/obj/structure/roof/hybrisa/billboardsandsigns/bigbillboards
-	icon_state = "billboard_bigger"
-
-/obj/structure/roof/hybrisa/billboardsandsigns/billboardsmedium/billboard1
-	icon_state = "billboard1"
-
-/obj/structure/roof/hybrisa/billboardsandsigns/billboardsmedium/billboard2
-	icon_state = "billboard2"
-
-/obj/structure/roof/hybrisa/billboardsandsigns/billboardsmedium/billboard3
-	icon_state = "billboard3"
-
-/obj/structure/roof/hybrisa/billboardsandsigns/billboardsmedium/billboard4
-	icon_state = "billboard4"
-
-/obj/structure/roof/hybrisa/billboardsandsigns/billboardsmedium/billboard5
-	icon_state = "billboard5"
-
-// Big Road Signs
-
-/obj/structure/roof/hybrisa/billboardsandsigns/bigroadsigns
-	name = "road sign"
-	desc = "A road sign."
-	icon = 'icons/obj/structures/props/64x64_hybrisarandomprops.dmi'
-	icon_state = "roadsign_1"
-	bound_width = 64
-	bound_height = 32
-	density = FALSE
-	anchored = TRUE
-	layer = BILLBOARD_LAYER
-
-/obj/structure/roof/hybrisa/billboardsandsigns/bigroadsigns/road_sign_1
-	icon_state = "roadsign_1"
-
-/obj/structure/roof/hybrisa/billboardsandsigns/bigroadsigns/road_sign_2
-	icon_state = "roadsign_2"
-
 // Car Factory
 
 /obj/structure/prop/hybrisa/Factory
@@ -2507,28 +2424,6 @@
 	icon_state = "factory_conveyer"
 	density = FALSE
 
-// Hybrisa Lattice
-/obj/structure/roof/hybrisa/lattice_prop
-	name = "lattice"
-	desc = "A support lattice."
-	icon = 'icons/obj/structures/props/hybrisa_lattice.dmi'
-	icon_state = "lattice1"
-	density = FALSE
-	layer = ABOVE_XENO_LAYER
-	health = 1000
-
-/obj/structure/roof/hybrisa/lattice_prop/lattice_1
-	icon_state = "lattice1"
-/obj/structure/roof/hybrisa/lattice_prop/lattice_2
-	icon_state = "lattice2"
-/obj/structure/roof/hybrisa/lattice_prop/lattice_3
-	icon_state = "lattice3"
-/obj/structure/roof/hybrisa/lattice_prop/lattice_4
-	icon_state = "lattice4"
-/obj/structure/roof/hybrisa/lattice_prop/lattice_5
-	icon_state = "lattice5"
-/obj/structure/roof/hybrisa/lattice_prop/lattice_6
-	icon_state = "lattice6"
 
 
 // Funny additions for missiong objects from main CM in PvE code. Should be removed if core fucntionality is ported.
