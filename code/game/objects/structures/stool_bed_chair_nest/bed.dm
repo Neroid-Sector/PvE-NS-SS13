@@ -19,6 +19,7 @@
 	var/buildstacktype = /obj/item/stack/sheet/metal
 	var/buildstackamount = 1
 	var/foldabletype //To fold into an item (e.g. roller bed item)
+	var/buckling_x = 0
 	var/buckling_y = 0 //pixel y shift to give to the buckled mob.
 	var/obj/structure/closet/bodybag/buckled_bodybag
 	var/accepts_bodybag = FALSE //Whether you can buckle bodybags to this bed
@@ -60,6 +61,8 @@
 	if(. && buckled_mob == M)
 		M.pixel_y = buckling_y
 		M.old_y = buckling_y
+		M.pixel_x = buckling_x
+		M.old_x = buckling_x
 		if(base_bed_icon)
 			density = TRUE
 	else
