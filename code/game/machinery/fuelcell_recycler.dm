@@ -142,3 +142,48 @@
 		src.overlays += "recycler-left-cell"
 		src.overlays += "recycler-right-cell"
 		return
+
+/obj/item/fuel_cell
+	name = "\improper WL-6 universal fuel cell"
+	icon = 'icons/obj/structures/machinery/shuttle-parts.dmi'
+	icon_state = "cell-full"
+	desc = "A rechargeable fuel cell designed to work as a power source for the Cheyenne-Class transport or for Westingland S-52 Reactors."
+	///How much fuel is in the reactor
+	var/fuel_amount = 100
+	///Max amount that the cell can hold
+	var/max_fuel_amount = 100
+	///If the fuel cell has been used since last recharge
+	var/new_cell = TRUE
+
+/obj/item/fuel_cell/update_icon()
+	switch(get_fuel_percent())
+		if(-INFINITY to 0)
+			icon_state = "cell-empty"
+		if(0 to 25)
+			icon_state = "cell-low"
+		if(25 to 75)
+			icon_state = "cell-medium"
+		if(75 to 99)
+			icon_state = "cell-high"
+		if(100 to INFINITY)
+			icon_state = "cell-full"
+
+/obj/item/fuel_cell/get_examine_text(mob/user)
+	.  = ..()
+	if(ishuman(user))
+		. += "The fuel indicator reads: [get_fuel_percent()]%"
+
+///Percentage of fuel left in the cell
+/obj/item/fuel_cell/proc/get_fuel_percent()
+	return floor(100 * fuel_amount/max_fuel_amount)
+
+///Whether the fuel cell is full
+/obj/item/fuel_cell/proc/is_regenerated()
+	return (fuel_amount == max_fuel_amount)
+
+/// increase or decrease fuel, making sure it cannot go above the max
+/obj/item/fuel_cell/proc/modify_fuel(amount)
+	fuel_amount = clamp(fuel_amount + amount, 0, max_fuel_amount)
+
+/obj/item/fuel_cell/used
+	new_cell = FALSE

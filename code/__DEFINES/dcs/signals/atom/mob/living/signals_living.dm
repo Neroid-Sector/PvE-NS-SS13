@@ -33,3 +33,8 @@
 #define COMSIG_LIVING_SET_BUCKLED "living_set_buckled"
 ///from base of mob/living/set_body_position()
 #define COMSIG_LIVING_SET_BODY_POSITION  "living_set_body_position"
+
+/// from /datum/component/shimmy_around/proc/on_mob_move to determine if layer should be reset
+#define COMSIG_LIVING_SHIMMY_LAYER "structure_shimmy_layer"
+	/// Sent when a shimmy component is currently overriding the layer
+	#define COMSIG_LIVING_SHIMMY_LAYER_CANCEL (1<<0)

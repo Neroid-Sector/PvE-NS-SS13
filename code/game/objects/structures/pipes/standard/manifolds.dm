@@ -201,3 +201,6 @@
 
 /obj/structure/pipes/standard/manifold/fourway/hidden/purple
 	color = PIPE_COLOR_PURPLE
+
+/obj/structure/pipes/standard/manifold/hidden/dark
+	color = PIPE_COLOR_DARKGREY

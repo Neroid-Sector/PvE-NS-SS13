@@ -781,3 +781,16 @@
 
 #undef SENTRY_FIREANGLE
 #undef SENTRY_RANGE
+
+/obj/structure/machinery/defenses/sentry/premade/deployable/colony/wy
+	name = "WY 5-GSE3 Static Turret"
+	desc = "A state-of-the-art, high-tech static, semi-automated turret with AI targeting capabilities from Weyland-Yutani."
+	icon = 'icons/obj/structures/machinery/defenses/wy_static.dmi'
+	defense_type = "Static"
+	sentry_type = "wy_sentry"
+	faction_group = list(FACTION_MARINE, FACTION_COLONIST, FACTION_SURVIVOR, FACTION_WY)
+
+/obj/structure/machinery/defenses/sentry/premade/deployable/colony/wy/Initialize()
+	. = ..()
+	choice_categories[SENTRY_CATEGORY_IFF] = list(FACTION_COLONIST, FACTION_WEYLAND)
+	selected_categories[SENTRY_CATEGORY_IFF] = FACTION_COLONIST

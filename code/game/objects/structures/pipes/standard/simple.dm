@@ -125,3 +125,6 @@
 	icon = 'icons/obj/pipes/red_pipe.dmi'
 	icon_state = "intact"
 	level = 2
+
+/obj/structure/pipes/standard/simple/hidden/dark
+	color = PIPE_COLOR_DARKGREY

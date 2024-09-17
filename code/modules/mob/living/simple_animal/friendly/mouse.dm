@@ -26,6 +26,10 @@
 	maxbodytemp = 323 //Above 50 Degrees Celcius
 	holder_type = /obj/item/holder/mouse
 	squeeze_under = TRUE
+	universal_speak = FALSE
+	universal_understand = TRUE
+	///the icon_state prefix to use for the icon_state, icon_living, and icon_dead
+	var/icon_base = "mouse"
 
 /mob/living/simple_animal/mouse/Life(delta_time)
 	..()
