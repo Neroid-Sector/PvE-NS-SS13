@@ -1371,4 +1371,41 @@ GLOBAL_LIST_INIT(apc_wire_descriptions, list(
 	desc = "A control terminal for the area electrical systems. This one is hardened against sudden power fluctuations caused by electrical grid damage."
 	crash_break_probability = 0
 
+/obj/structure/machinery/power/apc/no_power
+	start_charge = 0
+
+/obj/structure/machinery/power/apc/no_power/north
+	pixel_y = 32
+	dir = 1
+
+/obj/structure/machinery/power/apc/no_power/south
+	pixel_y = -26
+	dir = 2
+
+/obj/structure/machinery/power/apc/no_power/east
+	pixel_x = 30
+	dir = 4
+
+/obj/structure/machinery/power/apc/no_power/west
+	pixel_x = -30
+	dir = 8
+
+// Powered APCs with directions
+/obj/structure/machinery/power/apc/power/north
+	pixel_y = 32
+	dir = 1
+
+/obj/structure/machinery/power/apc/power/south
+	pixel_y = -26
+	dir = 2
+
+/obj/structure/machinery/power/apc/power/east
+	pixel_x = 30
+	dir = 4
+
+/obj/structure/machinery/power/apc/power/west
+	pixel_x = -30
+	dir = 8
+
 #undef APC_UPDATE_ICON_COOLDOWN
+

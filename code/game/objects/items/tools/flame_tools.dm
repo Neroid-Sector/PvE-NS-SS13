@@ -806,3 +806,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		..()
 
+
+/obj/item/tool/lighter/zippo/black
+	name = "black Zippo lighter"
+	desc = "A fancy black Zippo lighter. Ignite in style."
+	icon_state = "blackzippo"

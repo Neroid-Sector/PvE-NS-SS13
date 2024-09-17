@@ -265,3 +265,8 @@
 /obj/item/device/toner
 	name = "toner cartridge"
 	icon_state = "tonercartridge"
+
+/obj/structure/machinery/photocopier/wyphotocopier
+	name = "photocopier"
+	icon = 'icons/obj/structures/machinery/library.dmi'
+	icon_state = "bigscannerpro"

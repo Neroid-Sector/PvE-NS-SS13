@@ -11,8 +11,7 @@
 	var/power_gen_percent = 0 //100,000W at full capacity
 	var/power_generation_max = 100000 //Full capacity
 	var/powernet_connection_failed = 0 //Logic checking for powernets
-	var/buildstate = 1 //What state of building it are we on, 0-3, 1 is "broken", the default
-	var/is_on = 0  //Is this damn thing on or what?
+	var/buildstate = 1 //What state of building it are we on, 0-3, 1 is "broken", the default  //Is this damn thing on or what?
 	var/fail_rate = 10 //% chance of failure each fail_tick check
 	var/fail_check_ticks = 100 //Check for failure every this many ticks
 	var/cur_tick = 0 //Tick updater
@@ -209,7 +208,6 @@
 	desc = "This switch controls the floodlights surrounding the archaeology complex. It only functions when there is power."
 	density = FALSE
 	anchored = TRUE
-	var/ispowered = FALSE
 	var/turned_on = 0 //has to be toggled in engineering
 	use_power = USE_POWER_IDLE
 	unslashable = TRUE
@@ -303,15 +301,15 @@
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_XENO_LAYER
-	var/damaged = 0 //Can be smashed by xenos
+	damaged = 0 //Can be smashed by xenos
 	var/is_lit = 0 //whether the floodlight is switched to on or off. Does not necessarily mean it emits light.
 	unslashable = TRUE
 	unacidable = TRUE
 	var/power_tick = 50 // power each floodlight takes up per process
 	use_power = USE_POWER_NONE //It's the switch that uses the actual power, not the lights
 	var/obj/structure/machinery/colony_floodlight_switch/fswitch = null //Reverse lookup for power grabbing in area
-	var/lum_value = 7
-	var/repair_state = 0
+	lum_value = 7
+	repair_state = 0
 	health = 150
 
 /obj/structure/machinery/colony_floodlight/Destroy()

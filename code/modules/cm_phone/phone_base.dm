@@ -99,3 +99,9 @@
 	name = "rotary telephone"
 	icon_state = "rotary_phone"
 	desc = "The finger plate is a little stiff."
+
+
+/obj/item/phone
+	name = "telephone"
+	icon = 'icons/obj/items/misc.dmi'
+	icon_state = "rpb_phone"

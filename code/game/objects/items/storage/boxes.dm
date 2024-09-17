@@ -761,3 +761,10 @@
 	else if(!isopened)
 		isopened = 1
 		icon_state = "mealpackopened"
+
+/obj/item/storage/box/tomato
+	name = "box of tomatoes"
+
+/obj/item/storage/box/tomato/fill_preset_inventory()
+	for(var/i in 1 to 7)
+		new /obj/item/reagent_container/food/snacks/grown/tomato(src)

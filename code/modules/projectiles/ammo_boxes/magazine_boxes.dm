@@ -430,3 +430,22 @@
 
 /obj/item/ammo_box/magazine/nailgun/empty
 	empty = TRUE
+
+/obj/item/ammo_box/magazine/p90
+	name = "magazine box (FN P90 x 12)"
+	icon_state = "base_fn"
+	flags_equip_slot = SLOT_BACK
+	overlay_ammo_type = ""
+	overlay_gun_type = "_fnfp9000"
+	overlay_content = "_fn"
+	num_of_magazines = 12
+	magazine_type = /obj/item/ammo_magazine/smg/p90
+
+/obj/item/ammo_box/magazine/p90/update_icon()
+	if(overlays)
+		overlays.Cut()
+	overlays += image(icon, icon_state = "[icon_state]_lid") //adding lid
+	overlays += image(text_markings_icon, icon_state = "text[overlay_gun_type]") //adding text
+
+/obj/item/ammo_box/magazine/p90/empty
+	empty = TRUE

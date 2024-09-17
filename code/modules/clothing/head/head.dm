@@ -16,6 +16,11 @@
 /obj/item/clothing/head/proc/has_garb_overlay()
 	return FALSE
 
+/obj/item/clothing/head/hardhat/red/kelland
+	icon_state = "hardhat0_red"
+	hardhat_color = "red"
+	name = "kelland-mining hard hat"
+
 /obj/item/clothing/head/cmbandana
 	name = "bandana"
 	desc = "Typically worn by heavy-weapon operators, mercenaries and scouts, the bandana serves as a lightweight and comfortable hat. Comes in two stylish colors."

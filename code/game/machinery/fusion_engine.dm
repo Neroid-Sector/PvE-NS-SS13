@@ -19,7 +19,6 @@
 
 	var/power_gen_percent = 0 //50,000W at full capacity
 	var/buildstate = 0 //What state of building it are we on, 0-3, 1 is "broken", the default
-	var/is_on = TRUE  //Is this damn thing on or what?
 	var/fail_rate = FALSE //% chance of failure each fail_tick check
 	var/cur_tick = 0 //Tick updater
 
@@ -453,3 +452,8 @@
 	fuel_amount += amount
 	if(fuel_amount > max_fuel_amount)
 		fuel_amount = max_fuel_amount
+
+/obj/structure/machinery/power/reactor/colony
+	name = "\improper G-11 geothermal generator"
+	icon = 'icons/obj/structures/machinery/geothermal.dmi'
+	desc = "A thermoelectric generator sitting atop a plasma-filled borehole."

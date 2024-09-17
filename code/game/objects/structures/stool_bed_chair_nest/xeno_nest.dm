@@ -19,7 +19,6 @@
 	var/hivenumber = XENO_HIVE_NORMAL
 	var/force_nest = FALSE
 	/// counterpart to buckling_y --> offsets the buckled mob when it buckles
-	var/list/buckling_x
 
 /obj/structure/bed/nest/Initialize(mapload, hive)
 	. = ..()
