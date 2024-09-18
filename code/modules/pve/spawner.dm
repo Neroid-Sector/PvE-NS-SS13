@@ -41,10 +41,9 @@
 		spawner_spawn()
 
 /obj/structure/xenosurge_spawner/proc/veteran_spawn_loop()
-	if(GLOB.xenosurge_veteran_xenos_max <= GLOB.xenosurge_wave_veteran_xenos_current) return
 	var/veterans_to_spawn = GLOB.xenosurge_veteran_spawner_xenos_max
 	while(veterans_to_spawn > 0)
-		if(GLOB.xenosurge_surge_started == 0)
+		if(GLOB.xenosurge_surge_started == 0 || GLOB.xenosurge_wave_veteran_xenos_current >= GLOB.xenosurge_veteran_xenos_max)
 			veterans_to_spawn = 0
 			break
 		sleep(GLOB.xenosurge_veteran_spawner_delay + (rand(1,GLOB.xenosurge_veteran_spawner_variance)))
@@ -96,8 +95,8 @@
 				spawned_veteran.melee_damage_lower = 60
 				spawned_veteran.melee_damage_upper = 40
 				spawned_veteran.armor_deflection = 30
-				spawned_veteran.caste.attack_delay = 4
-				spawned_veteran.speed = 0.6
+				spawned_veteran.caste.attack_delay = 20
+				spawned_veteran.speed = 0.2
 				switch(rand(1,2))
 					if(1)
 						spawned_veteran.icon = 'icons/mob/xenos/Surge/veteran_breaker_1.dmi'
