@@ -141,14 +141,11 @@ var/list/admin_verbs_minor_event = list(
 	/client/proc/admin_biohazard_alert,
 	/client/proc/toggle_hardcore_perma,
 	/client/proc/toggle_bypass_joe_restriction,
-	/client/proc/create_spawner_setup,
 	/client/proc/remove_spawners,
-	/client/proc/reinitialize_spawners,
 	/client/proc/setup_surge,
 	/client/proc/start_surge,
 	/client/proc/stop_surge,
 	/client/proc/surge_preset_hp,
-	/client/proc/surge_preset_waves,
 	/client/proc/set_narration_preset,
 	/client/proc/speak_to_comms,
 	/client/proc/call_tgui_play_directly,
@@ -157,6 +154,8 @@ var/list/admin_verbs_minor_event = list(
 	/client/proc/change_objective,
 	/client/proc/enable_full_restock,
 	/client/proc/admin_shutter_control,
+	/client/proc/surge_status,
+	/client/proc/setup_surge_globals,
 )
 
 var/list/admin_verbs_major_event = list(
@@ -179,9 +178,6 @@ var/list/admin_verbs_major_event = list(
 	/client/proc/change_weather,
 	/client/proc/admin_blurb,
 	/client/proc/create_surge_spawner,
-	/client/proc/create_veteran_spawner_setup,
-	/client/proc/veteran_setup,
-	/client/proc/create_veteran_surge_spawner,
 )
 
 var/list/admin_verbs_spawn = list(

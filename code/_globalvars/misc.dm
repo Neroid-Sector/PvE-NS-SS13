@@ -57,27 +57,32 @@ GLOBAL_VAR(obfs_y)
 GLOBAL_VAR_INIT(ai_xeno_weeding, FALSE)
 
 GLOBAL_VAR_INIT(xenosurge_spawner_limit, 30)
+
+GLOBAL_VAR_INIT(xenosurge_surge_started, 0)
 GLOBAL_VAR_INIT(xenosurge_wave_xenos_max, 100)
 GLOBAL_VAR_INIT(xenosurge_wave_xenos_current, 0)
+GLOBAL_VAR_INIT(xenosurge_wave_veteran_xenos_current, 0)
+GLOBAL_VAR_INIT(xenosurge_veteran_xenos_max, 6)
 
-GLOBAL_VAR_INIT(xenosurge_wave_xenos_hp_factor, 1)
-GLOBAL_VAR_INIT(xenosurge_wave_xenos_dam_factor, 1)
 
-GLOBAL_LIST_EMPTY(xenosurge_configured_spawners)
+GLOBAL_VAR_INIT(xenosurge_wave_xenos_hp, 50)
+GLOBAL_VAR_INIT(xenosurge_wave_xenos_armor, 0)
+GLOBAL_VAR_INIT(xenosurge_wave_xenos_dam_min, 5)
+GLOBAL_VAR_INIT(xenosurge_wave_xenos_dam_max, 7)
+
 GLOBAL_VAR_INIT(xenosurge_spawner_xenos, 5)
 GLOBAL_VAR_INIT(xenosurge_spawner_delay, 100)
+GLOBAL_VAR_INIT(xenosurge_spawner_variance, 10)
 
-GLOBAL_LIST_EMPTY(xenosurge_configured_veteran_spawners)
-GLOBAL_VAR_INIT(xenosurge_veteran_spawner_xenos, 2)
+GLOBAL_VAR_INIT(xenosurge_veteran_spawner_xenos_max, 2)
 GLOBAL_VAR_INIT(xenosurge_veteran_spawner_delay, 200)
 GLOBAL_VAR_INIT(xenosurge_veteran_spawner_variance, 100)
-GLOBAL_VAR_INIT(xenosurge_veteran_xenos_hp_factor, 2)
-GLOBAL_VAR_INIT(xenosurge_veteran_xenos_dam_factor, 0.5)
+
+GLOBAL_LIST_EMPTY(xenosurge_configured_spawners)
 
 GLOBAL_VAR_INIT(spawner_number, 1)
-GLOBAL_VAR_INIT(veteran_spawner_number, 1)
 
-GLOBAL_VAR_INIT(quest_items_number, 1)
+GLOBAL_VAR_INIT(quest_items_number, 0)
 GLOBAL_VAR_INIT(quest_items_found, 0)
 
 GLOBAL_VAR_INIT(ammo_restock_next, 0)

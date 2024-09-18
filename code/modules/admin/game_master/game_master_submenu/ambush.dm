@@ -206,10 +206,11 @@
 	playsound(referenced_atom, pick(ambush_sounds), 25, 1)
 
 	var/mob/living/carbon/xenomorph/spawned_xeno = new xeno_type(spawn_turf, null, selected_hive)
-	spawned_xeno.health *= GLOB.xenosurge_wave_xenos_hp_factor
-	spawned_xeno.maxHealth *= GLOB.xenosurge_wave_xenos_hp_factor
-	spawned_xeno.melee_damage_lower = ceil(spawned_xeno.melee_damage_lower * GLOB.xenosurge_wave_xenos_dam_factor)
-	spawned_xeno.melee_damage_upper = ceil(spawned_xeno.melee_damage_upper * GLOB.xenosurge_wave_xenos_dam_factor)
+	spawned_xeno.health = GLOB.xenosurge_wave_xenos_hp
+	spawned_xeno.maxHealth = GLOB.xenosurge_wave_xenos_hp
+	spawned_xeno.melee_damage_lower = GLOB.xenosurge_wave_xenos_dam_min
+	spawned_xeno.melee_damage_upper = GLOB.xenosurge_wave_xenos_dam_max
+	spawned_xeno.armor_deflection = GLOB.xenosurge_wave_xenos_armor
 
 /// Shakes the spawner via animation and returns a callback to reset the animation
 /datum/game_master_submenu/ambush/proc/shake_spawner()

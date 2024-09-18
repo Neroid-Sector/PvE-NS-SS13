@@ -342,8 +342,6 @@
 
 	var/atom/movable/vis_obj/xeno_wounds/wound_icon_holder
 	var/atom/movable/vis_obj/xeno_pack/backpack_icon_holder
-	//ai spawner fun
-	var/spawner_id
 
 /mob/living/carbon/xenomorph/Initialize(mapload, mob/living/carbon/xenomorph/oldXeno, h_number, ai_hard_off = FALSE)
 	var/area/A = get_area(src)
