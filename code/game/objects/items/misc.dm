@@ -411,6 +411,7 @@
 	var/datum/tacmap/map
 	var/minimap_type = MINIMAP_FLAG_USCM
 	var/faction = FACTION_MARINE
+	w_class = SIZE_SMALL
 
 /obj/item/tacmap_view/Initialize()
 	. = ..()
