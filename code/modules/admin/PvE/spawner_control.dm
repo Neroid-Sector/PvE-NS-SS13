@@ -113,6 +113,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 	if(tgui_alert(usr, "Confirm: Start Xenosurge?\nMax:[GLOB.xenosurge_spawner_limit]\nSpawned:[GLOB.xenosurge_wave_xenos_current] out of [GLOB.xenosurge_wave_xenos_max]","START",list("Cancel","OK"), timeout = 0) == "OK")
+		GLOB.xenosurge_surge_started = 1
 		var/spawner_count = 0
 		var/veteran_spawner_count = 0
 		for (var/obj/structure/xenosurge_spawner/spawner in GLOB.xenosurge_configured_spawners)
@@ -120,9 +121,10 @@
 				to_chat(usr, SPAN_WARNING("No spawner found. Aborted."))
 				return
 			if(spawner.spawner_initiated == TRUE)
+				playsound(spawner, 'sound/voice/xenos_roaring.ogg', 80)
 				spawner.start_spawning()
 				spawner_count += 1
-		GLOB.xenosurge_surge_started = 1
+		to_chat(world, SPAN_WARNING("A roar echoes through the AO as the Surge locks in on a target!"))
 		to_chat(usr, SPAN_INFO("Spawner activation complete. Spawners activated: [spawner_count] and [veteran_spawner_count] veterans."))
 		message_admins("[usr] has activated a [spawner_count] spawner Xenosurge. Parameters: Max:[GLOB.xenosurge_spawner_limit], Xenos:[GLOB.xenosurge_wave_xenos_max]")
 
@@ -136,8 +138,8 @@
 	if(tgui_alert(usr, "Confirm: Stop Xenosurge?","STOP",list("Cancel","OK"), timeout = 0) == "OK")
 		GLOB.xenosurge_surge_started = 0
 		GLOB.xenosurge_wave_xenos_current = 0
-		GLOB.xenosurge_wave_veteran_xenos_current = 0
-
+		GLOB.xenosurge_wave_veteran_xenos_current = 0		
+		to_chat(world, SPAN_INFO("The end is in sight! The onslaught seems to be letting up!"))
 		to_chat(usr, SPAN_INFO("All spawners have been deactivated, the surge is effectively stopped."))
 
 /client/proc/remove_spawners()
