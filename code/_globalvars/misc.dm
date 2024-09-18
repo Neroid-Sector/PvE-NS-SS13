@@ -75,8 +75,10 @@ GLOBAL_VAR_INIT(xenosurge_spawner_delay, 100)
 GLOBAL_VAR_INIT(xenosurge_spawner_variance, 10)
 
 GLOBAL_VAR_INIT(xenosurge_veteran_spawner_xenos_max, 2)
-GLOBAL_VAR_INIT(xenosurge_veteran_spawner_delay, 200)
-GLOBAL_VAR_INIT(xenosurge_veteran_spawner_variance, 100)
+GLOBAL_VAR_INIT(xenosurge_veteran_spawner_delay, 100)
+GLOBAL_VAR_INIT(xenosurge_veteran_spawner_variance, 50)
+
+GLOBAL_VAR_INIT(xenosurge_veteran_type, 4)
 
 GLOBAL_LIST_EMPTY(xenosurge_configured_spawners)
 

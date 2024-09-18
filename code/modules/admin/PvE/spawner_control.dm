@@ -6,7 +6,7 @@
 	if(!check_rights(R_ADMIN))
 		return
 	var/surge_setup_value
-	switch(tgui_input_list(usr, "Max:[GLOB.xenosurge_spawner_limit]\nSpawned:[GLOB.xenosurge_wave_xenos_current] out of [GLOB.xenosurge_wave_xenos_max]", "SURGE SETUP CHOICE", list("Global Xeno Limit","Number of Surge Xenos","Factors","Spawn List")))
+	switch(tgui_input_list(usr, "Max:[GLOB.xenosurge_spawner_limit]\nSpawned:[GLOB.xenosurge_wave_xenos_current] out of [GLOB.xenosurge_wave_xenos_max]", "SURGE SETUP CHOICE", list("Global Xeno Limit","Number of Surge","Number of Veteran Surge","Veteran Surge Type")))
 		if(null)
 			return
 		if("Global Xeno Limit")
@@ -23,6 +23,11 @@
 			surge_setup_value = tgui_input_number(usr, "Xenos to spawn in the wave", "SURGE SETUP VETERAN NO",GLOB.xenosurge_veteran_xenos_max,timeout = 0)
 			if(surge_setup_value == null) return
 			GLOB.xenosurge_veteran_xenos_max = surge_setup_value
+			to_chat(usr, SPAN_INFO("[surge_setup_value] set."))
+		if("Veteran Surge Type")
+			surge_setup_value = tgui_input_list(usr, "1 - Pusher\n2 - Amubsher\n3 - Breaker\n4 - Random", "SURGE SETUP VETERAN MOB",list(1,2,3,4),timeout = 0)
+			if(surge_setup_value == null) return
+			GLOB.xenosurge_veteran_type = surge_setup_value
 			to_chat(usr, SPAN_INFO("[surge_setup_value] set."))
 
 /client/proc/setup_surge_globals()
@@ -131,6 +136,7 @@
 	if(tgui_alert(usr, "Confirm: Stop Xenosurge?","STOP",list("Cancel","OK"), timeout = 0) == "OK")
 		GLOB.xenosurge_surge_started = 0
 		GLOB.xenosurge_wave_xenos_current = 0
+		GLOB.xenosurge_wave_veteran_xenos_current = 0
 
 		to_chat(usr, SPAN_INFO("All spawners have been deactivated, the surge is effectively stopped."))
 
