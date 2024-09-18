@@ -1074,7 +1074,7 @@
 	message_admins("[key_name(usr)] sent an admin blurb alert to all players. Alert reads: '[message]' and lasts [(duration / 10)] seconds.")
 
 /client/proc/set_narration_preset()
-	set name = "Speak as NPC over comms - setup NPC"
+	set name = "Setup Radio NPC"
 	set category = "DM.Narration"
 	if(!check_rights(R_ADMIN)) return
 
@@ -1086,6 +1086,10 @@
 			usr.narration_settings["Name"] = "Mission Control"
 			usr.narration_settings["Location"] = "Arrowhead Command"
 			usr.narration_settings["Position"] = "SO"
+		if("The Warden")
+			usr.narration_settings["Name"] = "The Warden"
+			usr.narration_settings["Location"] = "Unknown"
+			usr.narration_settings["Position"] = "CIV"
 		if("Groundside AI")
 			usr.narration_settings["Name"] = "Automated Voice"
 			usr.narration_settings["Location"] = "Control"
@@ -1101,7 +1105,7 @@
 	return
 
 /client/proc/speak_to_comms()
-	set name = "Speak as NPC over comms"
+	set name = "Radio NPC"
 	set category = "DM.Narration"
 	if(!check_rights(R_ADMIN)) return
 
@@ -1146,13 +1150,13 @@
 			client?.tgui_panel?.stop_music()
 
 /client/proc/opener_blurb()
-	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "<b>September 15th, 2224.</b>\n\nA week ago, the first ship of the <b>UER</b>,\nthe joint task force that includes\nelements from the <b>UA</b>, <b>TWE</b> and <b>UPP</b>\narrived at <b>LV-624</b>, a tidally locked\nplanet on the edge of the <b>Neroid Sector</b>.\n\nThe planet seems to be overrun by a\nunheard type of <b>XX-121</b>, one seemingly\ndriven only by the desire to <b>destroy and</b>\n<b>kill</b> and with seemingly <b>limitless</b>\n<b>numbers.</b>",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+4.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
-	sleep(575)
-	show_blurb(GLOB.player_list, duration = 15 SECONDS, message = "So far, the <b>UER</b> has been denied access\nto the frozen hemisphere of the planet\nby an <b>unregistered corporate space</b>\n<b>station</b> known only as <b>CORSAT</b>.\n\nNow, with the arrival of the <b>UPS Kursk</b>,\na <b>UPP</b> special forces ship redirected\nto the <b>UER</b>, a plan has been formed to\ncrack <b>CORSAT's</b> defenses and finally\nallow the <b>UER full access</b> to the planet.\n\nTo that end, <b>UER Force Recon</b> squads\n<b>Alpha</b> and <b>Delta</b> will be deployed onto\nthe <b>Cellblocks</b> section of the <b>Fiorina</b>\n<b>Prision Complex</b> to recover <b>corporate</b>\n<b>identification disks</b> necessary to enter\n<b>CORSAT</b>.",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+3.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
+	show_blurb(GLOB.player_list, duration = 10 SECONDS, message = "September 18th, 2224.\n\n<b>UER Force Recon</b> teams <b>Alpha</b> and <b>Delta</b>\nare deploying to the settlement known as\n<b>Solaris Ridge</b>.\n\nThere, they are expected to coordinate\nwith an unknown survivor known only as\n<b>The Warden</b>.\n\nWhile the <b>UER Marines</b> will tie down the\nlocal <b>Surge</b>, an ultra-agressive <b>XX-121</b>\nstrain that has infested the planet,\n<b>The Wardens</b> personnel will extract\ncritical information and supplies." ,scroll_down = TRUE, screen_position = "CENTER,BOTTOM+4.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
+	sleep(600)
+	show_blurb(GLOB.player_list, duration = 10 SECONDS, message = "<b>The Warden</b> promises that not only are\nthese supplies priority items for the\npeople under his care, he is also sure\nthat given enough time, his teams may\nbe able to secure helpful information\nregarding <b>SOLARIS</b>, a <b>space</b>\n<b>station</b> that/nhas been hindering <b>UER</b> progress in the/nsystem.\n\nRegardless of the validity of these\nclaims, <b>UER Command</b> has decided that\ntrying to establish contact with the\n<b>survivors</b> takes precedence above\nconcerns about <b>The Warden</b> themsleves.\n\n<b>Force Recon</b> teams <b>Alpha</b> and <b>Delta</b> are\ndeploying to handle this mission...",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+3.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
 
 /client/proc/npc_interaction()
 	set category = "DM.Narration"
-	set name = "Speak as in world NPC"
+	set name = "Speak as NPC"
 	set desc = "Speaks as NPC from spawners or otherwise with the talking_npc var turned on."
 
 	if(!check_rights(R_ADMIN))
@@ -1223,11 +1227,11 @@
 				GLOB.secondary_objective = "Recieving new orders..."
 			sleep(50)
 	if(type_to_change == "Primary")
-		GLOB.primary_objective = "- [new_objective]"
+		GLOB.primary_objective = "[new_objective]"
 		show_blurb(GLOB.player_list, 10 SECONDS, "New Primary Objective:\n[GLOB.primary_objective]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
 
 	else
-		GLOB.secondary_objective = "- [new_objective]"
+		GLOB.secondary_objective = "[new_objective]"
 		show_blurb(GLOB.player_list, 10 SECONDS, "New Secondary Objective:\n[GLOB.secondary_objective]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
 
 /client/proc/enable_full_restock()
