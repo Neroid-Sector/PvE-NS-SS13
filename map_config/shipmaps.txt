@@ -33,9 +33,5 @@ map golden_arrow_classic
 endmap
 
 map arrowhead
-	disabled
-endmap
-
-map arrowhead_new
 	default
 endmap
