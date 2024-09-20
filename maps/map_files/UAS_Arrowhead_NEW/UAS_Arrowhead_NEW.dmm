@@ -963,11 +963,6 @@
 	unacidable = 1;
 	unslashable = 1
 	},
-/obj/structure/machinery/door/poddoor/shutters/almayer/open{
-	dir = 4;
-	id = "Arrow_Elevator_Lockdown";
-	name = "\improper Elevator Lockdown Shutter"
-	},
 /turf/open/floor/almayer{
 	icon_state = "test_floor4"
 	},
@@ -1447,6 +1442,20 @@
 "bAt" = (
 /turf/closed/wall/almayer/outer,
 /area/arrowhead_new/middle/star_bunks)
+"bCb" = (
+/obj/structure/surface/table/almayer,
+/obj/structure/machinery/door_control{
+	id = "Arrow_Req2";
+	name = "Line Shutters";
+	pixel_x = -6;
+	pixel_y = 5;
+	req_one_access_txt = list(1,21)
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "green"
+	},
+/area/arrowhead_new/middle/requisitions)
 "bDL" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -2200,6 +2209,9 @@
 	icon_state = "blue"
 	},
 /area/arrowhead_new/upper/cic)
+"cvp" = (
+/turf/closed/wall/almayer,
+/area/arrowhead_new/lower/ot)
 "cvv" = (
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/lower/powered/evac)
@@ -5494,11 +5506,6 @@
 	unacidable = 1;
 	unslashable = 1
 	},
-/obj/structure/machinery/door/poddoor/shutters/almayer/open{
-	dir = 4;
-	id = "Arrow_Elevator_Lockdown";
-	name = "\improper Elevator Lockdown Shutter"
-	},
 /turf/open/floor/almayer{
 	icon_state = "test_floor4"
 	},
@@ -6297,11 +6304,6 @@
 	unacidable = 1;
 	unslashable = 1
 	},
-/obj/structure/machinery/door/poddoor/shutters/almayer/open{
-	dir = 4;
-	id = "Arrow_Elevator_Lockdown";
-	name = "\improper Elevator Lockdown Shutter"
-	},
 /turf/open/floor/almayer{
 	icon_state = "test_floor4"
 	},
@@ -6771,11 +6773,6 @@
 	unacidable = 1;
 	unslashable = 1
 	},
-/obj/structure/machinery/door/poddoor/shutters/almayer/open{
-	dir = 4;
-	id = "Arrow_Elevator_Lockdown";
-	name = "\improper Elevator Lockdown Shutter"
-	},
 /turf/open/floor/almayer{
 	icon_state = "test_floor4"
 	},
@@ -6897,14 +6894,6 @@
 	dir = 1
 	},
 /area/arrowhead_new/middle/hangar)
-"hoi" = (
-/obj/structure/machinery/cm_vending/clothing/pilot_officer{
-	can_block_movement = 0;
-	density = 0;
-	pixel_y = 16
-	},
-/turf/open/floor/kutjevo/colors/blue,
-/area/arrowhead_new/lower/bunks/vc_bunk)
 "hpr" = (
 /obj/structure/surface/table/reinforced/black,
 /turf/open/floor/almayer{
@@ -7354,12 +7343,6 @@
 /area/arrowhead_new/upper/brig)
 "hIr" = (
 /obj/structure/surface/table/woodentable/fancy,
-/obj/structure/machinery/door_control{
-	id = "Arrow_Elevator_Lockdown";
-	name = "Elevator Lockdown";
-	pixel_x = -3;
-	req_one_access_txt = list(31)
-	},
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/upper/bunks/co)
 "hIs" = (
@@ -10668,6 +10651,9 @@
 /obj/structure/toilet{
 	dir = 8
 	},
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
 /turf/open/floor/almayer{
 	icon_state = "dark_sterile"
 	},
@@ -11385,11 +11371,6 @@
 	unacidable = 1;
 	unslashable = 1
 	},
-/obj/structure/machinery/door/poddoor/shutters/almayer/open{
-	dir = 4;
-	id = "Arrow_Elevator_Lockdown";
-	name = "\improper Elevator Lockdown Shutter"
-	},
 /turf/open/floor/almayer{
 	icon_state = "test_floor4"
 	},
@@ -11681,14 +11662,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/middle/hallways/port)
-"mmK" = (
-/obj/structure/machinery/cm_vending/sorted/cargo_guns/pilot_officer{
-	can_block_movement = 0;
-	density = 0;
-	pixel_y = 16
-	},
-/turf/open/floor/kutjevo/colors/blue,
-/area/arrowhead_new/lower/bunks/vc_bunk)
 "mmU" = (
 /obj/structure/machinery/light/spot{
 	dir = 1;
@@ -12959,6 +12932,17 @@
 	icon_state = "orange"
 	},
 /area/arrowhead_new/middle/engineering/main)
+"nCy" = (
+/obj/structure/machinery/line_nexter{
+	dir = 4;
+	id = "line1";
+	pixel_x = 1
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "cargo_arrow"
+	},
+/area/arrowhead_new/middle/prep/squad)
 "nCU" = (
 /turf/open/floor/almayer{
 	icon_state = "plate"
@@ -15494,6 +15478,14 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/middle/hallways/fore)
+"qbj" = (
+/obj/structure/machinery/cm_vending/sorted/cargo_guns/pilot_officer{
+	can_block_movement = 0;
+	density = 0;
+	pixel_y = -15
+	},
+/turf/open/floor/kutjevo/colors/blue,
+/area/arrowhead_new/lower/bunks/pilot_bunk)
 "qbq" = (
 /turf/open/floor/carpet,
 /area/arrowhead_new/middle/engineering/main)
@@ -15604,6 +15596,20 @@
 	},
 /turf/open/floor/plating,
 /area/arrowhead_new/upper/stairs)
+"qis" = (
+/obj/structure/surface/table/almayer,
+/obj/structure/machinery/door_control{
+	id = "Arrow_Req1";
+	name = "Line Shutters";
+	pixel_x = -6;
+	pixel_y = 5;
+	req_one_access_txt = list(1,21)
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "green"
+	},
+/area/arrowhead_new/middle/requisitions)
 "qit" = (
 /turf/open/floor/almayer{
 	dir = 1;
@@ -16434,6 +16440,16 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/middle/engineering/main)
+"qWx" = (
+/obj/vehicle/powerloader{
+	dir = 8;
+	layer = 3.7
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "green"
+	},
+/area/arrowhead_new/middle/requisitions)
 "qWR" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 6
@@ -17538,6 +17554,7 @@
 "rYn" = (
 /obj/structure/bed,
 /obj/item/bedsheet/green,
+/obj/effect/landmark/start/requisition,
 /turf/open/floor/almayer{
 	icon_state = "greenfull"
 	},
@@ -18348,13 +18365,6 @@
 "sTt" = (
 /turf/closed/wall/almayer,
 /area/arrowhead_new/middle/prep/lead)
-"sTG" = (
-/obj/structure/window/framed/almayer{
-	name = "One-Way Window";
-	opacity = 100
-	},
-/turf/open/floor/plating,
-/area/arrowhead_new/upper/brig)
 "sUD" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -18419,7 +18429,6 @@
 /area/arrowhead_new/lower/maint/fore)
 "sXt" = (
 /obj/structure/surface/table/reinforced/black,
-/obj/structure/machinery/computer/cameras/almayer_network,
 /turf/open/floor/almayer{
 	icon_state = "plate"
 	},
@@ -19785,11 +19794,6 @@
 	unacidable = 1;
 	unslashable = 1
 	},
-/obj/structure/machinery/door/poddoor/shutters/almayer/open{
-	dir = 4;
-	id = "Arrow_Elevator_Lockdown";
-	name = "\improper Elevator Lockdown Shutter"
-	},
 /turf/open/floor/almayer{
 	icon_state = "test_floor4"
 	},
@@ -19845,6 +19849,15 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/middle/hallways/aft)
+"uuP" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/landmark/start/cargo,
+/turf/open/floor/almayer{
+	icon_state = "plate"
+	},
+/area/arrowhead_new/middle/requisitions)
 "uvn" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -20189,6 +20202,12 @@
 	},
 /turf/open/floor/engine,
 /area/arrowhead_new/lower/firing_range)
+"uLt" = (
+/obj/effect/landmark/start/cargo,
+/turf/open/floor/almayer{
+	icon_state = "plate"
+	},
+/area/arrowhead_new/middle/requisitions)
 "uLL" = (
 /obj/structure/largecrate,
 /turf/open/floor/plating,
@@ -21757,6 +21776,14 @@
 	},
 /turf/open/floor/plating,
 /area/arrowhead_new/lower/maint/star)
+"wAc" = (
+/obj/structure/machinery/cm_vending/clothing/pilot_officer{
+	can_block_movement = 0;
+	density = 0;
+	pixel_y = -15
+	},
+/turf/open/floor/kutjevo/colors/blue,
+/area/arrowhead_new/lower/bunks/pilot_bunk)
 "wAg" = (
 /obj/structure/machinery/light{
 	dir = 8
@@ -29938,7 +29965,7 @@ eQD
 mud
 hHb
 rni
-qUp
+uuP
 cgH
 jgK
 wFe
@@ -30515,7 +30542,7 @@ cgH
 azS
 azS
 azS
-cgH
+uLt
 haq
 jFl
 hFG
@@ -30893,15 +30920,15 @@ eBo
 tRH
 hHb
 rcL
-eIB
+qWx
 gPe
 aJY
 aJY
-aJY
+bCb
 jtU
 puH
 lqf
-aJY
+qis
 aJY
 aJY
 gPe
@@ -31282,7 +31309,7 @@ gWc
 gWc
 sah
 hkF
-sah
+nCy
 gWc
 gWc
 gWc
@@ -41463,13 +41490,13 @@ ojI
 dAk
 tQn
 rZY
-qnk
-qnk
-qnk
-qnk
-qnk
-qnk
-qnk
+cvp
+cvp
+cvp
+cvp
+cvp
+cvp
+cvp
 nkT
 dTl
 aVu
@@ -41654,13 +41681,13 @@ ojI
 dAk
 aop
 vCX
-qnk
+cvp
 jUy
 qVX
 pGO
 gRF
 kMQ
-qnk
+cvp
 nkT
 dTl
 aVu
@@ -41851,7 +41878,7 @@ uJT
 alQ
 dYP
 sAO
-qnk
+cvp
 nkT
 dTl
 aVu
@@ -42042,7 +42069,7 @@ dYP
 bOq
 dYP
 rUx
-qnk
+cvp
 nkT
 dTl
 aVu
@@ -42227,13 +42254,13 @@ ojI
 dAk
 qWj
 vCX
-qnk
+cvp
 jxi
 dYP
 kLC
 dYP
 sGi
-qnk
+cvp
 uIo
 qPS
 aVu
@@ -42424,7 +42451,7 @@ dYP
 dYP
 dYP
 khK
-qnk
+cvp
 nkT
 dLD
 aVu
@@ -42609,13 +42636,13 @@ ojI
 dAk
 fyy
 vCX
-qnk
+cvp
 pmk
 dYP
 dYP
 dYP
 eOX
-qnk
+cvp
 nkT
 lgq
 aVu
@@ -42800,13 +42827,13 @@ ojI
 dAk
 fyy
 rRx
-qnk
+cvp
 vZk
 aol
 aol
 aol
 iCz
-qnk
+cvp
 nkT
 qha
 aVu
@@ -46303,9 +46330,9 @@ dAL
 vrZ
 olA
 vnS
-sTG
-sTG
-sTG
+vzl
+vzl
+vzl
 khA
 blp
 lxZ
@@ -48524,7 +48551,7 @@ dAk
 dAk
 pwt
 aZB
-dXX
+lvs
 rXX
 khN
 hDJ
@@ -48715,7 +48742,7 @@ ojI
 dAk
 fyy
 nLu
-dXX
+lvs
 dXX
 dXX
 dXX
@@ -48723,9 +48750,9 @@ dXX
 wQw
 uhU
 ltr
-wJc
+wAc
 dXX
-hoi
+bZr
 pki
 wDl
 lAh
@@ -48914,9 +48941,9 @@ dXX
 wJc
 uhU
 ltr
-wJc
+qbj
 dXX
-mmK
+bZr
 pki
 wDl
 bZr
@@ -49105,9 +49132,9 @@ eug
 wJc
 rIX
 qOW
-wJc
+wAc
 dXX
-hoi
+bZr
 bzI
 dzr
 bZr
