@@ -72,6 +72,10 @@
 	name = "UAS Arrowhead - Executive Officer's Bunk"
 
 
+/area/arrowhead_new/upper/bunks/so
+	name = "UAS Arrowhead - Staff Officer's Bunk"
+
+
 /area/arrowhead_new/upper/bunks/vip
 	name = "UAS Arrowhead - Visitor's Bunk"
 
@@ -376,7 +380,14 @@
 
 // OT Lab
 /area/arrowhead_new/lower/ot
-	name = "UAS Arrowhead - Ordnance workshop"
+	name = "UAS Arrowhead - Ordnance Workshop"
+	icon_state = "workshop"
+	minimap_color = MINIMAP_AREA_ENGI
+
+
+// Disposals
+/area/arrowhead_new/lower/disposals
+	name = "UAS Arrowhead - Disposals Chute"
 	icon_state = "workshop"
 	minimap_color = MINIMAP_AREA_ENGI
 
@@ -418,3 +429,7 @@
 
 /area/arrowhead_new/lower/bunks/pilot_bunk
 	name = "UAS Arrowhead - Pilot Bunks"
+
+
+/area/arrowhead_new/lower/bunks/synth
+	name = "UAS Arrowhead - Synthetic Storage"
