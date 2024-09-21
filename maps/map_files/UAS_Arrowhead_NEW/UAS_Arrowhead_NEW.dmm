@@ -5357,8 +5357,8 @@
 	},
 /mob/living/simple_animal/cat/blackcat{
 	dir = 8;
-	name = "Samantha";
-	real_name = "Samantha"
+	name = "Glitch";
+	real_name = "Glitch"
 	},
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/upper/bunks/co)
