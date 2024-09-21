@@ -103,6 +103,16 @@
 	},
 /area/arrowhead_new/upper/briefing)
 "aeS" = (
+/obj/structure/phone_base{
+	dir = 8;
+	name = "Containment Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Arrowhead";
+	phone_id = "Containment";
+	pixel_x = 17;
+	pixel_y = 7
+	},
 /turf/open/floor/almayer{
 	dir = 4;
 	icon_state = "sterile_green_corner"
@@ -126,6 +136,7 @@
 /obj/structure/machinery/computer/cameras/almayer_network/vehicle{
 	dir = 4;
 	layer = 2.99;
+	network = list("Arrowhead","Vehicle");
 	pixel_y = 4
 	},
 /obj/structure/machinery/computer/almayer_control{
@@ -195,6 +206,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/middle/star_bunks)
+"aiN" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge,
+/area/arrowhead_new/upper/hallways/port)
 "akq" = (
 /obj/structure/bed/stool{
 	buckling_y = 9;
@@ -381,19 +399,6 @@
 	icon_state = "blue"
 	},
 /area/arrowhead_new/upper/cic)
-"aqZ" = (
-/obj/structure/stairs{
-	dir = 8;
-	icon_state = "ramptop"
-	},
-/obj/structure/machinery/light/small,
-/obj/effect/step_trigger/teleporter_vector{
-	name = "Arrow_Port_Up2";
-	vector_x = 22;
-	vector_y = 64
-	},
-/turf/open/floor/plating,
-/area/arrowhead_new/middle/stairs)
 "arf" = (
 /turf/open/floor/almayer{
 	dir = 4;
@@ -450,6 +455,16 @@
 	icon_state = "blue"
 	},
 /area/arrowhead_new/lower/bunks/pilot_bunk)
+"atq" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 4;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	icon_state = "plate"
+	},
+/area/arrowhead_new/middle/hallways/aft)
 "ats" = (
 /turf/open/floor/almayer{
 	icon_state = "plate"
@@ -585,6 +600,17 @@
 	icon_state = "test_floor5"
 	},
 /area/arrowhead_new/middle/requisitions)
+"aAx" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 8;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "red"
+	},
+/area/arrowhead_new/upper/brig)
 "aAU" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
@@ -835,6 +861,16 @@
 	icon_state = "tcomms"
 	},
 /area/arrowhead_new/middle/engineering/tcomms)
+"aOR" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 4;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge{
+	dir = 4
+	},
+/area/arrowhead_new/middle/hallways/port)
 "aPo" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/kutjevo/tan/grey_edge{
@@ -1123,6 +1159,16 @@
 	icon_state = "test_floor4"
 	},
 /area/arrowhead_new/middle/hangar)
+"bfa" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	icon_state = "blue"
+	},
+/area/arrowhead_new/middle/star_bunks)
 "bfe" = (
 /obj/structure/largecrate/random/barrel/red,
 /turf/open/floor/plating,
@@ -2461,6 +2507,14 @@
 	icon_state = "sterile_green_corner"
 	},
 /area/arrowhead_new/middle/medical/medbay)
+"cLi" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/colors/blue,
+/area/arrowhead_new/upper/briefing)
 "cLL" = (
 /obj/structure/machinery/door/airlock/almayer/generic{
 	dir = 1;
@@ -2584,6 +2638,16 @@
 	icon_state = "red"
 	},
 /area/arrowhead_new/lower/powered/evac)
+"cRD" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 4;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer/no_build{
+	icon_state = "ai_floors"
+	},
+/area/arrowhead_new/lower/airoom)
 "cRG" = (
 /obj/structure/machinery/door/poddoor/shutters/almayer{
 	dir = 4;
@@ -2863,7 +2927,8 @@
 "dfG" = (
 /obj/structure/surface/table/woodentable/fancy,
 /obj/structure/machinery/computer/cameras/wooden_tv/almayer{
-	dir = 4
+	dir = 4;
+	network = list("Arrowhead")
 	},
 /turf/open/floor/carpet,
 /area/arrowhead_new/upper/bunks/co)
@@ -3114,6 +3179,18 @@
 	icon_state = "sterile_green_side"
 	},
 /area/arrowhead_new/middle/medical/morgue)
+"duj" = (
+/obj/structure/surface/table/reinforced/black,
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 4;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	dir = 8;
+	icon_state = "blue"
+	},
+/area/arrowhead_new/upper/cic)
 "duz" = (
 /obj/structure/surface/table/almayer,
 /obj/item/device/flashlight/lamp/on,
@@ -3306,7 +3383,8 @@
 "dBA" = (
 /obj/effect/step_trigger/ares_alert/core,
 /obj/structure/machinery/door/airlock/almayer/secure/reinforced{
-	name = "\improper AI Processing Storage"
+	name = "\improper AI Processing Storage";
+	req_access = list(1, 6, 91)
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/lower/airoom)
@@ -3685,6 +3763,22 @@
 	},
 /turf/open/floor/plating,
 /area/arrowhead_new/middle/maint/port)
+"dUJ" = (
+/obj/structure/surface/table/almayer,
+/obj/structure/phone_base/rotary/no_dnd{
+	name = "Requisitions Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Arrowhead";
+	phone_id = "Requisitions";
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "green"
+	},
+/area/arrowhead_new/middle/requisitions)
 "dVb" = (
 /obj/structure/machinery/light/small{
 	dir = 4
@@ -3889,21 +3983,6 @@
 	},
 /turf/open/floor/kutjevo/tan/grey_edge,
 /area/arrowhead_new/upper/hallways/fore)
-"eho" = (
-/obj/effect/step_trigger/teleporter_vector{
-	name = "Arrow_Star_Up2";
-	vector_x = 22;
-	vector_y = 60
-	},
-/obj/structure/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/stairs{
-	dir = 8;
-	icon_state = "ramptop"
-	},
-/turf/open/floor/plating,
-/area/arrowhead_new/middle/stairs)
 "ehE" = (
 /turf/closed/wall/almayer,
 /area/arrowhead_new/lower/powered/ert)
@@ -4360,6 +4439,23 @@
 /turf/open/floor/almayer{
 	dir = 1;
 	icon_state = "orange"
+	},
+/area/arrowhead_new/middle/engineering/main)
+"eHc" = (
+/obj/structure/surface/table/almayer,
+/obj/structure/pipes/standard/simple/hidden/supply,
+/obj/structure/phone_base/rotary/no_dnd{
+	name = "Engineering Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Arrowhead";
+	phone_id = "Engineering";
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/turf/open/floor/almayer{
+	dir = 5;
+	icon_state = "plating"
 	},
 /area/arrowhead_new/middle/engineering/main)
 "eHh" = (
@@ -5260,7 +5356,9 @@
 	pixel_y = 0
 	},
 /mob/living/simple_animal/cat/blackcat{
-	dir = 8
+	dir = 8;
+	name = "Samantha";
+	real_name = "Samantha"
 	},
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/upper/bunks/co)
@@ -5272,6 +5370,17 @@
 	icon_state = "plate"
 	},
 /area/arrowhead_new/lower/bunks/pilot_bunk)
+"fGz" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 8;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "blue"
+	},
+/area/arrowhead_new/upper/cic)
 "fGL" = (
 /obj/docking_port/stationary/vehicle_elevator/almayer{
 	id = "Arrow_Vehicle"
@@ -5670,6 +5779,15 @@
 /obj/structure/machinery/computer/ares_console{
 	pixel_x = 9
 	},
+/obj/structure/phone_base/rotary/no_dnd{
+	name = "AI Core Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "AI Core";
+	phone_id = "AI Core";
+	pixel_x = -12;
+	pixel_y = 4
+	},
 /turf/open/floor/almayer{
 	dir = 1;
 	icon_state = "silver"
@@ -5740,6 +5858,15 @@
 	pixel_y = 10;
 	req_one_access_txt = list(1,3)
 	},
+/obj/structure/phone_base/rotary/no_dnd{
+	name = "Brig Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Arrowhead";
+	phone_id = "Brig Office";
+	pixel_x = 1;
+	pixel_y = 4
+	},
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/upper/brig)
 "gcK" = (
@@ -5774,6 +5901,16 @@
 	icon_state = "plate"
 	},
 /area/arrowhead_new/middle/prep/squad)
+"gfi" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	dir = 1;
+	icon_state = "red"
+	},
+/area/arrowhead_new/upper/brig)
 "gfl" = (
 /obj/structure/pipes/standard/manifold/hidden/supply{
 	dir = 1
@@ -5933,6 +6070,16 @@
 	icon_state = "blue"
 	},
 /area/arrowhead_new/upper/cic)
+"gpn" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 8;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	icon_state = "plate"
+	},
+/area/arrowhead_new/middle/hangar)
 "gqR" = (
 /obj/structure/stairs{
 	dir = 4
@@ -6445,6 +6592,16 @@
 	icon_state = "plate"
 	},
 /area/arrowhead_new/upper/hallways/aft)
+"gKK" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	dir = 1;
+	icon_state = "green"
+	},
+/area/arrowhead_new/upper/brig/cells)
 "gLi" = (
 /obj/structure/morgue{
 	dir = 8
@@ -6669,6 +6826,13 @@
 	},
 /turf/open/floor/almayer,
 /area/arrowhead_new/upper/stairs)
+"gUT" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/colors/blue,
+/area/arrowhead_new/upper/briefing)
 "gVi" = (
 /obj/structure/machinery/cm_vending/clothing/senior_officer{
 	pixel_y = 24;
@@ -6770,6 +6934,18 @@
 	icon_state = "outerhull_dir"
 	},
 /area/space)
+"hcJ" = (
+/obj/structure/phone_base{
+	dir = 4;
+	name = "CE's Office Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Command";
+	phone_id = "CE Office";
+	pixel_x = -16
+	},
+/turf/open/floor/wood/ship,
+/area/arrowhead_new/middle/engineering/main)
 "hdz" = (
 /obj/structure/prop/invuln/lattice_prop{
 	dir = 1;
@@ -7004,6 +7180,21 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/lower/firing_range)
+"huk" = (
+/obj/structure/phone_base{
+	dir = 8;
+	name = "Medbay Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Arrowhead";
+	phone_id = "Medbay";
+	pixel_x = 17
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "sterile_green_side"
+	},
+/area/arrowhead_new/middle/medical/medbay)
 "hul" = (
 /obj/structure/pipes/standard/manifold/hidden/supply{
 	dir = 4
@@ -7362,6 +7553,15 @@
 /area/arrowhead_new/upper/brig)
 "hIr" = (
 /obj/structure/surface/table/woodentable/fancy,
+/obj/structure/phone_base/rotary/no_dnd{
+	name = "CO's Office Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Command";
+	phone_id = "CO Office";
+	pixel_x = 1;
+	pixel_y = 4
+	},
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/upper/bunks/co)
 "hIs" = (
@@ -7742,6 +7942,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/middle/hallways/port)
+"iep" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/engine,
+/area/arrowhead_new/middle/engineering/storage)
 "ifi" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 6
@@ -7912,6 +8119,15 @@
 	pixel_x = -12;
 	pixel_y = 6
 	},
+/obj/structure/phone_base/rotary/no_dnd{
+	name = "Conference Room Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Command";
+	phone_id = "Conference Office";
+	pixel_x = 1;
+	pixel_y = 4
+	},
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/upper/meeting)
 "ipR" = (
@@ -7960,6 +8176,7 @@
 /obj/structure/machinery/computer/cameras/almayer/vehicle{
 	dir = 8;
 	layer = 3.4;
+	network = list("Arrowhead","Vehicle");
 	pixel_x = 16;
 	pixel_y = 24
 	},
@@ -8409,6 +8626,13 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/middle/engineering/main)
+"iJG" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/colors/blue,
+/area/arrowhead_new/lower/bunks/pilot_bunk)
 "iJY" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -8451,20 +8675,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/hallways/fore)
-"iLv" = (
-/obj/structure/stairs{
-	dir = 8;
-	icon_state = "ramptop"
-	},
-/obj/structure/platform,
-/obj/structure/machinery/light/small,
-/obj/effect/projector{
-	name = "Arrow_Port_Down2";
-	vector_x = -22;
-	vector_y = -63
-	},
-/turf/open/floor/plating,
-/area/arrowhead_new/upper/stairs)
 "iLB" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 10
@@ -9395,6 +9605,15 @@
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/phone_base/rotary/no_dnd{
+	name = "Chief MP's Office Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Command";
+	phone_id = "CMP Office";
+	pixel_x = 4;
+	pixel_y = 4
+	},
 /turf/open/floor/carpet,
 /area/arrowhead_new/upper/brig)
 "jEa" = (
@@ -9725,6 +9944,16 @@
 	icon_state = "silver"
 	},
 /area/arrowhead_new/upper/computerlab)
+"jYf" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge{
+	dir = 1
+	},
+/area/arrowhead_new/upper/hallways/star)
 "jYo" = (
 /obj/structure/bed/chair/comfy/charlie{
 	dir = 8
@@ -9795,6 +10024,16 @@
 	dir = 8
 	},
 /area/arrowhead_new/lower/powered/evac)
+"kcU" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 4;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	icon_state = "plate"
+	},
+/area/arrowhead_new/middle/hangar)
 "kdR" = (
 /obj/structure/machinery/power/apc/almayer,
 /turf/open/floor/almayer{
@@ -10129,6 +10368,15 @@
 	dir = 6
 	},
 /area/arrowhead_new/upper/hallways/fore)
+"kys" = (
+/obj/structure/machinery/chem_storage/medbay{
+	dir = 1
+	},
+/turf/open/floor/almayer{
+	dir = 1;
+	icon_state = "sterile_green_side"
+	},
+/area/arrowhead_new/middle/medical/morgue)
 "kyu" = (
 /obj/effect/step_trigger/clone_cleaner,
 /turf/closed/wall/almayer/outer,
@@ -10162,6 +10410,21 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/arrowhead_new/lower/maint/aft)
+"kAQ" = (
+/obj/structure/stairs{
+	dir = 8;
+	icon_state = "ramptop"
+	},
+/obj/effect/step_trigger/teleporter_vector{
+	name = "Arrow_Port_Up2";
+	vector_x = 22;
+	vector_y = 64
+	},
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/arrowhead_new/middle/stairs)
 "kBa" = (
 /obj/structure/machinery/light/small{
 	pixel_x = 15
@@ -10369,6 +10632,15 @@
 	},
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/phone_base/rotary/no_dnd{
+	name = "Guest Office Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Command";
+	phone_id = "Guest Office";
+	pixel_x = 20;
+	pixel_y = 4
 	},
 /turf/open/floor/carpet,
 /area/arrowhead_new/upper/bunks/vip)
@@ -11152,6 +11424,20 @@
 	icon_state = "test_floor4"
 	},
 /area/arrowhead_new/upper/brig/cells)
+"lHC" = (
+/obj/structure/machinery/door/poddoor/railing{
+	dir = 2;
+	id = "Arrow_Vehicle"
+	},
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 8;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	icon_state = "plate"
+	},
+/area/arrowhead_new/middle/hangar)
 "lIR" = (
 /turf/open/floor/almayer/uscm/directional,
 /area/arrowhead_new/upper/cic)
@@ -11324,7 +11610,8 @@
 /area/arrowhead_new/middle/hangar)
 "lSu" = (
 /obj/structure/machinery/door/airlock/almayer/maint/reinforced{
-	no_panel = 1
+	no_panel = 1;
+	req_one_access = list(1, 6, 91)
 	},
 /obj/structure/machinery/door/poddoor/almayer/blended/white{
 	dir = 4;
@@ -11579,8 +11866,19 @@
 /obj/structure/machinery/door_control{
 	id = "Arrow_Kitchen";
 	name = "Kitchen Shutters";
+	pixel_x = -8;
 	pixel_y = -20;
 	req_one_access_txt = list(1,19,30)
+	},
+/obj/structure/phone_base{
+	dir = 1;
+	name = "Kitchen Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Arrowhead";
+	phone_id = "Kitchen";
+	pixel_x = 6;
+	pixel_y = -29
 	},
 /turf/open/floor/almayer{
 	icon_state = "dark_sterile"
@@ -12294,6 +12592,16 @@
 	icon_state = "silver"
 	},
 /area/arrowhead_new/middle/cryo_cells)
+"mVT" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	icon_state = "blue"
+	},
+/area/arrowhead_new/lower/bunks/star_bunks)
 "mWb" = (
 /obj/structure/machinery/telecomms/server/presets/medical,
 /obj/structure/machinery/telecomms/relay/preset/telecomms{
@@ -12316,6 +12624,16 @@
 /obj/structure/foamed_metal/iron,
 /turf/open/floor/plating,
 /area/arrowhead_new/lower/maint/aft)
+"mXk" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	icon_state = "red"
+	},
+/area/arrowhead_new/lower/powered/evac)
 "mXo" = (
 /obj/structure/machinery/cm_vending/sorted/pve/uniform{
 	can_block_movement = 0;
@@ -12399,6 +12717,24 @@
 	dir = 1
 	},
 /area/arrowhead_new/upper/hallways/port)
+"nau" = (
+/obj/structure/stairs{
+	dir = 8;
+	icon_state = "ramptop"
+	},
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/effect/projector{
+	name = "Arrow_Port_Down2";
+	vector_x = -22;
+	vector_y = -63
+	},
+/obj/structure/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/arrowhead_new/upper/stairs)
 "naB" = (
 /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/extra_munitions{
 	can_block_movement = 0;
@@ -12412,6 +12748,16 @@
 "naG" = (
 /turf/open/floor/engine,
 /area/arrowhead_new/middle/engineering/storage)
+"nbu" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 8;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge{
+	dir = 8
+	},
+/area/arrowhead_new/middle/hallways/port)
 "nbK" = (
 /turf/open/floor/almayer{
 	icon_state = "plate"
@@ -12855,6 +13201,16 @@
 	dir = 8
 	},
 /area/arrowhead_new/middle/hallways/port)
+"nyD" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge{
+	dir = 1
+	},
+/area/arrowhead_new/upper/hallways/fore)
 "nyU" = (
 /obj/structure/bed/chair/office/dark,
 /obj/structure/filingcabinet{
@@ -13053,6 +13409,21 @@
 	icon_state = "sterile_green_side"
 	},
 /area/arrowhead_new/middle/medical/medbay)
+"nHM" = (
+/obj/structure/prop/invuln/lattice_prop{
+	dir = 1;
+	icon_state = "lattice-simple";
+	pixel_x = 15
+	},
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	icon_state = "red"
+	},
+/area/arrowhead_new/lower/powered/evac)
 "nIA" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/almayer{
@@ -13361,24 +13732,6 @@
 	icon_state = "sterile_green_side"
 	},
 /area/arrowhead_new/middle/medical/medbay)
-"odb" = (
-/obj/structure/stairs{
-	dir = 8;
-	icon_state = "ramptop"
-	},
-/obj/structure/platform{
-	dir = 1
-	},
-/obj/structure/machinery/light/small{
-	dir = 1
-	},
-/obj/effect/projector{
-	name = "Arrow_Star_Down2";
-	vector_x = -22;
-	vector_y = -61
-	},
-/turf/open/floor/plating,
-/area/arrowhead_new/upper/stairs)
 "odr" = (
 /obj/structure/machinery/cm_vending/clothing/senior_officer{
 	density = 0;
@@ -13455,6 +13808,19 @@
 	icon_state = "orange"
 	},
 /area/arrowhead_new/middle/engineering/main)
+"ofQ" = (
+/obj/structure/phone_base{
+	dir = 1;
+	name = "CMO's Office Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Command";
+	phone_id = "CMO Office";
+	pixel_x = 6;
+	pixel_y = -29
+	},
+/turf/open/floor/wood/ship,
+/area/arrowhead_new/middle/medical/medbay)
 "ogN" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -14197,6 +14563,13 @@
 	icon_state = "red"
 	},
 /area/arrowhead_new/middle/port_bunks)
+"oPf" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge,
+/area/arrowhead_new/upper/hallways/fore)
 "oPh" = (
 /obj/structure/pipes/standard/manifold/hidden/supply,
 /turf/open/floor/plating/plating_catwalk,
@@ -14266,6 +14639,15 @@
 	},
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/phone_base/rotary/no_dnd{
+	name = "XO's Office Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Command";
+	phone_id = "XO Office";
+	pixel_x = 20;
+	pixel_y = 4
 	},
 /turf/open/floor/carpet,
 /area/arrowhead_new/upper/bunks/xo)
@@ -14415,13 +14797,6 @@
 	pixel_x = -7;
 	pixel_y = -5;
 	req_one_access_txt = list(1,4)
-	},
-/obj/structure/phone_base/rotary/no_dnd{
-	name = "Combat Information Center Telephone";
-	phone_category = "Command";
-	phone_id = "Combat Information Center";
-	pixel_x = 5;
-	pixel_y = 4
 	},
 /obj/structure/machinery/door/window/westright{
 	dir = 4
@@ -14638,6 +15013,11 @@
 	icon_state = "lattice12";
 	pixel_y = 16
 	},
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 8;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
 /turf/open/floor/kutjevo/tan/grey_edge{
 	dir = 8
 	},
@@ -14648,6 +15028,16 @@
 	icon_state = "plating"
 	},
 /area/arrowhead_new/middle/engineering/main)
+"pjt" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	dir = 1;
+	icon_state = "red"
+	},
+/area/arrowhead_new/lower/bunks/port_bunks)
 "pjD" = (
 /obj/structure/bed/chair/office/dark,
 /obj/structure/pipes/standard/simple/hidden/supply{
@@ -14686,6 +15076,19 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/middle/medical/medbay)
+"plM" = (
+/obj/effect/step_trigger/teleporter_vector{
+	name = "Arrow_Star_Up2";
+	vector_x = 22;
+	vector_y = 60
+	},
+/obj/structure/stairs{
+	dir = 8;
+	icon_state = "ramptop"
+	},
+/obj/structure/machinery/light/small,
+/turf/open/floor/plating,
+/area/arrowhead_new/middle/stairs)
 "plV" = (
 /obj/structure/reagent_dispensers/fueltank/custom,
 /turf/open/floor/plating,
@@ -14804,7 +15207,8 @@
 /area/arrowhead_new/lower/ot)
 "ptW" = (
 /obj/structure/machinery/door/airlock/almayer/maint/reinforced{
-	no_panel = 1
+	no_panel = 1;
+	req_one_access = list(1, 6, 91)
 	},
 /obj/structure/machinery/door/poddoor/shutters/almayer{
 	dir = 4;
@@ -14890,6 +15294,17 @@
 	icon_state = "plate"
 	},
 /area/arrowhead_new/middle/hangar)
+"pvt" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 4;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	dir = 8;
+	icon_state = "silver"
+	},
+/area/arrowhead_new/lower/airoom)
 "pvD" = (
 /turf/open/floor/kutjevo/tan/grey_edge{
 	dir = 9
@@ -15146,6 +15561,26 @@
 /turf/open/floor/almayer{
 	dir = 8;
 	icon_state = "cargo_arrow"
+	},
+/area/arrowhead_new/middle/port_bunks)
+"pIj" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	icon_state = "silver"
+	},
+/area/arrowhead_new/lower/airoom)
+"pJb" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	dir = 1;
+	icon_state = "red"
 	},
 /area/arrowhead_new/middle/port_bunks)
 "pKg" = (
@@ -15674,6 +16109,17 @@
 	icon_state = "tcomms"
 	},
 /area/arrowhead_new/lower/airoom)
+"qiL" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 8;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "orange"
+	},
+/area/arrowhead_new/middle/engineering/main)
 "qjC" = (
 /turf/open/floor/almayer{
 	icon_state = "orange"
@@ -16097,6 +16543,14 @@
 /obj/structure/machinery/prop/almayer/computer/PC,
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/middle/medical/medbay)
+"qDU" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/colors/blue,
+/area/arrowhead_new/lower/bunks/vc_bunk)
 "qFg" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -16452,6 +16906,15 @@
 	},
 /area/arrowhead_new/upper/hallways/fore)
 "qVX" = (
+/obj/structure/phone_base{
+	dir = 4;
+	name = "OT Lab Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Arrowhead";
+	phone_id = "OT Lab";
+	pixel_x = -16
+	},
 /turf/open/floor/almayer{
 	dir = 8;
 	icon_state = "orange"
@@ -17266,6 +17729,7 @@
 /area/space)
 "rHi" = (
 /obj/structure/machinery/computer/cameras/almayer/containment{
+	network = list("Arrow_Containment");
 	pixel_x = 3;
 	pixel_y = 17
 	},
@@ -17692,6 +18156,16 @@
 "scq" = (
 /turf/closed/wall/almayer/white,
 /area/arrowhead_new/middle/medical/medbay)
+"scM" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge{
+	dir = 1
+	},
+/area/arrowhead_new/middle/hallways/fore)
 "scP" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -17722,6 +18196,7 @@
 /obj/structure/surface/table/reinforced/black,
 /obj/structure/machinery/computer/cameras/almayer_network{
 	dir = 1;
+	network = list("Arrowhead");
 	pixel_x = 2
 	},
 /turf/open/floor/wood/ship,
@@ -17951,7 +18426,9 @@
 	},
 /area/arrowhead_new/middle/weapon_room)
 "ssE" = (
-/obj/structure/machinery/camera/autoname/almayer/containment,
+/obj/structure/machinery/camera/autoname/almayer/containment{
+	network = list("Arrow_Containment")
+	},
 /turf/open/floor/almayer/research/containment/corner_var1{
 	dir = 4
 	},
@@ -18661,6 +19138,15 @@
 /obj/structure/window/reinforced/toughened{
 	dir = 8
 	},
+/obj/structure/phone_base/rotary/no_dnd{
+	name = "Combat Information Center Telephone";
+	networks_receive = list("Arrowhead");
+	networks_transmit = list("Arrowhead");
+	phone_category = "Command";
+	phone_id = "Combat Information Center";
+	pixel_x = 2;
+	pixel_y = 4
+	},
 /turf/open/floor/almayer{
 	icon_state = "plate"
 	},
@@ -18757,6 +19243,16 @@
 	},
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/lower/maint/star)
+"tkS" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 8;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge{
+	dir = 8
+	},
+/area/arrowhead_new/middle/hallways/star)
 "tlk" = (
 /obj/structure/surface/table/reinforced/black,
 /obj/structure/machinery/prop/almayer/computer{
@@ -19779,6 +20275,13 @@
 /obj/structure/surface/table/almayer,
 /turf/open/floor/carpet,
 /area/arrowhead_new/lower/bunks/vc_bunk)
+"umZ" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge,
+/area/arrowhead_new/middle/hallways/fore)
 "uni" = (
 /turf/open/floor/kutjevo/tan/grey_edge{
 	dir = 4
@@ -20179,6 +20682,16 @@
 	},
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/lower/maint/star)
+"uHY" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 1;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge{
+	dir = 1
+	},
+/area/arrowhead_new/middle/hallways/star)
 "uHZ" = (
 /obj/structure/machinery/disposal{
 	can_block_movement = 0;
@@ -21396,9 +21909,6 @@
 	},
 /area/arrowhead_new/middle/port_bunks)
 "vZo" = (
-/obj/structure/morgue{
-	dir = 8
-	},
 /turf/open/floor/almayer{
 	icon_state = "sterile_green_corner"
 	},
@@ -22312,6 +22822,20 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/brig)
+"wWE" = (
+/obj/structure/stairs{
+	dir = 8;
+	icon_state = "ramptop"
+	},
+/obj/structure/platform,
+/obj/effect/projector{
+	name = "Arrow_Star_Down2";
+	vector_x = -22;
+	vector_y = -61
+	},
+/obj/structure/machinery/light/small,
+/turf/open/floor/plating,
+/area/arrowhead_new/upper/stairs)
 "wWK" = (
 /obj/structure/machinery/iv_drip,
 /obj/structure/machinery/power/apc/almayer{
@@ -22361,6 +22885,18 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/brig)
+"wZO" = (
+/obj/structure/pipes/standard/simple/hidden/supply,
+/obj/structure/machinery/camera/autoname/almayer{
+	dir = 8;
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "silver"
+	},
+/area/arrowhead_new/lower/airoom)
 "wZP" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 1
@@ -23013,6 +23549,13 @@
 	icon_state = "redcorner"
 	},
 /area/arrowhead_new/lower/powered/evac)
+"xNg" = (
+/obj/structure/machinery/camera/autoname/almayer{
+	name = "ship-grade camera";
+	network = list("Arrowhead")
+	},
+/turf/open/floor/kutjevo/tan/grey_edge,
+/area/arrowhead_new/middle/hallways/port)
 "xNn" = (
 /obj/structure/machinery/door_control{
 	id = "Arrow_AI_Port";
@@ -29442,7 +29985,7 @@ uBA
 btM
 ray
 eBo
-bgu
+scM
 hHb
 fWK
 qUp
@@ -29460,7 +30003,7 @@ brH
 gEP
 gEP
 hHb
-ray
+umZ
 nVi
 bgu
 btM
@@ -30982,7 +31525,7 @@ jtU
 puH
 lqf
 qis
-aJY
+dUJ
 aJY
 gPe
 eIB
@@ -33071,7 +33614,7 @@ mJv
 roN
 ray
 eBo
-bgu
+scM
 nNw
 cQF
 nTR
@@ -33089,7 +33632,7 @@ jlr
 nTR
 iWb
 nNw
-ray
+umZ
 nVi
 bgu
 roN
@@ -33145,7 +33688,7 @@ cvv
 oEd
 cvv
 waF
-eWw
+mXk
 iJe
 dEi
 dEi
@@ -34551,7 +35094,7 @@ fhd
 fhd
 fhd
 gbo
-tOS
+duj
 syU
 rKp
 ptn
@@ -36261,7 +36804,7 @@ ptn
 uEG
 fXY
 gBA
-eXl
+fGz
 eXl
 dUn
 htd
@@ -36581,7 +37124,7 @@ dEi
 iJe
 lmB
 qAE
-eWS
+nHM
 iJe
 dEi
 dEi
@@ -37081,7 +37624,7 @@ mJv
 mJv
 btM
 amO
-qCH
+tkS
 dkY
 juX
 nls
@@ -37101,7 +37644,7 @@ aHF
 dLs
 fUd
 hZg
-oSB
+nbu
 gVq
 btM
 mJv
@@ -38034,8 +38577,8 @@ lRo
 lCu
 aDf
 uUi
-eho
 dnW
+plM
 lRo
 uxc
 hIs
@@ -38057,8 +38600,8 @@ dro
 fUd
 pqn
 lRo
+kAQ
 cVt
-aqZ
 uUi
 wFV
 sjo
@@ -39697,7 +40240,7 @@ xif
 bal
 xRu
 erK
-mqS
+nyD
 hdG
 hdG
 hdG
@@ -39709,7 +40252,7 @@ hdG
 hdG
 hdG
 hdG
-xRu
+oPf
 erK
 mqS
 bal
@@ -39958,7 +40501,7 @@ umP
 fVZ
 btx
 lgj
-btx
+ofQ
 dYg
 jfS
 svo
@@ -40275,7 +40818,7 @@ hdG
 dLM
 dLM
 dLM
-dKE
+gKK
 tpC
 xTL
 jPg
@@ -40520,7 +41063,7 @@ nRg
 fad
 olf
 hSb
-nls
+uHY
 oQI
 oQI
 uwp
@@ -40538,7 +41081,7 @@ ngH
 mwB
 ngH
 ngH
-dLs
+xNg
 dDd
 lru
 ioC
@@ -42175,8 +42718,8 @@ kyu
 htB
 qhG
 mxL
-odb
-teY
+dyU
+wWE
 kyu
 pVn
 dBC
@@ -42196,8 +42739,8 @@ nzt
 fbi
 nah
 kyu
-gBa
-iLv
+nau
+mGZ
 mxL
 rym
 qDC
@@ -42753,7 +43296,7 @@ evW
 rBe
 pVn
 dBC
-icX
+jYf
 vnS
 pMy
 lxZ
@@ -42765,7 +43308,7 @@ bdE
 xyH
 gcq
 vnS
-nzt
+aiN
 fbi
 nah
 rBe
@@ -42999,7 +43542,7 @@ ktG
 puw
 bZV
 dOx
-lcc
+bfa
 fad
 aBC
 asO
@@ -43025,7 +43568,7 @@ dLs
 fUd
 pqn
 ioC
-eyk
+pJb
 xSo
 eek
 bUq
@@ -43065,7 +43608,7 @@ lzD
 pXm
 oVl
 iEJ
-kWu
+mVT
 pXm
 ojI
 dAk
@@ -43083,7 +43626,7 @@ dTl
 aVu
 wlu
 hQH
-amV
+pjt
 iQY
 qPp
 hQH
@@ -43715,7 +44258,7 @@ ujg
 ujg
 dps
 bWQ
-ujg
+aAx
 ujg
 ujg
 rVh
@@ -43775,15 +44318,15 @@ tKF
 irJ
 oiA
 mVz
-ocF
+huk
 ocF
 ocF
 ocF
 lYE
 szU
-gGS
+fJW
 oNR
-mqe
+kJF
 szU
 dLs
 ief
@@ -43958,7 +44501,7 @@ lcc
 fad
 olf
 rjJ
-nls
+uHY
 scq
 oio
 tKF
@@ -43976,7 +44519,7 @@ gGS
 oNR
 kJF
 szU
-dLs
+xNg
 fKR
 lru
 ioC
@@ -44543,7 +45086,7 @@ oXZ
 lRI
 gdB
 szU
-fJW
+kys
 oNR
 oNR
 oNR
@@ -45115,7 +45658,7 @@ hnd
 lZJ
 juX
 pbL
-uni
+aOR
 iZf
 uni
 hLk
@@ -45808,13 +46351,13 @@ aMI
 cwx
 pVn
 rzZ
-icX
+jYf
 vnS
 khA
 khA
 khA
 khA
-blp
+gfi
 lxZ
 vnS
 vnS
@@ -45822,7 +46365,7 @@ vnS
 vnS
 vnS
 vnS
-nzt
+aiN
 fbi
 nah
 xpi
@@ -46442,7 +46985,7 @@ rCH
 rCH
 rCH
 rCH
-rCH
+kcU
 rCH
 rCH
 vJX
@@ -46458,7 +47001,7 @@ rCH
 vJX
 rCH
 rCH
-rCH
+kcU
 rCH
 rCH
 rCH
@@ -48227,7 +48770,7 @@ fGp
 mRm
 mRm
 dXX
-wJc
+iJG
 wJc
 wJc
 wKM
@@ -48235,7 +48778,7 @@ dXX
 jee
 bZr
 bZr
-bZr
+qDU
 xjk
 umQ
 umQ
@@ -50202,7 +50745,7 @@ oTX
 gyz
 joN
 uMx
-atR
+gUT
 xTT
 fLx
 iqg
@@ -50214,7 +50757,7 @@ xSl
 kRw
 dDr
 sXB
-atR
+cLi
 uMx
 joN
 gyz
@@ -50644,7 +51187,7 @@ rCH
 rCH
 rCH
 faC
-rCH
+gpn
 rCH
 rCH
 pGd
@@ -50659,7 +51202,7 @@ rCH
 rCH
 pGd
 rCH
-rCH
+gpn
 wvx
 rCH
 rCH
@@ -50712,7 +51255,7 @@ mWR
 kUk
 eZQ
 cEm
-sAK
+pvt
 rjX
 pWr
 cUS
@@ -51610,7 +52153,7 @@ upg
 uGZ
 wYZ
 knw
-qZJ
+atq
 knw
 knw
 knw
@@ -51976,7 +52519,7 @@ ffg
 ffg
 pgo
 mlV
-rCH
+gpn
 bVP
 vyG
 dSO
@@ -51998,7 +52541,7 @@ ecd
 uoS
 xoK
 nvc
-vOV
+lHC
 sAI
 sAI
 sAI
@@ -52244,7 +52787,7 @@ lyG
 lyG
 ewe
 eWG
-eWG
+wZO
 eWG
 qXD
 kUk
@@ -52622,7 +53165,7 @@ mWR
 kUk
 lyX
 lsD
-lsD
+cRD
 vsR
 lsD
 lsD
@@ -52951,7 +53494,7 @@ vgj
 cuL
 qKY
 dDy
-wif
+eHc
 wif
 alR
 nmy
@@ -53583,7 +54126,7 @@ bVt
 onu
 mTu
 gEs
-ndH
+pIj
 kUk
 mWR
 ckM
@@ -53912,7 +54455,7 @@ rxw
 dBb
 hWk
 sYT
-sYT
+hcJ
 bbf
 gvX
 fVN
@@ -54087,7 +54630,7 @@ bbf
 tfe
 bXc
 ijo
-ijo
+qiL
 dlp
 ijo
 xAK
@@ -56008,7 +56551,7 @@ wqC
 qZw
 gvX
 qNy
-naG
+iep
 naG
 naG
 naG
