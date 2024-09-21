@@ -308,6 +308,11 @@
 	icon_state = "greencorner"
 	},
 /area/arrowhead_new/middle/requisitions)
+"anG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/lower/maint/port)
 "aol" = (
 /turf/open/floor/almayer{
 	dir = 4;
@@ -4341,6 +4346,11 @@
 /obj/structure/foamed_metal/iron,
 /turf/open/floor/plating,
 /area/arrowhead_new/middle/maint/fore)
+"eFj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/middle/maint/fore)
 "eFx" = (
 /obj/structure/machinery/autolathe/full{
 	can_block_movement = 0;
@@ -4972,6 +4982,11 @@
 "fpV" = (
 /turf/open/gm/empty,
 /area/shuttle/arrowhead_new/upper_port)
+"fpZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/upper/maint)
 "fqg" = (
 /obj/structure/machinery/light/spot{
 	dir = 1;
@@ -5773,6 +5788,10 @@
 	icon_state = "red"
 	},
 /area/arrowhead_new/middle/weapon_room)
+"ggd" = (
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/lower/maint/fore)
 "ggp" = (
 /obj/structure/machinery/cm_vending/gear/sea{
 	can_block_movement = 0;
@@ -8594,6 +8613,10 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/middle/hallways/fore)
+"iUx" = (
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/middle/maint/port)
 "iVi" = (
 /obj/structure/platform{
 	dir = 4
@@ -12014,6 +12037,11 @@
 	icon_state = "orange"
 	},
 /area/arrowhead_new/middle/engineering/main)
+"mEE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/lower/maint/star)
 "mFW" = (
 /turf/open/floor/almayer{
 	dir = 1;
@@ -12132,6 +12160,11 @@
 "mNt" = (
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/middle/sea)
+"mOu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/lower/maint/fore)
 "mOS" = (
 /turf/open/floor/almayer/uscm/directional{
 	dir = 9
@@ -14422,6 +14455,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/kutjevo/tan/grey_edge,
 /area/arrowhead_new/middle/hallways/star)
+"oYC" = (
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/middle/maint/fore)
 "oYF" = (
 /obj/structure/cryofeed{
 	layer = 2
@@ -20003,6 +20040,10 @@
 	icon_state = "red"
 	},
 /area/arrowhead_new/middle/weapon_room)
+"uBy" = (
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/middle/maint/aft)
 "uBA" = (
 /obj/structure/foamed_metal/iron,
 /turf/open/floor/plating,
@@ -20366,6 +20407,10 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/middle/medical/or1)
+"uZn" = (
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/lower/maint/aft)
 "uZJ" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
 /turf/open/floor/almayer{
@@ -21458,6 +21503,10 @@
 	icon_state = "red"
 	},
 /area/arrowhead_new/lower/powered/evac)
+"wgD" = (
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/middle/maint/star)
 "wgM" = (
 /obj/structure/bed/chair{
 	dir = 8;
@@ -22498,6 +22547,10 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/briefing)
+"xjU" = (
+/obj/effect/landmark/yautja_teleport,
+/turf/open/floor/plating,
+/area/arrowhead_new/lower/maint/port)
 "xkd" = (
 /obj/structure/desertdam/decals/road_edge{
 	icon_state = "road_edge_decal3"
@@ -33995,7 +34048,7 @@ ray
 eBo
 bgu
 btM
-mJv
+oYC
 tEN
 btM
 uBA
@@ -34606,7 +34659,7 @@ joN
 paS
 tYa
 gOO
-ogN
+mOu
 nZQ
 lJI
 iJe
@@ -35201,7 +35254,7 @@ eWw
 bWC
 nZQ
 nZQ
-ogN
+mOu
 gOO
 tYa
 paS
@@ -35688,7 +35741,7 @@ tby
 uBA
 btM
 mJv
-sBl
+eFj
 btM
 ord
 kfB
@@ -37438,7 +37491,7 @@ mlS
 pGy
 lRo
 mJv
-sBl
+eFj
 tby
 ffg
 ffg
@@ -38046,7 +38099,7 @@ tYa
 gOO
 nZQ
 nZQ
-nZQ
+ggd
 iJe
 dEi
 dEi
@@ -39461,7 +39514,7 @@ scP
 kkN
 csQ
 ccg
-ccg
+fpZ
 ccg
 pFR
 qgt
@@ -40925,7 +40978,7 @@ oOb
 qjC
 qxt
 nkT
-dTl
+anG
 aVu
 wlu
 hQH
@@ -41409,7 +41462,7 @@ ffg
 ffg
 ffg
 vcu
-ouJ
+wgD
 fIN
 fad
 jTe
@@ -42598,7 +42651,7 @@ qCv
 pdA
 uUa
 ioC
-wkp
+iUx
 cYV
 erV
 ffg
@@ -43893,7 +43946,7 @@ ffg
 ffg
 vcu
 fIN
-ouJ
+wgD
 fad
 lKz
 lZk
@@ -45832,7 +45885,7 @@ sCs
 wkp
 wkp
 eiE
-wkp
+iUx
 tWp
 wkp
 bod
@@ -46003,7 +46056,7 @@ ouJ
 ouJ
 ouJ
 ouJ
-ouJ
+wgD
 cAP
 tUp
 jEa
@@ -46658,7 +46711,7 @@ pKg
 pKg
 pKg
 aea
-pKg
+xjU
 pKg
 iwJ
 wrf
@@ -47224,7 +47277,7 @@ pUX
 aop
 bIx
 nnm
-aop
+mEE
 mYr
 fPw
 iNy
@@ -49504,7 +49557,7 @@ joN
 ckM
 mWR
 xzl
-qNJ
+uZn
 gFC
 lvs
 lvs
@@ -50099,7 +50152,7 @@ uIX
 pXq
 qNJ
 qNJ
-qNJ
+uZn
 xzl
 mWR
 ckM
@@ -51000,7 +51053,7 @@ iuN
 vJM
 iDb
 gtl
-vJM
+uBy
 pgo
 ffg
 ffg
@@ -51155,7 +51208,7 @@ ffg
 pgo
 qmp
 vJM
-vJM
+uBy
 vJM
 iuN
 rCH
