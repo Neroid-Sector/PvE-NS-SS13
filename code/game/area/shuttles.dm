@@ -85,7 +85,7 @@
 
 
 /*===========================================
-			 Arrowhead Elevator
+			Arrowhead Elevator
 ===========================================*/
 /area/shuttle/arrowhead_new
 	icon = 'icons/turf/area_almayer.dmi'
@@ -126,5 +126,5 @@
 /area/shuttle/arrowhead_new/lower_star
 	name = "UAS Arrowhead - Lower Starboard Elevator Dock"
 /*===========================================
-					 End
+					End
 ===========================================*/
