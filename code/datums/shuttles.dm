@@ -110,7 +110,7 @@
 
 
 /*===========================================
-			 Arrowhead Elevator
+			Arrowhead Elevator
 ===========================================*/
 /datum/map_template/shuttle/arrow_elevator
 	name = "Arrowhead Elevator"
@@ -127,7 +127,7 @@
 	elev.elevator_network = elevator_network
 	log_debug("Adding network [elevator_network] to [M.id]")
 /*===========================================
-					 End
+				End
 ===========================================*/
 
 
