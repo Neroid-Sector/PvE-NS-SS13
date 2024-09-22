@@ -82,3 +82,49 @@
 	icon = 'icons/turf/area_almayer.dmi'
 	icon_state = "lifeboat"
 	flags_atom = AREA_NOTUNNEL
+
+
+/*===========================================
+			 Arrowhead Elevator
+===========================================*/
+/area/shuttle/arrowhead_new
+	icon = 'icons/turf/area_almayer.dmi'
+	icon_state = "lifeboat"
+	requires_power = TRUE
+	unlimited_power = FALSE
+
+
+/area/shuttle/arrowhead_new/elevator
+	name = "UAS Arrowhead - Crew Elevator"
+	soundscape_playlist = SCAPE_PL_ELEVATOR_MUSIC
+	soundscape_interval = 120
+
+
+// Upper Deck
+/area/shuttle/arrowhead_new/upper_port
+	name = "UAS Arrowhead - Upper Port Elevator Dock"
+
+
+/area/shuttle/arrowhead_new/upper_star
+	name = "UAS Arrowhead - Upper Starboard Elevator Dock"
+
+
+// Middle Deck
+/area/shuttle/arrowhead_new/mid_port
+	name = "UAS Arrowhead - Middle Port Elevator Dock"
+
+
+/area/shuttle/arrowhead_new/mid_star
+	name = "UAS Arrowhead - Middle Starboard Elevator Dock"
+
+
+// Lower Deck
+/area/shuttle/arrowhead_new/lower_port
+	name = "UAS Arrowhead - Lower Port Elevator Dock"
+
+
+/area/shuttle/arrowhead_new/lower_star
+	name = "UAS Arrowhead - Lower Starboard Elevator Dock"
+/*===========================================
+					 End
+===========================================*/
