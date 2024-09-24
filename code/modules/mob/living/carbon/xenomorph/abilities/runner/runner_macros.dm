@@ -25,3 +25,10 @@
 	set hidden = TRUE
 	var/action_name = "For the Hive!"
 	handle_xeno_macro(src, action_name)
+
+/datum/action/xeno_action/verb/surge_proj()
+	set category = "Alien"
+	set name = "Surge AoE"
+	set hidden = TRUE
+	var/action_name = "Surge AoE"
+	handle_xeno_macro(src, action_name)

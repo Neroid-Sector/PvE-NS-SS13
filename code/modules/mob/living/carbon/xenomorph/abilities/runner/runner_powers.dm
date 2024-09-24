@@ -214,3 +214,48 @@
 	xeno.adjust_effect(behavior_delegate.caboom_timer * -2 - (behavior_delegate.caboom_timer - behavior_delegate.caboom_left + 2) * xeno.life_slow_reduction * 0.5, SUPERSLOW)
 
 	to_chat(xeno, SPAN_XENOWARNING("You remove all your explosive acid before it combusted."))
+
+
+/mob/living/carbon/human/proc/warning_ping()
+	to_chat(src, SPAN_BOLDWARNING("A Surge is targeting you with a special attack!"))
+	overlays += (image('icons/effects/surge_hit_warning.dmi', "aoe"))
+	sleep(40)
+	overlays -= (image('icons/effects/surge_hit_warning.dmi', "aoe"))
+
+/datum/action/xeno_action/activable/surge_proj/use_ability(atom/affected_atom)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if (!istype(xeno))
+		return
+
+	if (!action_cooldown_check())
+		return
+	var/list/mobs_in_range = list()
+	for(var/mob/living/carbon/human/target in range("15x15",xeno))
+		if(mobs_in_range.Find(target) == 0)
+			mobs_in_range.Add(target)
+	if(mobs_in_range.len == 0)
+		to_chat(xeno, SPAN_WARNING("No potential targets in visible range"))
+		return
+	for(var/mob/living/carbon/human/target_to_warn in mobs_in_range)
+		INVOKE_ASYNC(target_to_warn, TYPE_PROC_REF(/mob/living/carbon/human/, warning_ping))
+	xeno.overlays += (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
+	xeno.anchored = 1
+	xeno.armor_deflection = 200
+	sleep(40)
+	xeno.overlays -= (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
+	xeno.anchored = 0
+	xeno.armor_deflection = initial(xeno.armor_deflection)
+	xeno.can_block_movement = 1
+	var/list/mobs_in_view = list()
+	for(var/mob/living/carbon/human/target in view("15x15",xeno))
+		if(mobs_in_view.Find(target) == 0)
+			mobs_in_view.Add(target)
+	for(var/mob/living/carbon/human/target_to_shoot in mobs_in_range)
+		if(mobs_in_view.Find(target_to_shoot) != 0)
+			var/turf/target = get_turf(target_to_shoot)
+			var/obj/projectile/projectile = new /obj/projectile(xeno.loc, create_cause_data(initial(xeno.caste_type), xeno))
+			var/datum/ammo/ammo_datum = GLOB.ammo_list[ammo_type]
+			projectile.generate_bullet(ammo_datum)
+			projectile.fire_at(target, xeno, xeno, ammo_datum.max_range, ammo_datum.shell_speed)
+	apply_cooldown()
+	return ..()

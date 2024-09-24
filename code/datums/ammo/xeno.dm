@@ -394,3 +394,18 @@
 
 /datum/ammo/xeno/oppressor_tail/proc/remove_tail_overlay(mob/overlayed_mob, image/tail_image)
 	overlayed_mob.overlays -= tail_image
+
+
+/datum/ammo/xeno/surge_proj
+
+	name = "surge projectile"
+	icon_state = "shrapnel_light"
+	ping = null
+	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_STOPPED_BY_COVER
+	damage_type = BRUTE
+
+	damage = 20
+	max_range = 10
+	accuracy = 100
+	shrapnel_type = /obj/item/shard/shrapnel/surge_chip
+	shrapnel_chance = 100
