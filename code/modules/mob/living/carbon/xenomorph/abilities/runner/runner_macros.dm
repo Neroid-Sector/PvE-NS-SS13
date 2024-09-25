@@ -32,3 +32,10 @@
 	set hidden = TRUE
 	var/action_name = "Surge AoE"
 	handle_xeno_macro(src, action_name)
+
+/datum/action/xeno_action/verb/rapid_missles()
+	set category = "Alien"
+	set name = "Missile Barrage"
+	set hidden = TRUE
+	var/action_name = "Missile Barrage"
+	handle_xeno_macro(src, action_name)

@@ -259,3 +259,122 @@
 			projectile.fire_at(target, xeno, xeno, ammo_datum.max_range, ammo_datum.shell_speed)
 	apply_cooldown()
 	return ..()
+
+/obj/item/prop/big_warning_ping
+	name = "warning ping"
+	opacity = FALSE
+	mouse_opacity = FALSE
+	anchored = TRUE
+	indestructible = TRUE
+	layer = ABOVE_MOB_LAYER
+	pixel_x = -80
+	pixel_y = -80
+	icon = 'icons/effects/surge_hit_warning_160.dmi'
+	icon_state = "big_boom"
+
+/turf/proc/warning_ping()
+	var/obj/item/prop/big_warning_ping/ping = new(src)
+	sleep(60)
+	qdel(ping)
+
+/obj/item/prop/missile_storm_up
+	name = "going up"
+	opacity = FALSE
+	mouse_opacity = FALSE
+	anchored = TRUE
+	indestructible = TRUE
+	layer = ABOVE_MOB_LAYER
+	icon = 'icons/effects/missile_storm.dmi'
+	icon_state = "up"
+
+
+/obj/item/prop/missile_storm_up/proc/animate_takeoff()
+	var/step_number = 1
+	while(step_number <= 12)
+		pixel_y += 32
+		pixel_x += 4
+		step_number += 1
+		sleep(1)
+	qdel(src)
+
+/obj/item/prop/missile_storm_up/Initialize(mapload, ...)
+	. = ..()
+	pixel_x += rand(-10,10)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/item/prop/missile_storm_up/, animate_takeoff))
+
+/obj/item/prop/missile_storm_down
+	name = "going down"
+	opacity = FALSE
+	mouse_opacity = FALSE
+	anchored = TRUE
+	indestructible = TRUE
+	layer = ABOVE_MOB_LAYER
+	icon = 'icons/effects/missile_storm.dmi'
+	icon_state = "down"
+
+
+/obj/item/prop/missile_storm_down/proc/animate_landing()
+	var/step_number = 1
+	while(step_number <= 12)
+		pixel_y -= 32
+		pixel_x += 4
+		step_number += 1
+		sleep(1)
+	qdel(src)
+
+/obj/item/prop/missile_storm_down/Initialize(mapload, ...)
+	. = ..()
+	pixel_y = 384
+	pixel_x += rand(-10,10)
+	pixel_x -= -48
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/item/prop/missile_storm_down/, animate_landing))
+
+/datum/action/xeno_action/activable/rapid_missles/proc/fire_animation()
+	var/mob/living/carbon/xenomorph/xeno = owner
+	var/turf/owner_turf = get_turf(owner)
+	xeno.anchored = TRUE
+	xeno.armor_deflection = 100
+	var/spawned_props = 1
+	while(spawned_props <= 25)
+		new /obj/item/prop/missile_storm_up(owner_turf)
+		spawned_props += 1
+		sleep(rand(1,3))
+	xeno.armor_deflection = initial(xeno.armor_deflection)
+	xeno.anchored = FALSE
+
+/datum/action/xeno_action/activable/rapid_missles/proc/hit_animation(turf/turf_to_hit_animate)
+		new /obj/item/prop/missile_storm_down(turf_to_hit_animate)
+		sleep(13)
+		var/datum/cause_data/cause_data = create_cause_data("surge bombardment")
+		cell_explosion(turf_to_hit_animate, 50, 15, EXPLOSION_FALLOFF_SHAPE_LINEAR, null, cause_data)
+
+
+/datum/action/xeno_action/activable/rapid_missles/proc/fire_loop(turf/target_turf)
+	var/list/turfs_to_hit = list()
+	for (var/turf/turf in range("5x5", target_turf))
+		if(turfs_to_hit.Find(turf) == 0)
+			turfs_to_hit += turf
+	while(turfs_to_hit.len > 0)
+		var/turf/turf_to_hit = pick(turfs_to_hit)
+		turfs_to_hit -= turf_to_hit
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/datum/action/xeno_action/activable/rapid_missles, hit_animation), turf_to_hit)
+		sleep(rand(1,5))
+
+/datum/action/xeno_action/activable/rapid_missles/use_ability(atom/affected_atom)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if (!istype(xeno))
+		return
+	if (!action_cooldown_check())
+		return
+	var/turf/turf_center = get_turf(affected_atom)
+	var/list/mobs_in_range = list()
+	for(var/mob/living/carbon/human/target in range("15x15",turf_center))
+	if(mobs_in_range.Find(target) == 0)
+		mobs_in_range.Add(target)
+	if(mobs_in_range.len != 0)
+		to_chat(mobs_in_range,SPAN_BOLDWARNING("The [usr] launches a series of rockets into the air! Look out for impact markers!"))
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/datum/action/xeno_action/activable/rapid_missles, fire_animation))
+	turf_center.warning_ping()
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/datum/action/xeno_action/activable/rapid_missles, fire_loop), turf_center)
+	apply_cooldown()
+	return ..()

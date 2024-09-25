@@ -55,7 +55,7 @@
 		/datum/action/xeno_action/activable/tail_stab,
 		/datum/action/xeno_action/onclick/xenohide,
 		/datum/action/xeno_action/activable/pounce/runner,
-		/datum/action/xeno_action/activable/runner_skillshot,
+		/datum/action/xeno_action/activable/rapid_missles/,
 		/datum/action/xeno_action/onclick/toggle_long_range/runner,
 		/datum/action/xeno_action/onclick/tacmap,
 	)
