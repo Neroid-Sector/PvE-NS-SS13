@@ -1374,6 +1374,9 @@ and you're good to go.
 	if(!able_to_fire(user)) //If it's a valid PB aside from that you can't fire the gun, do nothing.
 		return TRUE
 
+	if(user.faction == attacked_mob.faction) // IFF check. Just like the global smart bullets, for the moment no PBing of friendlies.
+		return TRUE
+
 	//The following relating to bursts was borrowed from Fire code.
 	var/check_for_attachment_fire = FALSE
 	if(active_attachable)
