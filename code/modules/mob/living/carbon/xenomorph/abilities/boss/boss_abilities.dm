@@ -20,3 +20,14 @@
 	ability_primacy = XENO_PRIMARY_ACTION_2
 	xeno_cooldown = 60
 	plasma_cost = 0
+
+/datum/action/xeno_action/activable/relocate
+
+	name = "Rapid Relocation"
+	action_icon_state = "runner_bonespur"
+	ability_name = "Relocation"
+	macro_path = /datum/action/xeno_action/verb/relocate
+	action_type = XENO_ACTION_CLICK
+	ability_primacy = XENO_PRIMARY_ACTION_3
+	xeno_cooldown = 60
+	plasma_cost = 0

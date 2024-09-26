@@ -172,3 +172,190 @@
 
 	apply_cooldown()
 	return ..()
+
+/obj/item/prop/arrow
+	name = "Its an arrow. Catch if if you can."
+	opacity = FALSE
+	mouse_opacity = FALSE
+	anchored = TRUE
+	indestructible = TRUE
+	layer = ABOVE_MOB_LAYER
+	icon = 'icons/Surge/effects/arrow.dmi'
+	icon_state = "arrow"
+
+/obj/item/prop/arrow/proc/warning_animation(anim_type)
+	if(!anim_type) return
+	var/loop_number = 0
+	switch(anim_type)
+		if(null)
+			return
+		if(1)
+			var/matrix/A = matrix()
+			A.Turn(45)
+			apply_transform(A)
+			while(loop_number <= 5)
+				animate(src, pixel_x = 64,pixel_y=-64,time=10,easing=LINEAR_EASING)
+				sleep(10)
+				pixel_x = 0
+				pixel_y = 0
+				loop_number += 1
+		if(2)
+			var/matrix/A = matrix()
+			A.Turn(135)
+			apply_transform(A)
+			while(loop_number <= 5)
+				animate(src, pixel_x = -64,pixel_y=-64,time=10,easing=LINEAR_EASING)
+				sleep(10)
+				pixel_x = 0
+				pixel_y = 0
+				loop_number += 1
+		if(3)
+			var/matrix/A = matrix()
+			A.Turn(225)
+			apply_transform(A)
+			while(loop_number <= 5)
+				animate(src, pixel_x = -64,pixel_y=64,time=10,easing=LINEAR_EASING)
+				sleep(10)
+				pixel_x = 0
+				pixel_y = 0
+				loop_number += 1
+		if(4)
+			var/matrix/A = matrix()
+			A.Turn(315)
+			apply_transform(A)
+			while(loop_number <= 5)
+				animate(src, pixel_x = 64,pixel_y=64 ,time=10,easing=LINEAR_EASING)
+				sleep(10)
+				pixel_x = 0
+				pixel_y = 0
+				loop_number += 1
+		if(5)
+			var/matrix/A = matrix()
+			A.Turn(225)
+			apply_transform(A)
+			pixel_x = 64
+			pixel_y = -64
+			while(loop_number <= 5)
+				animate(src, pixel_x = 0,pixel_y=0 ,time=10,easing=LINEAR_EASING)
+				sleep(10)
+				pixel_x = 64
+				pixel_y = -64
+				loop_number += 1
+		if(6)
+			var/matrix/A = matrix()
+			A.Turn(315)
+			apply_transform(A)
+			pixel_x = -64
+			pixel_y = -64
+			while(loop_number <= 5)
+				animate(src, pixel_x = 0,pixel_y=0 ,time=10,easing=LINEAR_EASING)
+				sleep(10)
+				pixel_x = -64
+				pixel_y = -64
+				loop_number += 1
+		if(7)
+			var/matrix/A = matrix()
+			A.Turn(45)
+			apply_transform(A)
+			pixel_x = -64
+			pixel_y = 64
+			while(loop_number <= 5)
+				animate(src, pixel_x = 0,pixel_y=0 ,time=10,easing=LINEAR_EASING)
+				sleep(10)
+				pixel_x = -64
+				pixel_y = 64
+				loop_number += 1
+		if(8)
+			var/matrix/A = matrix()
+			A.Turn(135)
+			apply_transform(A)
+			pixel_x = 64
+			pixel_y = 64
+			while(loop_number <= 5)
+				animate(src, pixel_x = 0,pixel_y=0 ,time=10,easing=LINEAR_EASING)
+				sleep(10)
+				pixel_x = 64
+				pixel_y = 64
+				loop_number += 1
+	qdel(src)
+
+/datum/action/xeno_action/activable/relocate/proc/animate_warnings(turf/target)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	var/turf/owner_turf = get_turf(xeno)
+	var/turf/target_turf = target
+	var/obj/item/prop/arrow/target_se = new(target_turf)
+	var/obj/item/prop/arrow/target_sw = new(target_turf)
+	var/obj/item/prop/arrow/target_nw = new(target_turf)
+	var/obj/item/prop/arrow/target_ne = new(target_turf)
+	var/obj/item/prop/arrow/owner_se = new(owner_turf)
+	var/obj/item/prop/arrow/owner_sw = new(owner_turf)
+	var/obj/item/prop/arrow/owner_nw = new(owner_turf)
+	var/obj/item/prop/arrow/owner_ne = new(owner_turf)
+	INVOKE_ASYNC(owner_se, TYPE_PROC_REF(/obj/item/prop/arrow, warning_animation),1)
+	INVOKE_ASYNC(owner_sw, TYPE_PROC_REF(/obj/item/prop/arrow, warning_animation),2)
+	INVOKE_ASYNC(owner_nw, TYPE_PROC_REF(/obj/item/prop/arrow, warning_animation),3)
+	INVOKE_ASYNC(owner_ne, TYPE_PROC_REF(/obj/item/prop/arrow, warning_animation),4)
+	INVOKE_ASYNC(target_se, TYPE_PROC_REF(/obj/item/prop/arrow, warning_animation),5)
+	INVOKE_ASYNC(target_sw, TYPE_PROC_REF(/obj/item/prop/arrow, warning_animation),6)
+	INVOKE_ASYNC(target_nw, TYPE_PROC_REF(/obj/item/prop/arrow, warning_animation),7)
+	INVOKE_ASYNC(target_ne, TYPE_PROC_REF(/obj/item/prop/arrow, warning_animation),8)
+
+/datum/action/xeno_action/activable/relocate/proc/animate_movement(turf/target)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	var/turf/owner_turf = get_turf(xeno)
+	var/turf/target_turf = target
+	var/x_distance = target_turf.x - owner_turf.x
+	var/y_distance = target_turf.y - owner_turf.y
+	var/new_pixel_y = xeno.pixel_y + 5
+	animate(xeno, pixel_y = new_pixel_y , time = 5, easing=LINEAR_EASING)
+	sleep(5)
+	new_pixel_y = new_pixel_y + (y_distance * 32 + 96)
+	var/new_pixel_x = xeno.pixel_x + (x_distance * 32)
+	animate(xeno, pixel_x = new_pixel_x, pixel_y = new_pixel_y, time = 20, easing = CUBIC_EASING)
+	sleep(20)
+	new_pixel_y = new_pixel_y + 5
+	animate(xeno, pixel_y = new_pixel_y , time = 5, easing=LINEAR_EASING)
+	sleep(5)
+	new_pixel_y = initial(xeno.pixel_y)
+	animate(xeno, pixel_y = new_pixel_y, time = 3, easing=QUAD_EASING|EASE_IN)
+	sleep(3)
+	return 1
+
+/datum/action/xeno_action/activable/relocate/proc/process_movement(turf/target)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	var/turf/target_turf = target
+	new /obj/effect/shockwave(target_turf, 4)
+	xeno.pixel_x = initial(xeno.pixel_x)
+	xeno.pixel_y = initial(xeno.pixel_y)
+	xeno.forceMove(target_turf)
+	for(var/mob/living/carbon/carbon_in_range in range(3,target_turf))
+		if(carbon_in_range == xeno) continue
+		if(carbon_in_range)
+			var/facing = get_dir(target_turf, carbon_in_range)
+			var/turf/throw_turf = target_turf
+			var/turf/temp = target_turf
+
+			for (var/x in 0 to 3)
+				temp = get_step(throw_turf, facing)
+				if (!temp)
+					break
+				throw_turf = temp
+			carbon_in_range.throw_atom(throw_turf, 4, SPEED_VERY_FAST, xeno, TRUE)
+
+/datum/action/xeno_action/activable/relocate/use_ability(atom/target)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if (!istype(xeno))
+		return
+	if (!action_cooldown_check())
+		return
+	var/turf/targeted_turf = get_turf(target)
+	for(var/turf/turf_in_range in range(5,get_turf(xeno)))
+		if(turf_in_range == targeted_turf)
+			to_chat(xeno, SPAN_WARNING("Target Turf is too close!"))
+			return
+	animate_warnings(targeted_turf)
+	sleep(50)
+	animate_movement(targeted_turf)
+	process_movement(targeted_turf)
+	apply_cooldown()
+	return ..()

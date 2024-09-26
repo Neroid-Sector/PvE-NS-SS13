@@ -57,6 +57,7 @@
 		/datum/action/xeno_action/onclick/toggle_long_range/boss_bot,
 		/datum/action/xeno_action/activable/surge_proj,
 		/datum/action/xeno_action/activable/rapid_missles/,
+		/datum/action/xeno_action/activable/relocate,
 	)
 	mutation_type = BOSS_NORMAL
 	icon_xeno = 'icons/Surge/boss_bot/boss.dmi'
