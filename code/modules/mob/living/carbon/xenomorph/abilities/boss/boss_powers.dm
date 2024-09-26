@@ -31,6 +31,8 @@
 	for(var/mob/living/carbon/human/target in view("15x15",xeno))
 		if(mobs_in_view.Find(target) == 0)
 			mobs_in_view.Add(target)
+	if(mobs_in_view.len == 0) return
+	playsound(xeno, 'sound/items/pulse3.ogg', 50)
 	for(var/mob/living/carbon/human/target_to_shoot in mobs_in_range)
 		if(mobs_in_view.Find(target_to_shoot) != 0)
 			var/turf/target = get_turf(target_to_shoot)
@@ -38,6 +40,7 @@
 			var/datum/ammo/ammo_datum = GLOB.ammo_list[ammo_type]
 			projectile.generate_bullet(ammo_datum)
 			projectile.fire_at(target, xeno, xeno, ammo_datum.max_range, ammo_datum.shell_speed)
+
 	apply_cooldown()
 	return ..()
 
@@ -55,7 +58,7 @@
 
 /turf/proc/warning_ping()
 	var/obj/item/prop/big_warning_ping/ping = new(src)
-	sleep(60)
+	sleep(100)
 	qdel(ping)
 
 /obj/item/prop/missile_storm_up
@@ -65,12 +68,12 @@
 	anchored = TRUE
 	indestructible = TRUE
 	layer = ABOVE_MOB_LAYER
-	icon = 'icons/effects/missile_storm.dmi'
-	icon_state = "up"
-
+	icon = 'icons/Surge/boss_bot/boss_proj.dmi'
+	icon_state = "missile"
 
 /obj/item/prop/missile_storm_up/proc/animate_takeoff()
-	animate(src,pixel_y=384,time = 10,easing=QUAD_EASING|EASE_IN)
+	var/launch_x = pixel_x + rand(-2,2)
+	animate(src,pixel_x=launch_x,pixel_y=384,time = 10,easing=QUAD_EASING|EASE_IN)
 	sleep(11)
 	qdel(src)
 
@@ -86,12 +89,15 @@
 	anchored = TRUE
 	indestructible = TRUE
 	layer = ABOVE_MOB_LAYER
-	icon = 'icons/effects/missile_storm.dmi'
-	icon_state = "down"
+	icon = 'icons/Surge/boss_bot/boss_proj.dmi'
+	icon_state = "missile"
 
 
 /obj/item/prop/missile_storm_down/proc/animate_landing()
-	animate(src,pixel_y=0,time = 10,easing=QUAD_EASING|EASE_IN)
+	var/matrix/A = matrix()
+	A.Turn(180)
+	apply_transform(A)
+	animate(src,pixel_x=0,pixel_y=0,time = 10,easing=QUAD_EASING|EASE_IN)
 	sleep(11)
 	qdel(src)
 
@@ -104,25 +110,32 @@
 /datum/action/xeno_action/activable/rapid_missles/proc/fire_animation()
 	var/mob/living/carbon/xenomorph/xeno = owner
 	var/spawned_props = 1
-	var/sound_cycle = 0
+	playsound(xeno,'sound/surge/rockets_launching.ogg', 80)
 	while(spawned_props <= xeno.missile_storm_missiles)
 		var/turf/owner_turf = get_turf(owner)
-		if(sound_cycle == 8) sound_cycle = 0
-		if(sound_cycle == 0) playsound(owner_turf,'sound/surge/rockets_launching.ogg', 80)
 		new /obj/item/prop/missile_storm_up(owner_turf)
 		spawned_props += 1
 		sleep(2)
-		sound_cycle += 2
-	xeno.armor_deflection = 100
-	xeno.anchored = FALSE
+
+/obj/item/prop/explosion_fx
+	name = "kaboom"
+	opacity = FALSE
+	mouse_opacity = FALSE
+	anchored = TRUE
+	indestructible = TRUE
+	layer = ABOVE_MOB_LAYER
+	icon = 'icons/Surge/effects/boss_boom.dmi'
+	icon_state = "explosion"
 
 /datum/action/xeno_action/activable/rapid_missles/proc/hit_animation(turf/turf_to_hit_animate)
 		var/mob/living/carbon/xenomorph/xeno = owner
 		new /obj/item/prop/missile_storm_down(turf_to_hit_animate)
 		sleep(13)
+		var/obj/item/prop/explosion_fx/boom = new(turf_to_hit_animate)
 		var/datum/cause_data/cause_data = create_cause_data("surge bombardment")
 		cell_explosion(turf_to_hit_animate, xeno.explosion_damage, (xeno.explosion_damage / 2), EXPLOSION_FALLOFF_SHAPE_LINEAR, null, cause_data)
-
+		sleep(10)
+		qdel(boom)
 
 /datum/action/xeno_action/activable/rapid_missles/proc/fire_loop(turf/target_turf)
 	var/list/turfs_to_hit = list()

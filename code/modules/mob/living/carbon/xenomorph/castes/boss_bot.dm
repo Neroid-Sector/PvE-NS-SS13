@@ -22,6 +22,11 @@
 	minimap_icon = "runner"
 
 
+/datum/action/xeno_action/onclick/toggle_long_range/boss_bot
+	handles_movement = TRUE
+	should_delay = FALSE
+
+
 /mob/living/carbon/xenomorph/boss_bot
 	caste_type = XENO_CASTE_XENOSURGE_BOSS_BOT
 	name = "BALTHEUS-6 Pursuit Wrepons Platform"
@@ -29,24 +34,27 @@
 	icon = 'icons/Surge/boss_bot/boss.dmi'
 	icon_state = "Boss Walking"
 	icon_size = 64
+	attack_sound = null
 	layer = MOB_LAYER
 	plasma_types = list(PLASMA_CATECHOLAMINE)
-	tier = 1
+	tier = 0
 	pixel_x = -8
 	old_x = -8
 	base_pixel_x = 0
 	base_pixel_y = 0
 	pull_speed = -0.5
-	viewsize = 12
+	viewsize = 14
 	wall_smash = 1
 	universal_understand = 1
 	universal_speak = 1
 	langchat_color = "#ff1313"
+	boss_type = 1
+	small_explosives_stun = FALSE
 
-
-	mob_size = MOB_SIZE_XENO_SMALL
+	mob_size = MOB_SIZE_IMMOBILE
 
 	base_actions = list(
+		/datum/action/xeno_action/onclick/toggle_long_range/boss_bot,
 		/datum/action/xeno_action/activable/surge_proj,
 		/datum/action/xeno_action/activable/rapid_missles/,
 	)

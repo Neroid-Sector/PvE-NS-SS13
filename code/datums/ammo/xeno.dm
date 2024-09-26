@@ -398,14 +398,13 @@
 
 /datum/ammo/xeno/surge_proj
 
-	name = "surge projectile"
-	icon_state = "shrapnel_light"
+	name = "laser beam"
+	icon = 'icons/Surge/boss_bot/boss_proj.dmi'
+	icon_state = "laser"
 	ping = null
 	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_STOPPED_BY_COVER
-	damage_type = BRUTE
-
-	damage = 20
-	max_range = 10
+	damage_type = BURN
+	damage = 50
+	max_range = 20
 	accuracy = 100
-	shrapnel_type = /obj/item/shard/shrapnel/surge_chip
-	shrapnel_chance = 100
+	shell_speed = 0.5
