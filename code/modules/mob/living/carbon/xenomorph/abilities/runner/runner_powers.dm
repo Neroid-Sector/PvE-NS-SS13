@@ -289,12 +289,9 @@
 
 
 /obj/item/prop/missile_storm_up/proc/animate_takeoff()
-	var/step_number = 1
-	while(step_number <= 12)
-		pixel_y += 32
-		pixel_x += 4
-		step_number += 1
-		sleep(1)
+	var/new_pixel_x = pixel_x + 48
+	animate(src, pixel_x=new_pixel_x,pixel_y=384,time = 10,easing=QUAD_EASING|EASE_IN)
+	sleep(11)
 	qdel(src)
 
 /obj/item/prop/missile_storm_up/Initialize(mapload, ...)
@@ -314,12 +311,9 @@
 
 
 /obj/item/prop/missile_storm_down/proc/animate_landing()
-	var/step_number = 1
-	while(step_number <= 12)
-		pixel_y -= 32
-		pixel_x += 4
-		step_number += 1
-		sleep(1)
+	var/new_pixel_x = pixel_x + 48
+	animate(src, pixel_x=new_pixel_x,pixel_y=0,time = 10,easing=QUAD_EASING|EASE_IN)
+	sleep(11)
 	qdel(src)
 
 /obj/item/prop/missile_storm_down/Initialize(mapload, ...)
