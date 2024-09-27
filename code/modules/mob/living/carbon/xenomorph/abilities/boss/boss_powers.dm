@@ -193,42 +193,54 @@
 			var/matrix/A = matrix()
 			A.Turn(45)
 			apply_transform(A)
+			pixel_x = 4
+			pixel_y = -4
 			while(loop_number <= 5)
-				animate(src, pixel_x = 64,pixel_y=-64,time=10,easing=LINEAR_EASING)
+				animate(src, pixel_x = 64,pixel_y=-64,time=7,easing=LINEAR_EASING)
 				sleep(10)
-				pixel_x = 0
-				pixel_y = 0
+				pixel_x = 4
+				pixel_y = -4
 				loop_number += 1
+				sleep(3)
 		if(2)
 			var/matrix/A = matrix()
 			A.Turn(135)
 			apply_transform(A)
+			pixel_x = -4
+			pixel_y = -4
 			while(loop_number <= 5)
-				animate(src, pixel_x = -64,pixel_y=-64,time=10,easing=LINEAR_EASING)
+				animate(src, pixel_x = -64,pixel_y=-64,time=7,easing=LINEAR_EASING)
 				sleep(10)
-				pixel_x = 0
-				pixel_y = 0
+				pixel_x = -4
+				pixel_y = -4
 				loop_number += 1
+				sleep(3)
 		if(3)
 			var/matrix/A = matrix()
 			A.Turn(225)
 			apply_transform(A)
+			pixel_x = -4
+			pixel_y = 4
 			while(loop_number <= 5)
-				animate(src, pixel_x = -64,pixel_y=64,time=10,easing=LINEAR_EASING)
+				animate(src, pixel_x = -64,pixel_y=64,time=7,easing=LINEAR_EASING)
 				sleep(10)
-				pixel_x = 0
-				pixel_y = 0
+				pixel_x = -4
+				pixel_y = 4
 				loop_number += 1
+				sleep(3)
 		if(4)
 			var/matrix/A = matrix()
 			A.Turn(315)
 			apply_transform(A)
+			pixel_x = 4
+			pixel_y = 4
 			while(loop_number <= 5)
-				animate(src, pixel_x = 64,pixel_y=64 ,time=10,easing=LINEAR_EASING)
+				animate(src, pixel_x = 64,pixel_y=64 ,time=7,easing=LINEAR_EASING)
 				sleep(10)
-				pixel_x = 0
-				pixel_y = 0
+				pixel_x = 4
+				pixel_y = 4
 				loop_number += 1
+				sleep(3)
 		if(5)
 			var/matrix/A = matrix()
 			A.Turn(225)
@@ -236,11 +248,12 @@
 			pixel_x = 64
 			pixel_y = -64
 			while(loop_number <= 5)
-				animate(src, pixel_x = 0,pixel_y=0 ,time=10,easing=LINEAR_EASING)
+				animate(src, pixel_x = 4,pixel_y=-4 ,time=7,easing=LINEAR_EASING)
 				sleep(10)
 				pixel_x = 64
 				pixel_y = -64
 				loop_number += 1
+				sleep(3)
 		if(6)
 			var/matrix/A = matrix()
 			A.Turn(315)
@@ -248,11 +261,12 @@
 			pixel_x = -64
 			pixel_y = -64
 			while(loop_number <= 5)
-				animate(src, pixel_x = 0,pixel_y=0 ,time=10,easing=LINEAR_EASING)
+				animate(src, pixel_x = -4,pixel_y=-4 ,time=7,easing=LINEAR_EASING)
 				sleep(10)
 				pixel_x = -64
 				pixel_y = -64
 				loop_number += 1
+				sleep(3)
 		if(7)
 			var/matrix/A = matrix()
 			A.Turn(45)
@@ -260,11 +274,12 @@
 			pixel_x = -64
 			pixel_y = 64
 			while(loop_number <= 5)
-				animate(src, pixel_x = 0,pixel_y=0 ,time=10,easing=LINEAR_EASING)
+				animate(src, pixel_x = -4,pixel_y=4 ,time=7,easing=LINEAR_EASING)
 				sleep(10)
 				pixel_x = -64
 				pixel_y = 64
 				loop_number += 1
+				sleep(3)
 		if(8)
 			var/matrix/A = matrix()
 			A.Turn(135)
@@ -272,11 +287,12 @@
 			pixel_x = 64
 			pixel_y = 64
 			while(loop_number <= 5)
-				animate(src, pixel_x = 0,pixel_y=0 ,time=10,easing=LINEAR_EASING)
+				animate(src, pixel_x = 4,pixel_y=4 ,time=7,easing=LINEAR_EASING)
 				sleep(10)
 				pixel_x = 64
 				pixel_y = 64
 				loop_number += 1
+				sleep(3)
 	qdel(src)
 
 /datum/action/xeno_action/activable/relocate/proc/animate_warnings(turf/target)
@@ -312,22 +328,32 @@
 	new_pixel_y = new_pixel_y + (y_distance * 32 + 96)
 	var/new_pixel_x = xeno.pixel_x + (x_distance * 32)
 	animate(xeno, pixel_x = new_pixel_x, pixel_y = new_pixel_y, time = 20, easing = CUBIC_EASING)
+	xeno.client.perspective = EYE_PERSPECTIVE
+	xeno.client.eye = target_turf
 	sleep(20)
-	new_pixel_y = new_pixel_y + 5
+	new_pixel_y = new_pixel_y + 10
 	animate(xeno, pixel_y = new_pixel_y , time = 5, easing=LINEAR_EASING)
+	xeno.client.perspective = EYE_PERSPECTIVE
+	xeno.client.eye = target_turf
 	sleep(5)
 	new_pixel_y = initial(xeno.pixel_y)
 	animate(xeno, pixel_y = new_pixel_y, time = 3, easing=QUAD_EASING|EASE_IN)
+	xeno.client.perspective = EYE_PERSPECTIVE
+	xeno.client.eye = target_turf
 	sleep(3)
 	return 1
 
 /datum/action/xeno_action/activable/relocate/proc/process_movement(turf/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
 	var/turf/target_turf = target
+	xeno.client.perspective = EYE_PERSPECTIVE
+	xeno.client.eye = target_turf
 	new /obj/effect/shockwave(target_turf, 4)
 	xeno.pixel_x = initial(xeno.pixel_x)
 	xeno.pixel_y = initial(xeno.pixel_y)
 	xeno.forceMove(target_turf)
+	xeno.client.eye = xeno.client.mob
+	xeno.client.perspective = MOB_PERSPECTIVE
 	for(var/mob/living/carbon/carbon_in_range in range(3,target_turf))
 		if(carbon_in_range == xeno) continue
 		if(carbon_in_range)
@@ -359,3 +385,25 @@
 	process_movement(targeted_turf)
 	apply_cooldown()
 	return ..()
+
+/obj/item/prop/ring_line
+	name = "One and two thirds of the laser shot lock icon."
+	opacity = FALSE
+	mouse_opacity = FALSE
+	anchored = TRUE
+	indestructible = TRUE
+	layer = ABOVE_MOB_LAYER
+	icon = 'icons/Surge/effects/ring.dmi'
+	icon_state = "target_stripe"
+
+/obj/item/prop/ring_rings
+	name = "Its an arrow. Catch if if you can."
+	opacity = FALSE
+	mouse_opacity = FALSE
+	anchored = TRUE
+	indestructible = TRUE
+	layer = ABOVE_MOB_LAYER
+	icon = 'icons/Surge/effects/ring.dmi'
+	icon_state = "target_rings"
+
+
