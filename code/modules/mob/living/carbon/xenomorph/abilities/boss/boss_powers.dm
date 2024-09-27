@@ -185,7 +185,7 @@
 
 /obj/item/prop/arrow/proc/warning_animation(anim_type)
 	if(!anim_type) return
-	var/loop_number = 0
+	var/loop_number = 1
 	switch(anim_type)
 		if(null)
 			return
@@ -193,52 +193,52 @@
 			var/matrix/A = matrix()
 			A.Turn(45)
 			apply_transform(A)
-			pixel_x = 4
-			pixel_y = -4
+			pixel_x = 12
+			pixel_y = -12
 			while(loop_number <= 5)
 				animate(src, pixel_x = 64,pixel_y=-64,time=7,easing=LINEAR_EASING)
 				sleep(10)
-				pixel_x = 4
-				pixel_y = -4
+				pixel_x = 12
+				pixel_y = -12
 				loop_number += 1
 				sleep(3)
 		if(2)
 			var/matrix/A = matrix()
 			A.Turn(135)
 			apply_transform(A)
-			pixel_x = -4
-			pixel_y = -4
+			pixel_x = -12
+			pixel_y = -12
 			while(loop_number <= 5)
 				animate(src, pixel_x = -64,pixel_y=-64,time=7,easing=LINEAR_EASING)
 				sleep(10)
-				pixel_x = -4
-				pixel_y = -4
+				pixel_x = -12
+				pixel_y = -12
 				loop_number += 1
 				sleep(3)
 		if(3)
 			var/matrix/A = matrix()
 			A.Turn(225)
 			apply_transform(A)
-			pixel_x = -4
-			pixel_y = 4
+			pixel_x = -12
+			pixel_y = 12
 			while(loop_number <= 5)
 				animate(src, pixel_x = -64,pixel_y=64,time=7,easing=LINEAR_EASING)
 				sleep(10)
-				pixel_x = -4
-				pixel_y = 4
+				pixel_x = -12
+				pixel_y = 12
 				loop_number += 1
 				sleep(3)
 		if(4)
 			var/matrix/A = matrix()
 			A.Turn(315)
 			apply_transform(A)
-			pixel_x = 4
-			pixel_y = 4
+			pixel_x = 12
+			pixel_y = 12
 			while(loop_number <= 5)
 				animate(src, pixel_x = 64,pixel_y=64 ,time=7,easing=LINEAR_EASING)
 				sleep(10)
-				pixel_x = 4
-				pixel_y = 4
+				pixel_x = 12
+				pixel_y = 12
 				loop_number += 1
 				sleep(3)
 		if(5)
@@ -248,7 +248,7 @@
 			pixel_x = 64
 			pixel_y = -64
 			while(loop_number <= 5)
-				animate(src, pixel_x = 4,pixel_y=-4 ,time=7,easing=LINEAR_EASING)
+				animate(src, pixel_x = 16,pixel_y=-16 ,time=7,easing=LINEAR_EASING)
 				sleep(10)
 				pixel_x = 64
 				pixel_y = -64
@@ -261,7 +261,7 @@
 			pixel_x = -64
 			pixel_y = -64
 			while(loop_number <= 5)
-				animate(src, pixel_x = -4,pixel_y=-4 ,time=7,easing=LINEAR_EASING)
+				animate(src, pixel_x = -16,pixel_y=-16 ,time=7,easing=LINEAR_EASING)
 				sleep(10)
 				pixel_x = -64
 				pixel_y = -64
@@ -274,7 +274,7 @@
 			pixel_x = -64
 			pixel_y = 64
 			while(loop_number <= 5)
-				animate(src, pixel_x = -4,pixel_y=4 ,time=7,easing=LINEAR_EASING)
+				animate(src, pixel_x=-16,pixel_y=16,time=7,easing=LINEAR_EASING)
 				sleep(10)
 				pixel_x = -64
 				pixel_y = 64
@@ -287,7 +287,7 @@
 			pixel_x = 64
 			pixel_y = 64
 			while(loop_number <= 5)
-				animate(src, pixel_x = 4,pixel_y=4 ,time=7,easing=LINEAR_EASING)
+				animate(src, pixel_x =16,pixel_y=16,time=7,easing=LINEAR_EASING)
 				sleep(10)
 				pixel_x = 64
 				pixel_y = 64
@@ -341,17 +341,18 @@
 	xeno.client.perspective = EYE_PERSPECTIVE
 	xeno.client.eye = target_turf
 	sleep(3)
+	xeno.client.perspective = EYE_PERSPECTIVE
+	xeno.client.eye = target_turf
 	return 1
 
 /datum/action/xeno_action/activable/relocate/proc/process_movement(turf/target)
 	var/mob/living/carbon/xenomorph/xeno = owner
 	var/turf/target_turf = target
-	xeno.client.perspective = EYE_PERSPECTIVE
-	xeno.client.eye = target_turf
 	new /obj/effect/shockwave(target_turf, 4)
 	xeno.pixel_x = initial(xeno.pixel_x)
 	xeno.pixel_y = initial(xeno.pixel_y)
 	xeno.forceMove(target_turf)
+	xeno.client.lazy_eye = 0
 	xeno.client.eye = xeno.client.mob
 	xeno.client.perspective = MOB_PERSPECTIVE
 	for(var/mob/living/carbon/carbon_in_range in range(3,target_turf))
