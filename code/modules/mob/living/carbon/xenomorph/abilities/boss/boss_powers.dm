@@ -20,6 +20,7 @@
 		return
 	for(var/mob/living/carbon/human/target_to_warn in mobs_in_range)
 		INVOKE_ASYNC(target_to_warn, TYPE_PROC_REF(/mob/living/carbon/human/, warning_ping))
+	apply_cooldown()
 	xeno.overlays += (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
 	xeno.anchored = 1
 	if(xeno.armor_deflection > 20) xeno.armor_deflection = 20
@@ -27,21 +28,14 @@
 	xeno.overlays -= (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
 	xeno.anchored = 0
 	xeno.armor_deflection = initial(xeno.armor_deflection)
-	var/list/mobs_in_view = list()
-	for(var/mob/living/carbon/human/target in view("15x15",xeno))
-		if(mobs_in_view.Find(target) == 0)
-			mobs_in_view.Add(target)
-	if(mobs_in_view.len == 0) return
 	playsound(xeno, 'sound/items/pulse3.ogg', 50)
 	for(var/mob/living/carbon/human/target_to_shoot in mobs_in_range)
-		if(mobs_in_view.Find(target_to_shoot) != 0)
-			var/turf/target = get_turf(target_to_shoot)
-			var/obj/projectile/projectile = new /obj/projectile(xeno.loc, create_cause_data(initial(xeno.caste_type), xeno))
-			var/datum/ammo/ammo_datum = GLOB.ammo_list[ammo_type]
-			projectile.generate_bullet(ammo_datum)
-			projectile.fire_at(target, xeno, xeno, ammo_datum.max_range, ammo_datum.shell_speed)
+		var/turf/target = get_turf(target_to_shoot)
+		var/obj/projectile/projectile = new /obj/projectile(xeno.loc, create_cause_data(initial(xeno.caste_type), xeno))
+		var/datum/ammo/ammo_datum = GLOB.ammo_list[ammo_type]
+		projectile.generate_bullet(ammo_datum)
+		projectile.fire_at(target, xeno, xeno, ammo_datum.max_range, ammo_datum.shell_speed)
 
-	apply_cooldown()
 	return ..()
 
 /obj/item/prop/big_warning_ping
@@ -156,6 +150,7 @@
 		return
 	var/turf/turf_center = get_turf(affected_atom)
 	var/list/mobs_in_range = list()
+	apply_cooldown()
 	xeno.anchored = 1
 	if(xeno.armor_deflection > 20) xeno.armor_deflection = 20
 	for(var/mob/living/carbon/human/target in range("15x15",turf_center))
@@ -169,8 +164,6 @@
 	sleep(100)
 	xeno.anchored = 0
 	xeno.armor_deflection = initial(xeno.armor_deflection)
-
-	apply_cooldown()
 	return ..()
 
 /obj/item/prop/arrow
@@ -380,11 +373,11 @@
 		if(turf_in_range == targeted_turf)
 			to_chat(xeno, SPAN_WARNING("Target Turf is too close!"))
 			return
+	apply_cooldown()
 	animate_warnings(targeted_turf)
 	sleep(50)
 	animate_movement(targeted_turf)
 	process_movement(targeted_turf)
-	apply_cooldown()
 	return ..()
 
 /obj/item/prop/ring_line
@@ -407,4 +400,75 @@
 	icon = 'icons/Surge/effects/ring.dmi'
 	icon_state = "target_rings"
 
+/datum/action/xeno_action/activable/fire_cannon/proc/handle_crosshair_animation(mob/target_mob)
+	var/obj/item/prop/ring_line/ring_line_left = new()
+	var/obj/item/prop/ring_line/ring_line_rignt = new()
+	var/obj/item/prop/ring_rings/ring_ring = new()
+	var/mob/living/carbon/human/target_human = target_mob
+	if(!target_mob)return
+	var/matrix/A = matrix()
+	var/matrix/B = matrix()
+	var/matrix/C = matrix()
+	var/matrix/D = matrix()
+	var/matrix/E = matrix()
+	E.Scale(0.001,0.001)
+	A.Turn(30)
+	B.Turn(60)
+	ring_line_left.apply_transform(A)
+	ring_line_left.color = "#680606"
+	ring_line_left.forceMove(target_human.vis_contents)
+	ring_line_left.forceMove(target_human.vis_contents)
+	C.Turn(-30)
+	D.Turn(-60)
+	ring_line_rignt.apply_transform(C)
+	ring_line_rignt.color = "#680606"
+	ring_line_rignt.forceMove(target_human.vis_contents)
+	ring_ring.color = "#680606"
+	ring_ring.forceMove(target_human.vis_contents)
+	animate(ring_line_left, transform = B, color = "#ff0000", time = 30, easing = LINEAR_EASING)
+	animate(ring_ring, color = "#ff0000", time = 30, easing = LINEAR_EASING)
+	animate(ring_line_rignt, transform = D, color = "#ff0000", time = 30, easing = LINEAR_EASING)
+	sleep(30)
+	animate(ring_ring, transform = E, color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
+	animate(ring_line_left, color = "#ff7575", time = 1,easing=LINEAR_EASING)
+	animate(ring_line_rignt, color = "#ff7575", time = 1,easing=LINEAR_EASING)
+	sleep(1)
+	animate(ring_line_left, color = "#722525", time = 1,easing=LINEAR_EASING)
+	animate(ring_line_rignt, color = "#722525", time = 1,easing=LINEAR_EASING)
+	sleep(1)
+	animate(ring_line_left, color = "#ff7575", time = 1,easing=LINEAR_EASING)
+	animate(ring_line_rignt, color = "#ff7575", time = 1,easing=LINEAR_EASING)
+	sleep(1)
+	animate(ring_line_left, color = "#722525", alpha = 0, time = 1,easing=LINEAR_EASING)
+	animate(ring_line_rignt, color = "#722525", alpha = 0, time = 1,easing=LINEAR_EASING)
+	sleep(5)
+	qdel(ring_line_rignt)
+	qdel(ring_line_left)
+	qdel(ring_ring)
+
+/datum/action/xeno_action/activable/fire_cannon/use_ability(atom/target)
+	var/mob/living/carbon/xenomorph/xeno = owner
+	if (!istype(xeno))
+		return
+	if (!action_cooldown_check())
+		return
+	var/mob/living/carbon/human/laser_target = target
+	if(!laser_target) return
+	apply_cooldown()
+	handle_crosshair_animation(laser_target)
+	sleep(30)
+	var/mob/mob_to_shoot
+	for(var/mob/mob in view("15x15",xeno))
+		if(mob == laser_target)
+			mob_to_shoot = mob
+			break
+	if(!mob_to_shoot)
+		return
+	else
+		var/turf/target_to_hit = get_turf(mob_to_shoot)
+		var/obj/projectile/projectile = new /obj/projectile(xeno.loc, create_cause_data(initial(xeno.caste_type), xeno))
+		var/datum/ammo/ammo_datum = GLOB.ammo_list[ammo_type]
+		projectile.generate_bullet(ammo_datum)
+		projectile.fire_at(target_to_hit, xeno, xeno, ammo_datum.max_range, ammo_datum.shell_speed)
+	return ..()
 

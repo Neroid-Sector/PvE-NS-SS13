@@ -31,3 +31,16 @@
 	ability_primacy = XENO_PRIMARY_ACTION_3
 	xeno_cooldown = 60
 	plasma_cost = 0
+
+/datum/action/xeno_action/activable/fire_cannon
+
+	name = "Fire Cannon"
+	action_icon_state = "runner_bonespur"
+	ability_name = "Cannon"
+	macro_path = /datum/action/xeno_action/verb/fire_cannon
+	action_type = XENO_ACTION_CLICK
+	ability_primacy = XENO_PRIMARY_ACTION_4
+	xeno_cooldown = 35
+	plasma_cost = 0
+
+	var/ammo_type = /datum/ammo/xeno/dbl_laser
