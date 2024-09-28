@@ -343,14 +343,6 @@
 	var/atom/movable/vis_obj/xeno_wounds/wound_icon_holder
 	var/atom/movable/vis_obj/xeno_pack/backpack_icon_holder
 
-	//Xenosurge vars that go here for same reasons as above
-	var/boss_type = 0
-	//below should be safely disregarded if type is not set to 1
-	var/boss_stage = 1
-	var/explosion_damage = 30
-	var/aoe_delay = 40
-	var/missile_storm_missiles = 25
-
 /mob/living/carbon/xenomorph/Initialize(mapload, mob/living/carbon/xenomorph/oldXeno, h_number, ai_hard_off = FALSE)
 	var/area/A = get_area(src)
 	if(A && A.statistic_exempt)
@@ -1062,7 +1054,7 @@
 	. = ..()
 	if (. & IGNITE_IGNITED)
 		RegisterSignal(src, COMSIG_XENO_PRE_HEAL, PROC_REF(cancel_heal))
-		if(!caste || !(caste.fire_immunity & FIRE_IMMUNITY_NO_DAMAGE) || fire_reagent.fire_penetrating||boss_type == 1)
+		if(!caste || !(caste.fire_immunity & FIRE_IMMUNITY_NO_DAMAGE) || fire_reagent.fire_penetrating)
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob, emote), "roar")
 
 /mob/living/carbon/xenomorph/ExtinguishMob()
