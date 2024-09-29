@@ -2,8 +2,9 @@
 
 	var/mob/living/pve_boss/attached_mob
 
-/datum/bossclicking/proc/AssignMob(mob/owner_mob)
-	attached_mob = owner_mob
+/datum/bossclicking/New()
+	. = ..()
+	attached_mob = src
 
 /datum/bossclicking/proc/InterceptClickOn(mob/user, params, atom/object)
 

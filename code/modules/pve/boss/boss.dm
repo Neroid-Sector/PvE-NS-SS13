@@ -9,8 +9,8 @@
 	var/boss_type = "default"
 	//below should be safely disregarded if type is not set to 1
 	var/boss_stage = 1
-	var/datum/boss_action/boss_ability = /datum/boss_action/
-	var/datum/bossclicking/boss_click_intercept = /datum/bossclicking/
+	var/datum/boss_action/boss_ability
+
 	var/list/boss_abilities = list()
 	var/list/ability_cooldowns = list()
 	var/explosion_damage = 30
@@ -23,23 +23,17 @@
 
 /mob/living/pve_boss/Initialize()
 	. = ..()
-	boss_ability.set_owner(src)
-	boss_click_intercept.AssignMob(src)
-	click_intercept = boss_click_intercept
+	boss_ability = new /datum/boss_action/
+	click_intercept = new /datum/bossclicking/
 
 /datum/boss_action/
 
 	var/mob/owner = null
 
 
-/datum/boss_action/proc/set_owner(mob/owner_mob) // Assigns owner reference, makes some of the ability code easier. null will null the owner value.
-	if(!owner_mob)
-		if(owner)
-			owner = null
-		else
-			return
-	owner = owner_mob
-	return
+/datum/boss_action/New()  // Assigns owner reference, makes some of the ability code easier. null will null the owner value.
+	. = ..()
+	owner = src
 
 /datum/boss_action/proc/switch_action() // Called to switch the active action. This also defines which action is getting its cooldown set etc
 	var/mob/living/pve_boss/boss_mob = owner
