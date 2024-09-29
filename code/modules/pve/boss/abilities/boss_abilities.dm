@@ -453,7 +453,7 @@
 	qdel(ring_line_left)
 	qdel(ring_ring)
 
-/datum/boss_action/proc/fire_cannon(atom/target, mob/owner)
+/datum/boss_action/proc/fire_cannon(atom/target)
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
 		return
@@ -478,3 +478,13 @@
 		projectile.fire_at(target_to_hit, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 	return
 
+/datum/boss_action/proc/process_regular_movement(turf/target)
+	return
+
+/datum/boss_action/proc/move_towards(atom/target)
+	var/turf/target_turf = target
+	if(!target_turf) return
+	if(istype(target_turf,/turf/open/space))
+		to_chat(src, SPAN_WARNING("Move liekly outside of map bounds."))
+		return
+	INVOKE_ASYNC(src, PROC_REF(process_regular_movement), target)

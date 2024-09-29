@@ -4,7 +4,11 @@
 	icon = 'icons/Surge/boss_bot/boss.dmi'
 	icon_state = "Boss Walking"
 	icon_size = 64
+	speed = 1
+	melee_damage_lower = 30
+	melee_damage_upper = 40
 	attack_sound = null
+	health = 10000 // This will obviously need adjustments
 	layer = MOB_LAYER
 	pixel_x = -8
 	old_x = -8
@@ -17,28 +21,24 @@
 	mob_size = MOB_SIZE_IMMOBILE
 
 /* Old Xeno vars for reference
-	caste_type = XENO_CASTE_XENOSURGE_BOSS_BOT
-	caste_desc = "An agile defense platform, saturating the battlefield with defensive fire."
-	tier = 4
-	melee_damage_lower = 25
-	melee_damage_upper = 40
+
 	melee_vehicle_damage = 40
-	plasma_gain = XENO_PLASMA_GAIN_TIER_1
-	plasma_max = XENO_NO_PLASMA
+
 	armor_deflection = 100
-	max_health = 3000
 	evasion = XENO_EVASION_NONE
-	speed = 1
+
 	xeno_explosion_resistance = XENO_EXPLOSIVE_ARMOR_TIER_10
 	fire_immunity = FIRE_IMMUNITY_NO_IGNITE
-	attack_delay = -4
+	small_explosives_stun = FALS
+
+
 	tackle_min = 4
 	tackle_max = 5
 	tackle_chance = 40
 	tacklestrength_min = 4
 	tacklestrength_max = 4
+
 	minimap_icon = "runner"
-	small_explosives_stun = FALS
 
 /datum/action/xeno_action/onclick/toggle_long_range/boss_bot
 	handles_movement = TRUE

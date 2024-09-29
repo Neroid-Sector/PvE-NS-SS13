@@ -134,3 +134,5 @@
 
 	/// Holds the game master datum for this client
 	var/datum/game_master/game_master_menu
+
+	var/boss_click_mode = 0 //overrides clicking while possessing bosses
