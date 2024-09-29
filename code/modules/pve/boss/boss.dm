@@ -9,8 +9,8 @@
 	var/boss_type = "default"
 	//below should be safely disregarded if type is not set to 1
 	var/boss_stage = 1
-	var/datum/boss_action/boss_ability
-	var/datum/bossclicking/boss_click_intercept
+	var/datum/boss_action/boss_ability = /datum/boss_action/
+	var/datum/bossclicking/boss_click_intercept = /datum/bossclicking/
 	var/list/boss_abilities = list()
 	var/list/ability_cooldowns = list()
 	var/explosion_damage = 30
@@ -21,15 +21,11 @@
 	var/list/action_cooldowns = list()
 	var/list/action_last_use_time = list()
 
-/mob/living/pve_boss/proc/setup_boss()
+/mob/living/pve_boss/Initialize()
+	. = ..()
 	boss_ability.set_owner(src)
 	boss_click_intercept.AssignMob(src)
 	click_intercept = boss_click_intercept
-
-/mob/living/pve_boss/Initialize()
-	. = ..()
-	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, setup_boss))
-
 
 /datum/boss_action/
 
