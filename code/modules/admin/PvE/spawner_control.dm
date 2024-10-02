@@ -138,7 +138,7 @@
 	if(tgui_alert(usr, "Confirm: Stop Xenosurge?","STOP",list("Cancel","OK"), timeout = 0) == "OK")
 		GLOB.xenosurge_surge_started = 0
 		GLOB.xenosurge_wave_xenos_current = 0
-		GLOB.xenosurge_wave_veteran_xenos_current = 0		
+		GLOB.xenosurge_wave_veteran_xenos_current = 0
 		to_chat(world, SPAN_INFO("The end is in sight! The onslaught seems to be letting up!"))
 		to_chat(usr, SPAN_INFO("All spawners have been deactivated, the surge is effectively stopped."))
 
@@ -204,4 +204,15 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 	new /obj/structure/xenosurge_spawner(T)
+	return
+
+/client/proc/test_boss_spawn(turf/T in turfs)
+	set name = "Surge Boss Spawn"
+	set category = null
+
+	if(!src.admin_holder || !(admin_holder.rights & R_MOD))
+		to_chat(src, "Only administrators may use this command.")
+		return
+
+	new /mob/living/pve_boss(T)
 	return
