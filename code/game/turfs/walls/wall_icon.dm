@@ -23,13 +23,11 @@
 
 		if(!density)
 			I = image(icon, "[walltype]fwall_open")
-			icon_state_ref = "[walltype]fwall_open"
 			overlays += I
 			return
 
 		for(var/i = 1 to 4)
 			I = image(icon, "[walltype][wall_connections[i]]", dir = 1<<(i-1))
-			icon_state_ref = "[walltype][wall_connections[i]]"
 			overlays += I
 
 	if(damage)

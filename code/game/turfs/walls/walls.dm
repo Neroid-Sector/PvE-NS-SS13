@@ -43,7 +43,6 @@
 	var/list/noblend_turfs = list(/turf/closed/wall/mineral, /turf/closed/wall/almayer/research/containment) //Turfs to avoid blending with
 	var/list/blend_objects = list(/obj/structure/machinery/door, /obj/structure/window_frame, /obj/structure/window/framed) // Objects which to blend with
 	var/list/noblend_objects = list(/obj/structure/machinery/door/window) //Objects to avoid blending with (such as children of listed blend objects.
-	var/icon_state_ref // Why yes, I do think its a good idea not to reference the icon_state I use foe the wall anywhere, I mean no one would ever need that info right?
 
 /turf/closed/wall/Initialize(mapload, ...)
 	. = ..()

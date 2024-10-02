@@ -41,7 +41,7 @@
 		var/saved_icon_state
 		if(istype(Obstacle, /turf/closed/wall))
 			var/turf/closed/wall/no_base_icon_state_turf = Obstacle
-			saved_icon_state = no_base_icon_state_turf.icon_state_ref
+			saved_icon_state = no_base_icon_state_turf.walltype
 		else
 			saved_icon_state = bumped_turf.icon_state
 		var/saved_turf_x = bumped_turf.x
