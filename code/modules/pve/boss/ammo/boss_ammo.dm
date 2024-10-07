@@ -16,10 +16,10 @@
 	icon_state = "twin_laser"
 	name = "double laser beam"
 	ping = null
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_STOPPED_BY_COVER
+	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_STOPPED_BY_COVER|AMMO_IGNORE_ARMOR|AMMO_IGNORE_RESIST
 	damage_type = BURN
-	damage = 15
-	penetration = 20
-	max_range = 5
+	damage = 5
+	penetration = 0
+	max_range = 10
 	accuracy = 70
 	shell_speed = 0.8

@@ -397,61 +397,83 @@
 	icon = 'icons/Surge/effects/ring.dmi'
 	icon_state = "target_rings"
 
-/datum/boss_action/proc/handle_crosshair_animation(mob/target_mob)
-	var/obj/item/prop/ring_line/ring_line_left = new()
-	var/obj/item/prop/ring_line/ring_line_right = new()
-	var/obj/item/prop/ring_rings/ring_ring = new()
-	var/mob/living/carbon/human/target_human = target_mob
-	if(!target_mob)return
-	var/matrix/A = matrix()
-	var/matrix/B = matrix()
-	var/matrix/C = matrix()
-	var/matrix/D = matrix()
-	var/matrix/E = matrix()
-	E.Scale(0.001,0.001)
-	A.Turn(30)
-	B.Turn(90)
-	ring_line_left.apply_transform(A)
-	ring_line_left.color = "#680606"
-	C.Turn(-30)
-	D.Turn(-90)
-	ring_line_right.apply_transform(C)
-	ring_line_right.color = "#680606"
-	ring_ring.color = "#680606"
+/datum/boss_action/proc/handle_crosshair_animation(turf/target, type)
+	switch(type)
+		if(null)
+			return
+		if(1)
+			var/obj/item/prop/ring_line/ring_line_left = new()
+			var/obj/item/prop/ring_line/ring_line_right = new()
+			var/obj/item/prop/ring_rings/ring_ring = new()
+			var/turf/target_turf = target
+			if(!target)return
+			var/matrix/A = matrix()
+			var/matrix/B = matrix()
+			var/matrix/C = matrix()
+			var/matrix/D = matrix()
+			A.Turn(30)
+			B.Turn(90)
+			ring_line_left.apply_transform(A)
+			ring_line_left.color = "#680606"
+			C.Turn(-30)
+			D.Turn(-90)
+			ring_line_right.apply_transform(C)
+			ring_line_right.color = "#680606"
+			ring_ring.color = "#680606"
 
-	animate(ring_line_left, transform = B, color = "#ff0000", time = 30, easing = LINEAR_EASING)
-	animate(color = "#ff7575", time = 1,easing=LINEAR_EASING)
-	animate(color = "#722525", time = 1,easing=LINEAR_EASING)
-	animate(color = "#ff7575", time = 1,easing=LINEAR_EASING)
-	animate(color = "#722525", time = 1,easing=LINEAR_EASING)
-	animate(transform = E, color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
+			animate(ring_line_left,transform = B, color = "#ff0000", time = 30, easing = LINEAR_EASING)
+			animate(transform = E, color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
 
-	animate(ring_line_right, transform = D, color = "#ff0000", time = 30, easing = LINEAR_EASING)
-	animate(color = "#ff7575", time = 1,easing=LINEAR_EASING)
-	animate(color = "#722525", time = 1,easing=LINEAR_EASING)
-	animate(color = "#ff7575", time = 1,easing=LINEAR_EASING)
-	animate(color = "#722525", time = 1,easing=LINEAR_EASING)
-	animate(transform = E, color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
 
-	animate(ring_ring, color = "#ff0000", time = 30, easing = LINEAR_EASING)
-	animate(color = "#ff7575", time = 1,easing=LINEAR_EASING)
-	animate(color = "#722525", time = 1,easing=LINEAR_EASING)
-	animate(color = "#ff7575", time = 1,easing=LINEAR_EASING)
-	animate(color = "#722525", time = 1,easing=LINEAR_EASING)
-	animate(transform = E, color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
+			animate(ring_line_right, transform = D, color = "#ff0000", time = 30, easing = LINEAR_EASING)
+			animate(color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
 
-	target_human.vis_contents += ring_line_left
-	target_human.vis_contents += ring_line_right
-	target_human.vis_contents += ring_ring
 
-	sleep(50)
+			animate(ring_ring,color = "#ff0000", time = 30, easing = LINEAR_EASING)
+			animate(color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
 
-	target_human.vis_contents -= ring_line_left
-	target_human.vis_contents -= ring_line_right
-	target_human.vis_contents -= ring_ring
-	qdel(ring_line_right)
-	qdel(ring_line_left)
-	qdel(ring_ring)
+			target_turf.vis_contents += ring_line_left
+			target_turf.vis_contents += ring_line_right
+			target_turf.vis_contents += ring_ring
+			sleep(50)
+			target_turf.vis_contents -= ring_line_left
+			target_turf.vis_contents -= ring_line_right
+			target_turf.vis_contents -= ring_ring
+
+			qdel(ring_line_right)
+			qdel(ring_line_left)
+			qdel(ring_ring)
+		if(2)
+			var/obj/item/prop/ring_line/ring_line_left = new()
+			var/obj/item/prop/ring_line/ring_line_right = new()
+			var/obj/item/prop/ring_rings/ring_ring = new()
+			var/turf/target_turf = target
+			ring_line_left.pixel_x = -16
+			ring_line_right.pixel_x = 16
+			ring_line_left.color = "#680606"
+			ring_line_right.color = "#680606"
+			ring_ring.color = "#680606"
+			animate(ring_line_left,pixel_x = 16, color = "#ff0000", time = 30, easing = LINEAR_EASING)
+			animate(transform = E, color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
+
+			animate(ring_line_right, color = "#ff0000", time = 30, easing = LINEAR_EASING)
+			animate(color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
+
+			animate(ring_ring,color = "#ff0000", time = 30, easing = LINEAR_EASING)
+			animate(color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
+
+			target_turf.vis_contents += ring_line_left
+			target_turf.vis_contents += ring_line_right
+			target_turf.vis_contents += ring_ring
+			sleep(35)
+			target_turf.vis_contents -= ring_line_left
+			target_turf.vis_contents -= ring_line_right
+			target_turf.vis_contents -= ring_ring
+
+			qdel(ring_line_right)
+			qdel(ring_line_left)
+			qdel(ring_ring)
+
 
 /datum/boss_action/proc/fire_cannon(atom/target)
 	var/mob/living/pve_boss/boss = owner
@@ -459,23 +481,20 @@
 		return
 	if (!action_cooldown_check())
 		return
-	var/mob/living/carbon/human/laser_target = target
+	INVOKE_ASYNC(boss, PROC_REF(usage_cooldown_loop),15)
+	var/turf/laser_target = get_turf(target)
 	if(!laser_target) return
-	INVOKE_ASYNC(src, PROC_REF(handle_crosshair_animation),laser_target)
+	INVOKE_ASYNC(src, PROC_REF(handle_crosshair_animation),laser_target,1)
 	sleep(30)
-	var/mob/mob_to_shoot
-	for(var/mob/mob in view("15x15",boss))
-		if(mob == laser_target)
-			mob_to_shoot = mob
-			break
-	if(!mob_to_shoot)
-		return
-	else
-		var/turf/target_to_hit = get_turf(mob_to_shoot)
-		var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
-		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/dbl_laser]
-		projectile.generate_bullet(ammo_datum)
-		projectile.fire_at(target_to_hit, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+	var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
+	var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/dbl_laser]
+	projectile.generate_bullet(ammo_datum)
+	var/current_shot = 0
+	while(current_shot < boss.standard_range_salvo_count)
+		current_shot += 1
+		projectile.fire_at(laser_target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+		sleep(boss.standard_range_salvo_delay)
+	apply_cooldown(boss.standard_attack_cooldown)
 	return
 
 /datum/boss_action/proc/accelerate_to_target(turf/target, on_bump = FALSE)
@@ -518,549 +537,28 @@
 	boss.movement_target = target_turf
 	INVOKE_ASYNC(src, PROC_REF(process_regular_movement), target)
 
-/obj/item/prop/icon_chunk
-	name = "Its an arrow. Catch if if you can."
-	opacity = FALSE
-	mouse_opacity = FALSE
-	anchored = TRUE
-	blend_mode = BLEND_OVERLAY
-	indestructible = TRUE
-	layer = ABOVE_MOB_LAYER + 0.01
-	icon_state = null
+/datum/boss_action/proc/RepulseMelee()
+	var/mob/living/pve_boss/boss = owner
+	var/turf/boss_turf = get_turf(boss)
+	if (!istype(boss))
+		return
+	if (!action_cooldown_check())
+		return
+	INVOKE_ASYNC(boss, PROC_REF(usage_cooldown_loop),30)
+	INVOKE_ASYNC(src, PROC_REF(handle_crosshair_animation),boss_turf,2)
 
-/datum/boss_action/proc/icon_chunk(icon, icon_state,icon_dir, turf/chunked_turf)
-	INVOKE_ASYNC(src, PROC_REF(process_icon_chunk), icon,icon_state,icon_dir,chunked_turf)
+	for(var/mob/living/carbon/carbon_in_range in range(3,boss_turf))
+		if(carbon_in_range == boss) continue
+		if(carbon_in_range)
+			var/facing = get_dir(boss_turf, carbon_in_range)
+			var/turf/throw_turf = boss_turf
+			var/turf/temp = boss_turf
 
-/datum/boss_action/proc/process_icon_chunk(icon, icon_state, icon_dir, turf/chunked_turf)
-	var/mob/living/pve_boss/boss_mob = owner
-	var/turf/boss_turf = get_turf(boss_mob)
-	var/turf/turf_to_chunk = chunked_turf
+			for (var/x in 0 to 3)
+				temp = get_step(throw_turf, facing)
+				if (!temp)
+					break
+				throw_turf = temp
+			carbon_in_range.throw_atom(throw_turf, 4, SPEED_VERY_FAST, boss, TRUE)
 
-	var/icon/chunk1 = icon(icon,icon_state,icon_dir)
-	chunk1.Crop(1,1,8,8)
-	var/icon/chunk2 = icon(icon,icon_state,icon_dir)
-	chunk2.Crop(9,1,16,8)
-	var/icon/chunk3 = icon(icon,icon_state,icon_dir)
-	chunk3.Crop(17,1,24,8)
-	var/icon/chunk4 = icon(icon,icon_state,icon_dir)
-	chunk4.Crop(25,1,32,8)
-	var/icon/chunk5 = icon(icon,icon_state,icon_dir)
-	chunk5.Crop(1,9,8,16)
-	var/icon/chunk6 = icon(icon,icon_state,icon_dir)
-	chunk6.Crop(9,9,16,16)
-	var/icon/chunk7 = icon(icon,icon_state,icon_dir)
-	chunk7.Crop(17,9,24,16)
-	var/icon/chunk8 = icon(icon,icon_state,icon_dir)
-	chunk8.Crop(25,9,32,16)
-	var/icon/chunk9 = icon(icon,icon_state,icon_dir)
-	chunk9.Crop(1,17,8,24)
-	var/icon/chunk10 = icon(icon,icon_state,icon_dir)
-	chunk10.Crop(9,17,16,24)
-	var/icon/chunk11 = icon(icon,icon_state,icon_dir)
-	chunk11.Crop(17,17,24,24)
-	var/icon/chunk12 = icon(icon,icon_state,icon_dir)
-	chunk12.Crop(25,17,32,24)
-	var/icon/chunk13 = icon(icon,icon_state,icon_dir)
-	chunk13.Crop(1,25,8,32)
-	var/icon/chunk14 = icon(icon,icon_state,icon_dir)
-	chunk14.Crop(9,25,16,32)
-	var/icon/chunk15 = icon(icon,icon_state,icon_dir)
-	chunk15.Crop(17,25,24,32)
-	var/icon/chunk16 = icon(icon,icon_state,icon_dir)
-	chunk16.Crop(25,25,32,32)
-
-	var/matrix/A = matrix()
-
-	var/obj/item/prop/icon_chunk/chunk_item1 = new()
-	chunk_item1.icon = chunk1
-	chunk_item1.pixel_x = 1
-	chunk_item1.pixel_y = 1
-	var/obj/item/prop/icon_chunk/chunk_item2 = new()
-	chunk_item2.icon = chunk2
-	chunk_item2.pixel_x = 9
-	chunk_item2.pixel_y = 1
-	var/obj/item/prop/icon_chunk/chunk_item3 = new()
-	chunk_item3.icon = chunk3
-	chunk_item3.pixel_x = 17
-	chunk_item3.pixel_y = 1
-	var/obj/item/prop/icon_chunk/chunk_item4 = new()
-	chunk_item4.icon = chunk4
-	chunk_item4.pixel_x = 25
-	chunk_item4.pixel_y = 1
-	var/obj/item/prop/icon_chunk/chunk_item5 = new()
-	chunk_item5.icon = chunk5
-	chunk_item5.pixel_x = 1
-	chunk_item5.pixel_y = 9
-	var/obj/item/prop/icon_chunk/chunk_item6 = new()
-	chunk_item6.icon = chunk6
-	chunk_item6.pixel_x = 9
-	chunk_item6.pixel_y = 9
-	var/obj/item/prop/icon_chunk/chunk_item7 = new()
-	chunk_item7.icon = chunk7
-	chunk_item7.pixel_x = 17
-	chunk_item7.pixel_y = 9
-	var/obj/item/prop/icon_chunk/chunk_item8 = new()
-	chunk_item8.icon = chunk8
-	chunk_item8.pixel_x = 25
-	chunk_item8.pixel_y = 9
-	var/obj/item/prop/icon_chunk/chunk_item9 = new()
-	chunk_item9.icon = chunk9
-	chunk_item9.pixel_x = 1
-	chunk_item9.pixel_y = 17
-	var/obj/item/prop/icon_chunk/chunk_item10 = new()
-	chunk_item10.icon = chunk10
-	chunk_item10.pixel_x = 9
-	chunk_item10.pixel_y = 17
-	var/obj/item/prop/icon_chunk/chunk_item11 = new()
-	chunk_item11.icon = chunk11
-	chunk_item11.pixel_x = 17
-	chunk_item11.pixel_y = 17
-	var/obj/item/prop/icon_chunk/chunk_item12 = new()
-	chunk_item12.icon = chunk12
-	chunk_item12.pixel_x = 25
-	chunk_item12.pixel_y = 17
-	var/obj/item/prop/icon_chunk/chunk_item13 = new()
-	chunk_item13.icon = chunk13
-	chunk_item13.pixel_x = 1
-	chunk_item13.pixel_y = 25
-	var/obj/item/prop/icon_chunk/chunk_item14 = new()
-	chunk_item14.icon = chunk14
-	chunk_item14.pixel_x = 9
-	chunk_item14.pixel_y = 25
-	var/obj/item/prop/icon_chunk/chunk_item15 = new()
-	chunk_item15.icon = chunk15
-	chunk_item15.pixel_x = 17
-	chunk_item15.pixel_y = 25
-	var/obj/item/prop/icon_chunk/chunk_item16 = new()
-	chunk_item16.icon = chunk16
-	chunk_item16.pixel_x = 25
-	chunk_item16.pixel_y = 25
-	switch(get_dir(boss_turf,turf_to_chunk))
-		if(NORTHEAST)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item1,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item2,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item3,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item4,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item5,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item6,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item7,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item8,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item9,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item10,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item11,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item12,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item13,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item14,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item15,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item16,pixel_x = rand(1,64), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-		if(EAST)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item1,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item2,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item3,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item4,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item5,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item6,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item7,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item8,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item9,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item10,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item11,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item12,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item13,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item14,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item15,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item16,pixel_x = rand(1,64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-		if(SOUTHEAST)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item1,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item2,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item3,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item4,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item5,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item6,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item7,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item8,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item9,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item10,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item11,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item12,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item13,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item14,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item15,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item16,pixel_x = rand(1,64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-		if(SOUTH)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item1,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item2,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item3,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item4,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item5,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item6,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item7,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item8,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item9,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item10,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item11,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item12,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item13,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item14,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item15,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item16,pixel_x = rand(-32,32), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-		if(SOUTHWEST)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item1,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item2,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item3,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item4,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item5,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item6,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item7,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item8,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item9,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item10,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item11,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item12,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item13,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item14,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item15,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item16,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-		if(WEST)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item1,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item2,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item3,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item4,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item5,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item6,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item7,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item8,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item9,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item10,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item11,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item12,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item13,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item14,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item15,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item16,pixel_x = rand(-1,-64), pixel_y = rand(32,-32), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-		if(NORTHWEST)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item1,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item2,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item3,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item4,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item5,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item6,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item7,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item8,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item9,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item10,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item11,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item12,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item13,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item14,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item15,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item16,pixel_x = rand(-1,-64), pixel_y = rand(-1,-64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-		if(NORTH)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item1,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item2,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item3,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item4,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item5,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item6,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item7,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item8,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item9,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item10,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item11,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item12,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item13,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item14,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item15,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-			A = matrix()
-			A.Turn(rand(-360,360))
-			animate(chunk_item16,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-
-	turf_to_chunk.vis_contents += chunk_item1
-	turf_to_chunk.vis_contents += chunk_item2
-	turf_to_chunk.vis_contents += chunk_item3
-	turf_to_chunk.vis_contents += chunk_item4
-	turf_to_chunk.vis_contents += chunk_item5
-	turf_to_chunk.vis_contents += chunk_item6
-	turf_to_chunk.vis_contents += chunk_item7
-	turf_to_chunk.vis_contents += chunk_item8
-	turf_to_chunk.vis_contents += chunk_item9
-	turf_to_chunk.vis_contents += chunk_item10
-	turf_to_chunk.vis_contents += chunk_item11
-	turf_to_chunk.vis_contents += chunk_item12
-	turf_to_chunk.vis_contents += chunk_item13
-	turf_to_chunk.vis_contents += chunk_item14
-	turf_to_chunk.vis_contents += chunk_item15
-	turf_to_chunk.vis_contents += chunk_item16
-	new /obj/effect/shockwave(turf_to_chunk, 4)
-	playsound(turf_to_chunk,'sound/Surge/ohyeah.ogg',30)
-	sleep(15)
-	qdel(chunk_item1)
-	qdel(chunk_item2)
-	qdel(chunk_item3)
-	qdel(chunk_item4)
-	qdel(chunk_item5)
-	qdel(chunk_item6)
-	qdel(chunk_item7)
-	qdel(chunk_item8)
-	qdel(chunk_item9)
-	qdel(chunk_item10)
-	qdel(chunk_item11)
-	qdel(chunk_item12)
-	qdel(chunk_item13)
-	qdel(chunk_item14)
-	qdel(chunk_item15)
-	qdel(chunk_item16)
+/datum/boss_action/proc/StandardAttack()

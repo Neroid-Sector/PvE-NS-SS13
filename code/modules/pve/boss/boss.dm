@@ -12,16 +12,18 @@
 	var/boss_stage = 1 // Boss powers get stronger depenidng on stage, this should be trigerred during major events or at HP pool ammoutns, dealers choice
 	var/datum/boss_action/boss_ability //The main ability datum, containing ALL boss abilities. Said datum is pretty disorganized :P
 
-	var/list/boss_abilities = list() // This regulates which skills are available.
+	var/list/boss_abilities_list = list("StandardAttack") // Reference for what cooldowns to create
 
 	// None of these should be touched, they are used by the datums for reference.
-	var/list/ability_cooldowns = list()
 	var/current_ability
 	var/action_activated = 0
 	var/list/action_cooldowns = list()
 	var/list/action_last_use_time = list()
 
 	//Individual skill values should also be defined here. This can be pushed down the tree by messing with the boss_ability datum (specfically plug in something from down its own tree to it with a custom set or waht have you), but I dont feel like doing that.
+	var/standard_attack_cooldown = 30 //Meant to be separate from individual attacks, the frequency of base attacking. Should be adjusted depending on strength of individual attacks
+	var/standard_range_salvo_count = 3
+	var/standard_range_salvo_delay = 3
 	var/explosion_damage = 30
 	var/aoe_delay = 40
 	var/missile_storm_missiles = 25
@@ -33,6 +35,11 @@
 	. = ..()
 	boss_ability = new /datum/boss_action/(boss = src)
 	click_intercept = new /datum/bossclicking/(boss = src)
+	var/current_ability = 0
+	while (current_ability < boss_abilities_list.len)
+		current_ability += 1
+		action_cooldowns.Add("[boss_abilities_list[current_ability]]" = 0)
+		action_last_use_time.Add("[boss_abilities_list[current_ability]]" = 0)
 
 /mob/living/pve_boss/Bump(Obstacle)
 	if(istype(Obstacle, /turf/closed))
@@ -54,7 +61,7 @@
 	if(istype(Obstacle, /turf/open))
 		var/turf/open/open_turf = Obstacle
 		src.forceMove(open_turf)
-	else if(istype(Obstacle, /obj))
+	if(istype(Obstacle, /obj))
 		var/obj/bumped_obj = Obstacle
 		var/saved_icon = bumped_obj.icon
 		var/saved_icon_state = bumped_obj.icon_state
@@ -62,7 +69,7 @@
 		var/saved_dir = bumped_obj.dir
 		qdel(bumped_obj)
 		boss_ability.icon_chunk(saved_icon,saved_icon_state,saved_dir,saved_turf)
-	else if(istype(Obstacle, /mob))
+	if(istype(Obstacle, /mob))
 		var/mob/bumped_mob = Obstacle
 		var/facing = get_dir(get_turf(src), bumped_mob)
 		var/turf/throw_turf = get_turf(src)
@@ -89,7 +96,7 @@
 
 /datum/boss_action/proc/switch_action() // Called to switch the active action. This also defines which action is getting its cooldown set etc
 	var/mob/living/pve_boss/boss_mob = owner
-	var/ability_pos = boss_mob.boss_abilities.Find(boss_mob.current_ability)
+	var/ability_pos = boss_mob.boss_abilities_list.Find(boss_mob.current_ability)
 	if(ability_pos == 0)
 		to_chat(usr, SPAN_WARNING("Boss ability not found. Misconfiguration likely."))
 		return
@@ -109,3 +116,10 @@
 		return 1
 	else
 		return 0
+
+/datum/boss_action/proc/usage_cooldown_loop(amount)
+	var/mob/living/pve_boss/boss_mob = owner
+	if(!amount) return
+	boss_mob.action_activated = 1
+	sleep(amount)
+	boss_mob.action_activated = 0
