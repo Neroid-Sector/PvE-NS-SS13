@@ -10,14 +10,20 @@
 	var/boss_type = "default"
 	//below should be safely disregarded if type is not set to 1
 	var/boss_stage = 1 // Boss powers get stronger depenidng on stage, this should be trigerred during major events or at HP pool ammoutns, dealers choice
+
+	var/boss_shield = 0 // This will also be the shields max value on spawn for simplicity
+	var/boss_shield_cooldown = 0
+
+	var/boss_shield_max = 0
+	var/boss_shield_broken_timestamp = 0
+
 	var/datum/boss_action/boss_ability //The main ability datum, containing ALL boss abilities. Said datum is pretty disorganized :P
 
-	var/list/boss_abilities_list = list("StandardAttack") // Reference for what cooldowns to create
+	var/list/boss_abilities_list = list("StandardAttack" = 5,) // Abiltity Name for referencing in pcos = cooldown timer.
 
 	// None of these should be touched, they are used by the datums for reference.
 	var/current_ability
 	var/action_activated = 0
-	var/list/action_cooldowns = list()
 	var/list/action_last_use_time = list()
 
 	//Individual skill values should also be defined here. This can be pushed down the tree by messing with the boss_ability datum (specfically plug in something from down its own tree to it with a custom set or waht have you), but I dont feel like doing that.
@@ -35,11 +41,8 @@
 	. = ..()
 	boss_ability = new /datum/boss_action/(boss = src)
 	click_intercept = new /datum/bossclicking/(boss = src)
-	var/current_ability = 0
-	while (current_ability < boss_abilities_list.len)
-		current_ability += 1
-		action_cooldowns.Add("[boss_abilities_list[current_ability]]" = 0)
-		action_last_use_time.Add("[boss_abilities_list[current_ability]]" = 0)
+	action_last_use_time = boss_abilities_list.Copy()
+	boss_shield_max = boss_shield
 
 /mob/living/pve_boss/Bump(Obstacle)
 	if(istype(Obstacle, /turf/closed))
@@ -84,6 +87,99 @@
 	if(movement_target) boss_ability.accelerate_to_target(movement_target, on_bump = TRUE)
 	. = ..()
 
+/obj/item/prop/shield_ping
+	name = "Shield ping icon animation."
+	opacity = FALSE
+	mouse_opacity = FALSE
+	anchored = TRUE
+	indestructible = TRUE
+	blend_mode = BLEND_OVERLAY
+	layer = ABOVE_MOB_LAYER
+	icon = 'icons/Surge/boss_bot/boss.dmi'
+	icon_state = "shield"
+
+/mob/living/pve_boss/proc/animate_shield(type)
+	if(!type) return
+	var/obj/item/prop/shield_ping/ping_object = new()
+	if(boss_shield > 0)
+		switch(boss_shield_max / boss_shield)
+			if(0.9 to 1)
+				ping_object.color = "#FF0000"
+			if(0.8 to 0.9)
+				ping_object.color = "#ff4d4d"
+			if(0.7 to 0.8)
+				ping_object.color = "#ff8b8b"
+			if(0.6 to 0.7)
+				ping_object.color = "#ffb9b9"
+			if(0.5 to 0.6)
+				ping_object.color = "#fdc7c7"
+			if(0.4 to 0.5)
+				ping_object.color = "#ffdcdc"
+			if(0.3 to 0.4)
+				ping_object.color = "#ffe6e6"
+			if(0.2 to 0.3)
+				ping_object.color = "#ffe7e7"
+			if(0.1 to 0.2)
+				ping_object.color = "#fff0f0"
+			if(0 to 0.1)
+				ping_object.color = "#fff1f1"
+			else
+				ping_object.color = "#ff0000"
+	else
+		ping_object.color = "#cfafaf"
+	switch(type)
+		if(1)
+			ping_object.alpha = 1
+			animate(ping_object,alpha = 255, easing = CIRCULAR_EASING|EASE_IN, time = 2)
+			animate(alpha = 1, easing = CIRCULAR_EASING|EASE_OUT, time = 2)
+		if(2)
+			ping_object.alpha = 255
+			var/matrix/A = matrix()
+			A.Scale(3)
+			animate(ping_object,alpha = 1,transform = A, easing = SINE_EASING|EASE_IN, time = 3)
+		if(2)
+			ping_object.alpha = 255
+			var/matrix/A = matrix()
+			A.Scale(3)
+			animate(ping_object,alpha = 1,transform = A, easing = SINE_EASING|EASE_IN, time = 3)
+		if(3)
+			ping_object.alpha = 1
+			var/matrix/A = matrix()
+			var/matrix/B = matrix()
+			A.Scale(2)
+			apply_transform(A)
+			B.Scale(1)
+			animate(ping_object,alpha = 255,transform = B, easing = SINE_EASING|EASE_IN, time = 3)
+			animate(alpha = 1, easing = SINE_EASING|EASE_IN, time = 1)
+
+	src.vis_contents += ping_object
+	sleep(5)
+	src.vis_contents -= ping_object
+	qdel(ping_object)
+
+/mob/living/pve_boss/proc/restart_shield()
+	if(world.time < boss_shield_broken_timestamp + boss_shield_cooldown)
+		sleep(10)
+		restart_shield()
+		return
+	else
+		boss_shield = boss_shield_max
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 3)
+		return
+
+/mob/living/pve_boss/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
+	var/damage_ammount = damage
+	if(boss_shield > 0)
+		boss_shield -= damage_ammount
+		if(boss_shield < 0) boss_shield = 0
+		if(boss_shield > 0)
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 1)
+		else
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 2)
+			boss_shield_broken_timestamp = world.time
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, restart_shield))
+
+
 
 /datum/boss_action/
 
@@ -104,7 +200,7 @@
 /datum/boss_action/proc/apply_cooldown(cooldown)
 	var/mob/living/pve_boss/boss_mob = owner
 	if(cooldown)
-		boss_mob.action_cooldowns[boss_mob.current_ability] = cooldown
+		boss_mob.boss_abilities_list[boss_mob.current_ability] = cooldown
 	boss_mob.action_last_use_time[boss_mob.current_ability] = world.time
 
 /datum/boss_action/proc/action_cooldown_check()
@@ -112,7 +208,7 @@
 	if(boss_mob.action_activated) return 0
 	if(!boss_mob.action_last_use_time[boss_mob.current_ability])
 		return 1
-	else if(world.time > boss_mob.action_last_use_time[boss_mob.current_ability] + boss_mob.action_cooldowns[boss_mob.current_ability])
+	else if(world.time > boss_mob.action_last_use_time[boss_mob.current_ability] + boss_mob.boss_abilities_list[boss_mob.current_ability])
 		return 1
 	else
 		return 0
