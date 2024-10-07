@@ -93,3 +93,6 @@ GLOBAL_VAR_INIT(ammo_restock_delay, 6000)
 
 GLOBAL_VAR_INIT(primary_objective, "Awaiting Orders")
 GLOBAL_VAR_INIT(secondary_objective, "Awaiting Orders")
+
+GLOBAL_VAR_INIT(boss_stage, 1)
+GLOBAL_VAR_INIT(boss_stage_max, 3)

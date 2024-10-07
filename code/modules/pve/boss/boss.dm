@@ -9,13 +9,12 @@
 	//Xenosurge vars that go here for same reasons as above
 	var/boss_type = "default"
 	//below should be safely disregarded if type is not set to 1
-	var/boss_stage = 1 // Boss powers get stronger depenidng on stage, this should be trigerred during major events or at HP pool ammoutns, dealers choice
-
 	var/boss_shield = 0 // This will also be the shields max value on spawn for simplicity
 	var/boss_shield_cooldown = 0
 
 	var/boss_shield_max = 0
 	var/boss_shield_broken_timestamp = 0
+	var/boss_no_damage = 0
 
 	var/datum/boss_action/boss_ability //The main ability datum, containing ALL boss abilities. Said datum is pretty disorganized :P
 
@@ -167,7 +166,54 @@
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 3)
 		return
 
+/mob/living/pve_boss/proc/BossStage()
+	boss_no_damage = 1
+	if(GLOB.boss_stage < GLOB.boss_stage_max)
+		GLOB.boss_stage += 1
+		animate(src, pixel_x = 200, time = 10, easing = CUBIC_EASING|EASE_IN)
+		sleep(10)
+		qdel(src)
+	else
+		src.death(gibbed = FALSE, deathmessage = "loses power to its engines, spins in place, smashes into the ground and shuts down.", should_deathmessage = TRUE)
+
+/mob/living/pve_boss/proc/animate_hit()
+	var/color_value = "#FFFFFF"
+	var/pixel_x_org = pixel_x
+	var/pixel_y_org = pixel_y
+	var/pixel_x_val = rand(0,2)
+	var/pixel_y_val = rand(0,2)
+	if(health <= 0)
+		color_value = "#FF0000"
+	else
+		switch(maxHealth / health)
+			if(0.9 to 1)
+				color_value = "#ffecdd"
+			if(0.8 to 0.9)
+				color_value = "#ffdfc5"
+			if(0.7 to 0.8)
+				color_value = "#ffcba1"
+			if(0.6 to 0.7)
+				color_value = "#ffbf8b"
+			if(0.5 to 0.6)
+				color_value = "#ffb272"
+			if(0.4 to 0.5)
+				color_value = "#ffa052"
+			if(0.3 to 0.4)
+				color_value= "#ff8928"
+			if(0.2 to 0.3)
+				color_value = "#ff811a"
+			if(0.1 to 0.2)
+				color_value = "#ff790b"
+			if(0 to 0.1)
+				color_value = "#ff5e00"
+			else
+				color_value = "#ff5e00"
+	animate(src, pixel_x = pixel_x_val, pixel_y = pixel_y_val, color = color_value, time = 1, flags = ANIMATION_PARALLEL)
+	animate(color = "#FFFFFF", pixel_x = pixel_x_org, pixel_y = pixel_y_org, time = 1, flags = ANIMATION_PARALLEL)
+
+
 /mob/living/pve_boss/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
+	if(boss_no_damage == 1) return
 	var/damage_ammount = damage
 	if(boss_shield > 0)
 		boss_shield -= damage_ammount
@@ -178,8 +224,15 @@
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 2)
 			boss_shield_broken_timestamp = world.time
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, restart_shield))
-
-
+		return
+	else
+		if((health - damage) <= 0)
+			health = 0
+			BossStage()
+			return
+		else
+			health -= damage
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_hit))
 
 /datum/boss_action/
 
