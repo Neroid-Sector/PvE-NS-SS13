@@ -525,8 +525,6 @@
 	turf_to_chunk.vis_contents += chunk_item14
 	turf_to_chunk.vis_contents += chunk_item15
 	turf_to_chunk.vis_contents += chunk_item16
-	new /obj/effect/shockwave(turf_to_chunk, 4)
-	playsound(turf_to_chunk,'sound/Surge/ohyeah.ogg',30)
 	sleep(15)
 	qdel(chunk_item1)
 	qdel(chunk_item2)

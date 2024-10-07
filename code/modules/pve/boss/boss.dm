@@ -43,6 +43,10 @@
 	action_last_use_time = boss_abilities_list.Copy()
 	boss_shield_max = boss_shield
 
+/mob/living/pve_boss/update_icons()
+	overlays.Cut()
+	overlays += image(icon, src, icon_state)
+
 /mob/living/pve_boss/Bump(Obstacle)
 	if(istype(Obstacle, /turf/closed))
 		var/turf/closed/bumped_turf = Obstacle
@@ -60,6 +64,7 @@
 		bumped_turf.ScrapeAway(INFINITY, CHANGETURF_DEFER_CHANGE)
 		var/turf_ref = locate(saved_turf_x,saved_turf_y,saved_turf_z)
 		boss_ability.icon_chunk(saved_icon,saved_icon_state,saved_dir,turf_ref)
+		new /obj/effect/shockwave(bumped_turf, 3)
 	if(istype(Obstacle, /turf/open))
 		var/turf/open/open_turf = Obstacle
 		src.forceMove(open_turf)
@@ -71,6 +76,7 @@
 		var/saved_dir = bumped_obj.dir
 		qdel(bumped_obj)
 		boss_ability.icon_chunk(saved_icon,saved_icon_state,saved_dir,saved_turf)
+		new /obj/effect/shockwave(saved_turf, 3)
 	if(istype(Obstacle, /mob))
 		var/mob/bumped_mob = Obstacle
 		var/facing = get_dir(get_turf(src), bumped_mob)
@@ -272,3 +278,6 @@
 	boss_mob.action_activated = 1
 	sleep(amount)
 	boss_mob.action_activated = 0
+
+/mob/living/pve_boss/proc/AnimateEntry()
+	return
