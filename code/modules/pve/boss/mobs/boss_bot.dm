@@ -21,7 +21,8 @@
 	mob_size = MOB_SIZE_IMMOBILE
 	see_in_dark = 255
 
-	boss_abilities_list = list("surge_proj" = 150,
+	boss_abilities_list = list(
+		"surge_proj" = 150,
 		"rapid_missles" = 1200,
 		"relocate" = 300,
 		"fire_cannon" = 30,
