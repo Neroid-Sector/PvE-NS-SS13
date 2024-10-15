@@ -19,11 +19,32 @@
 	universal_speak = 1
 	langchat_color = "#ff1313"
 	mob_size = MOB_SIZE_IMMOBILE
+	see_in_dark = 255
+
+	boss_abilities_list = list("surge_proj" = 150,
+		"rapid_missles" = 1200,
+		"relocate" = 300,
+		"fire_cannon" = 30,
+		"RepulseMelee" = 30,
+		)
 
 /mob/living/pve_boss/missle_bot/proc/EntryCrawl()
-	show_blurb(GLOB.player_list, 94 , "Autonomous Anti-Personnel Platform", screen_position = "CENTER,BOTTOM+2:16", text_alignment = "center", text_color = "#ffffff", blurb_key = "boss_head", ignore_key = TRUE, speed = 1)
+	show_blurb(GLOB.player_list, 60 , "Autonomous Anti-Personnel Platform", screen_position = "CENTER,BOTTOM+2:16", text_alignment = "center", text_color = "#ffffff", blurb_key = "boss_head", ignore_key = TRUE, speed = 1)
 	sleep(34)
-	show_blurb(GLOB.player_list, 60, "<b>BALTHEUS-6</b>", screen_position = "CENTER,BOTTOM+1:16", text_alignment = "center", text_color = "#ff6810", blurb_key = "boss_name", ignore_key = TRUE, speed = 1)
+	show_blurb(GLOB.player_list, 50, "<b>BALTHEUS-6</b>", screen_position = "CENTER,BOTTOM+1:16", text_alignment = "center", text_color = "#ff6810", blurb_key = "boss_name", ignore_key = TRUE, speed = 1)
+
+/mob/living/pve_boss/missle_bot/proc/ThrowAnimate(thing)
+	var/turf/current_turf = get_turf(src)
+	var/facing = get_dir(current_turf, thing)
+	var/turf/throw_turf = current_turf
+	var/turf/temp = current_turf
+	for (var/x in 0 to 5)
+		temp = get_step(throw_turf, facing)
+		if (!temp)
+			break
+		throw_turf = temp
+	var/atom/movable/atom_to_throw = thing
+	atom_to_throw.throw_atom(throw_turf, 4, SPEED_VERY_FAST, src, TRUE)
 
 /mob/living/pve_boss/missle_bot/AnimateEntry()
 	pixel_y = 300
@@ -34,27 +55,11 @@
 	for(var/mob/living/carbon/carbon_in_range in nearby_area)
 		if(carbon_in_range == src) continue
 		if(carbon_in_range)
-			var/facing = get_dir(current_turf, carbon_in_range)
-			var/turf/throw_turf = current_turf
-			var/turf/temp = current_turf
-			for (var/x in 0 to 5)
-				temp = get_step(throw_turf, facing)
-				if (!temp)
-					break
-				throw_turf = temp
-			carbon_in_range.throw_atom(throw_turf, 4, SPEED_VERY_FAST, src, TRUE)
+			INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss/missle_bot/, ThrowAnimate), carbon_in_range)
 	for(var/obj/item/items in nearby_area)
 		if(items == src) continue
 		if(items)
-			var/facing = get_dir(current_turf, items)
-			var/turf/throw_turf = current_turf
-			var/turf/temp = current_turf
-			for (var/x in 0 to 5)
-				temp = get_step(throw_turf, facing)
-				if (!temp)
-					break
-				throw_turf = temp
-			items.throw_atom(throw_turf, 4, SPEED_VERY_FAST, src, TRUE)
+			INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss/missle_bot/, ThrowAnimate), items)
 	new /obj/effect/shockwave(current_turf, 5)
 	for(var/obj/structure/structure in nearby_area)
 		var/icon_data = structure.icon

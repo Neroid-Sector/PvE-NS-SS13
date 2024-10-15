@@ -6,6 +6,7 @@
 	icon_state = "default"
 	name = "Boss entities and associated procs. This should not be out in the wild."
 	sight = SEE_SELF|SEE_MOBS|SEE_OBJS|SEE_TURFS|SEE_THRU|SEE_INFRA
+	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	//Xenosurge vars that go here for same reasons as above
 	var/boss_type = "default"
 	//below should be safely disregarded if type is not set to 1
@@ -249,25 +250,16 @@
 	. = ..()
 	owner = boss
 
-/datum/boss_action/proc/switch_action() // Called to switch the active action. This also defines which action is getting its cooldown set etc
+/datum/boss_action/proc/apply_cooldown(current_ability)
 	var/mob/living/pve_boss/boss_mob = owner
-	var/ability_pos = boss_mob.boss_abilities_list.Find(boss_mob.current_ability)
-	if(ability_pos == 0)
-		to_chat(usr, SPAN_WARNING("Boss ability not found. Misconfiguration likely."))
-		return
+	boss_mob.action_last_use_time[current_ability] = world.time
 
-/datum/boss_action/proc/apply_cooldown(cooldown)
-	var/mob/living/pve_boss/boss_mob = owner
-	if(cooldown)
-		boss_mob.boss_abilities_list[boss_mob.current_ability] = cooldown
-	boss_mob.action_last_use_time[boss_mob.current_ability] = world.time
-
-/datum/boss_action/proc/action_cooldown_check()
+/datum/boss_action/proc/action_cooldown_check(current_ability)
 	var/mob/living/pve_boss/boss_mob = owner
 	if(boss_mob.action_activated) return 0
-	if(!boss_mob.action_last_use_time[boss_mob.current_ability])
+	if(!boss_mob.action_last_use_time[current_ability])
 		return 1
-	else if(world.time > boss_mob.action_last_use_time[boss_mob.current_ability] + boss_mob.boss_abilities_list[boss_mob.current_ability])
+	else if(world.time > boss_mob.action_last_use_time[current_ability] + boss_mob.boss_abilities_list[current_ability])
 		return 1
 	else
 		return 0

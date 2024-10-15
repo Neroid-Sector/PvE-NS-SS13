@@ -1,5 +1,12 @@
-/mob/living/carbon/human/proc/warning_ping()
-	to_chat(src, SPAN_BOLDWARNING("A Surge is targeting you with a special attack!"))
+//Multi target projectile
+
+/mob/living/carbon/human/proc/warning_ping(text)
+	var/text_to_send
+	if(!text)
+		text_to_send = "A Surge is targeting you with a special attack!"
+	else
+		text_to_send = text
+	to_chat(src, SPAN_BOLDWARNING(text_to_send))
 	overlays += (image('icons/effects/surge_hit_warning.dmi', "aoe"))
 	sleep(40)
 	overlays -= (image('icons/effects/surge_hit_warning.dmi', "aoe"))
@@ -9,7 +16,7 @@
 	if (!istype(boss))
 		return
 
-	if (!action_cooldown_check())
+	if (!action_cooldown_check("surge_proj"))
 		return
 	var/list/mobs_in_range = list()
 	for(var/mob/living/carbon/human/target in range("15x15",boss))
@@ -19,8 +26,7 @@
 		to_chat(boss, SPAN_WARNING("No potential targets in visible range"))
 		return
 	for(var/mob/living/carbon/human/target_to_warn in mobs_in_range)
-		INVOKE_ASYNC(target_to_warn, TYPE_PROC_REF(/mob/living/carbon/human/, warning_ping))
-	apply_cooldown()
+		INVOKE_ASYNC(target_to_warn, TYPE_PROC_REF(/mob/living/carbon/human/, warning_ping),"The platforms laser visibly heats up as it charges a blast!")
 	boss.overlays += (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
 	boss.anchored = 1
 	sleep(boss.aoe_delay)
@@ -33,25 +39,10 @@
 		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
 		projectile.generate_bullet(ammo_datum)
 		projectile.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
-
+	apply_cooldown("surge_proj")
 	return
 
-/obj/item/prop/big_warning_ping
-	name = "warning ping"
-	opacity = FALSE
-	mouse_opacity = FALSE
-	anchored = TRUE
-	indestructible = TRUE
-	layer = ABOVE_MOB_LAYER
-	pixel_x = -80
-	pixel_y = -80
-	icon = 'icons/effects/surge_hit_warning_160.dmi'
-	icon_state = "big_boom"
-
-/turf/proc/warning_ping()
-	var/obj/item/prop/big_warning_ping/ping = new(src)
-	sleep(100)
-	qdel(ping)
+//missile barrage, picks a carbon from its z level and sends a missile towards them. Does this a lot, scaling up depending on phase
 
 /obj/item/prop/missile_storm_up
 	name = "going up"
@@ -119,47 +110,87 @@
 	icon = 'icons/Surge/effects/boss_boom.dmi'
 	icon_state = "explosion"
 
+/datum/boss_action/proc/AnimateThrow(turf/explpsion_center, thing)
+	var/turf/current_turf = explpsion_center
+	var/facing = get_dir(current_turf, thing)
+	var/turf/throw_turf = current_turf
+	var/turf/temp = current_turf
+	for (var/x in 0 to 5)
+		temp = get_step(throw_turf, facing)
+		if (!temp)
+			break
+		throw_turf = temp
+	var/atom/movable/atom_to_throw = thing
+	atom_to_throw.throw_atom(throw_turf, 4, SPEED_VERY_FAST, src, TRUE)
+
+/datum/boss_action/proc/explosion_proc(turf/explosion_center)
+	var/center_turf = explosion_center
+	var/list/range_list = range(3,center_turf)
+	for (var/mob/living/carbon/carbon_to_throw in range_list)
+		carbon_to_throw.apply_damage(15, BRUTE)
+		AnimateThrow(center_turf,carbon_to_throw)
+	for(var/obj/item/item_to_throw in range_list)
+		AnimateThrow(center_turf,item_to_throw)
+
+
 /datum/boss_action/proc/hit_animation(turf/turf_to_hit_animate)
-		var/mob/living/pve_boss/boss = owner
-		new /obj/item/prop/missile_storm_down(turf_to_hit_animate)
+		var/turf/turf_to_hit_animation = turf_to_hit_animate
+		new /obj/item/prop/missile_storm_down(turf_to_hit_animation)
+		turf_to_hit_animation.overlays += (image('icons/effects/surge_hit_warning.dmi', "aoe"))
 		sleep(13)
+		turf_to_hit_animation.overlays -= (image('icons/effects/surge_hit_warning.dmi', "aoe"))
 		var/obj/item/prop/explosion_fx/boom = new(turf_to_hit_animate)
-		var/datum/cause_data/cause_data = create_cause_data("surge bombardment")
-		cell_explosion(turf_to_hit_animate, boss.explosion_damage, (boss.explosion_damage / 2), EXPLOSION_FALLOFF_SHAPE_LINEAR, null, cause_data)
+		INVOKE_ASYNC(src, PROC_REF(explosion_proc),turf_to_hit_animation)
 		sleep(10)
 		qdel(boom)
 
-/datum/boss_action/proc/fire_loop(turf/target_turf)
-	var/list/turfs_to_hit = list()
-	for (var/turf/turf in range("5x5", target_turf))
-		if(turfs_to_hit.Find(turf) == 0)
-			turfs_to_hit += turf
-	while(turfs_to_hit.len > 0)
-		var/turf/turf_to_hit = pick(turfs_to_hit)
-		turfs_to_hit -= turf_to_hit
-		INVOKE_ASYNC(src, PROC_REF(hit_animation), turf_to_hit)
+/datum/boss_action/proc/fire_loop()
+	var/turf/owner_turf = get_turf(owner)
+	var/list/mobs_to_target = list()
+	for(var/mob/living/carbon/human/target_potential in world)
+		var/turf/potential_target_turf = get_turf(target_potential)
+		if(owner_turf.z == potential_target_turf.z)
+			mobs_to_target += target_potential
+	if(mobs_to_target.len == 0) return
+	var/shots_fired = 0
+	while(shots_fired < 25)
+		var/mob/living/carbon/human/target_to_hit = pick(mobs_to_target)
+		var/turf/turf_to_hit = get_turf(target_to_hit)
+		var/list/turfs_to_hit = list()
+		var/x_min = turf_to_hit.x - 2
+		var/y_min = turf_to_hit.y - 2
+		var/x_max = turf_to_hit.x + 2
+		var/y_max = turf_to_hit.y + 2
+		var/current_x = x_min
+		var/current_y = y_min
+		while(current_x <= x_max)
+			while(current_y <= y_max)
+				var/turf/checked_turf = locate(current_x, current_y, turf_to_hit.z)
+				if(istype(checked_turf, /turf/open))
+					turfs_to_hit += checked_turf
+				current_y += 1
+			current_y = y_min
+			current_x += 1
+		if(turfs_to_hit.len == 0) break
+		var/turf/final_turf = pick(turfs_to_hit)
+		to_chat(target_to_hit, SPAN_BOLDWARNING("One of the missiles in the swarm is headed right for you! Run!"))
+		INVOKE_ASYNC(src, PROC_REF(hit_animation), final_turf)
 		sleep(rand(1,5))
 
 /datum/boss_action/proc/rapid_missles(atom/affected_atom)
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
 		return
-	if (!action_cooldown_check())
+	if (!action_cooldown_check("rapid_missles"))
 		return
-	var/turf/turf_center = get_turf(affected_atom)
-	var/list/mobs_in_range = list()
-	apply_cooldown()
-	boss.anchored = 1
-	for(var/mob/living/carbon/human/target in range("15x15",turf_center))
-		if(mobs_in_range.Find(target) == 0)
-			mobs_in_range.Add(target)
-	if(mobs_in_range.len != 0)
-		to_chat(mobs_in_range,SPAN_BOLDWARNING("The [usr] launches a series of rockets into the air! Look out for impact markers!"))
+	var/turf/target_turf = get_turf(affected_atom)
+	for(var/mob/living/carbon/human/target in world)
+		var/turf/mob_turf = get_turf(target)
+		if(mob_turf.z == target_turf.z)
+			to_chat(target, SPAN_BOLDWARNING("A torrent of missiles takes to the air!"))
 	INVOKE_ASYNC(src, PROC_REF(fire_animation))
-	turf_center.warning_ping()
-	INVOKE_ASYNC(src, PROC_REF(fire_loop), turf_center)
-	sleep(100)
-	boss.anchored = 0
+	INVOKE_ASYNC(src, PROC_REF(fire_loop))
+	apply_cooldown("rapid_missles")
 	return
 
 /obj/item/prop/arrow
@@ -362,7 +393,7 @@
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
 		return
-	if (!action_cooldown_check())
+	if (!action_cooldown_check("relocate"))
 		return
 	var/turf/targeted_turf = get_turf(target)
 	for(var/turf/turf_in_range in range(5,get_turf(boss)))
@@ -373,6 +404,7 @@
 	sleep(50)
 	animate_movement(targeted_turf)
 	process_movement(targeted_turf)
+	apply_cooldown("relocate")
 	return
 
 /obj/item/prop/ring_line
@@ -479,9 +511,9 @@
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
 		return
-	if (!action_cooldown_check())
+	if (!action_cooldown_check("fire_cannon"))
 		return
-	INVOKE_ASYNC(boss, PROC_REF(usage_cooldown_loop),15)
+	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),15)
 	var/turf/laser_target = get_turf(target)
 	if(!laser_target) return
 	INVOKE_ASYNC(src, PROC_REF(handle_crosshair_animation),laser_target,1)
@@ -494,7 +526,7 @@
 		current_shot += 1
 		projectile.fire_at(laser_target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 		sleep(boss.standard_range_salvo_delay)
-	apply_cooldown(boss.standard_attack_cooldown)
+	apply_cooldown("fire_cannon")
 	return
 
 /datum/boss_action/proc/accelerate_to_target(turf/target, on_bump = FALSE)
@@ -542,9 +574,9 @@
 	var/turf/boss_turf = get_turf(boss)
 	if (!istype(boss))
 		return
-	if (!action_cooldown_check())
+	if (!action_cooldown_check("RepulseMelee"))
 		return
-	INVOKE_ASYNC(boss, PROC_REF(usage_cooldown_loop),30)
+	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),30)
 	INVOKE_ASYNC(src, PROC_REF(handle_crosshair_animation),boss_turf,2)
 
 	for(var/mob/living/carbon/carbon_in_range in range(3,boss_turf))
@@ -560,5 +592,4 @@
 					break
 				throw_turf = temp
 			carbon_in_range.throw_atom(throw_turf, 4, SPEED_VERY_FAST, boss, TRUE)
-
-/datum/boss_action/proc/StandardAttack()
+	apply_cooldown("RepulseMelee")
