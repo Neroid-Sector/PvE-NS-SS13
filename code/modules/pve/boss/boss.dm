@@ -48,27 +48,46 @@
 	overlays.Cut()
 	overlays += image(icon, src, icon_state)
 
+/mob/living/pve_boss/proc/CheckSpaceTurf(turf/target_turf)
+	if(!target_turf) return
+	var/turf/turf_to_check = target_turf
+	var/turf_to_check_x = turf_to_check.x
+	var/turf_to_check_y = turf_to_check.y
+	var/turf_to_check_z = turf_to_check.z
+	var/list/turf_to_check_neighbors = list()
+	turf_to_check_neighbors.Add(locate((turf_to_check_x + 1),turf_to_check_y,turf_to_check_z),locate((turf_to_check_x - 1),turf_to_check_y,turf_to_check_z),locate(turf_to_check_x,(turf_to_check_y + 1),turf_to_check_z),locate(turf_to_check_x,(turf_to_check_y - 1),turf_to_check_z))
+	for (var/turf/neighbor_checked in turf_to_check_neighbors)
+		if(istype(turf_to_check_neighbors,/turf/open/space))
+			return 1
+	return 0
+
+
 /mob/living/pve_boss/Bump(Obstacle)
-	if(istype(Obstacle, /turf/closed))
-		var/turf/closed/bumped_turf = Obstacle
-		var/saved_icon = bumped_turf.icon
-		var/saved_icon_state
-		if(istype(Obstacle, /turf/closed/wall))
-			var/turf/closed/wall/no_base_icon_state_turf = Obstacle
-			saved_icon_state = no_base_icon_state_turf.walltype
+	if(istype(Obstacle, /turf/))
+		if(CheckSpaceTurf(Obstacle) == 1)
+			var/turf/obstacle_turf = get_turf(Obstacle)
+			src.forceMove(obstacle_turf)
 		else
-			saved_icon_state = bumped_turf.icon_state
-		var/saved_turf_x = bumped_turf.x
-		var/saved_turf_y = bumped_turf.y
-		var/saved_turf_z = bumped_turf.z
-		var/saved_dir = bumped_turf.dir
-		bumped_turf.ScrapeAway(INFINITY, CHANGETURF_DEFER_CHANGE)
-		var/turf_ref = locate(saved_turf_x,saved_turf_y,saved_turf_z)
-		boss_ability.icon_chunk(saved_icon,saved_icon_state,saved_dir,turf_ref)
-		new /obj/effect/shockwave(bumped_turf, 3)
-	if(istype(Obstacle, /turf/open))
-		var/turf/open/open_turf = Obstacle
-		src.forceMove(open_turf)
+			if(istype(Obstacle, /turf/closed))
+				var/turf/closed/bumped_turf = Obstacle
+				var/saved_icon = bumped_turf.icon
+				var/saved_icon_state
+				if(istype(Obstacle, /turf/closed/wall))
+					var/turf/closed/wall/no_base_icon_state_turf = Obstacle
+					saved_icon_state = no_base_icon_state_turf.walltype
+				else
+					saved_icon_state = bumped_turf.icon_state
+				var/saved_turf_x = bumped_turf.x
+				var/saved_turf_y = bumped_turf.y
+				var/saved_turf_z = bumped_turf.z
+				var/saved_dir = bumped_turf.dir
+				bumped_turf.ScrapeAway(INFINITY, CHANGETURF_DEFER_CHANGE)
+				var/turf_ref = locate(saved_turf_x,saved_turf_y,saved_turf_z)
+				boss_ability.icon_chunk(saved_icon,saved_icon_state,saved_dir,turf_ref)
+				new /obj/effect/shockwave(bumped_turf, 3)
+			if(istype(Obstacle, /turf/open))
+				var/turf/open/open_turf = Obstacle
+				src.forceMove(open_turf)
 	if(istype(Obstacle, /obj))
 		var/obj/bumped_obj = Obstacle
 		var/saved_icon = bumped_obj.icon

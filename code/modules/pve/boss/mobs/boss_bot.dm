@@ -79,24 +79,3 @@
 /mob/living/pve_boss/missle_bot/Initialize()
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/missle_bot/, AnimateEntry))
 	. = ..()
-
-
-/* Old Xeno vars for reference
-
-	melee_vehicle_damage = 40
-
-	small_explosives_stun = FALS
-
-
-	tackle_min = 4
-	tackle_max = 5
-	tackle_chance = 40
-	tacklestrength_min = 4
-	tacklestrength_max = 4
-
-	minimap_icon = "runner"
-
-/datum/action/xeno_action/onclick/toggle_long_range/boss_bot
-	handles_movement = TRUE
-	should_delay = FALSE
-*/
