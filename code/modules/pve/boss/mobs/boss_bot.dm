@@ -21,14 +21,6 @@
 	mob_size = MOB_SIZE_IMMOBILE
 	see_in_dark = 255
 
-	boss_abilities_list = list(
-		"surge_proj" = 150,
-		"rapid_missles" = 1200,
-		"relocate" = 300,
-		"fire_cannon" = 30,
-		"RepulseMelee" = 30,
-	)
-
 /mob/living/pve_boss/missle_bot/proc/EntryCrawl()
 	show_blurb(GLOB.player_list, 60 , "Autonomous Anti-Personnel Platform", screen_position = "CENTER,BOTTOM+2:16", text_alignment = "center", text_color = "#ffffff", blurb_key = "boss_head", ignore_key = TRUE, speed = 1)
 	sleep(34)

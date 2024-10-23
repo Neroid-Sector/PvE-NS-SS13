@@ -16,7 +16,7 @@
 	if (!istype(boss))
 		return
 
-	if (!action_cooldown_check("surge_proj"))
+	if (!action_cooldown_check())
 		return
 	var/list/mobs_in_range = list()
 	for(var/mob/living/carbon/human/target in range("15x15",boss))
@@ -39,7 +39,6 @@
 		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
 		projectile.generate_bullet(ammo_datum)
 		projectile.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
-	apply_cooldown("surge_proj")
 	return
 
 //missile barrage, picks a carbon from its z level and sends a missile towards them. Does this a lot, scaling up depending on phase
@@ -181,8 +180,9 @@
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
 		return
-	if (!action_cooldown_check("rapid_missles"))
+	if (!action_cooldown_check())
 		return
+	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),120)
 	var/turf/target_turf = get_turf(affected_atom)
 	for(var/mob/living/carbon/human/target in world)
 		var/turf/mob_turf = get_turf(target)
@@ -190,7 +190,6 @@
 			to_chat(target, SPAN_BOLDWARNING("A torrent of missiles takes to the air!"))
 	INVOKE_ASYNC(src, PROC_REF(fire_animation))
 	INVOKE_ASYNC(src, PROC_REF(fire_loop))
-	apply_cooldown("rapid_missles")
 	return
 
 /obj/item/prop/arrow
@@ -393,8 +392,9 @@
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
 		return
-	if (!action_cooldown_check("relocate"))
+	if (!action_cooldown_check())
 		return
+	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),120)
 	var/turf/targeted_turf = get_turf(target)
 	for(var/turf/turf_in_range in range(5,get_turf(boss)))
 		if(turf_in_range == targeted_turf)
@@ -404,7 +404,6 @@
 	sleep(50)
 	animate_movement(targeted_turf)
 	process_movement(targeted_turf)
-	apply_cooldown("relocate")
 	return
 
 /obj/item/prop/ring_line
@@ -511,13 +510,13 @@
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
 		return
-	if (!action_cooldown_check("fire_cannon"))
+	if (!action_cooldown_check())
 		return
-	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),15)
+	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),10)
 	var/turf/laser_target = get_turf(target)
 	if(!laser_target) return
 	INVOKE_ASYNC(src, PROC_REF(handle_crosshair_animation),laser_target,1)
-	sleep(30)
+	sleep(16)
 	var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
 	var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/dbl_laser]
 	projectile.generate_bullet(ammo_datum)
@@ -526,13 +525,12 @@
 		current_shot += 1
 		projectile.fire_at(laser_target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 		sleep(boss.standard_range_salvo_delay)
-	apply_cooldown("fire_cannon")
 	return
 
-/datum/boss_action/proc/accelerate_to_target(turf/target, on_bump = FALSE)
+/datum/boss_action/proc/accelerate_to_target(on_bump = FALSE)
 	var/mob/living/pve_boss/boss_mob = owner
 	var/turf/owner_turf = get_turf(boss_mob)
-	var/turf/target_turf = target
+	var/turf/target_turf = boss_mob.movement_target
 	var/boss_velocity = 1
 	if(on_bump == TRUE) boss_velocity = 3
 	while(boss_velocity <= 5)
@@ -540,56 +538,54 @@
 		if(distance_to_target == 0)
 			boss_velocity = 6
 			break
-		walk_towards(boss_mob,target_turf,(6 - (1 * boss_velocity)))
-		sleep(6 - (1 * boss_velocity))
+		step_towards(boss_mob,target_turf)
+		sleep(11 - (1 * boss_velocity))
 		boss_velocity += 1
 		owner_turf = get_turf(boss_mob)
+	INVOKE_ASYNC(src, PROC_REF(proceed_to_target))
 
-/datum/boss_action/proc/proceed_to_target(turf/target)
+/datum/boss_action/proc/proceed_to_target()
 	var/mob/living/pve_boss/boss_mob = owner
-	var/turf/target_turf = target
-	walk_towards(boss_mob,target_turf,1)
+	if(boss_mob.movement_target == null) return
+	var/turf/target_turf = boss_mob.movement_target
+	step_towards(boss_mob,target_turf)
+	if (get_turf(boss_mob) == target_turf)
+		if(boss_mob.movement_target_secondary != null)
+			boss_mob.movement_target = boss_mob.movement_target_secondary
+			boss_mob.movement_target_secondary = null
+			INVOKE_ASYNC(src, PROC_REF(proceed_to_target))
+			to_chat(boss_mob, SPAN_INFO("Waypoint reached. Moving to secondary."))
+		else
+			boss_mob.movement_target = null
+			to_chat(boss_mob, SPAN_INFO("Waypoint reached. No new movement waypoints in buffer."))
+	sleep(5)
+	if(boss_mob.movement_target != null)
+		INVOKE_ASYNC(src, PROC_REF(proceed_to_target))
 
-/datum/boss_action/proc/process_regular_movement(turf/target)
+
+/datum/boss_action/proc/process_regular_movement()
 	var/mob/living/pve_boss/boss_mob = owner
 	var/turf/owner_turf = get_turf(boss_mob)
-	var/turf/target_turf = target
+	if(boss_mob.movement_target == null) return
+	var/turf/target_turf = boss_mob.movement_target
 	var/distance_to_target = abs(target_turf.x - owner_turf.x) + abs(target_turf.y - owner_turf.y)
 	if(distance_to_target < 3)
-		walk_towards(boss_mob,target_turf,1)
+		INVOKE_ASYNC(src, PROC_REF(proceed_to_target))
 		return
 	else
-		accelerate_to_target(target_turf)
+		INVOKE_ASYNC(src, PROC_REF(accelerate_to_target))
 		return
 
-/datum/boss_action/proc/move_towards(atom/target)
+/datum/boss_action/proc/move_destination(atom/target)
 	var/mob/living/pve_boss/boss = owner
 	var/turf/target_turf = target
 	if(!target_turf) return
-	boss.movement_target = target_turf
-	INVOKE_ASYNC(src, PROC_REF(process_regular_movement), target)
-
-/datum/boss_action/proc/RepulseMelee()
-	var/mob/living/pve_boss/boss = owner
-	var/turf/boss_turf = get_turf(boss)
-	if (!istype(boss))
-		return
-	if (!action_cooldown_check("RepulseMelee"))
-		return
-	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),30)
-	INVOKE_ASYNC(src, PROC_REF(handle_crosshair_animation),boss_turf,2)
-
-	for(var/mob/living/carbon/carbon_in_range in range(3,boss_turf))
-		if(carbon_in_range == boss) continue
-		if(carbon_in_range)
-			var/facing = get_dir(boss_turf, carbon_in_range)
-			var/turf/throw_turf = boss_turf
-			var/turf/temp = boss_turf
-
-			for (var/x in 0 to 3)
-				temp = get_step(throw_turf, facing)
-				if (!temp)
-					break
-				throw_turf = temp
-			carbon_in_range.throw_atom(throw_turf, 4, SPEED_VERY_FAST, boss, TRUE)
-	apply_cooldown("RepulseMelee")
+	if(boss.movement_target == null)
+		boss.movement_target = target_turf
+		INVOKE_ASYNC(src, PROC_REF(process_regular_movement))
+		to_chat(boss, SPAN_INFO("Coordinate locked in. Moving to target."))
+	else if (boss.movement_target != null && boss.movement_target_secondary == null)
+		boss.movement_target_secondary = target_turf
+		to_chat(boss, SPAN_INFO("Coordinate added as secondary."))
+	else
+		to_chat(boss, SPAN_WARNING("Movement buffer full. Please try again later."))

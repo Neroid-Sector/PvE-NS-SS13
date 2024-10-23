@@ -12,19 +12,15 @@
 	//below should be safely disregarded if type is not set to 1
 	var/boss_shield = 0 // This will also be the shields max value on spawn for simplicity
 	var/boss_shield_cooldown = 0
-
 	var/boss_shield_max = 0
 	var/boss_shield_broken_timestamp = 0
+
 	var/boss_no_damage = 0
 
 	var/datum/boss_action/boss_ability //The main ability datum, containing ALL boss abilities. Said datum is pretty disorganized :P
 
-	var/list/boss_abilities_list = list("StandardAttack" = 5,) // Abiltity Name for referencing in pcos = cooldown timer.
-
 	// None of these should be touched, they are used by the datums for reference.
-	var/current_ability
 	var/action_activated = 0
-	var/list/action_last_use_time = list()
 
 	//Individual skill values should also be defined here. This can be pushed down the tree by messing with the boss_ability datum (specfically plug in something from down its own tree to it with a custom set or waht have you), but I dont feel like doing that.
 	var/standard_attack_cooldown = 30 //Meant to be separate from individual attacks, the frequency of base attacking. Should be adjusted depending on strength of individual attacks
@@ -36,12 +32,12 @@
 
 	//movement resuming after destruction calls
 	var/turf/movement_target
+	var/turf/movement_target_secondary
 
 /mob/living/pve_boss/Initialize()
 	. = ..()
 	boss_ability = new /datum/boss_action/(boss = src)
 	click_intercept = new /datum/bossclicking/(boss = src)
-	action_last_use_time = boss_abilities_list.Copy()
 	boss_shield_max = boss_shield
 
 /mob/living/pve_boss/update_icons()
@@ -109,7 +105,7 @@
 				break
 			throw_turf = temp
 		bumped_mob.throw_atom(throw_turf, 4, SPEED_VERY_FAST, src, TRUE)
-	if(movement_target) boss_ability.accelerate_to_target(movement_target, on_bump = TRUE)
+	if(movement_target) boss_ability.accelerate_to_target(on_bump = TRUE)
 	. = ..()
 
 /obj/item/prop/shield_ping
@@ -269,19 +265,11 @@
 	. = ..()
 	owner = boss
 
-/datum/boss_action/proc/apply_cooldown(current_ability)
-	var/mob/living/pve_boss/boss_mob = owner
-	boss_mob.action_last_use_time[current_ability] = world.time
 
-/datum/boss_action/proc/action_cooldown_check(current_ability)
+/datum/boss_action/proc/action_cooldown_check()
 	var/mob/living/pve_boss/boss_mob = owner
 	if(boss_mob.action_activated) return 0
-	if(!boss_mob.action_last_use_time[current_ability])
-		return 1
-	else if(world.time > boss_mob.action_last_use_time[current_ability] + boss_mob.boss_abilities_list[current_ability])
-		return 1
-	else
-		return 0
+
 
 /datum/boss_action/proc/usage_cooldown_loop(amount)
 	var/mob/living/pve_boss/boss_mob = owner
