@@ -10,12 +10,13 @@
 	//Xenosurge vars that go here for same reasons as above
 	var/boss_type = "default"
 	//below should be safely disregarded if type is not set to 1
-	var/boss_shield = 0 // This will also be the shields max value on spawn for simplicity
-	var/boss_shield_cooldown = 0
 	var/boss_shield_max = 0
-	var/boss_shield_broken_timestamp = 0
+	var/boss_shield = 0 // This will also be the shields max value on spawn for simplicity
+	var/boss_shield_reset_delay = 0
+	var/boss_health = 0
 
 	var/boss_no_damage = 0
+	var/boss_immobilized = 0
 
 	var/datum/boss_action/boss_ability //The main ability datum, containing ALL boss abilities. Said datum is pretty disorganized :P
 
@@ -29,6 +30,7 @@
 	var/explosion_damage = 30
 	var/aoe_delay = 40
 	var/missile_storm_missiles = 25
+	var/list/hit_by_explosions = list()
 
 	//movement resuming after destruction calls
 	var/turf/movement_target
@@ -179,14 +181,9 @@
 	qdel(ping_object)
 
 /mob/living/pve_boss/proc/restart_shield()
-	if(world.time < boss_shield_broken_timestamp + boss_shield_cooldown)
-		sleep(10)
-		restart_shield()
-		return
-	else
-		boss_shield = boss_shield_max
-		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 3)
-		return
+	boss_shield = boss_shield_max
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 3)
+	return
 
 /mob/living/pve_boss/proc/BossStage()
 	boss_no_damage = 1
@@ -244,7 +241,6 @@
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 1)
 		else
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 2)
-			boss_shield_broken_timestamp = world.time
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, restart_shield))
 		return
 	else

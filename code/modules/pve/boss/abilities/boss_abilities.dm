@@ -123,58 +123,65 @@
 	atom_to_throw.throw_atom(throw_turf, 4, SPEED_VERY_FAST, src, TRUE)
 
 /datum/boss_action/proc/explosion_proc(turf/explosion_center)
+	var/mob/living/pve_boss/boss = owner
 	var/center_turf = explosion_center
 	var/list/range_list = range(3,center_turf)
 	for (var/mob/living/carbon/carbon_to_throw in range_list)
 		carbon_to_throw.apply_damage(15, BRUTE)
 		AnimateThrow(center_turf,carbon_to_throw)
+		boss.hit_by_explosions.Add(carbon_to_throw)
 	for(var/obj/item/item_to_throw in range_list)
 		AnimateThrow(center_turf,item_to_throw)
 
 
 /datum/boss_action/proc/hit_animation(turf/turf_to_hit_animate)
-		var/turf/turf_to_hit_animation = turf_to_hit_animate
-		new /obj/item/prop/missile_storm_down(turf_to_hit_animation)
-		turf_to_hit_animation.overlays += (image('icons/effects/surge_hit_warning.dmi', "aoe"))
-		sleep(13)
-		turf_to_hit_animation.overlays -= (image('icons/effects/surge_hit_warning.dmi', "aoe"))
-		var/obj/item/prop/explosion_fx/boom = new(turf_to_hit_animate)
-		INVOKE_ASYNC(src, PROC_REF(explosion_proc),turf_to_hit_animation)
-		sleep(10)
-		qdel(boom)
+	var/turf/turf_to_hit_animation = turf_to_hit_animate
+	new /obj/item/prop/missile_storm_down(turf_to_hit_animation)
+	turf_to_hit_animation.overlays += (image('icons/effects/surge_hit_warning.dmi', "aoe"))
+	sleep(13)
+	turf_to_hit_animation.overlays -= (image('icons/effects/surge_hit_warning.dmi', "aoe"))
+	var/obj/item/prop/explosion_fx/boom = new(turf_to_hit_animate)
+	INVOKE_ASYNC(src, PROC_REF(explosion_proc),turf_to_hit_animation)
+	sleep(10)
+	qdel(boom)
 
 /datum/boss_action/proc/fire_loop()
+	var/mob/living/pve_boss/boss = owner
 	var/turf/owner_turf = get_turf(owner)
 	var/list/mobs_to_target = list()
 	for(var/mob/living/carbon/human/target_potential in world)
 		var/turf/potential_target_turf = get_turf(target_potential)
 		if(owner_turf.z == potential_target_turf.z)
 			mobs_to_target += target_potential
-	if(mobs_to_target.len == 0) return
 	var/shots_fired = 0
 	while(shots_fired < 25)
+		if(mobs_to_target.len == 0) return
 		var/mob/living/carbon/human/target_to_hit = pick(mobs_to_target)
-		var/turf/turf_to_hit = get_turf(target_to_hit)
-		var/list/turfs_to_hit = list()
-		var/x_min = turf_to_hit.x - 2
-		var/y_min = turf_to_hit.y - 2
-		var/x_max = turf_to_hit.x + 2
-		var/y_max = turf_to_hit.y + 2
-		var/current_x = x_min
-		var/current_y = y_min
-		while(current_x <= x_max)
-			while(current_y <= y_max)
-				var/turf/checked_turf = locate(current_x, current_y, turf_to_hit.z)
-				if(istype(checked_turf, /turf/open))
-					turfs_to_hit += checked_turf
-				current_y += 1
-			current_y = y_min
-			current_x += 1
-		if(turfs_to_hit.len == 0) break
-		var/turf/final_turf = pick(turfs_to_hit)
-		to_chat(target_to_hit, SPAN_BOLDWARNING("One of the missiles in the swarm is headed right for you! Run!"))
-		INVOKE_ASYNC(src, PROC_REF(hit_animation), final_turf)
-		sleep(rand(1,5))
+		if(boss.hit_by_explosions.Find(target_to_hit) == 0)
+			var/turf/turf_to_hit = get_turf(target_to_hit)
+			var/list/turfs_to_hit = list()
+			var/x_min = turf_to_hit.x - 2
+			var/y_min = turf_to_hit.y - 2
+			var/x_max = turf_to_hit.x + 2
+			var/y_max = turf_to_hit.y + 2
+			var/current_x = x_min
+			var/current_y = y_min
+			while(current_x <= x_max)
+				while(current_y <= y_max)
+					var/turf/checked_turf = locate(current_x, current_y, turf_to_hit.z)
+					if(istype(checked_turf, /turf/open))
+						turfs_to_hit += checked_turf
+					current_y += 1
+				current_y = y_min
+				current_x += 1
+			if(turfs_to_hit.len == 0) break
+			var/turf/final_turf = pick(turfs_to_hit)
+			to_chat(target_to_hit, SPAN_BOLDWARNING("One of the missiles in the swarm is headed right for you! Run!"))
+			INVOKE_ASYNC(src, PROC_REF(hit_animation), final_turf)
+			sleep(rand(1,5))
+		else
+			mobs_to_target.Cut(target_to_hit)
+			break
 
 /datum/boss_action/proc/rapid_missles(atom/affected_atom)
 	var/mob/living/pve_boss/boss = owner
@@ -182,6 +189,7 @@
 		return
 	if (!action_cooldown_check())
 		return
+	boss.hit_by_explosions = list()
 	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),120)
 	var/turf/target_turf = get_turf(affected_atom)
 	for(var/mob/living/carbon/human/target in world)
@@ -579,6 +587,7 @@
 /datum/boss_action/proc/move_destination(atom/target)
 	var/mob/living/pve_boss/boss = owner
 	var/turf/target_turf = target
+	if(boss.boss_immobilized == 1) return
 	if(!target_turf) return
 	if(boss.movement_target == null)
 		boss.movement_target = target_turf
