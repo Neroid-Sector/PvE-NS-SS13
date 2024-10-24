@@ -15,8 +15,12 @@
 	var/boss_shield_reset_delay = 0
 	var/boss_health = 0
 
+	var/boss_exposed = 0
 	var/boss_no_damage = 0
 	var/boss_immobilized = 0
+
+	var/boss_shield_broken = 0
+	var/boss_critical_available = 0
 
 	var/datum/boss_action/boss_ability //The main ability datum, containing ALL boss abilities. Said datum is pretty disorganized :P
 
@@ -24,17 +28,20 @@
 	var/action_activated = 0
 
 	//Individual skill values should also be defined here. This can be pushed down the tree by messing with the boss_ability datum (specfically plug in something from down its own tree to it with a custom set or waht have you), but I dont feel like doing that.
-	var/standard_attack_cooldown = 30 //Meant to be separate from individual attacks, the frequency of base attacking. Should be adjusted depending on strength of individual attacks
 	var/standard_range_salvo_count = 3
 	var/standard_range_salvo_delay = 3
-	var/explosion_damage = 30
-	var/aoe_delay = 40
+	var/explosion_damage = 15
+	var/aoe_delay = 50
 	var/missile_storm_missiles = 25
+	//Handles missile storm targeting. This list makes sure that people who were already hit arent targetted again.
 	var/list/hit_by_explosions = list()
 
 	//movement resuming after destruction calls
 	var/turf/movement_target
 	var/turf/movement_target_secondary
+
+/mob/living/pve_boss/Move(NewLoc, direct)
+	return
 
 /mob/living/pve_boss/Initialize()
 	. = ..()
@@ -180,16 +187,60 @@
 	src.vis_contents -= ping_object
 	qdel(ping_object)
 
-/mob/living/pve_boss/proc/restart_shield()
-	boss_shield = boss_shield_max
-	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 3)
+/mob/living/pve_boss/proc/EmergencyAction()
+	say("SHIELD DOWN. INITIATING EMERGENCY DETERENCE.")
+	switch(GLOB.boss_stage)
+		if(1)
+			aoe_delay = 30
+			while(boss_shield_broken == 1)
+				boss_ability.surge_proj(src)
+				sleep(aoe_delay + 2)
+		if(2)
+			aoe_delay = 20
+			while(boss_shield_broken == 1)
+				boss_ability.surge_proj(src)
+				sleep(aoe_delay + 2)
+		if(3)
+			to_chat(world,SPAN_BOLDWARNING("BALTHEUS starts to launch an unending storm of missiles. The stations infratructure can't take it, it must be destroyed ASAP!"))
+			aoe_delay = 20
+			while(boss_shield_broken == 1)
+				boss_ability.rapid_missles(src)
+				boss_ability.surge_proj(src)
+				sleep(aoe_delay + 2)
+				boss_ability.surge_proj(src)
+				sleep(aoe_delay + 2)
+				boss_ability.surge_proj(src)
+				sleep(aoe_delay + 2)
+				boss_ability.surge_proj(src)
+				sleep(aoe_delay + 2)
+				boss_ability.surge_proj(src)
+				sleep(aoe_delay + 2)
+				boss_ability.surge_proj(src)
+				sleep(aoe_delay + 2)
+
+	aoe_delay = initial(aoe_delay)
+
+/mob/living/pve_boss/proc/ShieldDown()
+	boss_shield_broken = 1
+	boss_immobilized = 1
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, EmergencyAction))
+	if(GLOB.boss_stage < 3)
+		sleep(rand(300,600))
+		boss_shield = boss_shield_max
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 3)
+		say("RESUMING PURGE PROTOCOL.")
+		boss_shield_broken = 0
+		boss_immobilized = 0
 	return
 
 /mob/living/pve_boss/proc/BossStage()
 	boss_no_damage = 1
+	walk_towards(src, null)
+	boss_immobilized = 1
 	if(GLOB.boss_stage < GLOB.boss_stage_max)
 		GLOB.boss_stage += 1
 		animate(src, pixel_x = 200, time = 10, easing = CUBIC_EASING|EASE_IN)
+		to_chat(world, SPAN_WARNING("The platform smashes through the ceiling and out of sight. Emergency shutters seal the breach."))
 		sleep(10)
 		qdel(src)
 	else
@@ -197,6 +248,7 @@
 
 /mob/living/pve_boss/proc/animate_hit()
 	var/color_value = "#FFFFFF"
+	var/max_health = initial(boss_health)
 	var/pixel_x_org = pixel_x
 	var/pixel_y_org = pixel_y
 	var/pixel_x_val = rand(0,2)
@@ -204,7 +256,7 @@
 	if(health <= 0)
 		color_value = "#FF0000"
 	else
-		switch(maxHealth / health)
+		switch(max_health / boss_health)
 			if(0.9 to 1)
 				color_value = "#ffecdd"
 			if(0.8 to 0.9)
@@ -241,15 +293,14 @@
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 1)
 		else
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 2)
-			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, restart_shield))
 		return
 	else
-		if((health - damage) <= 0)
-			health = 0
+		if((boss_health - damage) <= 0)
+			boss_health = 0
 			BossStage()
 			return
 		else
-			health -= damage
+			boss_health -= damage
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_hit))
 
 /datum/boss_action/

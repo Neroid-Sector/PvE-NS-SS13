@@ -18,6 +18,7 @@
 
 	if (!action_cooldown_check())
 		return
+
 	var/list/mobs_in_range = list()
 	for(var/mob/living/carbon/human/target in range("15x15",boss))
 		if(mobs_in_range.Find(target) == 0)
@@ -28,10 +29,12 @@
 	for(var/mob/living/carbon/human/target_to_warn in mobs_in_range)
 		INVOKE_ASYNC(target_to_warn, TYPE_PROC_REF(/mob/living/carbon/human/, warning_ping),"The platforms laser visibly heats up as it charges a blast!")
 	boss.overlays += (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
-	boss.anchored = 1
+	boss.boss_immobilized = 1
+	boss.boss_exposed = 1
 	sleep(boss.aoe_delay)
 	boss.overlays -= (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
-	boss.anchored = 0
+	boss.boss_immobilized = 0
+	boss.boss_exposed = 0
 	playsound(boss, 'sound/items/pulse3.ogg', 50)
 	for(var/mob/living/carbon/human/target_to_shoot in mobs_in_range)
 		var/turf/target = get_turf(target_to_shoot)
@@ -122,14 +125,20 @@
 	var/atom/movable/atom_to_throw = thing
 	atom_to_throw.throw_atom(throw_turf, 4, SPEED_VERY_FAST, src, TRUE)
 
-/datum/boss_action/proc/explosion_proc(turf/explosion_center)
+/datum/boss_action/proc/ExplosionExclusionLoop(mob/living/carbon/passed_carbon/)
 	var/mob/living/pve_boss/boss = owner
+	var/mob/living/carbon/carbon_ref = passed_carbon
+	boss.hit_by_explosions.Add(carbon_ref)
+	sleep(50)
+	boss.hit_by_explosions.Remove(carbon_ref)
+
+/datum/boss_action/proc/explosion_proc(turf/explosion_center)
 	var/center_turf = explosion_center
 	var/list/range_list = range(3,center_turf)
 	for (var/mob/living/carbon/carbon_to_throw in range_list)
 		carbon_to_throw.apply_damage(15, BRUTE)
 		AnimateThrow(center_turf,carbon_to_throw)
-		boss.hit_by_explosions.Add(carbon_to_throw)
+		INVOKE_ASYNC(src, PROC_REF(ExplosionExclusionLoop), carbon_to_throw)
 	for(var/obj/item/item_to_throw in range_list)
 		AnimateThrow(center_turf,item_to_throw)
 
@@ -149,13 +158,25 @@
 	var/mob/living/pve_boss/boss = owner
 	var/turf/owner_turf = get_turf(owner)
 	var/list/mobs_to_target = list()
+	var/empty_loop_counter = 0
 	for(var/mob/living/carbon/human/target_potential in world)
 		var/turf/potential_target_turf = get_turf(target_potential)
 		if(owner_turf.z == potential_target_turf.z)
 			mobs_to_target += target_potential
 	var/shots_fired = 0
+	boss.boss_exposed = 1
 	while(shots_fired < 25)
 		if(mobs_to_target.len == 0) return
+		var/list/temporary_mobs = mobs_to_target
+		temporary_mobs.Remove(boss.hit_by_explosions)
+		if(temporary_mobs.len == 0)
+			if(empty_loop_counter <= 3)
+				empty_loop_counter += 1
+				sleep(30)
+				break
+			else
+				return
+		empty_loop_counter = 0
 		var/mob/living/carbon/human/target_to_hit = pick(mobs_to_target)
 		if(boss.hit_by_explosions.Find(target_to_hit) == 0)
 			var/turf/turf_to_hit = get_turf(target_to_hit)
@@ -179,9 +200,7 @@
 			to_chat(target_to_hit, SPAN_BOLDWARNING("One of the missiles in the swarm is headed right for you! Run!"))
 			INVOKE_ASYNC(src, PROC_REF(hit_animation), final_turf)
 			sleep(rand(1,5))
-		else
-			mobs_to_target.Cut(target_to_hit)
-			break
+	boss.boss_exposed = 0
 
 /datum/boss_action/proc/rapid_missles(atom/affected_atom)
 	var/mob/living/pve_boss/boss = owner
@@ -402,14 +421,16 @@
 		return
 	if (!action_cooldown_check())
 		return
-	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),120)
+	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),60)
 	var/turf/targeted_turf = get_turf(target)
-	for(var/turf/turf_in_range in range(5,get_turf(boss)))
+	for(var/turf/turf_in_range in range(3,get_turf(boss)))
 		if(turf_in_range == targeted_turf)
 			to_chat(boss, SPAN_WARNING("Target Turf is too close!"))
 			return
 	animate_warnings(targeted_turf)
+	boss.boss_exposed = 1
 	sleep(50)
+	boss.boss_exposed = 0
 	animate_movement(targeted_turf)
 	process_movement(targeted_turf)
 	return
@@ -523,6 +544,7 @@
 	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),10)
 	var/turf/laser_target = get_turf(target)
 	if(!laser_target) return
+	boss.boss_exposed = 1
 	INVOKE_ASYNC(src, PROC_REF(handle_crosshair_animation),laser_target,1)
 	sleep(16)
 	var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
@@ -533,7 +555,7 @@
 		current_shot += 1
 		projectile.fire_at(laser_target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 		sleep(boss.standard_range_salvo_delay)
-	return
+	boss.boss_exposed = 0
 
 /datum/boss_action/proc/accelerate_to_target(on_bump = FALSE)
 	var/mob/living/pve_boss/boss_mob = owner
