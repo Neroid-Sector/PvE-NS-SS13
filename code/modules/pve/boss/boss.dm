@@ -286,6 +286,7 @@
 /mob/living/pve_boss/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
 	if(boss_no_damage == 1) return
 	var/damage_ammount = damage
+	if(boss_exposed == 1) damage_ammount *= 3
 	if(boss_shield > 0)
 		boss_shield -= damage_ammount
 		if(boss_shield < 0) boss_shield = 0
