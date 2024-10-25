@@ -620,3 +620,140 @@
 		to_chat(boss, SPAN_INFO("Coordinate added as secondary."))
 	else
 		to_chat(boss, SPAN_WARNING("Movement buffer full. Please try again later."))
+
+/datum/boss_action/proc/DirectionRef(direction)
+	var/letter_to_return
+	if(!direction)
+		letter_to_return = pick("N","NNE","NE","NEE","E","SEE","SE","SSE","S","SSW","SW","SWW","W","NWW","NW","NWW")
+	else
+		switch(direction)
+			if(1)
+				letter_to_return = "N"
+			if(2)
+				letter_to_return = "NNE"
+			if(3)
+				letter_to_return = "NE"
+			if(4)
+				letter_to_return = "NEE"
+			if(5)
+				letter_to_return = "E"
+			if(6)
+				letter_to_return = "SEE"
+			if(7)
+				letter_to_return = "SE"
+			if(8)
+				letter_to_return = "SSE"
+			if(9)
+				letter_to_return = "S"
+			if(10)
+				letter_to_return = "SSW"
+			if(11)
+				letter_to_return = "SW"
+			if(12)
+				letter_to_return = "SWW"
+			if(13)
+				letter_to_return = "W"
+			if(14)
+				letter_to_return = "NWW"
+			if(15)
+				letter_to_return = "NW"
+			if(16)
+				letter_to_return = "NWW"
+	return letter_to_return
+
+
+/datum/boss_action/proc/WardingFire()
+	var/mob/living/pve_boss/boss = owner
+	var/turf/boss_turf = get_turf(boss)
+	var/list/turfarray = list(
+		"N" = locate(boss_turf.x,(boss_turf.y + 2),boss_turf.z),
+		"NNE" = locate((boss_turf.x + 1),(boss_turf.y + 2),boss_turf.z),
+		"NE" = locate((boss_turf.x + 2),(boss_turf.y + 2),boss_turf.z),
+		"NEE" = locate((boss_turf.x + 2),(boss_turf.y + 1),boss_turf.z),
+		"E" = locate((boss_turf.x + 1),boss_turf.y,boss_turf.z),
+		"SEE" = locate((boss_turf.x + 2),(boss_turf.y - 1),boss_turf.z),
+		"SE" = locate((boss_turf.x + 2),(boss_turf.y - 2),boss_turf.z),
+		"SSE" = locate((boss_turf.x + 1),(boss_turf.y - 2),boss_turf.z),
+		"S" = locate(boss_turf.x,(boss_turf.y - 2),boss_turf.z),
+		"SSW" = locate((boss_turf.x - 1),(boss_turf.y - 2),boss_turf.z),
+		"SW" = locate((boss_turf.x - 2),(boss_turf.y - 2),boss_turf.z),
+		"SWW" = locate((boss_turf.x - 2),(boss_turf.y - 1),boss_turf.z),
+		"W" = locate((boss_turf.x - 2),boss_turf.y,boss_turf.z),
+		"NWW" = locate((boss_turf.x - 2),(boss_turf.y + 1),boss_turf.z),
+		"NW" = locate((boss_turf.x - 2),(boss_turf.y + 2),boss_turf.z),
+		"NNW" = locate((boss_turf.x - 1),(boss_turf.y + 2),boss_turf.z),
+		)
+	var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
+	var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
+	var/projectile_direction = rand(1,16)
+	switch(GLOB.boss_stage)
+		if(1)
+			while(boss.boss_shield_broken == 1)
+				var/direction1 = DirectionRef(projectile_direction)
+				playsound(boss, 'sound/items/pulse3.ogg', 50)
+				var/turf/target = turfarray[direction1]
+				projectile.generate_bullet(ammo_datum)
+				projectile.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				if(projectile_direction < 16)
+					projectile_direction += 1
+				else
+					projectile_direction = 1
+				sleep(10)
+			return
+		if(2)
+			while(boss.boss_shield_broken == 1)
+				var/direction1 = DirectionRef(projectile_direction)
+				var/direction2
+				if(projectile_direction <= 8)
+					direction2 = DirectionRef(projectile_direction + 8)
+				else
+					direction2 = DirectionRef(projectile_direction - 8)
+				playsound(boss, 'sound/items/pulse3.ogg', 50)
+				var/turf/target = turfarray[direction1]
+				var/turf/target2 = turfarray[direction2]
+				projectile.generate_bullet(ammo_datum)
+				projectile.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				projectile.generate_bullet(ammo_datum)
+				projectile.fire_at(target2, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				if(projectile_direction < 16)
+					projectile_direction += 1
+				else
+					projectile_direction = 1
+				sleep(10)
+		if(3)
+			while(boss.boss_shield_broken == 1)
+				var/direction1 = DirectionRef(projectile_direction)
+				var/direction2
+				if(projectile_direction <= 8)
+					direction2 = DirectionRef(projectile_direction + 8)
+				else
+					direction2 = DirectionRef(projectile_direction - 8)
+				var/direction3
+				if(projectile_direction <= 12)
+					direction3 = DirectionRef(projectile_direction + 4)
+				else
+					direction3 = DirectionRef(projectile_direction - 12)
+				var/direction4
+				if(direction3 <= 8)
+					direction4 = DirectionRef(direction3 + 8)
+				else
+					direction4 = DirectionRef(direction3 - 8)
+				playsound(boss, 'sound/items/pulse3.ogg', 50)
+				var/turf/target = turfarray[direction1]
+				var/turf/target2 = turfarray[direction2]
+				var/turf/target3 = turfarray[direction3]
+				var/turf/target4 = turfarray[direction4]
+				projectile.generate_bullet(ammo_datum)
+				projectile.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				projectile.generate_bullet(ammo_datum)
+				projectile.fire_at(target2, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				projectile.generate_bullet(ammo_datum)
+				projectile.fire_at(target3, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				projectile.generate_bullet(ammo_datum)
+				projectile.fire_at(target4, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				if(projectile_direction < 16)
+					projectile_direction += 1
+				else
+					projectile_direction = 1
+				sleep(15)
+	return

@@ -189,36 +189,7 @@
 
 /mob/living/pve_boss/proc/EmergencyAction()
 	say("SHIELD DOWN. INITIATING EMERGENCY DETERENCE.")
-	switch(GLOB.boss_stage)
-		if(1)
-			aoe_delay = 30
-			while(boss_shield_broken == 1)
-				boss_ability.surge_proj(src)
-				sleep(aoe_delay + 2)
-		if(2)
-			aoe_delay = 20
-			while(boss_shield_broken == 1)
-				boss_ability.surge_proj(src)
-				sleep(aoe_delay + 2)
-		if(3)
-			to_chat(world,SPAN_BOLDWARNING("BALTHEUS starts to launch an unending storm of missiles. The stations infratructure can't take it, it must be destroyed ASAP!"))
-			aoe_delay = 20
-			while(boss_shield_broken == 1)
-				boss_ability.rapid_missles(src)
-				boss_ability.surge_proj(src)
-				sleep(aoe_delay + 2)
-				boss_ability.surge_proj(src)
-				sleep(aoe_delay + 2)
-				boss_ability.surge_proj(src)
-				sleep(aoe_delay + 2)
-				boss_ability.surge_proj(src)
-				sleep(aoe_delay + 2)
-				boss_ability.surge_proj(src)
-				sleep(aoe_delay + 2)
-				boss_ability.surge_proj(src)
-				sleep(aoe_delay + 2)
-
-	aoe_delay = initial(aoe_delay)
+	boss_ability.WardingFire()
 
 /mob/living/pve_boss/proc/ShieldDown()
 	boss_shield_broken = 1
@@ -226,11 +197,12 @@
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, EmergencyAction))
 	if(GLOB.boss_stage < 3)
 		sleep(rand(300,600))
-		boss_shield = boss_shield_max
-		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 3)
-		say("RESUMING PURGE PROTOCOL.")
-		boss_shield_broken = 0
-		boss_immobilized = 0
+		if(boss_health > 0)
+			boss_shield = boss_shield_max
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 3)
+			say("RESUMING PURGE PROTOCOL.")
+			boss_shield_broken = 0
+			boss_immobilized = 0
 	return
 
 /mob/living/pve_boss/proc/BossStage()
