@@ -9,6 +9,7 @@
 	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	//Xenosurge vars that go here for same reasons as above
 	var/boss_type = "default"
+	var/boss_alpha = 0 // Setting this to 1 bypasses intro and mid phase flavor texts/actions
 	//below should be safely disregarded if type is not set to 1
 	var/boss_shield_max = 0
 	var/boss_shield = 0 // This will also be the shields max value on spawn for simplicity
@@ -261,18 +262,21 @@
 	if(boss_exposed == 1) damage_ammount *= 3
 	if(boss_shield > 0)
 		boss_shield -= damage_ammount
-		if(boss_shield < 0) boss_shield = 0
+		if(boss_alpha == 1) to_chat(world, SPAN_INFO("SHIELD|D:[damage_ammount]|S:[boss_shield]"))
 		if(boss_shield > 0)
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 1)
 		else
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 2)
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, ShieldDown))
 		return
 	else
 		if((boss_health - damage) <= 0)
+			if(boss_alpha == 1) to_chat(world, SPAN_INFO("HEALTH|D:[damage_ammount]|H:[boss_shield]"))
 			boss_health = 0
 			BossStage()
 			return
 		else
+			if(boss_alpha == 1) to_chat(world, SPAN_INFO("HEALTH|D:[damage_ammount]|H:[boss_shield]"))
 			boss_health -= damage
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_hit))
 

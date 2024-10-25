@@ -21,6 +21,9 @@
 	mob_size = MOB_SIZE_IMMOBILE
 	see_in_dark = 255
 
+/mob/living/pve_boss/missle_bot/alpha
+	boss_alpha = 1
+
 /mob/living/pve_boss/missle_bot/proc/EntryCrawl()
 	show_blurb(GLOB.player_list, 60 , "Autonomous Anti-Personnel Platform", screen_position = "CENTER,BOTTOM+2:16", text_alignment = "center", text_color = "#ffffff", blurb_key = "boss_head", ignore_key = TRUE, speed = 1)
 	sleep(34)
@@ -69,5 +72,5 @@
 	say("UNIT ONLINE.")
 
 /mob/living/pve_boss/missle_bot/Initialize()
-	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/missle_bot/, AnimateEntry))
+	if(boss_alpha == 0) INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/missle_bot/, AnimateEntry))
 	. = ..()

@@ -47,6 +47,7 @@
 		back_item = /obj/item/storage/backpack/marine
 
 	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/almayer/mcom(new_human), WEAR_L_EAR)
 	var/obj/item/stim_injector/injector = new /obj/item/stim_injector(get_turf(new_human))
 	new_human.bind_stimpack(injector)
 	new_human.put_in_any_hand_if_possible(injector)
@@ -92,7 +93,7 @@
 	var/back_item = /obj/item/storage/backpack/marine/satchel
 	if (new_human.client && new_human.client.prefs && (new_human.client.prefs.backbag == 1))
 		back_item = /obj/item/storage/backpack/marine
-
+	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/almayer/mcom(new_human), WEAR_L_EAR)
 	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
 	var/obj/item/stim_injector/injector = new /obj/item/stim_injector(get_turf(new_human))
 	new_human.bind_stimpack(injector)
@@ -140,8 +141,8 @@
 	var/back_item = /obj/item/storage/backpack/marine/satchel
 	if (new_human.client && new_human.client.prefs && (new_human.client.prefs.backbag == 1))
 		back_item = /obj/item/storage/backpack/marine
-
 	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/almayer/mcom(new_human), WEAR_L_EAR)
 	var/obj/item/stim_injector/injector = new /obj/item/stim_injector(get_turf(new_human))
 	new_human.bind_stimpack(injector)
 	new_human.put_in_any_hand_if_possible(injector)
@@ -191,3 +192,38 @@
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/general/large(new_human), WEAR_R_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/pilot(new_human), WEAR_HEAD)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(new_human), WEAR_EYES)
+
+/datum/equipment_preset/pve/tester
+	name = "UER Marine Tester"
+	flags = EQUIPMENT_PRESET_MARINE
+
+	access = list(ACCESS_MARINE_PREP)
+	assignment = JOB_UER_MARINE_TESTER
+	rank = JOB_UER_MARINE_TESTER
+	faction = FACTION_MARINE
+	paygrade = "ME4"
+	role_comm_title = "TEST"
+	skills = /datum/skills/pve/standard
+	minimap_icon = "spec"
+
+/datum/equipment_preset/pve/point/load_gear(mob/living/carbon/human/new_human)
+	var/back_item = /obj/item/storage/backpack/marine/satchel
+	if (new_human.client && new_human.client.prefs && (new_human.client.prefs.backbag == 1))
+		back_item = /obj/item/storage/backpack/marine
+	new_human.equip_to_slot_or_del(new back_item(new_human), WEAR_BACK)
+
+	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/almayer/po(new_human), WEAR_L_EAR)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine(new_human), WEAR_BACK)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/marine/standard(new_human), WEAR_BODY)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/knife(new_human), WEAR_FEET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow(new_human), WEAR_HANDS)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/m41a/(new_human), WEAR_WAIST)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/marine/carrier(new_human), WEAR_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/magazine/pulse_rifle(new_human), WEAR_R_STORE)
+	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/magazine/pulse_rifle(new_human), WEAR_L_STORE)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/marine/grey(new_human), WEAR_HEAD)
+	new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/m41a(new_human), WEAR_J_STORE)
+
+	var/obj/item/stim_injector/injector = new /obj/item/stim_injector(get_turf(new_human))
+	new_human.bind_stimpack(injector)
+	new_human.put_in_any_hand_if_possible(injector)

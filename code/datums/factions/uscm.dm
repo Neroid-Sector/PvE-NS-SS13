@@ -17,6 +17,7 @@
 			if(JOB_SQUAD_ENGI) marine_rk = "engi"
 			if(JOB_SQUAD_SPECIALIST) marine_rk = "spec"
 			if(JOB_SQUAD_TEAM_LEADER) marine_rk = "tl"
+			if(JOB_UER_MARINE_TESTER) marine_rk = "gun"
 			if(JOB_UER_MARINE_POINT) marine_rk = "spec"
 			if(JOB_UER_MARINE_LEAD) marine_rk = "tl"
 			if(JOB_SQUAD_MEDIC) marine_rk = "med"

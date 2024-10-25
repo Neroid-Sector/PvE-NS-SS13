@@ -214,5 +214,5 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	new /mob/living/pve_boss/missle_bot(T)
+	new /mob/living/pve_boss/missle_bot/alpha(T)
 	return
