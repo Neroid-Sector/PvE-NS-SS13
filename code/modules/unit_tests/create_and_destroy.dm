@@ -20,6 +20,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/obj/effect/fake_attacker,
 		/mob/living/pve_boss, //As above, but uses walk_towards()
 		/mob/living/pve_boss/missle_bot,
+		/mob/living/pve_boss/missle_bot/alpha, //Ah yes, what a great idea to make it ignore subtypes.
 		/atom/movable/lighting_mask, //leave it alone
 		//This is meant to fail extremely loud every single time it occurs in any environment in any context, and it falsely alarms when this unit test iterates it. Let's not spawn it in.
 		/obj/merge_conflict_marker,
