@@ -5,6 +5,8 @@
 	icon_state = "boss_off"
 	icon_size = 64
 	speed = 1
+	boss_health = 100
+	boss_shield = 500
 	melee_damage_lower = 30
 	melee_damage_upper = 40
 	attack_sound = null

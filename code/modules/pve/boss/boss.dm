@@ -259,8 +259,11 @@
 /mob/living/pve_boss/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
 	if(boss_no_damage == 1) return
 	var/damage_ammount = damage
-	if(boss_exposed == 1) damage_ammount *= 3
+	GLOB.stats_boss_total_damage += damage_ammount
+	GLOB.stats_boss_hits += 1
+	damage_ammount = 1
 	if(boss_shield > 0)
+		if(boss_exposed == 1) damage_ammount *= 3
 		boss_shield -= damage_ammount
 		if(boss_alpha == 1) to_chat(world, SPAN_INFO("SHIELD|D:[damage_ammount]|S:[boss_shield]"))
 		if(boss_shield > 0)
@@ -270,14 +273,14 @@
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, ShieldDown))
 		return
 	else
-		if((boss_health - damage) <= 0)
+		if((boss_health - damage_ammount) <= 0)
 			if(boss_alpha == 1) to_chat(world, SPAN_INFO("HEALTH|D:[damage_ammount]|H:[boss_shield]"))
 			boss_health = 0
 			BossStage()
 			return
 		else
 			if(boss_alpha == 1) to_chat(world, SPAN_INFO("HEALTH|D:[damage_ammount]|H:[boss_shield]"))
-			boss_health -= damage
+			boss_health -= damage_ammount
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_hit))
 
 /datum/boss_action/
