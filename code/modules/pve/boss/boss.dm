@@ -124,50 +124,21 @@
 	mouse_opacity = FALSE
 	anchored = TRUE
 	indestructible = TRUE
-	blend_mode = BLEND_OVERLAY
-	layer = ABOVE_MOB_LAYER
+	layer = 6
 	icon = 'icons/Surge/boss_bot/boss.dmi'
 	icon_state = "shield"
 
 /mob/living/pve_boss/proc/animate_shield(type)
 	if(!type) return
 	var/obj/item/prop/shield_ping/ping_object = new()
-	if(boss_shield > 0)
-		switch(boss_shield_max / boss_shield)
-			if(0.9 to 1)
-				ping_object.color = "#FF0000"
-			if(0.8 to 0.9)
-				ping_object.color = "#ff4d4d"
-			if(0.7 to 0.8)
-				ping_object.color = "#ff8b8b"
-			if(0.6 to 0.7)
-				ping_object.color = "#ffb9b9"
-			if(0.5 to 0.6)
-				ping_object.color = "#fdc7c7"
-			if(0.4 to 0.5)
-				ping_object.color = "#ffdcdc"
-			if(0.3 to 0.4)
-				ping_object.color = "#ffe6e6"
-			if(0.2 to 0.3)
-				ping_object.color = "#ffe7e7"
-			if(0.1 to 0.2)
-				ping_object.color = "#fff0f0"
-			if(0 to 0.1)
-				ping_object.color = "#fff1f1"
-			else
-				ping_object.color = "#ff0000"
-	else
-		ping_object.color = "#cfafaf"
+	ping_object.color = "#FF0000"
 	switch(type)
 		if(1)
+			var/shield_proportion = (round((boss_shield / boss_shield_max),0.01))
+			var/alpha_value = 255 * shield_proportion
 			ping_object.alpha = 1
-			animate(ping_object,alpha = 255, easing = CIRCULAR_EASING|EASE_IN, time = 2)
+			animate(ping_object,alpha = alpha_value, easing = CIRCULAR_EASING|EASE_IN, time = 2)
 			animate(alpha = 1, easing = CIRCULAR_EASING|EASE_OUT, time = 2)
-		if(2)
-			ping_object.alpha = 255
-			var/matrix/A = matrix()
-			A.Scale(3)
-			animate(ping_object,alpha = 1,transform = A, easing = SINE_EASING|EASE_IN, time = 3)
 		if(2)
 			ping_object.alpha = 255
 			var/matrix/A = matrix()
@@ -175,10 +146,11 @@
 			animate(ping_object,alpha = 1,transform = A, easing = SINE_EASING|EASE_IN, time = 3)
 		if(3)
 			ping_object.alpha = 1
+			ping_object.color = "#FF0000"
 			var/matrix/A = matrix()
 			var/matrix/B = matrix()
 			A.Scale(2)
-			apply_transform(A)
+			ping_object.apply_transform(A)
 			B.Scale(1)
 			animate(ping_object,alpha = 255,transform = B, easing = SINE_EASING|EASE_IN, time = 3)
 			animate(alpha = 1, easing = SINE_EASING|EASE_IN, time = 1)
@@ -212,7 +184,8 @@
 	boss_immobilized = 1
 	if(GLOB.boss_stage < GLOB.boss_stage_max)
 		GLOB.boss_stage += 1
-		animate(src, pixel_x = 200, time = 10, easing = CUBIC_EASING|EASE_IN)
+		animate(src, pixel_y = 200, time = 10, easing = CUBIC_EASING|EASE_IN)
+		visible_message("activates an emergency thruster and smashes through the ceiling!")
 		to_chat(world, SPAN_WARNING("The platform smashes through the ceiling and out of sight. Emergency shutters seal the breach."))
 		sleep(10)
 		qdel(src)
@@ -220,40 +193,38 @@
 		src.death(gibbed = FALSE, deathmessage = "loses power to its engines, spins in place, smashes into the ground and shuts down.", should_deathmessage = TRUE)
 
 /mob/living/pve_boss/proc/animate_hit()
-	var/color_value = "#FFFFFF"
+	var/color_value = "#FF0000"
 	var/max_health = initial(boss_health)
 	var/pixel_x_org = pixel_x
 	var/pixel_y_org = pixel_y
 	var/pixel_x_val = rand(0,2)
 	var/pixel_y_val = rand(0,2)
-	if(health <= 0)
-		color_value = "#FF0000"
-	else
-		switch(max_health / boss_health)
-			if(0.9 to 1)
-				color_value = "#ffecdd"
-			if(0.8 to 0.9)
-				color_value = "#ffdfc5"
-			if(0.7 to 0.8)
-				color_value = "#ffcba1"
-			if(0.6 to 0.7)
-				color_value = "#ffbf8b"
-			if(0.5 to 0.6)
-				color_value = "#ffb272"
-			if(0.4 to 0.5)
-				color_value = "#ffa052"
-			if(0.3 to 0.4)
-				color_value= "#ff8928"
-			if(0.2 to 0.3)
-				color_value = "#ff811a"
-			if(0.1 to 0.2)
-				color_value = "#ff790b"
-			if(0 to 0.1)
-				color_value = "#ff5e00"
-			else
-				color_value = "#ff5e00"
-	animate(src, pixel_x = pixel_x_val, pixel_y = pixel_y_val, color = color_value, time = 1, flags = ANIMATION_PARALLEL)
-	animate(color = "#FFFFFF", pixel_x = pixel_x_org, pixel_y = pixel_y_org, time = 1, flags = ANIMATION_PARALLEL)
+	var/health_proportion = round((boss_health / max_health),0.1)
+	switch(health_proportion)
+		if(1)
+			color_value = "#ffecdd"
+		if(0.9)
+			color_value = "#ffdfc5"
+		if(0.8)
+			color_value = "#ffcba1"
+		if(0.7)
+			color_value = "#ffbf8b"
+		if(0.6)
+			color_value = "#ffb272"
+		if(0.5)
+			color_value = "#ffa052"
+		if(0.4)
+			color_value= "#ff8928"
+		if(0.3)
+			color_value = "#ff811a"
+		if(0.2)
+			color_value = "#ff790b"
+		if(0.1)
+			color_value = "#ff5e00"
+		if(0)
+			color_value = "#ff0000"
+	animate(src, pixel_x = pixel_x_val, pixel_y = pixel_y_val, color = color_value, time = 1)
+	animate(color = "#FFFFFF", pixel_x = pixel_x_org, pixel_y = pixel_y_org, time = 1)
 
 
 /mob/living/pve_boss/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
@@ -274,12 +245,12 @@
 		return
 	else
 		if((boss_health - damage_ammount) <= 0)
-			if(boss_alpha == 1) to_chat(world, SPAN_INFO("HEALTH|D:[damage_ammount]|H:[boss_shield]"))
+			if(boss_alpha == 1) to_chat(world, SPAN_INFO("HEALTH|D:[damage_ammount]|H:[boss_health]"))
 			boss_health = 0
 			BossStage()
 			return
 		else
-			if(boss_alpha == 1) to_chat(world, SPAN_INFO("HEALTH|D:[damage_ammount]|H:[boss_shield]"))
+			if(boss_alpha == 1) to_chat(world, SPAN_INFO("HEALTH|D:[damage_ammount]|H:[boss_health]"))
 			boss_health -= damage_ammount
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_hit))
 

@@ -206,7 +206,7 @@
 	skills = /datum/skills/pve/standard
 	minimap_icon = "spec"
 
-/datum/equipment_preset/pve/point/load_gear(mob/living/carbon/human/new_human)
+/datum/equipment_preset/pve/tester/load_gear(mob/living/carbon/human/new_human)
 	var/back_item = /obj/item/storage/backpack/marine/satchel
 	if (new_human.client && new_human.client.prefs && (new_human.client.prefs.backbag == 1))
 		back_item = /obj/item/storage/backpack/marine

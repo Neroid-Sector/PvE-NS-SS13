@@ -658,7 +658,7 @@
 			if(15)
 				letter_to_return = "NW"
 			if(16)
-				letter_to_return = "NWW"
+				letter_to_return = "NNW"
 	return letter_to_return
 
 
@@ -670,7 +670,7 @@
 		"NNE" = locate((boss_turf.x + 1),(boss_turf.y + 2),boss_turf.z),
 		"NE" = locate((boss_turf.x + 2),(boss_turf.y + 2),boss_turf.z),
 		"NEE" = locate((boss_turf.x + 2),(boss_turf.y + 1),boss_turf.z),
-		"E" = locate((boss_turf.x + 1),boss_turf.y,boss_turf.z),
+		"E" = locate((boss_turf.x + 2),boss_turf.y,boss_turf.z),
 		"SEE" = locate((boss_turf.x + 2),(boss_turf.y - 1),boss_turf.z),
 		"SE" = locate((boss_turf.x + 2),(boss_turf.y - 2),boss_turf.z),
 		"SSE" = locate((boss_turf.x + 1),(boss_turf.y - 2),boss_turf.z),
@@ -683,8 +683,6 @@
 		"NW" = locate((boss_turf.x - 2),(boss_turf.y + 2),boss_turf.z),
 		"NNW" = locate((boss_turf.x - 1),(boss_turf.y + 2),boss_turf.z),
 		)
-	var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
-	var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
 	var/projectile_direction = rand(1,16)
 	switch(GLOB.boss_stage)
 		if(1)
@@ -692,13 +690,15 @@
 				var/direction1 = DirectionRef(projectile_direction)
 				playsound(boss, 'sound/items/pulse3.ogg', 50)
 				var/turf/target = turfarray[direction1]
+				var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
+				var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
 				projectile.generate_bullet(ammo_datum)
 				projectile.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 				if(projectile_direction < 16)
 					projectile_direction += 1
 				else
 					projectile_direction = 1
-				sleep(10)
+				sleep(8)
 			return
 		if(2)
 			while(boss.boss_shield_broken == 1)
@@ -711,17 +711,26 @@
 				playsound(boss, 'sound/items/pulse3.ogg', 50)
 				var/turf/target = turfarray[direction1]
 				var/turf/target2 = turfarray[direction2]
-				projectile.generate_bullet(ammo_datum)
-				projectile.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
-				projectile.generate_bullet(ammo_datum)
-				projectile.fire_at(target2, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				var/obj/projectile/projectile1 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
+				var/obj/projectile/projectile2 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
+				var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
+				projectile1.generate_bullet(ammo_datum)
+				projectile1.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				projectile2.generate_bullet(ammo_datum)
+				projectile2.fire_at(target2, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 				if(projectile_direction < 16)
 					projectile_direction += 1
 				else
 					projectile_direction = 1
-				sleep(10)
+				sleep(8)
 		if(3)
 			while(boss.boss_shield_broken == 1)
+				if(boss.boss_health <= 0) return
+				var/obj/projectile/projectile1 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
+				var/obj/projectile/projectile2 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
+				var/obj/projectile/projectile3 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
+				var/obj/projectile/projectile4 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
+				var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
 				var/direction1 = DirectionRef(projectile_direction)
 				var/direction2
 				if(projectile_direction <= 8)
@@ -734,26 +743,26 @@
 				else
 					direction3 = DirectionRef(projectile_direction - 12)
 				var/direction4
-				if(direction3 <= 8)
-					direction4 = DirectionRef(direction3 + 8)
+				if(projectile_direction <= 4)
+					direction4 = DirectionRef(projectile_direction + 12)
 				else
-					direction4 = DirectionRef(direction3 - 8)
+					direction4 = DirectionRef(projectile_direction - 4)
 				playsound(boss, 'sound/items/pulse3.ogg', 50)
 				var/turf/target = turfarray[direction1]
 				var/turf/target2 = turfarray[direction2]
 				var/turf/target3 = turfarray[direction3]
 				var/turf/target4 = turfarray[direction4]
-				projectile.generate_bullet(ammo_datum)
-				projectile.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
-				projectile.generate_bullet(ammo_datum)
-				projectile.fire_at(target2, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
-				projectile.generate_bullet(ammo_datum)
-				projectile.fire_at(target3, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
-				projectile.generate_bullet(ammo_datum)
-				projectile.fire_at(target4, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				projectile1.generate_bullet(ammo_datum)
+				projectile1.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				projectile2.generate_bullet(ammo_datum)
+				projectile2.fire_at(target2, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				projectile3.generate_bullet(ammo_datum)
+				projectile3.fire_at(target3, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+				projectile4.generate_bullet(ammo_datum)
+				projectile4.fire_at(target4, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 				if(projectile_direction < 16)
 					projectile_direction += 1
 				else
 					projectile_direction = 1
-				sleep(15)
+				sleep(5)
 	return
