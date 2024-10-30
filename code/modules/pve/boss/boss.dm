@@ -39,10 +39,15 @@
 
 	//movement resuming after destruction calls
 	var/turf/movement_target
-	var/turf/movement_target_secondary
+	var/movement_switch = 0
 
 /mob/living/pve_boss/Move(NewLoc, direct)
-	return
+	if(boss_immobilized == 1) return
+	if(movement_switch == 0)
+		return
+	if(movement_switch == 1)
+		movement_switch = 0
+		. = ..()
 
 /mob/living/pve_boss/Initialize()
 	. = ..()
@@ -115,7 +120,7 @@
 				break
 			throw_turf = temp
 		bumped_mob.throw_atom(throw_turf, 4, SPEED_VERY_FAST, src, TRUE)
-	if(movement_target) boss_ability.accelerate_to_target(on_bump = TRUE)
+	if(movement_target) boss_ability.process_regular_movement(on_bump = TRUE)
 	. = ..()
 
 /obj/item/prop/shield_ping

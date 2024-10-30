@@ -557,69 +557,38 @@
 		sleep(boss.standard_range_salvo_delay)
 	boss.boss_exposed = 0
 
-/datum/boss_action/proc/accelerate_to_target(on_bump = FALSE)
+/datum/boss_action/proc/process_regular_movement(on_bump = FALSE)
 	var/mob/living/pve_boss/boss_mob = owner
 	var/turf/owner_turf = get_turf(boss_mob)
+	if(boss_mob.movement_target == null) return
 	var/turf/target_turf = boss_mob.movement_target
+	if(owner_turf == target_turf)
+		target_turf = null
+		return
 	var/boss_velocity = 1
 	if(on_bump == TRUE) boss_velocity = 3
-	while(boss_velocity <= 5)
-		var/distance_to_target = abs(target_turf.x - owner_turf.x) + abs(target_turf.y - owner_turf.y)
-		if(distance_to_target == 0)
-			boss_velocity = 6
-			break
+	while(owner_turf != target_turf)
+		boss_mob.movement_switch = 1
 		step_towards(boss_mob,target_turf)
-		sleep(11 - (1 * boss_velocity))
-		boss_velocity += 1
 		owner_turf = get_turf(boss_mob)
-	INVOKE_ASYNC(src, PROC_REF(proceed_to_target))
+		sleep(8 - boss_velocity)
+		if(boss_velocity < 5) boss_velocity += 1
+	target_turf = null
+	return
 
-/datum/boss_action/proc/proceed_to_target()
-	var/mob/living/pve_boss/boss_mob = owner
-	if(boss_mob.movement_target == null) return
-	var/turf/target_turf = boss_mob.movement_target
-	step_towards(boss_mob,target_turf)
-	if (get_turf(boss_mob) == target_turf)
-		if(boss_mob.movement_target_secondary != null)
-			boss_mob.movement_target = boss_mob.movement_target_secondary
-			boss_mob.movement_target_secondary = null
-			INVOKE_ASYNC(src, PROC_REF(proceed_to_target))
-			to_chat(boss_mob, SPAN_INFO("Waypoint reached. Moving to secondary."))
-		else
-			boss_mob.movement_target = null
-			to_chat(boss_mob, SPAN_INFO("Waypoint reached. No new movement waypoints in buffer."))
-	sleep(5)
-	if(boss_mob.movement_target != null)
-		INVOKE_ASYNC(src, PROC_REF(proceed_to_target))
-
-
-/datum/boss_action/proc/process_regular_movement()
-	var/mob/living/pve_boss/boss_mob = owner
-	var/turf/owner_turf = get_turf(boss_mob)
-	if(boss_mob.movement_target == null) return
-	var/turf/target_turf = boss_mob.movement_target
-	var/distance_to_target = abs(target_turf.x - owner_turf.x) + abs(target_turf.y - owner_turf.y)
-	if(distance_to_target < 3)
-		INVOKE_ASYNC(src, PROC_REF(proceed_to_target))
-		return
-	else
-		INVOKE_ASYNC(src, PROC_REF(accelerate_to_target))
-		return
 
 /datum/boss_action/proc/move_destination(atom/target)
 	var/mob/living/pve_boss/boss = owner
-	var/turf/target_turf = target
 	if(boss.boss_immobilized == 1) return
+	if(boss.movement_target == get_turf(boss)) boss.movement_target = null
+	if(boss.movement_target != null) return
+	var/turf/target_turf = get_turf(target)
 	if(!target_turf) return
-	if(boss.movement_target == null)
-		boss.movement_target = target_turf
-		INVOKE_ASYNC(src, PROC_REF(process_regular_movement))
-		to_chat(boss, SPAN_INFO("Coordinate locked in. Moving to target."))
-	else if (boss.movement_target != null && boss.movement_target_secondary == null)
-		boss.movement_target_secondary = target_turf
-		to_chat(boss, SPAN_INFO("Coordinate added as secondary."))
-	else
-		to_chat(boss, SPAN_WARNING("Movement buffer full. Please try again later."))
+	if(target_turf == get_turf(boss)) return
+	boss.movement_target = target_turf
+	INVOKE_ASYNC(src, PROC_REF(process_regular_movement))
+	to_chat(boss, SPAN_INFO("Coordinate locked in. Moving to target."))
+	return
 
 /datum/boss_action/proc/DirectionRef(direction)
 	var/letter_to_return
