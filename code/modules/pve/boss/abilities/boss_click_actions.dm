@@ -24,3 +24,8 @@
 
 	if(modifiers[LEFT_CLICK] && !modifiers[SHIFT_CLICK] && modifiers[ALT_CLICK])
 		attached_mob.boss_ability.rapid_missles(object)
+
+//Debug unimmobilizer. Remove after testing.
+
+	if(modifiers[MIDDLE_CLICK] && !modifiers[SHIFT_CLICK] && modifiers[ALT_CLICK])
+		attached_mob.boss_immobilized = 0

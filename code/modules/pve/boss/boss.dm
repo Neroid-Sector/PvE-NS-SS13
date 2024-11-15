@@ -78,6 +78,7 @@
 		if(CheckSpaceTurf(Obstacle) == 1)
 			var/turf/obstacle_turf = get_turf(Obstacle)
 			src.forceMove(obstacle_turf)
+			return
 		else
 			if(istype(Obstacle, /turf/closed))
 				var/turf/closed/bumped_turf = Obstacle
@@ -272,6 +273,7 @@
 /datum/boss_action/proc/action_cooldown_check()
 	var/mob/living/pve_boss/boss_mob = owner
 	if(boss_mob.action_activated) return 0
+	else return 1
 
 
 /datum/boss_action/proc/usage_cooldown_loop(amount)

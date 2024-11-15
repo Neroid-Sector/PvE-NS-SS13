@@ -145,10 +145,11 @@
 
 /datum/boss_action/proc/hit_animation(turf/turf_to_hit_animate)
 	var/turf/turf_to_hit_animation = turf_to_hit_animate
-	new /obj/item/prop/missile_storm_down(turf_to_hit_animation)
 	turf_to_hit_animation.overlays += (image('icons/effects/surge_hit_warning.dmi', "aoe"))
-	sleep(13)
+	sleep(30)
 	turf_to_hit_animation.overlays -= (image('icons/effects/surge_hit_warning.dmi', "aoe"))
+	new /obj/item/prop/missile_storm_down(turf_to_hit_animation)
+	sleep(10)
 	var/obj/item/prop/explosion_fx/boom = new(turf_to_hit_animate)
 	INVOKE_ASYNC(src, PROC_REF(explosion_proc),turf_to_hit_animation)
 	sleep(10)
@@ -161,8 +162,9 @@
 	var/empty_loop_counter = 0
 	for(var/mob/living/carbon/human/target_potential in world)
 		var/turf/potential_target_turf = get_turf(target_potential)
-		if(owner_turf.z == potential_target_turf.z)
-			mobs_to_target += target_potential
+		if(potential_target_turf)
+			if(owner_turf.z == potential_target_turf.z)
+				mobs_to_target += target_potential
 	var/shots_fired = 0
 	boss.boss_exposed = 1
 	while(shots_fired < 25)
@@ -199,7 +201,7 @@
 			var/turf/final_turf = pick(turfs_to_hit)
 			to_chat(target_to_hit, SPAN_BOLDWARNING("One of the missiles in the swarm is headed right for you! Run!"))
 			INVOKE_ASYNC(src, PROC_REF(hit_animation), final_turf)
-			sleep(rand(1,5))
+			sleep(rand(8,12))
 	boss.boss_exposed = 0
 
 /datum/boss_action/proc/rapid_missles(atom/affected_atom)
@@ -213,8 +215,9 @@
 	var/turf/target_turf = get_turf(affected_atom)
 	for(var/mob/living/carbon/human/target in world)
 		var/turf/mob_turf = get_turf(target)
-		if(mob_turf.z == target_turf.z)
-			to_chat(target, SPAN_BOLDWARNING("A torrent of missiles takes to the air!"))
+		if(mob_turf)
+			if(mob_turf.z == target_turf.z)
+				to_chat(target, SPAN_BOLDWARNING("A torrent of missiles takes to the air!"))
 	INVOKE_ASYNC(src, PROC_REF(fire_animation))
 	INVOKE_ASYNC(src, PROC_REF(fire_loop))
 	return
@@ -421,6 +424,9 @@
 		return
 	if (!action_cooldown_check())
 		return
+	if(boss.boss_immobilized == 1) return
+	boss.movement_target = null
+	boss.movement_switch = 0
 	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),60)
 	var/turf/targeted_turf = get_turf(target)
 	for(var/turf/turf_in_range in range(3,get_turf(boss)))
@@ -481,15 +487,15 @@
 			ring_line_right.color = "#680606"
 			ring_ring.color = "#680606"
 
-			animate(ring_line_left,transform = B, color = "#ff0000", time = 30, easing = LINEAR_EASING)
+			animate(ring_line_left,transform = B, color = "#ff0000", time = 16, easing = LINEAR_EASING)
 			animate(transform = E, color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
 
 
-			animate(ring_line_right, transform = D, color = "#ff0000", time = 30, easing = LINEAR_EASING)
+			animate(ring_line_right, transform = D, color = "#ff0000", time = 16, easing = LINEAR_EASING)
 			animate(color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
 
 
-			animate(ring_ring,color = "#ff0000", time = 30, easing = LINEAR_EASING)
+			animate(ring_ring,color = "#ff0000", time = 16, easing = LINEAR_EASING)
 			animate(color = "#707070", alpha = 0, time = 4,easing=LINEAR_EASING)
 
 			target_turf.vis_contents += ring_line_left
@@ -547,12 +553,12 @@
 	boss.boss_exposed = 1
 	INVOKE_ASYNC(src, PROC_REF(handle_crosshair_animation),laser_target,1)
 	sleep(16)
-	var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
-	var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/dbl_laser]
-	projectile.generate_bullet(ammo_datum)
 	var/current_shot = 0
 	while(current_shot < boss.standard_range_salvo_count)
 		current_shot += 1
+		var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
+		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/dbl_laser]
+		projectile.generate_bullet(ammo_datum)
 		projectile.fire_at(laser_target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 		sleep(boss.standard_range_salvo_delay)
 	boss.boss_exposed = 0
@@ -571,7 +577,7 @@
 		boss_mob.movement_switch = 1
 		step_towards(boss_mob,target_turf)
 		owner_turf = get_turf(boss_mob)
-		sleep(8 - boss_velocity)
+		sleep(6 - boss_velocity)
 		if(boss_velocity < 5) boss_velocity += 1
 	target_turf = null
 	return
