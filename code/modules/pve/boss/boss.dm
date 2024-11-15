@@ -285,3 +285,55 @@
 
 /mob/living/pve_boss/proc/AnimateEntry()
 	return
+
+/mob/living/pve_boss_drone
+	name = "B-6A supression drone"
+	desc = "A flying object that fires a laser. Seems straightforward enough."
+	icon = 'icons/Surge/boss_bot/drone.dmi'
+	icon_state = "drone"
+
+	var/drone_cycles = 0
+	var/drone_health = 5
+	var/drone_delay = 50
+
+/mob/living/pve_boss_drone/proc/fire_on_target(turf/target)
+	var/turf/drone_target = target
+	if(!drone_target) return
+	animate(src,color = "#FF0000", time = 3)
+	animate(color = "#FFFFFF", time = 3)
+	animate(src,color = "#FF0000", time = 3)
+	sleep(10)
+	var/obj/projectile/projectile = new /obj/projectile(src.loc, create_cause_data("[src.name]"), src)
+	var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/laser]
+	projectile.generate_bullet(ammo_datum)
+	projectile.fire_at(drone_target, src, src, ammo_datum.max_range, ammo_datum.shell_speed)
+	animate(color = "#FFFFFF", time = 3)
+	return
+
+/mob/living/pve_boss_drone/proc/scan_cycle()
+	for(var/mob/living/carbon/human/potential_target in range(8,get_turf(src)))
+		if(!potential_target)
+			if(drone_cycles <= 10)
+				sleep(10 + (drone_cycles * 10))
+				drone_cycles += 1
+				scan_cycle()
+				return
+			else
+				qdel(src)
+		else
+			var/target_turf = get_turf(potential_target)
+			if(!target_turf) return
+			fire_on_target(target_turf)
+			drone_cycles = 0
+			scan_cycle()
+
+/mob/living/pve_boss_drone/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
+	drone_health -= 1
+	if(drone_health <= 0)
+		GLOB.boss_drones -= 1
+		qdel(src)
+
+
+/mob/living/pve_boss_drone/Initialize()
+	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,scan_cycle))
+	. = ..()

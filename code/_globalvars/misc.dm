@@ -96,6 +96,7 @@ GLOBAL_VAR_INIT(secondary_objective, "Awaiting Orders")
 
 GLOBAL_VAR_INIT(boss_stage, 1)
 GLOBAL_VAR_INIT(boss_stage_max, 3)
+GLOBAL_VAR_INIT(boss_drones, 0)
 
 GLOBAL_VAR_INIT(stats_boss_total_damage, 0)
 GLOBAL_VAR_INIT(stats_boss_hits, 0)
