@@ -216,3 +216,14 @@
 
 	new /mob/living/pve_boss/missle_bot/alpha(T)
 	return
+
+/client/proc/test_drone_spawn(turf/T in turfs)
+	set name = "Surge Drone Spawn"
+	set category = null
+
+	if(!src.admin_holder || !(admin_holder.rights & R_MOD))
+		to_chat(src, "Only administrators may use this command.")
+		return
+
+	new /mob/living/pve_boss_drone(T)
+	return

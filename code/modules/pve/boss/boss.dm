@@ -295,19 +295,23 @@
 	var/drone_cycles = 0
 	var/drone_health = 5
 	var/drone_delay = 50
+	var/drone_attack_breakpoint = 0
 
 /mob/living/pve_boss_drone/proc/fire_on_target(turf/target)
 	var/turf/drone_target = target
 	if(!drone_target) return
-	animate(src,color = "#FF0000", time = 3)
-	animate(color = "#FFFFFF", time = 3)
-	animate(src,color = "#FF0000", time = 3)
+	if(drone_attack_breakpoint == 0)
+		animate(src,color = "#FF0000", time = 3)
+		animate(color = "#FFFFFF", time = 3)
+		animate(color = "#FF0000", time = 3)
 	sleep(10)
-	var/obj/projectile/projectile = new /obj/projectile(src.loc, create_cause_data("[src.name]"), src)
-	var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/laser]
-	projectile.generate_bullet(ammo_datum)
-	projectile.fire_at(drone_target, src, src, ammo_datum.max_range, ammo_datum.shell_speed)
-	animate(color = "#FFFFFF", time = 3)
+	if(drone_attack_breakpoint == 0)
+		var/obj/projectile/projectile = new /obj/projectile(src.loc, create_cause_data("[src.name]"), src)
+		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/laser]
+		projectile.generate_bullet(ammo_datum)
+		projectile.fire_at(drone_target, src, src, ammo_datum.max_range, ammo_datum.shell_speed)
+		animate(src, color = "#FFFFFF", time = 3)
+		sleep(3)
 	return
 
 /mob/living/pve_boss_drone/proc/scan_cycle()
@@ -330,10 +334,16 @@
 /mob/living/pve_boss_drone/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
 	drone_health -= 1
 	if(drone_health <= 0)
-		GLOB.boss_drones -= 1
+		drone_attack_breakpoint = 1
 		qdel(src)
+
+/mob/living/pve_boss_drone/Destroy()
+	GLOB.boss_drones -= 1
+	. = ..()
+
 
 
 /mob/living/pve_boss_drone/Initialize()
+	GLOB.boss_drones += 1
 	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,scan_cycle))
 	. = ..()
