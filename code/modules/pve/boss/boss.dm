@@ -37,9 +37,13 @@
 	//Handles missile storm targeting. This list makes sure that people who were already hit arent targetted again.
 	var/list/hit_by_explosions = list()
 
-	//movement resuming after destruction calls
+	//movement control
 	var/turf/movement_target
 	var/movement_switch = 0
+	var/list/movement_turfs = list()
+
+	//npc drone spawning
+	var/list/drone_turfs = list()
 
 /mob/living/pve_boss/Move(NewLoc, direct)
 	if(boss_immobilized == 1) return
@@ -296,6 +300,7 @@
 	var/drone_health = 5
 	var/drone_delay = 50
 	var/drone_attack_breakpoint = 0
+	var/drone_no_despawn = 0
 
 /mob/living/pve_boss_drone/proc/fire_on_target(turf/target)
 	var/turf/drone_target = target
@@ -317,19 +322,31 @@
 /mob/living/pve_boss_drone/proc/scan_cycle()
 	for(var/mob/living/carbon/human/potential_target in range(8,get_turf(src)))
 		if(!potential_target)
-			if(drone_cycles <= 10)
-				sleep(10 + (drone_cycles * 10))
-				drone_cycles += 1
-				scan_cycle()
-				return
+			if(drone_no_despawn == 0)
+				if(drone_cycles <= 10)
+					sleep(10 + (drone_cycles * 10))
+					drone_cycles += 1
+					INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
+					return
+				else
+					qdel(src)
 			else
-				qdel(src)
+				sleep(10)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
+				return
 		else
 			var/target_turf = get_turf(potential_target)
 			if(!target_turf) return
 			fire_on_target(target_turf)
 			drone_cycles = 0
-			scan_cycle()
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
+			return
+
+/mob/living/pve_boss_drone/proc/reactivate_boss()
+	for(var/mob/living/pve_boss/boss_mob in world)
+		boss_mob.boss_immobilized = 0
+		boss_mob.boss_no_damage = 0
+
 
 /mob/living/pve_boss_drone/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
 	drone_health -= 1
@@ -338,12 +355,16 @@
 		qdel(src)
 
 /mob/living/pve_boss_drone/Destroy()
-	GLOB.boss_drones -= 1
+	if(drone_no_despawn == 0)
+		GLOB.boss_loose_drones -= 1
+	else
+		GLOB.boss_drones -= 1
+		if(GLOB.boss_drones == 0) reactivate_boss()
 	. = ..()
 
 
 
 /mob/living/pve_boss_drone/Initialize()
-	GLOB.boss_drones += 1
+	if(drone_no_despawn == 0) GLOB.boss_loose_drones += 1
 	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,scan_cycle))
 	. = ..()

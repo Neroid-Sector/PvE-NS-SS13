@@ -5,10 +5,10 @@
 	icon_state = "boss_off"
 	icon_size = 64
 	speed = 1
-	boss_health = 30
-	boss_shield = 30
-	boss_shield_max = 30
-	boss_shield_reset_delay = 300
+	boss_health = 200
+	boss_shield = 500
+	boss_shield_max = 500
+	boss_shield_reset_delay = 180
 	melee_damage_lower = 30
 	melee_damage_upper = 40
 	attack_sound = null
@@ -73,7 +73,9 @@
 	sleep(10)
 	icon_state = "boss_normal"
 	update_icons()
-	say("UNIT ONLINE.")
+	say("Distortions to Cycle activity detected. Determining character.")
+	sleep(20)
+	say("Unknown human lifeforms detected. Proceeding with removal from cycle.")
 
 /mob/living/pve_boss/missle_bot/Initialize()
 	if(boss_alpha == 0) INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/missle_bot/, AnimateEntry))
