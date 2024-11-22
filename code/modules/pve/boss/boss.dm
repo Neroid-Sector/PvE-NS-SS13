@@ -296,15 +296,20 @@
 	icon = 'icons/Surge/boss_bot/drone.dmi'
 	icon_state = "drone"
 
+	var/obj/effect/landmark/pve_mob/source_landmark
+
 	var/drone_cycles = 0
 	var/drone_health = 5
 	var/drone_delay = 50
+	var/drone_no_damage = 0
 	var/drone_attack_breakpoint = 0
 	var/drone_no_despawn = 0
+	var/drone_last_fired
 
 /mob/living/pve_boss_drone/proc/fire_on_target(turf/target)
 	var/turf/drone_target = target
 	if(!drone_target) return
+	if((drone_last_fired + 10) > world.time) return
 	if(drone_attack_breakpoint == 0)
 		animate(src,color = "#FF0000", time = 3)
 		animate(color = "#FFFFFF", time = 3)
@@ -315,8 +320,10 @@
 		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/laser]
 		projectile.generate_bullet(ammo_datum)
 		projectile.fire_at(drone_target, src, src, ammo_datum.max_range, ammo_datum.shell_speed)
+		drone_last_fired = world.time
 		animate(src, color = "#FFFFFF", time = 3)
 		sleep(3)
+	color = "#FFFFFF"
 	return
 
 /mob/living/pve_boss_drone/proc/scan_cycle()
@@ -330,41 +337,71 @@
 					return
 				else
 					qdel(src)
-			else
-				sleep(10)
-				INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
-				return
-		else
-			var/target_turf = get_turf(potential_target)
-			if(!target_turf) return
-			fire_on_target(target_turf)
-			drone_cycles = 0
-			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
-			return
+		var/target_turf = get_turf(potential_target)
+		if(!target_turf) return
+		fire_on_target(target_turf)
+		drone_cycles = 0
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
+		return
+	sleep(10)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
+	return
 
 /mob/living/pve_boss_drone/proc/reactivate_boss()
 	for(var/mob/living/pve_boss/boss_mob in world)
 		boss_mob.boss_immobilized = 0
 		boss_mob.boss_no_damage = 0
 
+/mob/living/pve_boss_drone/proc/DeathAnim()
+
+	var/turf/drone_turf = get_turf(src)
+	var/flip_angle = rand(-150,150)
+	var/angle_low = floor(flip_angle / 2)
+	var/angle_high = ceil(flip_angle / 2)
+	var/matrix/A = matrix()
+	var/matrix/B = matrix()
+	color = "#FFFFFF"
+	A.Turn(angle_low)
+	B.Turn(angle_high)
+	var/anim_height = rand(4,20)
+	var/anim_height_low = floor(anim_height / 2)
+	var/anim_height_high = ceil(anim_height / 2)
+	var/anim_width = rand(-20,20)
+	var/anim_width_low = floor(anim_width / 2)
+	var/anim_width_high = ceil(anim_width / 2)
+	animate(src, time = 3, transform = A, pixel_x = anim_width_low, pixel_y = anim_height_low, easing=QUAD_EASING|EASE_IN, flags = ANIMATION_RELATIVE)
+	animate(time = 3, transform = B, pixel_x = anim_width_high, pixel_y = anim_height_high, easing=QUAD_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
+	sleep(30)
+	drone_turf.vis_contents += src
+	qdel(src)
 
 /mob/living/pve_boss_drone/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
-	drone_health -= 1
-	if(drone_health <= 0)
-		drone_attack_breakpoint = 1
-		qdel(src)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
+	if(drone_no_damage == 0)
+		drone_health -= 1
+		if(drone_health <= 0)
+			drone_attack_breakpoint = 1
+			DeathAnim()
 
 /mob/living/pve_boss_drone/Destroy()
 	if(drone_no_despawn == 0)
 		GLOB.boss_loose_drones.Remove(src)
+	if(source_landmark)
+		source_landmark.spawned_bot = null
 	else
 		GLOB.boss_drones -= 1
 		if(GLOB.boss_drones == 0) reactivate_boss()
 	. = ..()
 
-
+/mob/living/pve_boss_drone/proc/AnimateEntry()
+	drone_no_damage = 1
+	pixel_y = 300
+	animate(src, pixel_y = 0, time = 15, easing = CUBIC_EASING|EASE_IN)
+	sleep(15)
+	drone_no_damage = 0
+	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,scan_cycle))
 
 /mob/living/pve_boss_drone/Initialize()
 	if(drone_no_despawn == 0) GLOB.boss_loose_drones.Add(src)
-	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,scan_cycle))
+	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,AnimateEntry))
 	. = ..()

@@ -54,7 +54,8 @@
 /mob/living/carbon/human/Destroy()
 
 	var/area/current_area = get_area(src)
-	if(current_area.players_active.Find(src) == 1) current_area.players_active.Remove(src)
+	if(current_area)
+		if(current_area.players_active.Find(src) == 1) current_area.players_active.Remove(src)
 	SSround_recording.recorder.stop_tracking(src)
 	remove_from_all_mob_huds()
 	assigned_equipment_preset = null

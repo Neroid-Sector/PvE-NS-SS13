@@ -4,7 +4,7 @@
 /area/space)
 "ab" = (
 /turf/closed/wall/almayer/outer,
-/area/tdome)
+/area/tdome/test_4)
 "ac" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -65,6 +65,13 @@
 	icon_state = "silver"
 	},
 /area/adminlevel/ert_station)
+"bQ" = (
+/obj/effect/landmark/pve_mob,
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_4)
 "co" = (
 /obj/structure/machinery/status_display{
 	pixel_y = 30
@@ -127,6 +134,16 @@
 "dy" = (
 /turf/open/floor/wood,
 /area/centcom/living)
+"dF" = (
+/obj/structure/machinery/door/poddoor/almayer/locked{
+	dir = 4;
+	id = "tdome_t2";
+	name = "\improper Team 2 Shutters"
+	},
+/turf/open/floor/tdome{
+	icon_state = "test_floor4"
+	},
+/area/tdome/test_4)
 "dG" = (
 /turf/open/floor/plating/almayer,
 /area/adminlevel/ert_station/shuttle_dispatch)
@@ -373,6 +390,15 @@
 	icon_state = "mono"
 	},
 /area/centcom/control)
+"gj" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E"
+	},
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_4)
 "gu" = (
 /turf/open/floor/plating,
 /area/admin/droppod/holding)
@@ -477,7 +503,7 @@
 /turf/open/floor/tdome{
 	icon_state = "test_floor4"
 	},
-/area/tdome)
+/area/tdome/test_1)
 "jS" = (
 /turf/open/floor/tdome{
 	icon_state = "tcomms"
@@ -502,6 +528,12 @@
 	icon_state = "floor"
 	},
 /area/adminlevel/ert_station)
+"kP" = (
+/turf/closed/wall/almayer/outer,
+/area/tdome/test_2)
+"lV" = (
+/turf/closed/wall/almayer/outer,
+/area/tdome/test_1)
 "me" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -541,7 +573,7 @@
 	dir = 5;
 	icon_state = "plating"
 	},
-/area/tdome)
+/area/tdome/test_2)
 "nP" = (
 /turf/open/floor/almayer{
 	dir = 8;
@@ -576,6 +608,13 @@
 	icon_state = "silver"
 	},
 /area/adminlevel/ert_station)
+"oj" = (
+/obj/effect/landmark/pve_mob,
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_2)
 "op" = (
 /obj/structure/machinery/cryopod,
 /obj/structure/sign/safety/cryo{
@@ -583,6 +622,13 @@
 	},
 /turf/open/floor/carpet,
 /area/adminlevel/ert_station)
+"or" = (
+/obj/effect/landmark/pve_mob,
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_3)
 "ot" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -609,7 +655,7 @@
 	dir = 5;
 	icon_state = "plating"
 	},
-/area/tdome)
+/area/tdome/test_1)
 "oQ" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -728,6 +774,12 @@
 	icon_state = "plating"
 	},
 /area/tdome/tdomeobserve)
+"rW" = (
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_1)
 "sj" = (
 /obj/structure/machinery/faxmachine,
 /obj/structure/surface/table/reinforced/prison,
@@ -928,6 +980,9 @@
 	icon_state = "plating"
 	},
 /area/adminlevel/ert_station)
+"vF" = (
+/turf/closed/wall/almayer/outer,
+/area/tdome/test_3)
 "vH" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -1036,6 +1091,12 @@
 	icon_state = "w-y2"
 	},
 /area/adminlevel/ert_station)
+"xV" = (
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_2)
 "yk" = (
 /obj/structure/surface/table/reinforced,
 /obj/structure/machinery/processor{
@@ -1159,6 +1220,17 @@
 	icon_state = "sterile_green_side"
 	},
 /area/adminlevel/ert_station)
+"AE" = (
+/obj/structure/window/framed/almayer/hull,
+/obj/structure/machinery/door/poddoor/almayer/open{
+	id = "tdome_observer";
+	name = "\improper Observer Shutters"
+	},
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_2)
 "AI" = (
 /obj/structure/sign/poster{
 	pixel_x = -32;
@@ -1265,6 +1337,12 @@
 	icon_state = "kitchen"
 	},
 /area/adminlevel/ert_station)
+"Dn" = (
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_4)
 "Do" = (
 /obj/structure/mirror,
 /turf/closed/wall/r_wall/unmeltable,
@@ -1396,7 +1474,7 @@
 /turf/open/floor/tdome{
 	icon_state = "test_floor4"
 	},
-/area/tdome)
+/area/tdome/test_2)
 "Fd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -1545,6 +1623,12 @@
 	icon_state = "dark_sterile"
 	},
 /area/adminlevel/ert_station)
+"Hp" = (
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_3)
 "Hv" = (
 /obj/structure/bed/chair/comfy/black,
 /turf/open/floor/tdome{
@@ -1734,7 +1818,7 @@
 	dir = 5;
 	icon_state = "plating"
 	},
-/area/tdome)
+/area/tdome/test_3)
 "Lt" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -1969,6 +2053,16 @@
 "OT" = (
 /turf/closed/wall/almayer/outer,
 /area/tdome/tdomeobserve)
+"OW" = (
+/obj/structure/machinery/door/poddoor/almayer/locked{
+	dir = 4;
+	id = "tdome_t1";
+	name = "\improper Team 1 Shutters"
+	},
+/turf/open/floor/tdome{
+	icon_state = "test_floor4"
+	},
+/area/tdome/test_3)
 "Po" = (
 /obj/structure/bed,
 /obj/item/bedsheet,
@@ -1989,6 +2083,13 @@
 "PE" = (
 /turf/open/floor/engine,
 /area/adminlevel/simulation)
+"PI" = (
+/obj/effect/landmark/pve_mob,
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_1)
 "PS" = (
 /obj/item/trash/cigbutt/cigarbutt,
 /turf/open/floor/almayer{
@@ -2413,6 +2514,15 @@
 /obj/structure/sign/poster/music,
 /turf/closed/wall,
 /area/adminlevel/ert_station)
+"Xz" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "W"
+	},
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome/test_1)
 "XA" = (
 /obj/structure/surface/table/woodentable/fancy,
 /obj/item/reagent_container/food/snacks/pastatomato,
@@ -4143,17 +4253,17 @@ aa
 aC
 aC
 aa
-ab
-ab
-ab
+lV
+lV
+lV
 ju
 ju
 ju
-ju
-ju
-ab
-ab
-ab
+OW
+OW
+vF
+vF
+vF
 aa
 aC
 aC
@@ -4295,17 +4405,17 @@ aa
 aC
 aa
 aa
-ab
-iA
-iA
+lV
+rW
+rW
+Xz
+Xz
+Xz
 Lq
 Lq
-Lq
-Lq
-Lq
-iA
-iA
-ab
+Hp
+Hp
+vF
 aa
 aa
 aC
@@ -4446,19 +4556,19 @@ aa
 aa
 aC
 aa
-ab
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-ab
-ab
+lV
+lV
+rW
+PI
+rW
+rW
+rW
+Hp
+Hp
+Hp
+Hp
+vF
+vF
 aa
 aC
 as
@@ -4598,19 +4708,19 @@ aa
 aa
 aC
 aa
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-ab
+lV
+rW
+rW
+rW
+rW
+rW
+rW
+Hp
+Hp
+or
+Hp
+Hp
+vF
 aa
 aC
 as
@@ -4750,19 +4860,19 @@ aa
 aa
 aC
 aa
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-ab
+lV
+rW
+rW
+rW
+rW
+rW
+rW
+Hp
+Hp
+Hp
+Hp
+Hp
+vF
 aa
 aC
 as
@@ -4902,19 +5012,19 @@ aC
 aC
 aC
 aa
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-ab
+lV
+rW
+rW
+rW
+rW
+rW
+rW
+Hp
+Hp
+Hp
+Hp
+Hp
+vF
 aa
 aC
 as
@@ -5054,19 +5164,19 @@ aa
 aa
 aa
 aa
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-ab
+lV
+rW
+rW
+rW
+rW
+PI
+rW
+Hp
+Hp
+Hp
+Hp
+Hp
+vF
 aa
 aC
 as
@@ -5206,19 +5316,19 @@ OT
 OT
 OT
 OT
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-ab
+lV
+rW
+rW
+rW
+rW
+rW
+rW
+Hp
+Hp
+Hp
+Hp
+or
+vF
 aa
 aC
 as
@@ -5359,18 +5469,18 @@ Qh
 Uw
 mB
 oD
-iA
-iA
-iA
-iA
+rW
+PI
+rW
+rW
 iA
 jS
 iA
-iA
-iA
-iA
-iA
-ab
+or
+Hp
+Hp
+Hp
+vF
 aa
 aC
 as
@@ -5511,18 +5621,18 @@ Qh
 Qh
 Hv
 oD
-iA
-iA
-iA
-iA
+rW
+rW
+rW
+rW
 jS
 sq
 jS
-iA
-iA
-iA
-iA
-ab
+Hp
+Hp
+Hp
+Hp
+vF
 aa
 aC
 as
@@ -5663,18 +5773,18 @@ Qh
 Qh
 Hv
 oD
-iA
-iA
-iA
-iA
+rW
+rW
+rW
+rW
 jS
 Ed
 jS
-iA
-iA
-iA
-iA
-ab
+Hp
+Hp
+Hp
+Hp
+vF
 aa
 aC
 as
@@ -5814,18 +5924,18 @@ Qh
 Qh
 Qh
 Hv
-oD
-iA
-iA
-iA
-iA
+AE
+xV
+xV
+xV
+xV
 jS
 SB
 jS
-iA
-iA
-iA
-iA
+Dn
+Dn
+Dn
+Dn
 ab
 aa
 aC
@@ -5966,18 +6076,18 @@ Qh
 Qh
 jp
 mB
-oD
-iA
-iA
-iA
-iA
+AE
+xV
+xV
+xV
+xV
 iA
 jS
 iA
-iA
-iA
-iA
-iA
+bQ
+Dn
+Dn
+Dn
 ab
 aa
 aC
@@ -6118,18 +6228,18 @@ OT
 OT
 OT
 OT
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
+kP
+xV
+oj
+xV
+xV
+xV
+xV
+Dn
+Dn
+Dn
+Dn
+Dn
 ab
 aa
 aC
@@ -6270,18 +6380,18 @@ aa
 aa
 aa
 aa
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
+kP
+xV
+xV
+xV
+xV
+xV
+xV
+Dn
+Dn
+Dn
+Dn
+Dn
 ab
 aa
 aC
@@ -6422,18 +6532,18 @@ aa
 aa
 aa
 aa
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
+kP
+xV
+xV
+xV
+xV
+xV
+xV
+Dn
+Dn
+Dn
+Dn
+bQ
 ab
 aa
 aC
@@ -6574,18 +6684,18 @@ aC
 aC
 aC
 aa
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
+kP
+xV
+xV
+xV
+xV
+xV
+oj
+Dn
+Dn
+Dn
+Dn
+Dn
 ab
 aa
 aC
@@ -6726,18 +6836,18 @@ aa
 aa
 aC
 aa
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
+kP
+xV
+oj
+xV
+xV
+xV
+xV
+Dn
+Dn
+Dn
+Dn
+Dn
 ab
 aa
 aC
@@ -6878,17 +6988,17 @@ aa
 aa
 aC
 aa
-ab
-ab
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
-iA
+kP
+kP
+xV
+xV
+xV
+xV
+xV
+Dn
+bQ
+Dn
+Dn
 ab
 ab
 aa
@@ -7031,16 +7141,16 @@ aa
 aC
 aa
 aa
-ab
-iA
-iA
+kP
+xV
+xV
 no
 no
 no
-no
-no
-iA
-iA
+gj
+gj
+Dn
+Dn
 ab
 aa
 aa
@@ -7183,14 +7293,14 @@ aa
 aC
 aC
 aa
-ab
-ab
-ab
+kP
+kP
+kP
 Fa
 Fa
 Fa
-Fa
-Fa
+dF
+dF
 ab
 ab
 ab
