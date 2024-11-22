@@ -356,7 +356,7 @@
 
 /mob/living/pve_boss_drone/Destroy()
 	if(drone_no_despawn == 0)
-		GLOB.boss_loose_drones -= 1
+		GLOB.boss_loose_drones.Remove(src)
 	else
 		GLOB.boss_drones -= 1
 		if(GLOB.boss_drones == 0) reactivate_boss()
@@ -365,6 +365,6 @@
 
 
 /mob/living/pve_boss_drone/Initialize()
-	if(drone_no_despawn == 0) GLOB.boss_loose_drones += 1
+	if(drone_no_despawn == 0) GLOB.boss_loose_drones.Add(src)
 	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,scan_cycle))
 	. = ..()

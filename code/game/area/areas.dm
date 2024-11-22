@@ -79,6 +79,13 @@
 	var/used_environ = 0
 	var/used_oneoff = 0 //one-off power usage
 
+	// Mob spawning and boss controling shenanigans
+	// These lists are here for the code and should not be touched otherwise, everything should fill from elsewhere
+
+	var/list/mob_spawners = list()
+	var/list/boss_waypoints = list()
+	var/list/players_active = list()
+
 
 /area/New()
 	// This interacts with the map loader, so it needs to be set immediately
@@ -367,7 +374,16 @@
 		if(POWER_CHANNEL_ONEOFF)
 			used_oneoff += amount
 
+/area/proc/MobLoop()
+	if(players_active.len > 0)
+		return
+
 /area/Entered(A,atom/OldLoc)
+	if(istype(A, /mob/living/carbon/human))
+		var/mob/living/carbon/human/human_entering = A
+		if(human_entering.client != null)
+			if(players_active.Find(human_entering) == 0)
+				players_active.Add(human_entering)
 	if(ismob(A))
 		if(!OldLoc)
 			return
@@ -380,6 +396,10 @@
 		add_machine(A)
 
 /area/Exited(A)
+	if(istype(A, /mob/living/carbon/human))
+		var/mob/living/carbon/human/human_leaving = A
+		if(players_active.Find(human_leaving) == 0)
+			players_active.Remove(human_leaving)
 	if(istype(A, /obj/structure/machinery))
 		remove_machine(A)
 	else if(ismob(A))
@@ -470,4 +490,3 @@
 	if(!areas_in_z["[z]"])
 		areas_in_z["[z]"] = list()
 	areas_in_z["[z]"] += src
-
