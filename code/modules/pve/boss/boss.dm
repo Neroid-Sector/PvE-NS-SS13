@@ -304,10 +304,11 @@
 	var/drone_no_damage = 0
 	var/drone_attack_breakpoint = 0
 	var/drone_no_despawn = 0
-	var/drone_last_fired
+	var/drone_last_fired = 0
 
 /mob/living/pve_boss_drone/proc/fire_on_target(turf/target)
 	var/turf/drone_target = target
+	if(drone_attack_breakpoint == 1) return
 	if(!drone_target) return
 	if((drone_last_fired + 10) > world.time) return
 	if(drone_attack_breakpoint == 0)
@@ -327,6 +328,7 @@
 	return
 
 /mob/living/pve_boss_drone/proc/scan_cycle()
+	if(drone_attack_breakpoint == 1) return
 	for(var/mob/living/carbon/human/potential_target in range(8,get_turf(src)))
 		if(!potential_target)
 			if(drone_no_despawn == 0)
@@ -384,10 +386,12 @@
 			DeathAnim()
 
 /mob/living/pve_boss_drone/Destroy()
+	drone_attack_breakpoint = 1
 	if(drone_no_despawn == 0)
 		GLOB.boss_loose_drones.Remove(src)
 	if(source_landmark)
 		source_landmark.spawned_bot = null
+		source_landmark = null
 	else
 		GLOB.boss_drones -= 1
 		if(GLOB.boss_drones == 0) reactivate_boss()
