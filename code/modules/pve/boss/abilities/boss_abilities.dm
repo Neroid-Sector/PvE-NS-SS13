@@ -28,6 +28,7 @@
 		return
 	for(var/mob/living/carbon/human/target_to_warn in mobs_in_range)
 		INVOKE_ASYNC(target_to_warn, TYPE_PROC_REF(/mob/living/carbon/human/, warning_ping),"The platforms laser visibly heats up as it charges a blast!")
+	INVOKE_ASYNC(src, PROC_REF(action_cooldown_set),"aoe_sh")
 	boss.overlays += (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
 	boss.boss_immobilized = 1
 	boss.boss_exposed = 1
@@ -35,6 +36,7 @@
 	boss.overlays -= (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
 	boss.boss_immobilized = 0
 	boss.boss_exposed = 0
+	process_regular_movement()
 	playsound(boss, 'sound/items/pulse3.ogg', 50)
 	for(var/mob/living/carbon/human/target_to_shoot in mobs_in_range)
 		var/turf/target = get_turf(target_to_shoot)
@@ -181,6 +183,8 @@
 		empty_loop_counter = 0
 		var/mob/living/carbon/human/target_to_hit = pick(mobs_to_target)
 		if(boss.hit_by_explosions.Find(target_to_hit) == 0)
+			if(boss.ability_delays["missiles"] < world.time)
+				INVOKE_ASYNC(src, PROC_REF(action_cooldown_set),"missiles")
 			var/turf/turf_to_hit = get_turf(target_to_hit)
 			var/list/turfs_to_hit = list()
 			var/x_min = turf_to_hit.x - 2
@@ -211,7 +215,6 @@
 	if (!action_cooldown_check())
 		return
 	boss.hit_by_explosions = list()
-	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),120)
 	var/turf/target_turf = get_turf(affected_atom)
 	for(var/mob/living/carbon/human/target in world)
 		var/turf/mob_turf = get_turf(target)
@@ -422,12 +425,9 @@
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
 		return
-	if (!action_cooldown_check())
-		return
 	if(boss.boss_immobilized == 1) return
 	boss.movement_target = null
 	boss.movement_switch = 0
-	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),60)
 	var/turf/targeted_turf = get_turf(target)
 	for(var/turf/turf_in_range in range(3,get_turf(boss)))
 		if(turf_in_range == targeted_turf)
@@ -547,7 +547,7 @@
 		return
 	if (!action_cooldown_check())
 		return
-	INVOKE_ASYNC(src, PROC_REF(usage_cooldown_loop),10)
+	INVOKE_ASYNC(src, PROC_REF(action_cooldown_set),"shot")
 	var/turf/laser_target = get_turf(target)
 	if(!laser_target) return
 	boss.boss_exposed = 1

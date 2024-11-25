@@ -23,10 +23,14 @@
 	var/boss_shield_broken = 0
 	var/boss_critical_available = 0
 
+	var/boss_loop_override = 0
+
 	var/datum/boss_action/boss_ability //The main ability datum, containing ALL boss abilities. Said datum is pretty disorganized :P
 
-	// None of these should be touched, they are used by the datums for reference.
-	var/action_activated = 0
+	// Needs to be set per mob. Used by automation script to determine when abilities were used and expected delays. Order in _log matters, it will be the order the AI tries to fire the abilities which can produce some minor changes in behavior
+
+	var/list/ability_log = list()
+	var/list/ability_delays = list()
 
 	//Individual skill values should also be defined here. This can be pushed down the tree by messing with the boss_ability datum (specfically plug in something from down its own tree to it with a custom set or waht have you), but I dont feel like doing that.
 	var/standard_range_salvo_count = 3
@@ -45,6 +49,9 @@
 	//npc drone spawning
 	var/list/drone_turfs = list()
 
+	//pain goes here. Also the AI datum.
+	var/datum/boss_ai/ai_datum
+
 /mob/living/pve_boss/Move(NewLoc, direct)
 	if(boss_immobilized == 1) return
 	if(movement_switch == 0)
@@ -57,6 +64,7 @@
 	. = ..()
 	boss_ability = new /datum/boss_action/(boss = src)
 	click_intercept = new /datum/bossclicking/(boss = src)
+	ai_datum = new /datum/boss_ai/(boss = src)
 	boss_shield_max = boss_shield
 
 /mob/living/pve_boss/update_icons()
@@ -264,6 +272,10 @@
 			boss_health -= damage_ammount
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_hit))
 
+/mob/living/pve_boss/Destroy()
+	boss_loop_override = 1
+	. = ..()
+
 /datum/boss_action/
 
 	var/mob/owner = null
@@ -274,18 +286,19 @@
 	owner = boss
 
 
-/datum/boss_action/proc/action_cooldown_check()
+/datum/boss_action/proc/action_cooldown_check(name = null)
+	if(name == null) return
+	var/ability_name = name
 	var/mob/living/pve_boss/boss_mob = owner
-	if(boss_mob.action_activated) return 0
+	if(boss_mob.ability_log[ability_name] > world.time) return 0
 	else return 1
 
-
-/datum/boss_action/proc/usage_cooldown_loop(amount)
+/datum/boss_action/proc/action_cooldown_set(name = null)
+	if(name == null) return
+	var/ability_name = name
 	var/mob/living/pve_boss/boss_mob = owner
-	if(!amount) return
-	boss_mob.action_activated = 1
-	sleep(amount)
-	boss_mob.action_activated = 0
+	boss_mob.ability_log[ability_name] = world.time + boss_mob.ability_delays[ability_name]
+	return
 
 /mob/living/pve_boss/proc/AnimateEntry()
 	return

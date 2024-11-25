@@ -24,6 +24,13 @@
 	langchat_color = "#ff1313"
 	mob_size = MOB_SIZE_IMMOBILE
 	see_in_dark = 255
+	ability_log = list ("missiles" = 0,
+		"shot" = 0,
+		"aoe_shot" = 0,
+		) //Relocate and the circle aoe dont need this since they are both used out of the loop
+	ability_delays = list ("shot" = 15,
+		"aoe_shot" = 150,
+		"missiles" = 1200,)
 
 /mob/living/pve_boss/missle_bot/alpha
 	boss_alpha = 1
