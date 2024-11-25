@@ -356,7 +356,6 @@
 
 /mob/living/pve_boss_drone/proc/DeathAnim()
 
-	var/turf/drone_turf = get_turf(src)
 	var/flip_angle = rand(-150,150)
 	var/angle_low = floor(flip_angle / 2)
 	var/angle_high = ceil(flip_angle / 2)
@@ -374,6 +373,7 @@
 	animate(src, time = 3, transform = A, pixel_x = anim_width_low, pixel_y = anim_height_low, easing=QUAD_EASING|EASE_IN, flags = ANIMATION_RELATIVE)
 	animate(time = 3, transform = B, pixel_x = anim_width_high, pixel_y = anim_height_high, easing=QUAD_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
 	sleep(30)
+	var/turf/drone_turf = get_turf(src)
 	drone_turf.vis_contents += src
 	qdel(src)
 
