@@ -6,23 +6,33 @@
 	. = ..()
 	boss_mob = boss
 
+/datum/boss_ai/proc/pick_and_move()
+	var/mob/living/pve_boss/boss = boss_mob
+	var/current_turf = get_turf(boss)
+	var/list/potential_turfs = list()
+	potential_turfs = boss.movement_turfs.Copy()
+	if(potential_turfs.Find(current_turf) == 1)
+		potential_turfs.Remove(current_turf)
+	var/picked_turf = pick(potential_turfs)
+	boss.boss_ability.move_destination(picked_turf)
+
 /datum/boss_ai/proc/movement_loop()
 	var/mob/living/pve_boss/boss = boss_mob
+	var/boss_turf = get_turf(boss)
 	if(boss_mob.boss_loop_override == 1) return
 	if(boss.movement_target != null)
-		sleep(10)
-		INVOKE_ASYNC(src,PROC_REF(movement_loop))
-		return
-	var/list/potential_turfs = list()
+		if(boss.movement_target == boss_turf)
+			boss.movement_target = null
+			INVOKE_ASYNC(src,PROC_REF(movement_loop))
+			return
+		else
+			sleep(10)
+			INVOKE_ASYNC(src,PROC_REF(movement_loop))
+			return
 	if(boss.movement_turfs == null)
 		message_admins("[boss] tried to load navigation waypoints, but failed because its mob has none saved. Likely a mapping issue.")
 		return
-	potential_turfs = boss.movement_turfs
-	var/boss_turf = get_turf(boss)
-	if(potential_turfs.Find(boss_turf) == 1)
-		potential_turfs.Remove(boss_turf)
-	var/picked_turf = pick(potential_turfs)
-	boss.boss_ability.move_destination(picked_turf)
+	INVOKE_ASYNC(src,PROC_REF(pick_and_move))
 	sleep(10)
 	INVOKE_ASYNC(src,PROC_REF(movement_loop))
 	return
