@@ -4,7 +4,7 @@
 /area/space)
 "ab" = (
 /turf/closed/wall/almayer/outer,
-/area/tdome/test_4)
+/area/tdome)
 "ac" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -65,13 +65,6 @@
 	icon_state = "silver"
 	},
 /area/adminlevel/ert_station)
-"bQ" = (
-/obj/effect/landmark/pve_mob,
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome/test_4)
 "co" = (
 /obj/structure/machinery/status_display{
 	pixel_y = 30
@@ -143,7 +136,7 @@
 /turf/open/floor/tdome{
 	icon_state = "test_floor4"
 	},
-/area/tdome/test_4)
+/area/tdome)
 "dG" = (
 /turf/open/floor/plating/almayer,
 /area/adminlevel/ert_station/shuttle_dispatch)
@@ -398,7 +391,7 @@
 	dir = 5;
 	icon_state = "plating"
 	},
-/area/tdome/test_4)
+/area/tdome)
 "gu" = (
 /turf/open/floor/plating,
 /area/admin/droppod/holding)
@@ -503,7 +496,7 @@
 /turf/open/floor/tdome{
 	icon_state = "test_floor4"
 	},
-/area/tdome/test_1)
+/area/tdome)
 "jS" = (
 /turf/open/floor/tdome{
 	icon_state = "tcomms"
@@ -528,12 +521,6 @@
 	icon_state = "floor"
 	},
 /area/adminlevel/ert_station)
-"kP" = (
-/turf/closed/wall/almayer/outer,
-/area/tdome/test_2)
-"lV" = (
-/turf/closed/wall/almayer/outer,
-/area/tdome/test_1)
 "me" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -569,11 +556,12 @@
 /obj/effect/decal/warning_stripes{
 	icon_state = "E"
 	},
+/obj/effect/landmark/pve_boss_navigation,
 /turf/open/floor/tdome{
 	dir = 5;
 	icon_state = "plating"
 	},
-/area/tdome/test_2)
+/area/tdome)
 "nP" = (
 /turf/open/floor/almayer{
 	dir = 8;
@@ -614,7 +602,7 @@
 	dir = 5;
 	icon_state = "plating"
 	},
-/area/tdome/test_2)
+/area/tdome)
 "op" = (
 /obj/structure/machinery/cryopod,
 /obj/structure/sign/safety/cryo{
@@ -622,13 +610,6 @@
 	},
 /turf/open/floor/carpet,
 /area/adminlevel/ert_station)
-"or" = (
-/obj/effect/landmark/pve_mob,
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome/test_3)
 "ot" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -655,7 +636,7 @@
 	dir = 5;
 	icon_state = "plating"
 	},
-/area/tdome/test_1)
+/area/tdome)
 "oQ" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -775,11 +756,12 @@
 	},
 /area/tdome/tdomeobserve)
 "rW" = (
+/obj/effect/landmark/pve_boss_navigation,
 /turf/open/floor/tdome{
 	dir = 5;
 	icon_state = "plating"
 	},
-/area/tdome/test_1)
+/area/tdome)
 "sj" = (
 /obj/structure/machinery/faxmachine,
 /obj/structure/surface/table/reinforced/prison,
@@ -980,9 +962,6 @@
 	icon_state = "plating"
 	},
 /area/adminlevel/ert_station)
-"vF" = (
-/turf/closed/wall/almayer/outer,
-/area/tdome/test_3)
 "vH" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -1091,12 +1070,6 @@
 	icon_state = "w-y2"
 	},
 /area/adminlevel/ert_station)
-"xV" = (
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome/test_2)
 "yk" = (
 /obj/structure/surface/table/reinforced,
 /obj/structure/machinery/processor{
@@ -1220,17 +1193,6 @@
 	icon_state = "sterile_green_side"
 	},
 /area/adminlevel/ert_station)
-"AE" = (
-/obj/structure/window/framed/almayer/hull,
-/obj/structure/machinery/door/poddoor/almayer/open{
-	id = "tdome_observer";
-	name = "\improper Observer Shutters"
-	},
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome/test_2)
 "AI" = (
 /obj/structure/sign/poster{
 	pixel_x = -32;
@@ -1337,12 +1299,6 @@
 	icon_state = "kitchen"
 	},
 /area/adminlevel/ert_station)
-"Dn" = (
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome/test_4)
 "Do" = (
 /obj/structure/mirror,
 /turf/closed/wall/r_wall/unmeltable,
@@ -1390,6 +1346,7 @@
 /turf/open/floor/plating/almayer,
 /area/adminlevel/ert_station/shuttle_dispatch)
 "Ed" = (
+/obj/effect/landmark/pve_boss_navigation,
 /turf/open/floor/tdome{
 	dir = 1;
 	icon_state = "w-y1"
@@ -1465,16 +1422,6 @@
 	icon_state = "silver"
 	},
 /area/adminlevel/ert_station/shuttle_dispatch)
-"Fa" = (
-/obj/structure/machinery/door/poddoor/almayer/locked{
-	dir = 4;
-	id = "tdome_t2";
-	name = "\improper Team 2 Shutters"
-	},
-/turf/open/floor/tdome{
-	icon_state = "test_floor4"
-	},
-/area/tdome/test_2)
 "Fd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -1623,12 +1570,6 @@
 	icon_state = "dark_sterile"
 	},
 /area/adminlevel/ert_station)
-"Hp" = (
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome/test_3)
 "Hv" = (
 /obj/structure/bed/chair/comfy/black,
 /turf/open/floor/tdome{
@@ -1818,7 +1759,7 @@
 	dir = 5;
 	icon_state = "plating"
 	},
-/area/tdome/test_3)
+/area/tdome)
 "Lt" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -2053,16 +1994,6 @@
 "OT" = (
 /turf/closed/wall/almayer/outer,
 /area/tdome/tdomeobserve)
-"OW" = (
-/obj/structure/machinery/door/poddoor/almayer/locked{
-	dir = 4;
-	id = "tdome_t1";
-	name = "\improper Team 1 Shutters"
-	},
-/turf/open/floor/tdome{
-	icon_state = "test_floor4"
-	},
-/area/tdome/test_3)
 "Po" = (
 /obj/structure/bed,
 /obj/item/bedsheet,
@@ -2083,13 +2014,6 @@
 "PE" = (
 /turf/open/floor/engine,
 /area/adminlevel/simulation)
-"PI" = (
-/obj/effect/landmark/pve_mob,
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome/test_1)
 "PS" = (
 /obj/item/trash/cigbutt/cigarbutt,
 /turf/open/floor/almayer{
@@ -2518,11 +2442,12 @@
 /obj/effect/decal/warning_stripes{
 	icon_state = "W"
 	},
+/obj/effect/landmark/pve_boss_navigation,
 /turf/open/floor/tdome{
 	dir = 5;
 	icon_state = "plating"
 	},
-/area/tdome/test_1)
+/area/tdome)
 "XA" = (
 /obj/structure/surface/table/woodentable/fancy,
 /obj/item/reagent_container/food/snacks/pastatomato,
@@ -4253,17 +4178,17 @@ aa
 aC
 aC
 aa
-lV
-lV
-lV
+ab
+ab
+ab
 ju
 ju
 ju
-OW
-OW
-vF
-vF
-vF
+ju
+ju
+ab
+ab
+ab
 aa
 aC
 aC
@@ -4405,17 +4330,17 @@ aa
 aC
 aa
 aa
-lV
-rW
-rW
-Xz
-Xz
+ab
+iA
+iA
+Lq
+Lq
 Xz
 Lq
 Lq
-Hp
-Hp
-vF
+iA
+iA
+ab
 aa
 aa
 aC
@@ -4556,19 +4481,19 @@ aa
 aa
 aC
 aa
-lV
-lV
-rW
-PI
-rW
-rW
-rW
-Hp
-Hp
-Hp
-Hp
-vF
-vF
+ab
+ab
+iA
+oj
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+ab
+ab
 aa
 aC
 as
@@ -4708,19 +4633,19 @@ aa
 aa
 aC
 aa
-lV
-rW
-rW
-rW
-rW
-rW
-rW
-Hp
-Hp
-or
-Hp
-Hp
-vF
+ab
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+oj
+iA
+iA
+ab
 aa
 aC
 as
@@ -4860,19 +4785,19 @@ aa
 aa
 aC
 aa
-lV
+ab
+iA
+iA
 rW
+iA
+iA
+iA
+iA
+iA
+iA
 rW
-rW
-rW
-rW
-rW
-Hp
-Hp
-Hp
-Hp
-Hp
-vF
+iA
+ab
 aa
 aC
 as
@@ -5012,19 +4937,19 @@ aC
 aC
 aC
 aa
-lV
-rW
-rW
-rW
-rW
-rW
-rW
-Hp
-Hp
-Hp
-Hp
-Hp
-vF
+ab
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+ab
 aa
 aC
 as
@@ -5164,19 +5089,19 @@ aa
 aa
 aa
 aa
-lV
-rW
-rW
-rW
-rW
-PI
-rW
-Hp
-Hp
-Hp
-Hp
-Hp
-vF
+ab
+iA
+iA
+iA
+iA
+oj
+iA
+iA
+iA
+iA
+iA
+iA
+ab
 aa
 aC
 as
@@ -5316,19 +5241,19 @@ OT
 OT
 OT
 OT
-lV
-rW
-rW
-rW
-rW
-rW
-rW
-Hp
-Hp
-Hp
-Hp
-or
-vF
+ab
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+oj
+ab
 aa
 aC
 as
@@ -5469,18 +5394,18 @@ Qh
 Uw
 mB
 oD
-rW
-PI
-rW
-rW
+iA
+oj
+iA
+iA
 iA
 jS
 iA
-or
-Hp
-Hp
-Hp
-vF
+oj
+iA
+iA
+iA
+ab
 aa
 aC
 as
@@ -5621,18 +5546,18 @@ Qh
 Qh
 Hv
 oD
-rW
-rW
-rW
-rW
+iA
+iA
+iA
+iA
 jS
 sq
 jS
-Hp
-Hp
-Hp
-Hp
-vF
+iA
+iA
+iA
+iA
+ab
 aa
 aC
 as
@@ -5774,17 +5699,17 @@ Qh
 Hv
 oD
 rW
-rW
-rW
-rW
+iA
+iA
+iA
 jS
 Ed
 jS
-Hp
-Hp
-Hp
-Hp
-vF
+iA
+iA
+iA
+rW
+ab
 aa
 aC
 as
@@ -5924,18 +5849,18 @@ Qh
 Qh
 Qh
 Hv
-AE
-xV
-xV
-xV
-xV
+oD
+iA
+iA
+iA
+iA
 jS
 SB
 jS
-Dn
-Dn
-Dn
-Dn
+iA
+iA
+iA
+iA
 ab
 aa
 aC
@@ -6076,18 +6001,18 @@ Qh
 Qh
 jp
 mB
-AE
-xV
-xV
-xV
-xV
+oD
+iA
+iA
+iA
+iA
 iA
 jS
 iA
-bQ
-Dn
-Dn
-Dn
+oj
+iA
+iA
+iA
 ab
 aa
 aC
@@ -6228,18 +6153,18 @@ OT
 OT
 OT
 OT
-kP
-xV
+ab
+iA
 oj
-xV
-xV
-xV
-xV
-Dn
-Dn
-Dn
-Dn
-Dn
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 ab
 aa
 aC
@@ -6380,18 +6305,18 @@ aa
 aa
 aa
 aa
-kP
-xV
-xV
-xV
-xV
-xV
-xV
-Dn
-Dn
-Dn
-Dn
-Dn
+ab
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 ab
 aa
 aC
@@ -6532,18 +6457,18 @@ aa
 aa
 aa
 aa
-kP
-xV
-xV
-xV
-xV
-xV
-xV
-Dn
-Dn
-Dn
-Dn
-bQ
+ab
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+oj
 ab
 aa
 aC
@@ -6684,18 +6609,18 @@ aC
 aC
 aC
 aa
-kP
-xV
-xV
-xV
-xV
-xV
+ab
+iA
+iA
+rW
+iA
+iA
 oj
-Dn
-Dn
-Dn
-Dn
-Dn
+iA
+iA
+iA
+rW
+iA
 ab
 aa
 aC
@@ -6836,18 +6761,18 @@ aa
 aa
 aC
 aa
-kP
-xV
+ab
+iA
 oj
-xV
-xV
-xV
-xV
-Dn
-Dn
-Dn
-Dn
-Dn
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
+iA
 ab
 aa
 aC
@@ -6988,17 +6913,17 @@ aa
 aa
 aC
 aa
-kP
-kP
-xV
-xV
-xV
-xV
-xV
-Dn
-bQ
-Dn
-Dn
+ab
+ab
+iA
+iA
+iA
+iA
+iA
+iA
+oj
+iA
+iA
 ab
 ab
 aa
@@ -7141,16 +7066,16 @@ aa
 aC
 aa
 aa
-kP
-xV
-xV
-no
-no
+ab
+iA
+iA
+gj
+gj
 no
 gj
 gj
-Dn
-Dn
+iA
+iA
 ab
 aa
 aa
@@ -7293,12 +7218,12 @@ aa
 aC
 aC
 aa
-kP
-kP
-kP
-Fa
-Fa
-Fa
+ab
+ab
+ab
+dF
+dF
+dF
 dF
 dF
 ab

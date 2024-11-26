@@ -87,7 +87,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	flags_area = AREA_NOTUNNEL
 	statistic_exempt = TRUE
 	ceiling = CEILING_METAL
-
+	mobs_spawned = 1
 	base_lighting_alpha = 255
 
 /area/tdome/tdome1
@@ -105,15 +105,3 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/tdome/tdomeobserve
 	name = "\improper abandoned  Thunderdome (Observer.)"
 	icon_state = "purple"
-
-/area/tdome/test_1
-	name = "Testing Area 1"
-
-/area/tdome/test_2
-	name = "Testing Area 2"
-
-/area/tdome/test_3
-	name = "Testing Area 3"
-
-/area/tdome/test_4
-	name = "Testing Area 4"

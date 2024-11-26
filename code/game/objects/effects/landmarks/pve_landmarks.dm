@@ -28,3 +28,8 @@
 	var/area/landmark_area = get_area(src)
 	landmark_area.boss_waypoints.Add(src)
 	. = ..()
+
+/obj/effect/landmark/pve_boss_navigation/Destroy()
+	var/area/landmark_area = get_area(src)
+	landmark_area.boss_waypoints.Remove(src)
+	. = ..()
