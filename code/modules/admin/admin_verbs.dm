@@ -180,6 +180,7 @@ var/list/admin_verbs_major_event = list(
 	/client/proc/create_surge_spawner,
 	/client/proc/test_boss_spawn,
 	/client/proc/test_drone_spawn,
+	/client/proc/boss_start,
 )
 
 var/list/admin_verbs_spawn = list(

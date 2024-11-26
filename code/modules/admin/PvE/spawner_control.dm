@@ -227,3 +227,28 @@
 
 	new /mob/living/pve_boss_drone(T)
 	return
+
+/client/proc/boss_start (mob/M in GLOB.mob_list)
+	set category = null
+	set name = "Start AI Loop"
+
+	if(!check_rights(R_DEBUG|R_ADMIN))
+		return
+
+	if(!SSticker.mode)
+		alert("Wait until the game starts")
+		return
+	if(M)
+		if(istype(M, /mob/living/pve_boss))
+			var/mob/living/pve_boss/boss = M
+			to_chat(usr, SPAN_INFO("Starting AI loops for [boss]. Terminating any stray loops first, this process takes exactly 15 ticks or 1.5 seconds."))
+			boss.boss_loop_override = 1
+			sleep(15)
+			boss.boss_loop_override = 0
+			boss.ai_datum.movement_loop()
+			boss.ai_datum.combat_loop()
+			to_chat(usr, SPAN_INFO("[boss] AI loops started/restarted."))
+			var/turf/boss_turf = get_turf(M)
+			message_admins("[key_name_admin(usr)] has started/restarted the AI loops for [M].", boss_turf.x, boss_turf.y, boss_turf.z)
+	else
+		alert("Invalid mob")
