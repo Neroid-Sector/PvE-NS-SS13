@@ -19,7 +19,7 @@
 /datum/boss_ai/proc/movement_loop()
 	var/mob/living/pve_boss/boss = boss_mob
 	var/boss_turf = get_turf(boss)
-	if(boss_mob.boss_loop_override == 1) return
+	if(boss.boss_loop_override == 1 || boss.boss_add_phase == 1) return
 	if(boss.movement_target != null)
 		if(boss.movement_target == boss_turf)
 			boss.movement_target = null
@@ -41,7 +41,7 @@
 	if(ability_name == null || ability_target == null) return
 	var/mob/living/pve_boss/boss = boss_mob
 	var/turf/target = ability_target
-	if(boss_mob.boss_loop_override == 1) return
+	if(boss.boss_loop_override == 1 || boss.boss_add_phase == 1) return
 	var/ability_to_use = ability_name
 	switch(ability_to_use)
 		if("shot")
@@ -62,7 +62,7 @@
 /datum/boss_ai/proc/combat_loop(ability_name = null, ability_delay = null)
 	var/mob/living/pve_boss/boss = boss_mob
 	var/mob/living/pve_boss/boss_turf = get_turf(boss)
-	if(boss.boss_loop_override == 1) return
+	if(boss.boss_loop_override == 1 || boss.boss_add_phase == 1) return
 	var/list/abilities_to_try = list()
 	if(boss.ability_log == null)
 		message_admins("[boss] has no ability_log. Combat loop cannot initialize.")
@@ -70,6 +70,7 @@
 	if(boss.boss_delays_started == 0)
 		init_delays()
 		boss.boss_delays_started = 1
+		boss.say("Termination Loop Initiated. Removing strays.")
 	var/list/poitential_targets = list()
 	for(var/mob/living/carbon/human/human_mob in range(10,boss_turf))
 		poitential_targets += human_mob
@@ -85,3 +86,55 @@
 	sleep(15)
 	INVOKE_ASYNC(src,PROC_REF(combat_loop))
 	return
+
+/datum/boss_ai/proc/add_covering_fire()
+	var/mob/living/pve_boss/boss = boss_mob
+	var/mob/living/pve_boss/boss_turf = get_turf(boss)
+	if(boss.boss_add_phase == 0) return
+	var/list/poitential_targets = list()
+	for(var/mob/living/carbon/human/human_mob in range(16,boss_turf))
+		poitential_targets += human_mob
+	if(poitential_targets.len > 0)
+		var/final_target = get_turf(pick(poitential_targets))
+		boss.boss_ability.fire_cannon(final_target)
+	sleep(10)
+	INVOKE_ASYNC(src, PROC_REF(add_covering_fire))
+	return
+
+/datum/boss_ai/proc/add_phase()
+	var/mob/living/pve_boss/boss = boss_mob
+	var/area/boss_area = get_area(boss)
+	var/turf/boss_turf = get_turf(boss)
+	var/turf/center_turf
+	for(var/obj/effect/landmark/pve_boss_navigation/landmark_to_check in boss_area.boss_waypoints)
+		if(landmark_to_check.id_tag == "center")
+			center_turf = get_turf(landmark_to_check)
+			break
+	if(!center_turf)
+		message_admins("Error: [boss] has no central waypoint. Picking one at random. This may be intended, but really shoudn't be.")
+		center_turf = pick(boss.movement_turfs)
+	boss.boss_add_phase = 1
+	boss.boss_no_damage = 1
+	boss.say("Considerable damage to shield detected. Activating damage deferral drones.")
+	boss.boss_ability.relocate(center_turf)
+	var/list/turfs_to_use = boss.drone_turfs.Copy()
+	turfs_to_use.Remove(center_turf)
+	while(boss.boss_adds_spawned < 4)
+		var/mob/living/pve_boss_drone/boss_variant/boss_drone = new(boss_turf)
+		boss_drone.boss_mob = boss
+		var/turf/boss_mob_turf = pick(turfs_to_use)
+		turfs_to_use.Remove(boss_mob_turf)
+		boss_drone.Move(boss_mob_turf)
+		boss.boss_adds_spawned += 1
+	INVOKE_ASYNC(src, PROC_REF(add_covering_fire))
+
+/datum/boss_ai/proc/add_phase_finish()
+	var/mob/living/pve_boss/boss = boss_mob
+	boss.boss_add_phases_cleared += 1
+	boss.boss_add_phase = 0
+	boss.boss_no_damage = 0
+	boss.boss_delays_started = 0
+	boss.say("Error: Deferral drones signal lost. Resuming standard operation. Increasing power draw.")
+	movement_loop()
+	combat_loop()
+	boss.say("Error: The Surge cannot be stopped. The Surge cannot be stopped. The Surge cannot be...")

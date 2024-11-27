@@ -6,7 +6,7 @@
 	icon_size = 64
 	speed = 1
 	boss_health = 200
-	boss_shield = 500
+	boss_shield = 100
 	boss_shield_max = 500
 	boss_shield_reset_delay = 180
 	melee_damage_lower = 30

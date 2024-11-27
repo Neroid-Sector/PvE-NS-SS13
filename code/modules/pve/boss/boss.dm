@@ -24,7 +24,6 @@
 	var/boss_critical_available = 0
 
 	var/boss_loop_override = 0
-
 	var/datum/boss_action/boss_ability //The main ability datum, containing ALL boss abilities. Said datum is pretty disorganized :P
 
 	// Needs to be set per mob. Used by automation script to determine when abilities were used and expected delays. Order in _log matters, it will be the order the AI tries to fire the abilities which can produce some minor changes in behavior
@@ -48,6 +47,9 @@
 
 	//npc drone spawning
 	var/list/drone_turfs = list()
+	var/boss_add_phase = 0
+	var/boss_adds_spawned = 0
+	var/boss_add_phases_cleared = 0
 
 	//pain goes here. Also the AI datum.
 	var/datum/boss_ai/ai_datum
@@ -258,9 +260,20 @@
 	animate(src, pixel_x = pixel_x_val, pixel_y = pixel_y_val, color = color_value, time = 1)
 	animate(color = "#FFFFFF", pixel_x = pixel_x_org, pixel_y = pixel_y_org, time = 1)
 
+/mob/living/pve_boss/proc/AddPhaseCheck()
+	if(boss_add_phases_cleared == 0)
+		if(boss_shield <= (boss_shield_max / 2))
+			ai_datum.add_phase()
+			return
+
+/mob/living/pve_boss/proc/AddPhaseResolutionCheck()
+	if(boss_adds_spawned <= 0)
+		ai_datum.add_phase_finish()
+		return
 
 /mob/living/pve_boss/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
 	if(boss_no_damage == 1) return
+	if(boss_health <= 0) return
 	var/damage_ammount = damage
 	GLOB.stats_boss_total_damage += damage_ammount
 	GLOB.stats_boss_hits += 1
@@ -271,6 +284,7 @@
 		if(boss_alpha == 1) to_chat(world, SPAN_INFO("SHIELD|D:[damage_ammount]|S:[boss_shield]"))
 		if(boss_shield > 0)
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 1)
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, AddPhaseCheck))
 		else
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 2)
 			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, ShieldDown))
@@ -310,13 +324,12 @@
 
 	var/obj/effect/landmark/pve_mob/source_landmark
 
-	var/drone_cycles = 0
 	var/drone_health = 5
 	var/drone_delay = 50
 	var/drone_no_damage = 0
 	var/drone_attack_breakpoint = 0
-	var/drone_no_despawn = 0
 	var/drone_last_fired = 0
+	var/drone_no_animation = 0
 
 /mob/living/pve_boss_drone/proc/fire_on_target(turf/target)
 	var/turf/drone_target = target
@@ -341,30 +354,14 @@
 
 /mob/living/pve_boss_drone/proc/scan_cycle()
 	if(drone_attack_breakpoint == 1) return
-	for(var/mob/living/carbon/human/potential_target in range(8,get_turf(src)))
-		if(!potential_target)
-			if(drone_no_despawn == 0)
-				if(drone_cycles <= 10)
-					sleep(10 + (drone_cycles * 10))
-					drone_cycles += 1
-					INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
-					return
-				else
-					qdel(src)
-		var/target_turf = get_turf(potential_target)
-		if(!target_turf) return
-		fire_on_target(target_turf)
-		drone_cycles = 0
-		INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
-		return
+	for(var/mob/living/carbon/human/potential_target in range(12,src))
+		if(potential_target)
+			var/target_turf = get_turf(potential_target)
+			if(!target_turf) return
+			fire_on_target(target_turf)
 	sleep(10)
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
 	return
-
-/mob/living/pve_boss_drone/proc/reactivate_boss()
-	for(var/mob/living/pve_boss/boss_mob in world)
-		boss_mob.boss_immobilized = 0
-		boss_mob.boss_no_damage = 0
 
 /mob/living/pve_boss_drone/proc/DeathAnim()
 
@@ -390,7 +387,7 @@
 	qdel(src)
 
 /mob/living/pve_boss_drone/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
-	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
+	if(drone_health <= 0) return
 	if(drone_no_damage == 0)
 		drone_health -= 1
 		if(drone_health <= 0)
@@ -399,14 +396,10 @@
 
 /mob/living/pve_boss_drone/Destroy()
 	drone_attack_breakpoint = 1
-	if(drone_no_despawn == 0)
-		GLOB.boss_loose_drones.Remove(src)
+	GLOB.boss_drones.Remove(src)
 	if(source_landmark)
 		source_landmark.spawned_bot = null
 		source_landmark = null
-	else
-		GLOB.boss_drones -= 1
-		if(GLOB.boss_drones == 0) reactivate_boss()
 	. = ..()
 
 /mob/living/pve_boss_drone/proc/AnimateEntry()
@@ -415,9 +408,23 @@
 	animate(src, pixel_y = 0, time = 15, easing = CUBIC_EASING|EASE_IN)
 	sleep(15)
 	drone_no_damage = 0
-	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,scan_cycle))
 
 /mob/living/pve_boss_drone/Initialize()
-	if(drone_no_despawn == 0) GLOB.boss_loose_drones.Add(src)
-	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,AnimateEntry))
+	. = ..()
+	GLOB.boss_drones.Add(src)
+	if(drone_no_animation == 0)
+		INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,AnimateEntry))
+	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,scan_cycle))
+
+
+/mob/living/pve_boss_drone/boss_variant
+
+	name = "Baltheus-6A Damage Deferral Drone"
+	drone_no_animation = 1
+	var/mob/living/pve_boss/boss_mob
+
+/mob/living/pve_boss_drone/boss_variant/DeathAnim()
+	if(boss_mob)
+		boss_mob.boss_adds_spawned -= 1
+		boss_mob.AddPhaseResolutionCheck()
 	. = ..()

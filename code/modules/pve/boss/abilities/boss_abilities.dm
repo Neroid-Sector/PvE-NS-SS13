@@ -369,21 +369,25 @@
 	new_pixel_y = new_pixel_y + (y_distance * 32 + 96)
 	var/new_pixel_x = boss.pixel_x + (x_distance * 32)
 	animate(boss, pixel_x = new_pixel_x, pixel_y = new_pixel_y, time = 20, easing = CUBIC_EASING)
-	boss.client.perspective = EYE_PERSPECTIVE
-	boss.client.eye = target_turf
+	if(boss.client)
+		boss.client.perspective = EYE_PERSPECTIVE
+		boss.client.eye = target_turf
 	sleep(20)
 	new_pixel_y = new_pixel_y + 10
 	animate(boss, pixel_y = new_pixel_y , time = 5, easing=LINEAR_EASING)
-	boss.client.perspective = EYE_PERSPECTIVE
-	boss.client.eye = target_turf
+	if(boss.client)
+		boss.client.perspective = EYE_PERSPECTIVE
+		boss.client.eye = target_turf
 	sleep(5)
 	new_pixel_y = initial(boss.pixel_y)
 	animate(boss, pixel_y = new_pixel_y, time = 3, easing=QUAD_EASING|EASE_IN)
-	boss.client.perspective = EYE_PERSPECTIVE
-	boss.client.eye = target_turf
+	if(boss.client)
+		boss.client.perspective = EYE_PERSPECTIVE
+		boss.client.eye = target_turf
 	sleep(3)
-	boss.client.perspective = EYE_PERSPECTIVE
-	boss.client.eye = target_turf
+	if(boss.client)
+		boss.client.perspective = EYE_PERSPECTIVE
+		boss.client.eye = target_turf
 	return 1
 
 /datum/boss_action/proc/process_movement(turf/target)
@@ -393,9 +397,10 @@
 	boss.pixel_x = initial(boss.pixel_x)
 	boss.pixel_y = initial(boss.pixel_y)
 	boss.forceMove(target_turf)
-	boss.client.lazy_eye = 0
-	boss.client.eye = boss.client.mob
-	boss.client.perspective = MOB_PERSPECTIVE
+	if(boss.client)
+		boss.client.lazy_eye = 0
+		boss.client.eye = boss.client.mob
+		boss.client.perspective = MOB_PERSPECTIVE
 	for(var/mob/living/carbon/carbon_in_range in range(3,target_turf))
 		if(carbon_in_range == boss) continue
 		if(carbon_in_range)
@@ -418,10 +423,6 @@
 	boss.movement_target = null
 	boss.movement_switch = 0
 	var/turf/targeted_turf = get_turf(target)
-	for(var/turf/turf_in_range in range(3,get_turf(boss)))
-		if(turf_in_range == targeted_turf)
-			to_chat(boss, SPAN_WARNING("Target Turf is too close!"))
-			return
 	animate_warnings(targeted_turf)
 	boss.boss_exposed = 1
 	sleep(50)

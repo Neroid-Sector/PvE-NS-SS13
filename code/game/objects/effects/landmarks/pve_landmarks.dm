@@ -22,7 +22,7 @@
 /obj/effect/landmark/pve_boss_navigation
 	name = "Boss Navigation Landmark"
 	icon_state = "boss"
-	var/id_tag = "standard" // This only matters for one waypoint, and that is one tagged as "central" to which the boss retreats during the add phase. More uses to come likely
+	var/id_tag = "standard" // This only matters for one waypoint, and that is one tagged as "center" to which the boss retreats during the add phase. More uses to come likely
 
 /obj/effect/landmark/pve_boss_navigation/Initialize(mapload, ...)
 	var/area/landmark_area = get_area(src)
@@ -33,3 +33,6 @@
 	var/area/landmark_area = get_area(src)
 	landmark_area.boss_waypoints.Remove(src)
 	. = ..()
+
+/obj/effect/landmark/pve_boss_navigation/center
+	id_tag = "center"
