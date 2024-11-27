@@ -15,10 +15,6 @@
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
 		return
-
-	if (!action_cooldown_check())
-		return
-
 	var/list/mobs_in_range = list()
 	for(var/mob/living/carbon/human/target in range("15x15",boss))
 		if(mobs_in_range.Find(target) == 0)
@@ -28,15 +24,11 @@
 		return
 	for(var/mob/living/carbon/human/target_to_warn in mobs_in_range)
 		INVOKE_ASYNC(target_to_warn, TYPE_PROC_REF(/mob/living/carbon/human/, warning_ping),"The platforms laser visibly heats up as it charges a blast!")
-	INVOKE_ASYNC(src, PROC_REF(action_cooldown_set),"aoe_sh")
 	boss.overlays += (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
-	boss.boss_immobilized = 1
 	boss.boss_exposed = 1
 	sleep(boss.aoe_delay)
 	boss.overlays -= (image('icons/effects/surge_hit_warning_64.dmi', "aoe_surge"))
-	boss.boss_immobilized = 0
 	boss.boss_exposed = 0
-	process_regular_movement()
 	playsound(boss, 'sound/items/pulse3.ogg', 50)
 	for(var/mob/living/carbon/human/target_to_shoot in mobs_in_range)
 		var/turf/target = get_turf(target_to_shoot)
@@ -44,6 +36,7 @@
 		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
 		projectile.generate_bullet(ammo_datum)
 		projectile.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
+		mobs_in_range.Remove(target_to_shoot)
 	return
 
 //missile barrage, picks a carbon from its z level and sends a missile towards them. Does this a lot, scaling up depending on phase
@@ -183,8 +176,6 @@
 		empty_loop_counter = 0
 		var/mob/living/carbon/human/target_to_hit = pick(mobs_to_target)
 		if(boss.hit_by_explosions.Find(target_to_hit) == 0)
-			if(boss.ability_delays["missiles"] < world.time)
-				INVOKE_ASYNC(src, PROC_REF(action_cooldown_set),"missiles")
 			var/turf/turf_to_hit = get_turf(target_to_hit)
 			var/list/turfs_to_hit = list()
 			var/x_min = turf_to_hit.x - 2
@@ -211,8 +202,6 @@
 /datum/boss_action/proc/rapid_missles(atom/affected_atom)
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
-		return
-	if (!action_cooldown_check())
 		return
 	boss.hit_by_explosions = list()
 	var/turf/target_turf = get_turf(affected_atom)
@@ -545,9 +534,6 @@
 	var/mob/living/pve_boss/boss = owner
 	if (!istype(boss))
 		return
-	if (!action_cooldown_check())
-		return
-	INVOKE_ASYNC(src, PROC_REF(action_cooldown_set),"shot")
 	var/turf/laser_target = get_turf(target)
 	if(!laser_target) return
 	boss.boss_exposed = 1

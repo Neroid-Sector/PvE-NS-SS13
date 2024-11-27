@@ -51,6 +51,7 @@
 
 	//pain goes here. Also the AI datum.
 	var/datum/boss_ai/ai_datum
+	var/boss_delays_started = 0
 
 /mob/living/pve_boss/Move(NewLoc, direct)
 	if(boss_immobilized == 1) return
@@ -297,21 +298,6 @@
 /datum/boss_action/New(mob/boss)
 	. = ..()
 	owner = boss
-
-
-/datum/boss_action/proc/action_cooldown_check(name = null)
-	if(name == null) return
-	var/ability_name = name
-	var/mob/living/pve_boss/boss_mob = owner
-	if(boss_mob.ability_log[ability_name] > world.time) return 0
-	else return 1
-
-/datum/boss_action/proc/action_cooldown_set(name = null)
-	if(name == null) return
-	var/ability_name = name
-	var/mob/living/pve_boss/boss_mob = owner
-	boss_mob.ability_log[ability_name] = world.time + boss_mob.ability_delays[ability_name]
-	return
 
 /mob/living/pve_boss/proc/AnimateEntry()
 	return

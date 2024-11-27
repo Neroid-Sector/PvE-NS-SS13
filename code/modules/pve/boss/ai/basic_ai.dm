@@ -52,28 +52,36 @@
 			boss.boss_ability.rapid_missles(target)
 	return
 
+/datum/boss_ai/proc/init_delays()
+	var/mob/living/pve_boss/boss = boss_mob
+	var/p
+	for(p in boss.ability_log)
+		boss.ability_log[p] = world.time + boss.ability_delays[p]
+	return
 
-/datum/boss_ai/proc/combat_loop()
+/datum/boss_ai/proc/combat_loop(ability_name = null, ability_delay = null)
 	var/mob/living/pve_boss/boss = boss_mob
 	var/mob/living/pve_boss/boss_turf = get_turf(boss)
-	if(boss_mob.boss_loop_override == 1) return
+	if(boss.boss_loop_override == 1) return
 	var/list/abilities_to_try = list()
 	if(boss.ability_log == null)
 		message_admins("[boss] has no ability_log. Combat loop cannot initialize.")
 		return
+	if(boss.boss_delays_started == 0)
+		init_delays()
+		boss.boss_delays_started = 1
 	var/list/poitential_targets = list()
 	for(var/mob/living/carbon/human/human_mob in range(10,boss_turf))
 		poitential_targets += human_mob
 	if(poitential_targets.len > 0)
 		var/final_target = get_turf(pick(poitential_targets))
-		abilities_to_try = boss.ability_log
-		while(abilities_to_try.len > 0)
-			if(world.time > boss.ability_delays[abilities_to_try[1]])
-				INVOKE_ASYNC(src,PROC_REF(use_ability),abilities_to_try[1],final_target)
-				abilities_to_try = list()
-				break
-			else
-				abilities_to_try.Cut(1,2)
-	sleep(10)
+		abilities_to_try = boss.ability_log.Copy()
+		var/p
+		for(p in abilities_to_try)
+			if(world.time > (abilities_to_try[p] + boss.ability_delays[p]))
+				INVOKE_ASYNC(src,PROC_REF(use_ability),p,final_target)
+				boss.ability_log[p] = world.time
+				abilities_to_try.Remove(p)
+	sleep(15)
 	INVOKE_ASYNC(src,PROC_REF(combat_loop))
 	return
