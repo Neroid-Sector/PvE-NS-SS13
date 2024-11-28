@@ -29,6 +29,8 @@
 	return
 
 /obj/effect/landmark/pve_mob/boss_mobs
+	name = "Boss Mob Spawner Landmark"
+	icon_state = "boss_mob"
 	mob_spawned = 1
 
 /obj/effect/landmark/pve_mob/boss_mobs/MobSpawn()
