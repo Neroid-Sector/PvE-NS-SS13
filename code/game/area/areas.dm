@@ -387,11 +387,12 @@
 			return
 
 /area/Entered(A,atom/OldLoc)
-	if(istype(A, /mob/living/carbon/human))
-		var/mob/living/carbon/human/human_entering = A
-		if(human_entering.client != null)
-			if(players_active.Find(human_entering) == 0)
-				players_active.Add(human_entering)
+	if(GLOB.spawners_active == 1)
+		if(istype(A, /mob/living/carbon/human))
+			var/mob/living/carbon/human/human_entering = A
+			if(human_entering.client != null)
+				if(players_active.Find(human_entering) == 0)
+					players_active.Add(human_entering)
 				INVOKE_ASYNC(src,TYPE_PROC_REF(/area/,MobLoop))
 	if(ismob(A))
 		if(!OldLoc)
@@ -405,10 +406,12 @@
 		add_machine(A)
 
 /area/Exited(A)
-	if(istype(A, /mob/living/carbon/human))
-		var/mob/living/carbon/human/human_leaving = A
-		if(players_active.Find(human_leaving) == 1)
-			players_active.Remove(human_leaving)
+	if(GLOB.spawners_active == 1)
+		if(istype(A, /mob/living/carbon/human))
+			var/mob/living/carbon/human/human_leaving = A
+			if(players_active.Find(human_leaving) == 1)
+				players_active.Remove(human_leaving)
+			INVOKE_ASYNC(src,TYPE_PROC_REF(/area/,MobLoop))
 	if(istype(A, /obj/structure/machinery))
 		remove_machine(A)
 	else if(ismob(A))

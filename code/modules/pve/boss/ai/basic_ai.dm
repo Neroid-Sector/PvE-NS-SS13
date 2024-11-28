@@ -56,7 +56,7 @@
 	var/mob/living/pve_boss/boss = boss_mob
 	var/p
 	for(p in boss.ability_log)
-		boss.ability_log[p] = world.time + boss.ability_delays[p]
+		boss.ability_log[p] = world.time + (boss.ability_delays[p] * boss.GlobalCoolDown)
 	return
 
 /datum/boss_ai/proc/combat_loop(ability_name = null, ability_delay = null)
@@ -79,11 +79,11 @@
 		abilities_to_try = boss.ability_log.Copy()
 		var/p
 		for(p in abilities_to_try)
-			if(world.time > (abilities_to_try[p] + boss.ability_delays[p]))
+			if(world.time > (abilities_to_try[p] + (boss.ability_delays[p] * boss.GlobalCoolDown)))
 				INVOKE_ASYNC(src,PROC_REF(use_ability),p,final_target)
 				boss.ability_log[p] = world.time
 				abilities_to_try.Remove(p)
-	sleep(15)
+	sleep(boss.GlobalCoolDown)
 	INVOKE_ASYNC(src,PROC_REF(combat_loop))
 	return
 

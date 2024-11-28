@@ -552,16 +552,6 @@
 	icon_state = "plating"
 	},
 /area/tdome/tdomeobserve)
-"no" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "E"
-	},
-/obj/effect/landmark/pve_boss_navigation,
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome)
 "nP" = (
 /turf/open/floor/almayer{
 	dir = 8;
@@ -596,13 +586,6 @@
 	icon_state = "silver"
 	},
 /area/adminlevel/ert_station)
-"oj" = (
-/obj/effect/landmark/pve_mob,
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome)
 "op" = (
 /obj/structure/machinery/cryopod,
 /obj/structure/sign/safety/cryo{
@@ -755,13 +738,6 @@
 	icon_state = "plating"
 	},
 /area/tdome/tdomeobserve)
-"rW" = (
-/obj/effect/landmark/pve_boss_navigation,
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome)
 "sj" = (
 /obj/structure/machinery/faxmachine,
 /obj/structure/surface/table/reinforced/prison,
@@ -1346,7 +1322,6 @@
 /turf/open/floor/plating/almayer,
 /area/adminlevel/ert_station/shuttle_dispatch)
 "Ed" = (
-/obj/effect/landmark/pve_boss_navigation/center,
 /turf/open/floor/tdome{
 	dir = 1;
 	icon_state = "w-y1"
@@ -2438,16 +2413,6 @@
 /obj/structure/sign/poster/music,
 /turf/closed/wall,
 /area/adminlevel/ert_station)
-"Xz" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "W"
-	},
-/obj/effect/landmark/pve_boss_navigation,
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome)
 "XA" = (
 /obj/structure/surface/table/woodentable/fancy,
 /obj/item/reagent_container/food/snacks/pastatomato,
@@ -4335,7 +4300,7 @@ iA
 iA
 Lq
 Lq
-Xz
+Lq
 Lq
 Lq
 iA
@@ -4484,7 +4449,7 @@ aa
 ab
 ab
 iA
-oj
+iA
 iA
 iA
 iA
@@ -4642,7 +4607,7 @@ iA
 iA
 iA
 iA
-oj
+iA
 iA
 iA
 ab
@@ -4788,14 +4753,14 @@ aa
 ab
 iA
 iA
-rW
 iA
 iA
 iA
 iA
 iA
 iA
-rW
+iA
+iA
 iA
 ab
 aa
@@ -5094,7 +5059,7 @@ iA
 iA
 iA
 iA
-oj
+iA
 iA
 iA
 iA
@@ -5252,7 +5217,7 @@ iA
 iA
 iA
 iA
-oj
+iA
 ab
 aa
 aC
@@ -5395,13 +5360,13 @@ Uw
 mB
 oD
 iA
-oj
+iA
 iA
 iA
 iA
 jS
 iA
-oj
+iA
 iA
 iA
 iA
@@ -5698,7 +5663,7 @@ Qh
 Qh
 Hv
 oD
-rW
+iA
 iA
 iA
 iA
@@ -5708,7 +5673,7 @@ jS
 iA
 iA
 iA
-rW
+iA
 ab
 aa
 aC
@@ -6009,7 +5974,7 @@ iA
 iA
 jS
 iA
-oj
+iA
 iA
 iA
 iA
@@ -6155,7 +6120,7 @@ OT
 OT
 ab
 iA
-oj
+iA
 iA
 iA
 iA
@@ -6468,7 +6433,7 @@ iA
 iA
 iA
 iA
-oj
+iA
 ab
 aa
 aC
@@ -6612,14 +6577,14 @@ aa
 ab
 iA
 iA
-rW
-iA
-iA
-oj
 iA
 iA
 iA
-rW
+iA
+iA
+iA
+iA
+iA
 iA
 ab
 aa
@@ -6763,7 +6728,7 @@ aC
 aa
 ab
 iA
-oj
+iA
 iA
 iA
 iA
@@ -6921,7 +6886,7 @@ iA
 iA
 iA
 iA
-oj
+iA
 iA
 iA
 ab
@@ -7071,7 +7036,7 @@ iA
 iA
 gj
 gj
-no
+gj
 gj
 gj
 iA

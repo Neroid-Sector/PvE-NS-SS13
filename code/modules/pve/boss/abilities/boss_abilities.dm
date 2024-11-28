@@ -421,7 +421,7 @@
 		return
 	if(boss.boss_immobilized == 1) return
 	boss.movement_target = null
-	boss.movement_switch = 0
+	walk(boss, 0)
 	var/turf/targeted_turf = get_turf(target)
 	animate_warnings(targeted_turf)
 	boss.boss_exposed = 1

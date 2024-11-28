@@ -54,6 +54,7 @@
 	//pain goes here. Also the AI datum.
 	var/datum/boss_ai/ai_datum
 	var/boss_delays_started = 0
+	var/GlobalCoolDown = 15		//Ability cooldowns are multiplied by this. This also determines how often the firing proc is fired, so setting this too low with resource heavy abilities will cause hitching.
 
 /mob/living/pve_boss/Move(NewLoc, direct)
 	if(boss_immobilized == 1) return
@@ -63,12 +64,15 @@
 		movement_switch = 0
 		. = ..()
 
+/mob/living/pve_boss/proc/PhaseControl() // This is important for specific mobs, but the generic can be empty. This sets the abilities/stats/etc to the different phases, a critical element of the boss fight.
+	return
+
 /mob/living/pve_boss/Initialize()
 	. = ..()
 	boss_ability = new /datum/boss_action/(boss = src)
 	click_intercept = new /datum/bossclicking/(boss = src)
 	ai_datum = new /datum/boss_ai/(boss = src)
-	boss_shield_max = boss_shield
+	PhaseControl()
 	var/area/boss_area = get_area(src)
 	if(boss_area.mob_spawners != null)
 		for(var/obj/effect/landmark/pve_mob/mob_spawner in boss_area.mob_spawners)
@@ -198,6 +202,13 @@
 	say("SHIELD DOWN. INITIATING EMERGENCY DETERENCE.")
 	boss_ability.WardingFire()
 
+/mob/living/pve_boss/proc/RestoreShield()
+	boss_shield = boss_shield_max
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 3)
+	say("RESUMING PURGE PROTOCOL.")
+	boss_shield_broken = 0
+	boss_immobilized = 0
+
 /mob/living/pve_boss/proc/ShieldDown()
 	boss_shield_broken = 1
 	boss_immobilized = 1
@@ -205,11 +216,7 @@
 	if(GLOB.boss_stage < 3)
 		sleep(rand(300,600))
 		if(boss_health > 0)
-			boss_shield = boss_shield_max
-			INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, animate_shield), 3)
-			say("RESUMING PURGE PROTOCOL.")
-			boss_shield_broken = 0
-			boss_immobilized = 0
+			RestoreShield()
 	return
 
 /mob/living/pve_boss/proc/BossStage()
@@ -365,7 +372,8 @@
 
 /mob/living/pve_boss_drone/proc/DeathAnim()
 
-	var/flip_angle = rand(-150,150)
+	var/flip_angle = rand(30,150)
+	flip_angle = pick(flip_angle, -flip_angle)
 	var/angle_low = floor(flip_angle / 2)
 	var/angle_high = ceil(flip_angle / 2)
 	var/matrix/A = matrix()
@@ -373,10 +381,12 @@
 	color = "#FFFFFF"
 	A.Turn(angle_low)
 	B.Turn(angle_high)
-	var/anim_height = rand(4,20)
+	var/anim_height = rand(10,20)
+	anim_height = pick(anim_height, -anim_height)
 	var/anim_height_low = floor(anim_height / 2)
 	var/anim_height_high = ceil(anim_height / 2)
-	var/anim_width = rand(-20,20)
+	var/anim_width = rand(10,20)
+	anim_width = pick(anim_width, -anim_width)
 	var/anim_width_low = floor(anim_width / 2)
 	var/anim_width_high = ceil(anim_width / 2)
 	animate(src, time = 3, transform = A, pixel_x = anim_width_low, pixel_y = anim_height_low, easing=QUAD_EASING|EASE_IN, flags = ANIMATION_RELATIVE)

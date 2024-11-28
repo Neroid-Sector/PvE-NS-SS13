@@ -28,9 +28,9 @@
 		"shot" = 0,
 		"aoe_shot" = 0,
 		) //Relocate and the circle aoe dont need this since they are both used out of the loop
-	ability_delays = list ("shot" = 15,
-		"aoe_shot" = 150,
-		"missiles" = 1200,)
+	ability_delays = list ("shot" = 1,
+		"aoe_shot" = 10,
+		"missiles" = 80,) // The end delay is this value * GlobalCoolDown var on the mob
 
 /mob/living/pve_boss/missle_bot/alpha
 	boss_alpha = 1
@@ -82,8 +82,93 @@
 	update_icons()
 	say("Distortions to Cycle activity detected. Determining character.")
 	sleep(20)
-	say("Unknown human lifeforms detected. Proceeding with removal from cycle.")
+	say("Unregistered Human Lifeforms detected. All threats to the Cycle must be removed.")
+	sleep(20)
+	say("You cannot have her... You cannot have her... You cannot...")
 
 /mob/living/pve_boss/missle_bot/Initialize()
 	if(boss_alpha == 0) INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/missle_bot/, AnimateEntry))
 	. = ..()
+
+/mob/living/pve_boss/missle_bot/EmergencyAction()
+	GlobalCoolDown = 10
+	ability_log = list()
+	ability_log = list (
+		"shot" = 0,
+		)
+	ability_delays = list()
+	ability_delays = list ("shot" = 1,)
+	ai_datum.init_delays()
+	. = ..()
+
+/mob/living/pve_boss/missle_bot/RestoreShield()
+	GlobalCoolDown = 15
+	ability_log = list()
+	ability_log = list ("missiles" = 0,
+		"shot" = 0,
+		"aoe_shot" = 0,
+		)
+	ability_delays = list()
+	ability_delays = list ("shot" = 1,
+		"aoe_shot" = 10,
+		"missiles" = 80,)
+	ai_datum.init_delays()
+	. = ..()
+
+/mob/living/pve_boss/missle_bot/PhaseControl()
+	switch(GLOB.boss_stage)
+		if(1)
+			boss_shield = 500
+			boss_shield_max = 500
+			GlobalCoolDown = 15
+			ability_log = list()
+			ability_log = list ("missiles" = 0,
+				"shot" = 0,
+				"aoe_shot" = 0,
+				)
+			ability_delays = list()
+			ability_delays = list ("shot" = 1,
+				"aoe_shot" = 10,
+				"missiles" = 80,)
+			ai_datum.init_delays()
+		if(2)
+			boss_shield = 1000
+			boss_shield_max = 1000
+			GlobalCoolDown = 15
+			ability_log = list()
+			ability_log = list ("missiles" = 0,
+				"shot" = 0,
+				"aoe_shot" = 0,
+				)
+			ability_delays = list()
+			ability_delays = list ("shot" = 1,
+				"aoe_shot" = 8,
+				"missiles" = 65,)
+			ai_datum.init_delays()
+		if(1)
+			boss_shield = 1500
+			boss_shield_max = 1500
+			GlobalCoolDown = 15
+			ability_log = list()
+			ability_log = list ("missiles" = 0,
+				"shot" = 0,
+				"aoe_shot" = 0,
+				)
+			ability_delays = list()
+			ability_delays = list ("shot" = 1,
+				"aoe_shot" = 5,
+				"missiles" = 50,)
+			ai_datum.init_delays()
+		if(4)
+			boss_shield = 1500
+			boss_shield_max = 1500
+			GlobalCoolDown = 30
+			ability_log = list()
+			ability_log = list ("missiles" = 0,
+				"aoe_shot" = 0,
+				)
+			ability_delays = list()
+			ability_delays = list (
+				"aoe_shot" = 1,
+				"missiles" = 20,)
+			ai_datum.init_delays()
