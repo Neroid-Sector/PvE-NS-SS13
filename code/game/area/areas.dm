@@ -82,7 +82,6 @@
 	// Mob spawning and boss controling shenanigans
 	// These lists are here for the code and should not be touched otherwise, everything should fill from elsewhere
 
-	var/mobs_spawned = 0
 	var/list/mob_spawners = list()
 	var/list/boss_waypoints = list()
 	var/list/players_active = list()
@@ -378,11 +377,14 @@
 /area/proc/MobLoop()
 	if(players_active.len > 0)
 		if(mob_spawners.len > 0)
-			if(mobs_spawned == 0)
-				for(var/obj/effect/landmark/pve_mob/mob_landmark in mob_spawners)
-					mob_landmark.MobSpawn()
-				mobs_spawned = 1
-				return
+			for(var/obj/effect/landmark/pve_mob/mob_landmark in mob_spawners)
+				mob_landmark.MobSpawn()
+			return
+	if(players_active.len <= 0)
+		if(mob_spawners.len > 1)
+			for(var/obj/effect/landmark/pve_mob/mob_landmark in mob_spawners)
+				mob_landmark.MobDeSpawn()
+			return
 
 /area/Entered(A,atom/OldLoc)
 	if(istype(A, /mob/living/carbon/human))

@@ -87,7 +87,6 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	flags_area = AREA_NOTUNNEL
 	statistic_exempt = TRUE
 	ceiling = CEILING_METAL
-	mobs_spawned = 1
 	base_lighting_alpha = 255
 
 /area/tdome/tdome1
