@@ -241,9 +241,9 @@
 	if(M)
 		if(istype(M, /mob/living/pve_boss))
 			var/mob/living/pve_boss/boss = M
-			to_chat(usr, SPAN_INFO("Starting AI loops for [boss]. Terminating any stray loops first, this process takes exactly 15 ticks or 1.5 seconds."))
+			to_chat(usr, SPAN_INFO("Starting AI loops for [boss]. Terminating any stray loops first, GCD set at [boss.GlobalCoolDown]"))
 			boss.boss_loop_override = 1
-			sleep(15)
+			sleep(boss.GlobalCoolDown)
 			boss.boss_loop_override = 0
 			boss.ai_datum.movement_loop()
 			boss.ai_datum.combat_loop()
@@ -252,3 +252,78 @@
 			message_admins("[key_name_admin(usr)] has started/restarted the AI loops for [M].", boss_turf.x, boss_turf.y, boss_turf.z)
 	else
 		alert("Invalid mob")
+
+/client/proc/preset_spawning_toggle()
+	set category = "DM.RoundFlow"
+	set name = "Spawns - Toggle"
+	set desc = "Toggles the waypoint room spawner Gvar."
+
+	if(!check_rights(R_ADMIN))
+		return
+	if(GLOB.spawners_active == 0)
+		GLOB.spawners_active = 1
+		to_chat(usr, SPAN_INFO("Mobs Activated"))
+	else
+		GLOB.spawners_active = 0
+		to_chat(usr, SPAN_INFO("Mobs Deactivated"))
+
+/client/proc/prune_drones()
+
+	set category = "DM.RoundFlow"
+	set name = "Spawns - Prune"
+	set desc = "Prunes spawned drones to current global max"
+
+	if(!check_rights(R_ADMIN))
+		return
+	to_chat(usr, SPAN_INFO("Active Mobs: [GLOB.boss_drones.len]"))
+	if(GLOB.boss_drones.len < GLOB.boss_loose_drones_max) return
+	while(GLOB.boss_drones.len > GLOB.boss_loose_drones_max)
+		for(var/mob/living/pve_boss_drone/drone_to_delete in GLOB.boss_drones)
+			GLOB.boss_drones.Remove(drone_to_delete)
+			qdel(drone_to_delete)
+			break
+	to_chat(usr, SPAN_INFO("Mobs Pruned to [GLOB.boss_loose_drones_max]"))
+
+/client/proc/remove_drones()
+	set category = "DM.RoundFlow"
+	set name = "Spawns - Remove"
+	set desc = "Removes spawned drones"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	for(var/mob/living/pve_boss_drone/drone_to_delete in GLOB.boss_drones)
+		GLOB.boss_drones.Remove(drone_to_delete)
+		qdel(drone_to_delete)
+
+	to_chat(usr, SPAN_INFO("Drones removed."))
+
+/client/proc/boss_phase()
+
+	set category = "DM.RoundFlow"
+	set name = "Boss - Phase"
+	set desc = "Edit Boss Phase"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/old_phase = GLOB.boss_stage
+	GLOB.boss_stage = tgui_input_number(usr, "Enter phase number. Current maximum: [GLOB.boss_stage_max]", "Boss Stage Nr", GLOB.boss_stage, GLOB.boss_stage_max, 1, timeout = 0, integer_only = TRUE)
+	if(GLOB.boss_stage == null) GLOB.boss_stage = old_phase
+
+	to_chat(usr, SPAN_INFO("Phase: [GLOB.boss_stage]."))
+
+/client/proc/boss_factor()
+
+	set category = "DM.RoundFlow"
+	set name = "Boss - HP/Shielf Factor"
+	set desc = "Edit The factor by which boss health and shield is multiplied during phases"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/old_value = GLOB.boss_stats_factor
+	GLOB.boss_stats_factor = tgui_input_number(usr, "Enter factor. Current maximum: [GLOB.boss_stats_factor]", "Boss Factor", timeout = 0)
+	if(GLOB.boss_stats_factor == null) GLOB.boss_stats_factor = old_value
+
+	to_chat(usr, SPAN_INFO("Phase: [GLOB.boss_stats_factor]."))

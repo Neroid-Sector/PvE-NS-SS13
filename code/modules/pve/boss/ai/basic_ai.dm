@@ -103,6 +103,7 @@
 
 /datum/boss_ai/proc/add_phase()
 	var/mob/living/pve_boss/boss = boss_mob
+	if(boss.boss_add_phase == 1) return
 	var/area/boss_area = get_area(boss)
 	var/turf/boss_turf = get_turf(boss)
 	var/turf/center_turf
@@ -119,13 +120,16 @@
 	boss.boss_ability.relocate(center_turf)
 	var/list/turfs_to_use = boss.drone_turfs.Copy()
 	turfs_to_use.Remove(center_turf)
-	while(boss.boss_adds_spawned < 4)
+	while(boss.boss_adds_spawned < boss.boss_adds_spawned_max)
 		var/mob/living/pve_boss_drone/boss_variant/boss_drone = new(boss_turf)
 		boss_drone.boss_mob = boss
 		var/turf/boss_mob_turf = pick(turfs_to_use)
 		turfs_to_use.Remove(boss_mob_turf)
 		boss_drone.Move(boss_mob_turf)
 		boss.boss_adds_spawned += 1
+		if(turfs_to_use.len == 0)
+			message_admins(SPAN_WARNING("Warning: [boss] ran out of add phase waypoints. Mapping/perp whoopsie. Adds actually spawned: [boss.boss_adds_spawned]"))
+			break
 	INVOKE_ASYNC(src, PROC_REF(add_covering_fire))
 
 /datum/boss_ai/proc/add_phase_finish()
@@ -137,4 +141,8 @@
 	boss.say("Error: Deferral drones signal lost. Resuming standard operation. Increasing power draw.")
 	movement_loop()
 	combat_loop()
-	boss.say("Error: The Surge cannot be stopped. The Surge cannot be stopped. The Surge cannot be...")
+	boss.name = "ANATHEMA"
+	boss.langchat_color = "#5f1414"
+	boss.say("The Surge cannot be stopped. The Surge cannot be stopped. ...cannot be...")
+	boss.name = initial(boss.name)
+	boss.langchat_color = initial(boss.langchat_color)

@@ -49,6 +49,7 @@
 	var/list/drone_turfs = list()
 	var/boss_add_phase = 0
 	var/boss_adds_spawned = 0
+	var/boss_adds_spawned_max = 4
 	var/boss_add_phases_cleared = 0
 
 	//pain goes here. Also the AI datum.
@@ -266,12 +267,49 @@
 			color_value = "#ff0000"
 	animate(src, pixel_x = pixel_x_val, pixel_y = pixel_y_val, color = color_value, time = 1)
 	animate(color = "#FFFFFF", pixel_x = pixel_x_org, pixel_y = pixel_y_org, time = 1)
+	color = initial(color)
 
 /mob/living/pve_boss/proc/AddPhaseCheck()
-	if(boss_add_phases_cleared == 0)
-		if(boss_shield <= (boss_shield_max / 2))
-			ai_datum.add_phase()
-			return
+	switch(GLOB.boss_stage)
+		if(1)
+			if(boss_add_phases_cleared == 0)
+				if(boss_shield <= (boss_shield_max / 2))
+					boss_adds_spawned_max = 4
+					ai_datum.add_phase()
+					return
+		if(2)
+			if(boss_add_phases_cleared == 0)
+				if(boss_shield <= ((boss_shield_max / 3)*2))
+					boss_adds_spawned_max = 8
+					ai_datum.add_phase()
+					return
+			if(boss_add_phases_cleared == 1)
+				if(boss_shield <= ((boss_shield_max / 3)))
+					boss_adds_spawned_max = 8
+					ai_datum.add_phase()
+					return
+		if(3)
+			if(boss_add_phases_cleared == 0)
+				if(boss_shield <= ((boss_shield_max / 4)*3))
+					boss_adds_spawned_max = 8
+					ai_datum.add_phase()
+					return
+			if(boss_add_phases_cleared == 1)
+				if(boss_shield <= ((boss_shield_max / 4)*2))
+					boss_adds_spawned_max = 8
+					ai_datum.add_phase()
+					return
+			if(boss_add_phases_cleared == 2)
+				if(boss_shield <= (boss_shield_max / 4))
+					boss_adds_spawned_max = 12
+					ai_datum.add_phase()
+					return
+		if(4)
+			if(boss_add_phases_cleared == 0)
+				if(boss_shield <= (boss_shield_max / 2))
+					boss_adds_spawned_max = 16
+					ai_datum.add_phase()
+					return
 
 /mob/living/pve_boss/proc/AddPhaseResolutionCheck()
 	if(boss_adds_spawned <= 0)

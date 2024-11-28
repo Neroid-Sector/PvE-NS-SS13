@@ -118,8 +118,8 @@
 /mob/living/pve_boss/missle_bot/PhaseControl()
 	switch(GLOB.boss_stage)
 		if(1)
-			boss_shield = 500
-			boss_shield_max = 500
+			boss_shield = 500 * GLOB.boss_stats_factor
+			boss_shield_max = 500 * GLOB.boss_stats_factor
 			GlobalCoolDown = 15
 			ability_log = list()
 			ability_log = list ("missiles" = 0,
@@ -132,8 +132,8 @@
 				"missiles" = 80,)
 			ai_datum.init_delays()
 		if(2)
-			boss_shield = 1000
-			boss_shield_max = 1000
+			boss_shield = 1000 * GLOB.boss_stats_factor
+			boss_shield_max = 1000 * GLOB.boss_stats_factor
 			GlobalCoolDown = 15
 			ability_log = list()
 			ability_log = list ("missiles" = 0,
@@ -145,9 +145,9 @@
 				"aoe_shot" = 8,
 				"missiles" = 65,)
 			ai_datum.init_delays()
-		if(1)
-			boss_shield = 1500
-			boss_shield_max = 1500
+		if(3)
+			boss_shield = 1500 * GLOB.boss_stats_factor
+			boss_shield_max = 1500 * GLOB.boss_stats_factor
 			GlobalCoolDown = 15
 			ability_log = list()
 			ability_log = list ("missiles" = 0,
@@ -160,8 +160,8 @@
 				"missiles" = 50,)
 			ai_datum.init_delays()
 		if(4)
-			boss_shield = 1500
-			boss_shield_max = 1500
+			boss_shield = 1500 * GLOB.boss_stats_factor
+			boss_shield_max = 1500 * GLOB.boss_stats_factor
 			GlobalCoolDown = 30
 			ability_log = list()
 			ability_log = list ("missiles" = 0,

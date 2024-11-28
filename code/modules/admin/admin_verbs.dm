@@ -181,6 +181,11 @@ var/list/admin_verbs_major_event = list(
 	/client/proc/test_boss_spawn,
 	/client/proc/test_drone_spawn,
 	/client/proc/boss_start,
+	/client/proc/preset_spawning_toggle,
+	/client/proc/prune_drones,
+	/client/proc/remove_drones,
+	/client/proc/boss_phase,
+	/client/proc/boss_factor,
 )
 
 var/list/admin_verbs_spawn = list(
