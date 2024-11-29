@@ -50,6 +50,8 @@
 			boss.boss_ability.surge_proj(target)
 		if("missiles")
 			boss.boss_ability.rapid_missles(target)
+		if("drone")
+			boss.boss_ability.SummonDrone()
 	return
 
 /datum/boss_ai/proc/init_delays()
@@ -105,7 +107,6 @@
 	var/mob/living/pve_boss/boss = boss_mob
 	if(boss.boss_add_phase == 1) return
 	var/area/boss_area = get_area(boss)
-	var/turf/boss_turf = get_turf(boss)
 	var/turf/center_turf
 	for(var/obj/effect/landmark/pve_boss_navigation/landmark_to_check in boss_area.boss_waypoints)
 		if(landmark_to_check.id_tag == "center")
@@ -121,11 +122,10 @@
 	var/list/turfs_to_use = boss.drone_turfs.Copy()
 	turfs_to_use.Remove(center_turf)
 	while(boss.boss_adds_spawned < boss.boss_adds_spawned_max)
-		var/mob/living/pve_boss_drone/boss_variant/boss_drone = new(boss_turf)
-		boss_drone.boss_mob = boss
 		var/turf/boss_mob_turf = pick(turfs_to_use)
+		var/mob/living/pve_boss_drone/boss_variant/boss_drone = new(boss_mob_turf)
+		boss_drone.boss_mob = boss
 		turfs_to_use.Remove(boss_mob_turf)
-		boss_drone.Move(boss_mob_turf)
 		boss.boss_adds_spawned += 1
 		if(turfs_to_use.len == 0)
 			message_admins(SPAN_WARNING("Warning: [boss] ran out of add phase waypoints. Mapping/perp whoopsie. Adds actually spawned: [boss.boss_adds_spawned]"))

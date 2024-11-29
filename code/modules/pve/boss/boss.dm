@@ -214,10 +214,6 @@
 	boss_shield_broken = 1
 	boss_immobilized = 1
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/, EmergencyAction))
-	if(GLOB.boss_stage < 3)
-		sleep(rand(300,600))
-		if(boss_health > 0)
-			RestoreShield()
 	return
 
 /mob/living/pve_boss/proc/BossStage()
@@ -468,7 +464,6 @@
 /mob/living/pve_boss_drone/boss_variant
 
 	name = "Baltheus-6A Damage Deferral Drone"
-	drone_no_animation = 1
 	var/mob/living/pve_boss/boss_mob
 
 /mob/living/pve_boss_drone/boss_variant/DeathAnim()

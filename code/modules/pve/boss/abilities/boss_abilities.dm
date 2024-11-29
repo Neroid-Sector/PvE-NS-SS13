@@ -137,7 +137,6 @@
 	for(var/obj/item/item_to_throw in range_list)
 		AnimateThrow(center_turf,item_to_throw)
 
-
 /datum/boss_action/proc/hit_animation(turf/turf_to_hit_animate)
 	var/turf/turf_to_hit_animation = turf_to_hit_animate
 	turf_to_hit_animation.overlays += (image('icons/effects/surge_hit_warning.dmi', "aoe"))
@@ -649,6 +648,7 @@
 	switch(GLOB.boss_stage)
 		if(1)
 			while(boss.boss_shield_broken == 1)
+				if(boss.boss_loop_override == 1) return
 				var/direction1 = DirectionRef(projectile_direction)
 				playsound(boss, 'sound/items/pulse3.ogg', 50)
 				var/turf/target = turfarray[direction1]
@@ -664,6 +664,7 @@
 			return
 		if(2)
 			while(boss.boss_shield_broken == 1)
+				if(boss.boss_loop_override == 1) return
 				var/direction1 = DirectionRef(projectile_direction)
 				var/direction2
 				if(projectile_direction <= 8)
@@ -685,8 +686,9 @@
 				else
 					projectile_direction = 1
 				sleep(8)
-		if(3)
+		if(3,4)
 			while(boss.boss_shield_broken == 1)
+				if(boss.boss_loop_override == 1) return
 				if(boss.boss_health <= 0) return
 				var/obj/projectile/projectile1 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
 				var/obj/projectile/projectile2 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
@@ -727,4 +729,16 @@
 				else
 					projectile_direction = 1
 				sleep(5)
+	return
+
+/datum/boss_action/proc/SummonDrone()
+	var/mob/living/pve_boss/boss = owner
+	var/area/boss_area = get_area(boss)
+	var/drones_to_spawn = GLOB.boss_stage
+	var/drones_spawned = 0
+	if(boss_area.mob_spawners.len > 0)
+		while(drones_spawned < drones_to_spawn)
+			var/turf_to_spawn = get_turf(pick(boss_area.mob_spawners))
+			new /mob/living/pve_boss_drone(turf_to_spawn)
+			drones_spawned += 1
 	return

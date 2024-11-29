@@ -27,9 +27,11 @@
 	ability_log = list ("missiles" = 0,
 		"shot" = 0,
 		"aoe_shot" = 0,
+		"drone" = 0,
 		) //Relocate and the circle aoe dont need this since they are both used out of the loop
 	ability_delays = list ("shot" = 1,
 		"aoe_shot" = 10,
+		"drone" = 5,
 		"missiles" = 80,) // The end delay is this value * GlobalCoolDown var on the mob
 
 /mob/living/pve_boss/missle_bot/alpha
@@ -95,23 +97,12 @@
 	ability_log = list()
 	ability_log = list (
 		"shot" = 0,
-		)
-	ability_delays = list()
-	ability_delays = list ("shot" = 1,)
-	ai_datum.init_delays()
-	. = ..()
-
-/mob/living/pve_boss/missle_bot/RestoreShield()
-	GlobalCoolDown = 15
-	ability_log = list()
-	ability_log = list ("missiles" = 0,
-		"shot" = 0,
-		"aoe_shot" = 0,
+		"drone" = 0,
 		)
 	ability_delays = list()
 	ability_delays = list ("shot" = 1,
-		"aoe_shot" = 10,
-		"missiles" = 80,)
+		"drone" = 2,
+		)
 	ai_datum.init_delays()
 	. = ..()
 
@@ -125,10 +116,12 @@
 			ability_log = list ("missiles" = 0,
 				"shot" = 0,
 				"aoe_shot" = 0,
+				"drone" = 0,
 				)
 			ability_delays = list()
 			ability_delays = list ("shot" = 1,
 				"aoe_shot" = 10,
+				"drone" = 5,
 				"missiles" = 80,)
 			ai_datum.init_delays()
 		if(2)
@@ -139,9 +132,11 @@
 			ability_log = list ("missiles" = 0,
 				"shot" = 0,
 				"aoe_shot" = 0,
+				"drone" = 0,
 				)
 			ability_delays = list()
 			ability_delays = list ("shot" = 1,
+				"drone" = 4,
 				"aoe_shot" = 8,
 				"missiles" = 65,)
 			ai_datum.init_delays()
@@ -153,10 +148,12 @@
 			ability_log = list ("missiles" = 0,
 				"shot" = 0,
 				"aoe_shot" = 0,
+				"drone" = 0,
 				)
 			ability_delays = list()
 			ability_delays = list ("shot" = 1,
 				"aoe_shot" = 5,
+				"drone" = 3,
 				"missiles" = 50,)
 			ai_datum.init_delays()
 		if(4)
@@ -166,9 +163,16 @@
 			ability_log = list()
 			ability_log = list ("missiles" = 0,
 				"aoe_shot" = 0,
+				"drone" = 0,
 				)
 			ability_delays = list()
 			ability_delays = list (
 				"aoe_shot" = 1,
-				"missiles" = 20,)
+				"missiles" = 20,
+				"drone" = 3,)
 			ai_datum.init_delays()
+
+/mob/living/pve_boss/missle_bot/RestoreShield()
+	PhaseControl()
+	ai_datum.init_delays()
+	. = ..()
