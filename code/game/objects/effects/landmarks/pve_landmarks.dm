@@ -1,7 +1,7 @@
 /obj/effect/landmark/pve_mob
 	name = "Mob Spawner Landmark"
 	icon_state = "drone"
-	var/mob/living/pve_boss/missle_bot/spawned_bot
+	var/mob/living/pve_boss_drone/spawned_bot
 	var/mob_spawned = 0
 	var/mob_destroyed = 0
 
@@ -27,6 +27,7 @@
 /obj/effect/landmark/pve_mob/proc/MobDeSpawn()
 	if(spawned_bot != null)
 		mob_spawned = 0
+		spawned_bot.AnimateExit()
 		qdel(spawned_bot)
 	return
 

@@ -405,7 +405,8 @@
 	return
 
 /mob/living/pve_boss_drone/proc/DeathAnim()
-
+	icon_state = "drone_dead"
+	update_icons()
 	if(source_landmark) source_landmark.mob_destroyed = 1
 	var/turf/drone_turf = get_turf(src)
 	if(drone_turf) drone_turf.vis_contents += src
@@ -453,6 +454,12 @@
 	animate(src, pixel_y = 0, time = 15, easing = CUBIC_EASING|EASE_IN)
 	sleep(15)
 	drone_no_damage = 0
+
+/mob/living/pve_boss_drone/proc/AnimateExit()
+	var/turf/drone_turf = get_turf(src)
+	if(drone_turf)
+		drone_turf.vis_contents += src
+	animate(src, pixel_y = 300, time = 15, easing = CUBIC_EASING|EASE_IN)
 
 /mob/living/pve_boss_drone/Initialize()
 	. = ..()
