@@ -3,6 +3,7 @@
 	icon_state = "drone"
 	var/mob/living/pve_boss/missle_bot/spawned_bot
 	var/mob_spawned = 0
+	var/mob_destroyed = 0
 
 /obj/effect/landmark/pve_mob/Initialize(mapload, ...)
 	var/area/landmark_area = get_area(src)
@@ -15,10 +16,11 @@
 	. = ..()
 
 /obj/effect/landmark/pve_mob/proc/MobSpawn()
-	if(mob_spawned == 1) return
+	if(mob_spawned == 1 || mob_destroyed == 1) return
 	if(spawned_bot == null)
 		var/area/landmark_turf = get_turf(src)
 		var/mob/living/pve_boss_drone/spawned_drone = new(landmark_turf)
+		spawned_bot = spawned_drone
 		spawned_drone.source_landmark = src
 		mob_spawned = 1
 
