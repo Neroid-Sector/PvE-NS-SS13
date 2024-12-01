@@ -405,7 +405,7 @@
 	return
 
 /mob/living/pve_boss_drone/proc/DeathAnim()
-	icon_state = "drone_dead"
+	icon_state = initial(icon_state) + "_dead"
 	update_icons()
 	if(source_landmark) source_landmark.mob_destroyed = 1
 	var/turf/drone_turf = get_turf(src)
@@ -419,14 +419,17 @@
 	color = "#FFFFFF"
 	A.Turn(angle_low)
 	B.Turn(angle_high)
-	var/anim_height = rand(10,20)
+	var/anim_height = rand(10,30)
 	anim_height = pick(anim_height, -anim_height)
 	var/anim_height_low = floor(anim_height / 2)
 	var/anim_height_high = ceil(anim_height / 2)
-	var/anim_width = rand(10,20)
+	var/anim_width = rand(10,30)
 	anim_width = pick(anim_width, -anim_width)
 	var/anim_width_low = floor(anim_width / 2)
 	var/anim_width_high = ceil(anim_width / 2)
+	var/datum/effect_system/spark_spread/sparks = new /datum/effect_system/spark_spread
+	sparks.set_up(3, 1, src)
+	sparks.start()
 	animate(src, time = 3, transform = A, pixel_x = anim_width_low, pixel_y = anim_height_low, easing=QUAD_EASING|EASE_IN, flags = ANIMATION_RELATIVE)
 	animate(time = 3, transform = B, pixel_x = anim_width_high, pixel_y = anim_height_high, easing=QUAD_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
 	sleep(30)
@@ -463,6 +466,8 @@
 
 /mob/living/pve_boss_drone/Initialize()
 	. = ..()
+	pixel_x = rand(-16,16)
+	pixel_y = rand(-16,16)
 	GLOB.boss_drones.Add(src)
 	if(drone_no_animation == 0)
 		INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,AnimateEntry))
@@ -472,6 +477,7 @@
 /mob/living/pve_boss_drone/boss_variant
 
 	name = "Baltheus-6A Damage Deferral Drone"
+	icon_state = "boss_drone"
 	var/mob/living/pve_boss/boss_mob
 
 /mob/living/pve_boss_drone/boss_variant/DeathAnim()
