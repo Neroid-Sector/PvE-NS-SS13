@@ -214,7 +214,7 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	new /mob/living/pve_boss/missle_bot/alpha(T)
+	new /mob/living/pve_boss/missle_bot/(T)
 	return
 
 /client/proc/test_drone_spawn(turf/T in turfs)
