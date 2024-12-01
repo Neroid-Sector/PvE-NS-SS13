@@ -256,6 +256,8 @@ SUBSYSTEM_DEF(ticker)
 	for(var/obj/structure/machinery/vending/V in machines)
 		INVOKE_ASYNC(V, TYPE_PROC_REF(/obj/structure/machinery/vending, select_gamemode_equipment), mode.type)
 
+	INVOKE_ASYNC(src, PROC_REF(PlayCutscene),1)
+
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_POST_SETUP)
 
 

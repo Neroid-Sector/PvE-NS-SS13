@@ -186,6 +186,7 @@ var/list/admin_verbs_major_event = list(
 	/client/proc/remove_drones,
 	/client/proc/boss_phase,
 	/client/proc/boss_factor,
+	/client/proc/setup_cutscenes,
 )
 
 var/list/admin_verbs_spawn = list(

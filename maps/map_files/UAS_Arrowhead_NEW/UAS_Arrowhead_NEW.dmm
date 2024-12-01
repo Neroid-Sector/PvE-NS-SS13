@@ -13954,7 +13954,6 @@
 /area/arrowhead_new/lower/bunks/port_bunks)
 "oma" = (
 /obj/structure/machinery/cryopod,
-/obj/effect/landmark/start/marine/pve/point/squad1,
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/lower/bunks/port_bunks)
 "omi" = (
@@ -17249,13 +17248,6 @@
 	icon_state = "plate"
 	},
 /area/arrowhead_new/lower/powered/ert)
-"rku" = (
-/obj/structure/machinery/cryopod{
-	pixel_y = 10
-	},
-/obj/effect/landmark/start/marine/pve/base/squad2,
-/turf/open/floor/wood/ship,
-/area/arrowhead_new/lower/bunks/star_bunks)
 "rkT" = (
 /obj/structure/machinery/shower{
 	dir = 1
@@ -17467,11 +17459,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/brig/cells)
-"rta" = (
-/obj/structure/machinery/cryopod,
-/obj/effect/landmark/start/marine/pve/base/squad1,
-/turf/open/floor/wood/ship,
-/area/arrowhead_new/lower/bunks/port_bunks)
 "rtm" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
@@ -18864,7 +18851,6 @@
 /obj/structure/machinery/cryopod{
 	pixel_y = 10
 	},
-/obj/effect/landmark/start/marine/pve/point/squad2,
 /turf/open/floor/wood/ship,
 /area/arrowhead_new/lower/bunks/star_bunks)
 "sTk" = (
@@ -40546,7 +40532,7 @@ joN
 lgi
 ojI
 pXm
-rku
+sSP
 ldp
 ufC
 oNw
@@ -40576,7 +40562,7 @@ ohb
 hQH
 duz
 osH
-rta
+oma
 hQH
 wlu
 nsT
@@ -41310,7 +41296,7 @@ joN
 lgi
 ojI
 pXm
-rku
+sSP
 ldp
 ufC
 pXm
@@ -41340,7 +41326,7 @@ qPp
 hQH
 duz
 osH
-rta
+oma
 hQH
 wlu
 nsT
@@ -42074,7 +42060,7 @@ joN
 lgi
 ojI
 pXm
-rku
+sSP
 ldp
 ufC
 pXm
@@ -42104,7 +42090,7 @@ qPp
 hQH
 duz
 osH
-rta
+oma
 hQH
 wlu
 nsT
@@ -45130,7 +45116,7 @@ joN
 lgi
 ojI
 pXm
-rku
+sSP
 ldp
 ufC
 pXm
@@ -45160,7 +45146,7 @@ qPp
 hQH
 duz
 osH
-rta
+oma
 hQH
 wlu
 nsT
@@ -45894,7 +45880,7 @@ joN
 lgi
 ojI
 pXm
-rku
+sSP
 ldp
 ufC
 pXm
@@ -45924,7 +45910,7 @@ lSN
 hQH
 duz
 osH
-rta
+oma
 hQH
 wlu
 nsT
