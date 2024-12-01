@@ -485,3 +485,21 @@
 		boss_mob.boss_adds_spawned -= 1
 		boss_mob.AddPhaseResolutionCheck()
 	. = ..()
+
+/obj/item/prop/objective_tower
+	name = "Rapid-Burst Communications Array"
+	icon = 'icons/obj/structures/props/stationobjs.dmi'
+	icon_state = "controller-p"
+	var/stage_triggered = 0
+
+/obj/item/prop/objective_tower/attack_hand(mob/user)
+	if(stage_triggered == 0)
+		switch(GLOB.boss_stage)
+			if(1)
+				PlayCutscene(3)
+			if(2)
+				PlayCutscene(4)
+			if(3)
+				PlayCutscene(5)
+			if(4)
+				PlayCutscene(6)

@@ -139,6 +139,10 @@ GLOBAL_VAR_INIT(CutsceneUrlOutro, "none")
 			narration_setup["Name"] = "LT. James 'Jim' Biggs"
 			narration_setup["Location"] = "Arrowhead"
 			narration_setup["Position"] = "PO"
+		if(11)
+			narration_setup["Name"] = "ANATHEMA"
+			narration_setup["Location"] = "Unknown"
+			narration_setup["Position"] = "Unknown"
 
 	to_chat(world, "<span class='big'><span class='radio'><span class='name'>[narration_setup["Name"]]<b>[icon2html('icons/obj/items/radio.dmi', usr, "beacon")] \u005B[narration_setup["Location"]] \u0028[narration_setup["Position"]]\u0029\u005D </b></span><span class='message'>, says \"[text_to_comm]\"</span></span></span>", type = MESSAGE_TYPE_RADIO)
 
@@ -204,33 +208,33 @@ GLOBAL_VAR_INIT(CutsceneUrlOutro, "none")
 			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Tribal Blood"
 			if(music_extra_data["album"] == null) music_extra_data["album"] = "Tribal Blood"
 		if(2)
-			if(music_extra_data["title"] == null) music_extra_data["title"] = web_sound_url
-			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Unknown Artist"
-			if(music_extra_data["album"] == null) music_extra_data["album"] = "Unknown Album"
+			if(music_extra_data["title"] == null) music_extra_data["title"] = "Ware Is Caleb"
+			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Generdyn"
+			if(music_extra_data["album"] == null) music_extra_data["album"] = "Ware Is Caleb"
 		if(3)
-			if(music_extra_data["title"] == null) music_extra_data["title"] = web_sound_url
-			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Unknown Artist"
-			if(music_extra_data["album"] == null) music_extra_data["album"] = "Unknown Album"
+			if(music_extra_data["title"] == null) music_extra_data["title"] = "I Will Fight"
+			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Tribal Blood"
+			if(music_extra_data["album"] == null) music_extra_data["album"] = "Tribal Blood"
 		if(4)
-			if(music_extra_data["title"] == null) music_extra_data["title"] = web_sound_url
-			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Unknown Artist"
-			if(music_extra_data["album"] == null) music_extra_data["album"] = "Unknown Album"
+			if(music_extra_data["title"] == null) music_extra_data["title"] = "I Will Fight"
+			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Tribal Blood"
+			if(music_extra_data["album"] == null) music_extra_data["album"] = "Tribal Blood"
 		if(5)
-			if(music_extra_data["title"] == null) music_extra_data["title"] = web_sound_url
-			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Unknown Artist"
-			if(music_extra_data["album"] == null) music_extra_data["album"] = "Unknown Album"
+			if(music_extra_data["title"] == null) music_extra_data["title"] = "Contact With You"
+			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Kota Hoshino"
+			if(music_extra_data["album"] == null) music_extra_data["album"] = "Armored Core OST"
 		if(6)
-			if(music_extra_data["title"] == null) music_extra_data["title"] = web_sound_url
-			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Unknown Artist"
-			if(music_extra_data["album"] == null) music_extra_data["album"] = "Unknown Album"
+			if(music_extra_data["title"] == null) music_extra_data["title"] = "Contact With You"
+			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Kota Hoshino"
+			if(music_extra_data["album"] == null) music_extra_data["album"] = "Armored Core OST"
 		if(7)
-			if(music_extra_data["title"] == null) music_extra_data["title"] = web_sound_url
-			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Unknown Artist"
-			if(music_extra_data["album"] == null) music_extra_data["album"] = "Unknown Album"
+			if(music_extra_data["title"] == null) music_extra_data["title"] = "Thunder"
+			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Generdyn"
+			if(music_extra_data["album"] == null) music_extra_data["album"] = "Thunder"
 		if(8)
-			if(music_extra_data["title"] == null) music_extra_data["title"] = web_sound_url
-			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Unknown Artist"
-			if(music_extra_data["album"] == null) music_extra_data["album"] = "Unknown Album"
+			if(music_extra_data["title"] == null) music_extra_data["title"] = "Journey (Ready to Fly)"
+			if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Natasha Blume"
+			if(music_extra_data["album"] == null) music_extra_data["album"] = "Journey (Ready to Fly)"
 
 	var/targets = GLOB.mob_list
 	for(var/mob/mob as anything in targets)
@@ -257,3 +261,39 @@ GLOBAL_VAR_INIT(CutsceneUrlOutro, "none")
 			sleep(400)
 			INVOKE_ASYNC(src, PROC_REF(SendStoryBlurb),"As part of this operation, Marines from\nthe <b>UER Force Recon</b> will deploy onto\nthe <b>Weyland-Yutani</b> installation known as\n<b>CORSAT</b> in order to secure the AI\ncalled <b>CASSANDRA</b> and disable the\nstation's planetary defenses.")
 			return
+		if(2)
+			INVOKE_ASYNC(src, PROC_REF(PlayMusicFromPreset),2)
+			sleep(180)
+			SendNarrationMessage(2,"The dropship lifts off and heads out of the hangar. The UER ships start moving into their assigned positions outside of the station. The operation begins.")
+			sleep(50)
+			SendMessageAsRadio(8,"UER Elements. Be advised. Operation Wayward Librarian is now underway. We are securing the anchor point off-system. Good luck and godspeed, Marines.")
+			sleep(100)
+			SendNarrationMessage(2,"The dropship accelerates and heads towards the station. A familiar voice speaks as you approach your destination.")
+			sleep(50)
+			SendMessageAsRadio(4,"You are finally here! I am ready to transfer off station, and the systems should be ready to go. Whenever you are ready, initiate the upload from any of the large domes.")
+		if(3)
+			INVOKE_ASYNC(src, PROC_REF(PlayMusicFromPreset),3)
+			SendNarrationMessage(2,"The upload begins. Above, the Wraith moves into position to act as a relay.")
+			SendMessageAsRadio(9,"This is the Wraith. Upload starting now.")
+			sleep(30)
+			SendMessageAsRadio(5,"Did you see that?")
+			sleep(30)
+			SendMessageAsRadio(6,"See What?")
+			sleep(30)
+			SendMessageAsRadio(5,"Out there... Sensors, now!")
+			sleep(20)
+			SendNarrationMessage(2,"For a moment the stars above you seem to shift, reconfigure. A glimpse of an unknown invasion fleet, in orbit of the nearby planet flashes through the domes ceiling. A blink later and the universe is back to normal… Save one of the ships that now ")
+			sleep(30)
+			SendMessageAsRadio(5,"What the...")
+			sleep(15)
+			SendNarrationMessage(2,"For a moment the stars above you seem to shift, reconfigure. A glimpse of an unknown invasion fleet, in orbit of the nearby planet flashes through the domes ceiling. A blink later and the universe is back to normal… Save one of the ships that now is right in front of the Arrowhead!")
+			sleep(30)
+			SendMessageAsRadio(5,"My God...")
+			sleep(30)
+			SendMessageAsRadio(6,"Evasive action! Now! Arrowhead, move!")
+			sleep(30)
+			SendNarrationMessage(2,"The Aegis moves in front of the Arrowhead as a barrage of small projectiles peppers both. The station is likewise peppered by small, metallic objects and what seems to be a bigger ship, headed directly for the dome!")
+			sleep(30)
+			SendMessageAsRadio(9,"This is the Wraith. Upload starting now.")
+			sleep(30)
+			SendMessageAsRadio(11,"Attention, strays. You are forbidden from removing any elements of the Cycle. Your punishment is death.")
