@@ -316,14 +316,14 @@
 /client/proc/boss_factor()
 
 	set category = "DM.RoundFlow"
-	set name = "Boss - HP/Shielf Factor"
+	set name = "Boss - HP/Shield Factor"
 	set desc = "Edit The factor by which boss health and shield is multiplied during phases"
 
 	if(!check_rights(R_ADMIN))
 		return
 
 	var/old_value = GLOB.boss_stats_factor
-	GLOB.boss_stats_factor = tgui_input_number(usr, "Enter factor. Current maximum: [GLOB.boss_stats_factor]", "Boss Factor", timeout = 0)
+	GLOB.boss_stats_factor = tgui_input_number(usr, "Enter factor percentage. 100 = 1. Current setting: [GLOB.boss_stats_factor]", "Boss Factor", timeout = 0)
 	if(GLOB.boss_stats_factor == null) GLOB.boss_stats_factor = old_value
 
-	to_chat(usr, SPAN_INFO("Phase: [GLOB.boss_stats_factor]."))
+	to_chat(usr, SPAN_INFO("Current factor: Setting:[GLOB.boss_stats_factor], Actual: [GLOB.boss_stats_factor / 100]."))

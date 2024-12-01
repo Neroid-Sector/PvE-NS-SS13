@@ -558,7 +558,8 @@
 				ammo.on_hit_turf(get_turf(src),src)
 				T.bullet_act(src)
 			else if(L && L.loc && (L.bullet_act(src) != -1))
-				ammo.on_hit_mob(L,src, firer)
+				if(ammo)
+					ammo.on_hit_mob(L,src, firer)
 
 				// If we are a xeno shooting something
 				if (istype(ammo, /datum/ammo/xeno) && isxeno(firer) && L.stat != DEAD && ammo.apply_delegate)
@@ -904,10 +905,11 @@
 
 
 /obj/projectile/proc/play_hit_effect(mob/hit_mob)
-	if(ammo.sound_hit)
-		playsound(hit_mob, ammo.sound_hit, 50, 1)
-	if(hit_mob.stat != DEAD && !isnull(hit_effect_color))
-		animation_flash_color(hit_mob, hit_effect_color)
+	if(ammo)
+		if(ammo.sound_hit)
+			playsound(hit_mob, ammo.sound_hit, 50, 1)
+		if(hit_mob.stat != DEAD && !isnull(hit_effect_color))
+			animation_flash_color(hit_mob, hit_effect_color)
 
 /obj/projectile/proc/play_shielded_hit_effect(mob/hit_mob)
 	if(ammo.sound_shield_hit)
