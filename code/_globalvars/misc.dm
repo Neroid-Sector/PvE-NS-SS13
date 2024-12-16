@@ -56,6 +56,8 @@ GLOBAL_VAR(obfs_y)
 
 GLOBAL_VAR_INIT(ai_xeno_weeding, FALSE)
 
+GLOBAL_VAR_INIT(xenosurge_alpha, 1)
+
 GLOBAL_VAR_INIT(xenosurge_spawner_limit, 30)
 
 GLOBAL_VAR_INIT(xenosurge_surge_started, 0)

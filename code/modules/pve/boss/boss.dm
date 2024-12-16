@@ -408,8 +408,6 @@
 	icon_state = initial(icon_state) + "_dead"
 	update_icons()
 	if(source_landmark) source_landmark.mob_destroyed = 1
-	var/turf/drone_turf = get_turf(src)
-	if(drone_turf) drone_turf.vis_contents += src
 	var/flip_angle = rand(30,150)
 	flip_angle = pick(flip_angle, -flip_angle)
 	var/angle_low = floor(flip_angle / 2)
@@ -433,6 +431,8 @@
 	animate(src, time = 3, transform = A, pixel_x = anim_width_low, pixel_y = anim_height_low, easing=QUAD_EASING|EASE_IN, flags = ANIMATION_RELATIVE)
 	animate(time = 3, transform = B, pixel_x = anim_width_high, pixel_y = anim_height_high, easing=QUAD_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
 	sleep(30)
+	var/turf/drone_turf = get_turf(src)
+	if(drone_turf) drone_turf.vis_contents += src
 	qdel(src)
 
 /mob/living/pve_boss_drone/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
@@ -459,6 +459,7 @@
 	drone_no_damage = 0
 
 /mob/living/pve_boss_drone/proc/AnimateExit()
+	drone_no_damage = 1
 	var/turf/drone_turf = get_turf(src)
 	if(drone_turf)
 		drone_turf.vis_contents += src
@@ -494,12 +495,13 @@
 
 /obj/item/prop/objective_tower/attack_hand(mob/user)
 	if(stage_triggered == 0)
-		switch(GLOB.boss_stage)
-			if(1)
-				PlayCutscene(3)
-			if(2)
-				PlayCutscene(4)
-			if(3)
-				PlayCutscene(5)
-			if(4)
-				PlayCutscene(6)
+		if(GLOB.xenosurge_alpha == 0)
+			switch(GLOB.boss_stage)
+				if(1)
+					PlayCutscene(3)
+				if(2)
+					PlayCutscene(4)
+				if(3)
+					PlayCutscene(5)
+				if(4)
+					PlayCutscene(6)
