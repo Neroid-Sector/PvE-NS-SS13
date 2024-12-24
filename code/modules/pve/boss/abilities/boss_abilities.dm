@@ -741,4 +741,5 @@
 			var/turf_to_spawn = get_turf(pick(boss_area.mob_spawners))
 			new /mob/living/pve_boss_drone(turf_to_spawn)
 			drones_spawned += 1
+			if(GLOB.boss_drones.len > boss.boss_adds_spawned_max) return
 	return

@@ -91,55 +91,55 @@ GLOBAL_VAR_INIT(CutsceneUrlOutro, "none")
 	to_chat(usr, SPAN_INFO("[url_to_enter] set for [picked_option]"))
 	return
 
-/datum/proc/SendMessageAsRadio(speaker_preset = 0, message = null)
-	if(speaker_preset == 0 || message == null) return
+/datum/proc/SendMessageAsRadio(speaker_preset = null, message = null)
+	if(speaker_preset == null || message == null) return
 	var/text_to_comm = message
 	var/list/narration_setup = list("Name" = null,
 		"Location" = null,
 		"Position" = null,
 		)
 	switch(speaker_preset)
-		if(1)
+		if("mc")
 			narration_setup["Name"] = "LT. Ruslana 'Rusalka' Soroka"
 			narration_setup["Location"] = "Arrowhead"
 			narration_setup["Position"] = "MC"
-		if(2)
+		if("sco")
 			narration_setup["Name"] = "LT. David Grant"
 			narration_setup["Location"] = "Arrowhead"
 			narration_setup["Position"] = "ScO"
-		if(3)
+		if("xo")
 			narration_setup["Name"] = "CDR. Gabriel Powell"
 			narration_setup["Location"] = "Arrowhead"
 			narration_setup["Position"] = "XO"
-		if(4)
+		if("cass")
 			narration_setup["Name"] = "CASSANDRA"
 			narration_setup["Location"] = "CORSAT"
 			narration_setup["Position"] = "AI"
-		if(5)
+		if("helm-arrow")
 			narration_setup["Name"] = "HELM"
 			narration_setup["Location"] = "ARROWHEAD"
 			narration_setup["Position"] = "BRIDGE"
-		if(6)
+		if("helm-aegis")
 			narration_setup["Name"] = "HELM"
 			narration_setup["Location"] = "AEGIS"
 			narration_setup["Position"] = "BRIDGE"
-		if(7)
+		if("helm-sevas")
 			narration_setup["Name"] = "HELM"
 			narration_setup["Location"] = "SEVASTOPOL"
 			narration_setup["Position"] = "BRIDGE"
-		if(8)
+		if("com-phoen")
 			narration_setup["Name"] = "COMMAND"
 			narration_setup["Location"] = "PHOENIX"
 			narration_setup["Position"] = "CIC"
-		if(9)
+		if("vasquez")
 			narration_setup["Name"] = "LT. Isabel 'Shrike' Vasquez"
 			narration_setup["Location"] = "Arrowhead"
 			narration_setup["Position"] = "PO"
-		if(10)
+		if("biggs")
 			narration_setup["Name"] = "LT. James 'Jim' Biggs"
 			narration_setup["Location"] = "Arrowhead"
 			narration_setup["Position"] = "PO"
-		if(11)
+		if("anath")
 			narration_setup["Name"] = "ANATHEMA"
 			narration_setup["Location"] = "Unknown"
 			narration_setup["Position"] = "Unknown"
@@ -248,52 +248,4 @@ GLOBAL_VAR_INIT(CutsceneUrlOutro, "none")
 	if(cutscene_id == null) return
 	switch(cutscene_id)
 		if(1)
-			INVOKE_ASYNC(src, PROC_REF(PlayMusicFromPreset),1)
-			sleep(50)
-			INVOKE_ASYNC(src, PROC_REF(SendMessageAsRadio),1,"Good morning, UER Force Recon teams. Your briefing will commence in about 10 minutes on the top deck of the ship. The briefing room is located in the back.")
-			INVOKE_ASYNC(src, PROC_REF(SendStoryBlurb),"December 1st, 2224\nUAS Arrowhead")
-			sleep(180)
-			INVOKE_ASYNC(src, PROC_REF(SendStoryBlurb),"XENOSURGE")
-			sleep(100)
-			INVOKE_ASYNC(src, PROC_REF(SendStoryBlurb),"Months ago, the human colony known as\n<b>LV-624</b> went dark. Due to the presence of\ncitizens from all three of the major\nEarth based superpowers, <b>a joint effort</b>\nwas established to respond to the\nemergency.")
-			sleep(400)
-			INVOKE_ASYNC(src, PROC_REF(SendStoryBlurb),"Now, the <b>United Expeditionary Response</b>\nis preparing for its first major\noperation - the liberation of <b>LV-624</b>\nfrom the hostile force known only as\n<b>The Surge</b>.")
-			sleep(400)
-			INVOKE_ASYNC(src, PROC_REF(SendStoryBlurb),"As part of this operation, Marines from\nthe <b>UER Force Recon</b> will deploy onto\nthe <b>Weyland-Yutani</b> installation known as\n<b>CORSAT</b> in order to secure the AI\ncalled <b>CASSANDRA</b> and disable the\nstation's planetary defenses.")
 			return
-		if(2)
-			INVOKE_ASYNC(src, PROC_REF(PlayMusicFromPreset),2)
-			sleep(180)
-			SendNarrationMessage(2,"The dropship lifts off and heads out of the hangar. The UER ships start moving into their assigned positions outside of the station. The operation begins.")
-			sleep(50)
-			SendMessageAsRadio(8,"UER Elements. Be advised. Operation Wayward Librarian is now underway. We are securing the anchor point off-system. Good luck and godspeed, Marines.")
-			sleep(100)
-			SendNarrationMessage(2,"The dropship accelerates and heads towards the station. A familiar voice speaks as you approach your destination.")
-			sleep(50)
-			SendMessageAsRadio(4,"You are finally here! I am ready to transfer off station, and the systems should be ready to go. Whenever you are ready, initiate the upload from any of the large domes.")
-		if(3)
-			INVOKE_ASYNC(src, PROC_REF(PlayMusicFromPreset),3)
-			SendNarrationMessage(2,"The upload begins. Above, the Wraith moves into position to act as a relay.")
-			SendMessageAsRadio(9,"This is the Wraith. Upload starting now.")
-			sleep(30)
-			SendMessageAsRadio(5,"Did you see that?")
-			sleep(30)
-			SendMessageAsRadio(6,"See What?")
-			sleep(30)
-			SendMessageAsRadio(5,"Out there... Sensors, now!")
-			sleep(20)
-			SendNarrationMessage(2,"For a moment the stars above you seem to shift, reconfigure. A glimpse of an unknown invasion fleet, in orbit of the nearby planet flashes through the domes ceiling. A blink later and the universe is back to normal… Save one of the ships that now ")
-			sleep(30)
-			SendMessageAsRadio(5,"What the...")
-			sleep(15)
-			SendNarrationMessage(2,"For a moment the stars above you seem to shift, reconfigure. A glimpse of an unknown invasion fleet, in orbit of the nearby planet flashes through the domes ceiling. A blink later and the universe is back to normal… Save one of the ships that now is right in front of the Arrowhead!")
-			sleep(30)
-			SendMessageAsRadio(5,"My God...")
-			sleep(30)
-			SendMessageAsRadio(6,"Evasive action! Now! Arrowhead, move!")
-			sleep(30)
-			SendNarrationMessage(2,"The Aegis moves in front of the Arrowhead as a barrage of small projectiles peppers both. The station is likewise peppered by small, metallic objects and what seems to be a bigger ship, headed directly for the dome!")
-			sleep(30)
-			SendMessageAsRadio(9,"This is the Wraith. Upload starting now.")
-			sleep(30)
-			SendMessageAsRadio(11,"Attention, strays. You are forbidden from removing any elements of the Cycle. Your punishment is death.")

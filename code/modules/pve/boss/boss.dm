@@ -474,7 +474,6 @@
 		INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,AnimateEntry))
 	INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss_drone/,scan_cycle))
 
-
 /mob/living/pve_boss_drone/boss_variant
 
 	name = "Baltheus-6A Damage Deferral Drone"

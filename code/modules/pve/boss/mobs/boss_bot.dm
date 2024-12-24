@@ -111,65 +111,58 @@
 		if(1)
 			boss_shield = 500 * (GLOB.boss_stats_factor / 100)
 			boss_shield_max = 500 * (GLOB.boss_stats_factor / 100)
-			GlobalCoolDown = 15
+			standard_range_salvo_count = 2
+			GlobalCoolDown = 20
 			ability_log = list()
-			ability_log = list ("missiles" = 0,
-				"shot" = 0,
-				"aoe_shot" = 0,
+			ability_log = list ("shot" = 0,
 				"drone" = 0,
 				)
 			ability_delays = list()
 			ability_delays = list ("shot" = 1,
-				"aoe_shot" = 10,
 				"drone" = 5,
-				"missiles" = 80,)
+				)
 			ai_datum.init_delays()
 		if(2)
 			boss_shield = 1000 * (GLOB.boss_stats_factor / 100)
 			boss_shield_max = 1000 * (GLOB.boss_stats_factor / 100)
+			standard_range_salvo_count = 3
 			GlobalCoolDown = 15
 			ability_log = list()
-			ability_log = list ("missiles" = 0,
-				"shot" = 0,
-				"aoe_shot" = 0,
+			ability_log = list ("shot" = 0,
 				"drone" = 0,
 				)
 			ability_delays = list()
 			ability_delays = list ("shot" = 1,
 				"drone" = 4,
-				"aoe_shot" = 8,
-				"missiles" = 65,)
+				)
 			ai_datum.init_delays()
 		if(3)
 			boss_shield = 1500 * (GLOB.boss_stats_factor / 100)
 			boss_shield_max = 1500 * (GLOB.boss_stats_factor / 100)
+			standard_range_salvo_count = 3
 			GlobalCoolDown = 15
 			ability_log = list()
-			ability_log = list ("missiles" = 0,
-				"shot" = 0,
-				"aoe_shot" = 0,
+			ability_log = list ("shot" = 0,
 				"drone" = 0,
 				)
 			ability_delays = list()
 			ability_delays = list ("shot" = 1,
-				"aoe_shot" = 5,
 				"drone" = 3,
-				"missiles" = 50,)
+				)
 			ai_datum.init_delays()
 		if(4)
 			boss_shield = 1500 * (GLOB.boss_stats_factor / 100)
 			boss_shield_max = 1500 * (GLOB.boss_stats_factor / 100)
-			GlobalCoolDown = 30
+			standard_range_salvo_count = 4
+			GlobalCoolDown = 10
 			ability_log = list()
-			ability_log = list ("missiles" = 0,
-				"aoe_shot" = 0,
+			ability_log = list ("shot" = 0,
 				"drone" = 0,
 				)
 			ability_delays = list()
-			ability_delays = list (
-				"aoe_shot" = 1,
-				"missiles" = 20,
-				"drone" = 3,)
+			ability_delays = list ("shot" = 1,
+				"drone" = 1,
+				)
 			ai_datum.init_delays()
 
 /mob/living/pve_boss/missle_bot/RestoreShield()
