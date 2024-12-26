@@ -544,7 +544,7 @@
 		current_shot += 1
 		var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
 		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/dbl_laser]
-		projectile.generate_bullet(ammo_datum, bulllet_color = "#ff0000")
+		projectile.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 		projectile.fire_at(laser_target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 		sleep(boss.standard_range_salvo_delay)
 	boss.boss_exposed = 0
