@@ -15,7 +15,7 @@
 	var/mob/living/pve_boss/boss_mob = owner
 	var/turf/boss_turf = get_turf(boss_mob)
 	var/turf/turf_to_chunk = chunked_turf
-
+	if(!turf_to_chunk) return
 	var/icon/chunk1 = icon(icon,icon_state,icon_dir)
 	chunk1.Crop(1,1,8,8)
 	var/icon/chunk2 = icon(icon,icon_state,icon_dir)
@@ -508,7 +508,6 @@
 			A = matrix()
 			A.Turn(rand(-360,360))
 			animate(chunk_item16,pixel_x = rand(-32,32), pixel_y = rand(1,64), transform = A, time = 5, easing = CUBIC_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-
 	turf_to_chunk.vis_contents += chunk_item1
 	turf_to_chunk.vis_contents += chunk_item2
 	turf_to_chunk.vis_contents += chunk_item3

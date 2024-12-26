@@ -11,20 +11,31 @@
 	var/operation_started = 0
 
 /obj/structure/transmitter_base/proc/upload()
+	operation_started = 1
 	icon_state = "tower_on"
 	emoteas("activates and starts to hum loudly")
+	update_icon()
 	sleep(200)
 	name = "CASSANDRA"
 	langchat_color = "#910030"
 	talkas("He knows you are here! Step away from the transponder!")
 	name = initial(name)
 	langchat_color = initial(langchat_color)
+	sleep(50)
+	icon_state = "tower"
+	update_icon()
+	emoteas("fizzes and shuts down")
+	sleep(20)
+	var/current_turf = get_turf(src)
+	new /mob/living/pve_boss/missle_bot/(current_turf)
 
 /obj/structure/transmitter_base/attack_hand(mob/user)
 	var/area/current_area = get_area(src)
-	if(operation_started == 0 || (GLOB.boss_stage == GLOB.boss_stage_max))
+	if(operation_started == 1 || (GLOB.boss_stage == GLOB.boss_stage_max))
 		to_chat(usr, SPAN_INFO("The device does not respond to any inputs and seems inactive."))
 		return
 	if(tgui_alert(usr,"The device is unlocked, and the transfer is ready. You may press any key to initiate the process. This may attract unwanted attention.","Start Transfer?",list("Any","CANCEL"),timeout = 0) == "Any")
 		if(do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_GENERIC))
 			to_chat(world, SPAN_WARNING("A Transponder is activate in [current_area]!"))
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/structure/transmitter_base/,upload))
+	return

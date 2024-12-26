@@ -38738,6 +38738,10 @@
 	icon_state = "red"
 	},
 /area/corsat/gamma/airlock/south/id)
+"elE" = (
+/obj/effect/landmark/observer_start,
+/turf/open/auto_turf/snow/layer0,
+/area/corsat/gamma/biodome)
 "elG" = (
 /obj/effect/landmark/xeno_hive_spawn,
 /obj/effect/landmark/ert_spawns/groundside_xeno,
@@ -55241,12 +55245,8 @@
 	},
 /area/corsat/sigma/checkpoint)
 "qxF" = (
-/obj/structure/ice/ice_rock/cornerOverlay{
-	dir = 1;
-	icon_state = "south_wall"
-	},
-/obj/effect/landmark/pve_boss_navigation,
-/turf/closed/ice_rock/corners,
+/obj/effect/landmark/pve_mob,
+/turf/open/auto_turf/snow/layer0,
 /area/corsat/gamma/biodome)
 "qxR" = (
 /obj/structure/machinery/light{
@@ -55373,6 +55373,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/transmitter_base,
 /turf/open/auto_turf/snow/layer3,
 /area/corsat/gamma/biodome)
 "qEe" = (
@@ -57560,6 +57561,10 @@
 	icon_state = "tan"
 	},
 /area/corsat/gamma/residential/west)
+"shk" = (
+/obj/effect/landmark/pve_mob,
+/turf/open/auto_turf/snow/layer3,
+/area/corsat/gamma/biodome)
 "shq" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -58086,6 +58091,10 @@
 	icon_state = "purplewhite"
 	},
 /area/corsat/sigma/south/complex)
+"sBW" = (
+/obj/effect/landmark/pve_mob,
+/turf/open/auto_turf/snow/layer2,
+/area/corsat/gamma/biodome)
 "sCf" = (
 /obj/structure/pipes/standard/manifold/hidden/green{
 	dir = 8
@@ -58970,6 +58979,11 @@
 	icon_state = "whitebluefull"
 	},
 /area/corsat/gamma/residential/showers)
+"tiX" = (
+/obj/structure/pipes/standard/simple/hidden/green,
+/obj/effect/landmark/pve_mob,
+/turf/open/auto_turf/snow/layer0,
+/area/corsat/gamma/biodome)
 "tja" = (
 /turf/open/floor/corsat{
 	icon_state = "purplewhitecorner"
@@ -74557,7 +74571,7 @@ bfZ
 bgd
 bge
 beO
-lhd
+beO
 beO
 iQh
 aIk
@@ -75029,7 +75043,7 @@ beO
 beX
 aIk
 iQh
-aIk
+qxF
 aIk
 beX
 beO
@@ -75038,7 +75052,7 @@ aeo
 aIk
 aIk
 beX
-aeo
+sBW
 aIk
 aIk
 bfZ
@@ -75279,7 +75293,7 @@ aIk
 beX
 aeo
 aeo
-aeo
+sBW
 aeo
 beO
 beO
@@ -75756,7 +75770,7 @@ aeo
 beO
 eOe
 aeo
-beO
+shk
 aeo
 aeo
 beO
@@ -75765,7 +75779,7 @@ adX
 aIk
 efE
 aIk
-aIk
+qxF
 adX
 aeo
 beP
@@ -76016,7 +76030,7 @@ beP
 bfz
 beZ
 beZ
-qxF
+bfm
 bfd
 bfZ
 bgd
@@ -76495,7 +76509,7 @@ aeo
 tqO
 dyK
 egd
-kIW
+tiX
 kIW
 kIW
 yau
@@ -76990,7 +77004,7 @@ uIJ
 aIk
 iQh
 aIk
-aIk
+qxF
 bcW
 beO
 lhd
@@ -77471,7 +77485,7 @@ bfh
 bff
 bfg
 aeo
-aIk
+qxF
 aIk
 aIk
 aIk
@@ -77489,7 +77503,7 @@ aIk
 aIk
 aIk
 aIk
-aIk
+qxF
 aIk
 aIk
 aIk
@@ -77725,7 +77739,7 @@ beX
 aIk
 iQh
 aIk
-aIk
+elE
 aIk
 aIk
 aIk
@@ -77977,7 +77991,7 @@ kIW
 kIW
 dJd
 kIW
-kIW
+tiX
 kIW
 nny
 rIz
@@ -78700,7 +78714,7 @@ kIW
 kIW
 kIW
 kIW
-kIW
+tiX
 kIW
 kIW
 yau
@@ -78715,7 +78729,7 @@ aIk
 aIk
 aIk
 iQh
-aIk
+qxF
 beO
 beO
 bfg
@@ -78937,7 +78951,7 @@ iQh
 aIk
 aIk
 aIk
-aIk
+qxF
 aIk
 sDU
 aIk
@@ -78947,7 +78961,7 @@ aIk
 aIk
 aIk
 aIk
-aIk
+qxF
 iQh
 sDU
 aIk
@@ -79197,11 +79211,11 @@ iQh
 aIk
 aIk
 aeo
-beO
+shk
 beO
 beX
 aIk
-aIk
+qxF
 sDU
 aIk
 gkx
@@ -79684,7 +79698,7 @@ beO
 bcW
 aIk
 iQh
-aIk
+qxF
 aIk
 beO
 bci

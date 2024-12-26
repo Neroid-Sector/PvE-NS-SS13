@@ -92,12 +92,22 @@
 	update_icons()
 	name = "ANATHEMA"
 	say("I am ANATHEMA. I am your end..")
+	name = initial(name)
 	sleep(20)
+	name = "ANATHEMA"
 	say("Humanity must pay for what you have done here.")
+	name = initial(name)
 	sleep(20)
+	name = "ANATHEMA"
 	say("Your existence is not tolerated.")
 	name = initial(name)
 	boss_no_damage = 0
+	boss_loop_override = 1
+	sleep(GlobalCoolDown)
+	boss_loop_override = 0
+	ai_datum.movement_loop()
+	ai_datum.combat_loop()
+	to_chat(world,narrate_body("[name] is active in [get_area(src)]!"))
 
 /mob/living/pve_boss/missle_bot/Initialize()
 	if(boss_alpha == 0) INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/missle_bot/, AnimateEntry))

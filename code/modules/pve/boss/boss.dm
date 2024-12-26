@@ -488,7 +488,7 @@
 /mob/living/pve_boss_drone/boss_variant
 
 	name = "Baltheus-6A Damage Deferral Drone"
-	icon_state = "boss_drone"
+	icon_state = "drone_boss"
 	var/mob/living/pve_boss/boss_mob
 
 /mob/living/pve_boss_drone/boss_variant/DeathAnim()
