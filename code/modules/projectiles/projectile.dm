@@ -131,7 +131,7 @@
 /obj/projectile/ex_act()
 	return FALSE //We do not want anything to delete these, simply to make sure that all the bullet references are not runtiming. Otherwise, constantly need to check if the bullet exists.
 
-/obj/projectile/proc/generate_bullet(datum/ammo/ammo_datum, bonus_damage = 0, special_flags = 0, mob/bullet_generator)
+/obj/projectile/proc/generate_bullet(datum/ammo/ammo_datum, bonus_damage = 0, special_flags = 0, mob/bullet_generator, bullet_color)
 	ammo = ammo_datum
 	name = ammo.name
 	icon = ammo.icon
@@ -145,9 +145,13 @@
 	damage_buildup = ammo.damage_buildup
 	hit_effect_color = ammo.hit_effect_color
 	projectile_override_flags = special_flags
-
+	if(bullet_color != null)
+		light_system = HYBRID_LIGHT
+		light_color = bullet_color
+		light_power = 5
+		light_range = 5
+		set_light(3)
 	ammo_datum.on_bullet_generation(src, bullet_generator)
-
 	// Apply bullet traits from ammo
 	for(var/entry in ammo.traits_to_give)
 		var/list/L

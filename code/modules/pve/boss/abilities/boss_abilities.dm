@@ -544,7 +544,7 @@
 		current_shot += 1
 		var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
 		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/dbl_laser]
-		projectile.generate_bullet(ammo_datum)
+		projectile.generate_bullet(ammo_datum, bulllet_color = "#ff0000")
 		projectile.fire_at(laser_target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 		sleep(boss.standard_range_salvo_delay)
 	boss.boss_exposed = 0
@@ -654,7 +654,7 @@
 				var/turf/target = turfarray[direction1]
 				var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
 				var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
-				projectile.generate_bullet(ammo_datum)
+				projectile.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 				projectile.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 				if(projectile_direction < 16)
 					projectile_direction += 1
@@ -677,9 +677,9 @@
 				var/obj/projectile/projectile1 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
 				var/obj/projectile/projectile2 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
 				var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
-				projectile1.generate_bullet(ammo_datum)
+				projectile1.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 				projectile1.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
-				projectile2.generate_bullet(ammo_datum)
+				projectile2.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 				projectile2.fire_at(target2, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 				if(projectile_direction < 16)
 					projectile_direction += 1
@@ -716,13 +716,13 @@
 				var/turf/target2 = turfarray[direction2]
 				var/turf/target3 = turfarray[direction3]
 				var/turf/target4 = turfarray[direction4]
-				projectile1.generate_bullet(ammo_datum)
+				projectile1.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 				projectile1.fire_at(target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
-				projectile2.generate_bullet(ammo_datum)
+				projectile2.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 				projectile2.fire_at(target2, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
-				projectile3.generate_bullet(ammo_datum)
+				projectile3.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 				projectile3.fire_at(target3, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
-				projectile4.generate_bullet(ammo_datum)
+				projectile4.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 				projectile4.fire_at(target4, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 				if(projectile_direction < 16)
 					projectile_direction += 1

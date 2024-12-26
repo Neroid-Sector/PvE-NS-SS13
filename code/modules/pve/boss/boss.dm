@@ -388,7 +388,7 @@
 	if(drone_attack_breakpoint == 0)
 		var/obj/projectile/projectile = new /obj/projectile(src.loc, create_cause_data("[src.name]"), src)
 		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/laser]
-		projectile.generate_bullet(ammo_datum)
+		projectile.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 		projectile.fire_at(drone_target, src, src, ammo_datum.max_range, ammo_datum.shell_speed)
 		drone_last_fired = world.time
 		animate(src, color = "#FFFFFF", time = 3)
