@@ -64,6 +64,7 @@
 	B.Scale(1,1)
 	apply_transform(A)
 	boss_no_damage = 1
+	playsound(src, 'sound/effects/phasein.ogg', 50)
 	animate(src, transform = B, alpha = 255, color = "#cc00aa", time = 10, easing = CUBIC_EASING|EASE_IN)
 	animate(time = 5, color = "#ffffff",easing = CUBIC_EASING|EASE_OUT)
 	sleep(15)
@@ -78,6 +79,7 @@
 		if(items)
 			INVOKE_ASYNC(src,TYPE_PROC_REF(/mob/living/pve_boss/missle_bot/, ThrowAnimate), items)
 	new /obj/effect/shockwave(current_turf, 5)
+	playsound(src, 'sound/effects/Explosion2.ogg', 60)
 	for(var/obj/structure/structure in nearby_area)
 		var/icon_data = structure.icon
 		var/icon_state_data = structure.icon_state
@@ -103,7 +105,7 @@
 	name = initial(name)
 	boss_no_damage = 0
 	boss_loop_override = 1
-	sleep(GlobalCoolDown)
+	sleep(GlobalCoolDown + 1)
 	boss_loop_override = 0
 	ai_datum.movement_loop()
 	ai_datum.combat_loop()
@@ -132,6 +134,7 @@
 		if(1)
 			boss_shield = 500 * (GLOB.boss_stats_factor / 100)
 			boss_shield_max = 500 * (GLOB.boss_stats_factor / 100)
+			boss_health = 500 * (GLOB.boss_stats_factor / 100)
 			standard_range_salvo_count = 2
 			GlobalCoolDown = 20
 			ability_log = list()
@@ -146,6 +149,7 @@
 		if(2)
 			boss_shield = 1000 * (GLOB.boss_stats_factor / 100)
 			boss_shield_max = 1000 * (GLOB.boss_stats_factor / 100)
+			boss_health = 1000 * (GLOB.boss_stats_factor / 100)
 			standard_range_salvo_count = 3
 			GlobalCoolDown = 15
 			ability_log = list()
@@ -160,6 +164,7 @@
 		if(3)
 			boss_shield = 1500 * (GLOB.boss_stats_factor / 100)
 			boss_shield_max = 1500 * (GLOB.boss_stats_factor / 100)
+			boss_health = 1500 * (GLOB.boss_stats_factor / 100)
 			standard_range_salvo_count = 3
 			GlobalCoolDown = 15
 			ability_log = list()
@@ -174,6 +179,7 @@
 		if(4)
 			boss_shield = 1500 * (GLOB.boss_stats_factor / 100)
 			boss_shield_max = 1500 * (GLOB.boss_stats_factor / 100)
+			boss_health = 1500 * (GLOB.boss_stats_factor / 100)
 			standard_range_salvo_count = 4
 			GlobalCoolDown = 10
 			ability_log = list()

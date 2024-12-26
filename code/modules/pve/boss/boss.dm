@@ -173,12 +173,14 @@
 	ping_object.color = "#FF0000"
 	switch(type)
 		if(1)
+			playsound(src, 'sound/effects/thud.ogg', 25)
 			var/shield_proportion = (round((boss_shield / boss_shield_max),0.01))
 			var/alpha_value = 255 * shield_proportion
 			ping_object.alpha = 1
 			animate(ping_object,alpha = alpha_value, easing = CIRCULAR_EASING|EASE_IN, time = 2)
 			animate(alpha = 1, easing = CIRCULAR_EASING|EASE_OUT, time = 2)
 		if(2)
+			playsound(src, 'sound/effects/thud2.ogg', 50)
 			ping_object.alpha = 255
 			var/matrix/A = matrix()
 			A.Scale(3)
@@ -224,6 +226,7 @@
 		GLOB.boss_stage += 1
 		var/matrix/A = matrix()
 		A.Scale(0.001,0.001)
+		playsound(src, 'sound/effects/pred_cloakoff.ogg', 25)
 		animate(src, time = 5, color = "#cc00aa",easing = CUBIC_EASING|EASE_IN)
 		animate(transform = A, alpha = 0, color = "#ffc3f5", time = 10, easing = CUBIC_EASING|EASE_OUT)
 		sleep(5)
@@ -264,6 +267,7 @@
 			color_value = "#ff5e00"
 		if(0)
 			color_value = "#ff0000"
+	playsound(src, 'sound/effects/thud.ogg', 25)
 	animate(src, pixel_x = pixel_x_val, pixel_y = pixel_y_val, color = color_value, time = 1)
 	animate(color = "#FFFFFF", pixel_x = pixel_x_org, pixel_y = pixel_y_org, time = 1)
 	color = initial(color)
@@ -388,6 +392,7 @@
 	if(drone_attack_breakpoint == 0)
 		var/obj/projectile/projectile = new /obj/projectile(src.loc, create_cause_data("[src.name]"), src)
 		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/laser]
+		playsound(src, 'sound/items/pulse2.ogg', 50)
 		projectile.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 		projectile.fire_at(drone_target, src, src, ammo_datum.max_range, ammo_datum.shell_speed)
 		drone_last_fired = world.time
@@ -411,6 +416,7 @@
 	if(drone_health <= 0) return
 	if(drone_no_damage == 0)
 		drone_health -= 1
+		playsound(src, 'sound/effects/thud.ogg', 25)
 		if(drone_health <= 0)
 			drone_attack_breakpoint = 1
 			DeathAnim()
@@ -432,6 +438,7 @@
 	B.Scale(1,1)
 	apply_transform(A)
 	drone_no_damage = 1
+	playsound(src, 'sound/effects/phasein.ogg', 25)
 	animate(src, transform = B, alpha = 255, color = "#cc00aa", time = 10, easing = CUBIC_EASING|EASE_IN)
 	animate(time = 5, color = "#ffffff",easing = CUBIC_EASING|EASE_OUT)
 	sleep(15)
@@ -441,6 +448,7 @@
 	drone_no_damage = 1
 	var/matrix/A = matrix()
 	A.Scale(0.001,0.001)
+	playsound(src, 'sound/effects/pred_cloakoff.ogg', 25)
 	animate(src, time = 5, color = "#cc00aa",easing = CUBIC_EASING|EASE_IN)
 	animate(transform = A, alpha = 0, color = "#ffc3f5", time = 10, easing = CUBIC_EASING|EASE_OUT)
 	sleep(15)
@@ -469,6 +477,7 @@
 	var/datum/effect_system/spark_spread/sparks = new /datum/effect_system/spark_spread
 	sparks.set_up(3, 1, src)
 	sparks.start()
+	playsound(src, 'sound/effects/metal_shatter.ogg', 25)
 	animate(src, time = 3, transform = A, pixel_x = anim_width_low, pixel_y = anim_height_low, easing=QUAD_EASING|EASE_IN, flags = ANIMATION_RELATIVE)
 	animate(time = 3, transform = B, pixel_x = anim_width_high, pixel_y = anim_height_high, easing=QUAD_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
 	sleep(15)

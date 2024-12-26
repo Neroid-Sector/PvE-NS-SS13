@@ -392,6 +392,7 @@
 /datum/boss_action/proc/process_movement(turf/target)
 	var/mob/living/pve_boss/boss = owner
 	var/turf/target_turf = target
+	playsound(boss, 'sound/effects/Explosion2.ogg', 60)
 	new /obj/effect/shockwave(target_turf, 4)
 	boss.pixel_x = initial(boss.pixel_x)
 	boss.pixel_y = initial(boss.pixel_y)
@@ -544,6 +545,7 @@
 		current_shot += 1
 		var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
 		var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/dbl_laser]
+		playsound(boss, 'sound/items/pulse3.ogg', 50)
 		projectile.generate_bullet(ammo_datum, bullet_color = "#ff0000")
 		projectile.fire_at(laser_target, boss, boss, ammo_datum.max_range, ammo_datum.shell_speed)
 		sleep(boss.standard_range_salvo_delay)
@@ -650,7 +652,7 @@
 			while(boss.boss_shield_broken == 1)
 				if(boss.boss_loop_override == 1) return
 				var/direction1 = DirectionRef(projectile_direction)
-				playsound(boss, 'sound/items/pulse3.ogg', 50)
+				playsound(boss, 'sound/items/pulse.ogg', 50)
 				var/turf/target = turfarray[direction1]
 				var/obj/projectile/projectile = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
 				var/datum/ammo/ammo_datum = GLOB.ammo_list[/datum/ammo/boss/surge_proj]
@@ -671,7 +673,7 @@
 					direction2 = DirectionRef(projectile_direction + 8)
 				else
 					direction2 = DirectionRef(projectile_direction - 8)
-				playsound(boss, 'sound/items/pulse3.ogg', 50)
+				playsound(boss, 'sound/items/pulse.ogg', 50)
 				var/turf/target = turfarray[direction1]
 				var/turf/target2 = turfarray[direction2]
 				var/obj/projectile/projectile1 = new /obj/projectile(boss.loc, create_cause_data("[boss.name]"), boss)
@@ -711,7 +713,7 @@
 					direction4 = DirectionRef(projectile_direction + 12)
 				else
 					direction4 = DirectionRef(projectile_direction - 4)
-				playsound(boss, 'sound/items/pulse3.ogg', 50)
+				playsound(boss, 'sound/items/pulse.ogg', 50)
 				var/turf/target = turfarray[direction1]
 				var/turf/target2 = turfarray[direction2]
 				var/turf/target3 = turfarray[direction3]

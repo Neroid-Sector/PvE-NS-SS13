@@ -8,6 +8,7 @@
 	indestructible = 1
 	unslashable = 1
 	unacidable = 1
+	layer = ABOVE_MOB_LAYER
 	var/operation_started = 0
 
 /obj/structure/transmitter_base/proc/upload()
