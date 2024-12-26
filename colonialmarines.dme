@@ -2265,6 +2265,7 @@
 #include "code\modules\projectiles\magazines\shotguns.dm"
 #include "code\modules\projectiles\magazines\smgs.dm"
 #include "code\modules\projectiles\magazines\specialist.dm"
+#include "code\modules\pve\mission_items.dm"
 #include "code\modules\pve\spawner.dm"
 #include "code\modules\pve\boss\boss.dm"
 #include "code\modules\pve\boss\abilities\boss_abilities.dm"

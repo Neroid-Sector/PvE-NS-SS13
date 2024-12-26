@@ -56,8 +56,16 @@
 	atom_to_throw.throw_atom(throw_turf, 4, SPEED_VERY_FAST, src, TRUE)
 
 /mob/living/pve_boss/missle_bot/AnimateEntry()
-	pixel_y = 300
-	animate(src, pixel_y = 0, time = 15, easing = CUBIC_EASING|EASE_IN)
+	var/matrix/A = matrix()
+	var/matrix/B = matrix()
+	color = "#ffc3f5"
+	alpha = 0
+	A.Scale(0.001,0.001)
+	B.Scale(1,1)
+	apply_transform(A)
+	boss_no_damage = 1
+	animate(src, transform = B, alpha = 255, color = "#cc00aa", time = 10, easing = CUBIC_EASING|EASE_IN)
+	animate(time = 5, color = "#ffffff",easing = CUBIC_EASING|EASE_OUT)
 	sleep(15)
 	var/turf/current_turf = get_turf(src)
 	var/list/nearby_area = range(5, current_turf)
@@ -82,11 +90,14 @@
 	sleep(10)
 	icon_state = "boss_normal"
 	update_icons()
-	say("Distortions to Cycle activity detected. Determining character.")
+	name = "ANATHEMA"
+	say("I am ANATHEMA. I am your end..")
 	sleep(20)
-	say("Unregistered Human Lifeforms detected. All threats to the Cycle must be removed.")
+	say("Humanity must pay for what you have done here.")
 	sleep(20)
-	say("You cannot have her... You cannot have her... You cannot...")
+	say("Your existence is not tolerated.")
+	name = initial(name)
+	boss_no_damage = 0
 
 /mob/living/pve_boss/missle_bot/Initialize()
 	if(boss_alpha == 0) INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss/missle_bot/, AnimateEntry))

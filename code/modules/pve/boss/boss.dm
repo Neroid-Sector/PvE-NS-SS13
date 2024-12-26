@@ -222,9 +222,12 @@
 	boss_immobilized = 1
 	if(GLOB.boss_stage < GLOB.boss_stage_max)
 		GLOB.boss_stage += 1
-		animate(src, pixel_y = 200, time = 10, easing = CUBIC_EASING|EASE_IN)
-		visible_message("activates an emergency thruster and smashes through the ceiling!")
-		to_chat(world, SPAN_WARNING("The platform smashes through the ceiling and out of sight. Emergency shutters seal the breach."))
+		var/matrix/A = matrix()
+		A.Scale(0.001,0.001)
+		animate(src, time = 5, color = "#cc00aa",easing = CUBIC_EASING|EASE_IN)
+		animate(transform = A, alpha = 0, color = "#ffc3f5", time = 10, easing = CUBIC_EASING|EASE_OUT)
+		sleep(5)
+		to_chat(world, SPAN_WARNING("The machine seems to phase out of existence! You are safe for now. "))
 		sleep(10)
 		qdel(src)
 	else
@@ -423,13 +426,13 @@
 /mob/living/pve_boss_drone/proc/AnimateEntry()
 	var/matrix/A = matrix()
 	var/matrix/B = matrix()
-	color = "#ffbcbc"
+	color = "#ffc3f5"
 	alpha = 0
 	A.Scale(0.001,0.001)
 	B.Scale(1,1)
 	apply_transform(A)
 	drone_no_damage = 1
-	animate(src, transform = B, alpha = 255, color = "#ff0000", time = 10, easing = CUBIC_EASING|EASE_IN)
+	animate(src, transform = B, alpha = 255, color = "#cc00aa", time = 10, easing = CUBIC_EASING|EASE_IN)
 	animate(time = 5, color = "#ffffff",easing = CUBIC_EASING|EASE_OUT)
 	sleep(15)
 	drone_no_damage = 0
@@ -438,8 +441,8 @@
 	drone_no_damage = 1
 	var/matrix/A = matrix()
 	A.Scale(0.001,0.001)
-	animate(src, time = 5, color = "#ff0000",easing = CUBIC_EASING|EASE_IN)
-	animate(transform = A, alpha = 0, color = "#ffbcbc", time = 10, easing = CUBIC_EASING|EASE_OUT)
+	animate(src, time = 5, color = "#cc00aa",easing = CUBIC_EASING|EASE_IN)
+	animate(transform = A, alpha = 0, color = "#ffc3f5", time = 10, easing = CUBIC_EASING|EASE_OUT)
 	sleep(15)
 
 /mob/living/pve_boss_drone/proc/DeathAnim()
