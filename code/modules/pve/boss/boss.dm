@@ -404,6 +404,44 @@
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/pve_boss_drone/, scan_cycle))
 	return
 
+/mob/living/pve_boss_drone/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
+	if(drone_health <= 0) return
+	if(drone_no_damage == 0)
+		drone_health -= 1
+		if(drone_health <= 0)
+			drone_attack_breakpoint = 1
+			DeathAnim()
+
+/mob/living/pve_boss_drone/Destroy()
+	drone_attack_breakpoint = 1
+	GLOB.boss_drones.Remove(src)
+	if(source_landmark)
+		source_landmark.spawned_bot = null
+		source_landmark = null
+	. = ..()
+
+/mob/living/pve_boss_drone/proc/AnimateEntry()
+	var/matrix/A = matrix()
+	var/matrix/B = matrix()
+	color = "#ffbcbc"
+	alpha = 0
+	A.Scale(0.001,0.001)
+	B.Scale(1,1)
+	apply_transform(A)
+	drone_no_damage = 1
+	animate(src, transform = B, alpha = 255, color = "#ff0000", time = 10, easing = CUBIC_EASING|EASE_IN)
+	animate(time = 5, color = "#ffffff",easing = CUBIC_EASING|EASE_OUT)
+	sleep(15)
+	drone_no_damage = 0
+
+/mob/living/pve_boss_drone/proc/AnimateExit()
+	drone_no_damage = 1
+	var/matrix/A = matrix()
+	A.Scale(0.001,0.001)
+	animate(src, time = 5, color = "#ff0000",easing = CUBIC_EASING|EASE_IN)
+	animate(transform = A, alpha = 0, color = "#ffbcbc", time = 10, easing = CUBIC_EASING|EASE_OUT)
+	sleep(15)
+
 /mob/living/pve_boss_drone/proc/DeathAnim()
 	icon_state = initial(icon_state) + "_dead"
 	update_icons()
@@ -430,40 +468,10 @@
 	sparks.start()
 	animate(src, time = 3, transform = A, pixel_x = anim_width_low, pixel_y = anim_height_low, easing=QUAD_EASING|EASE_IN, flags = ANIMATION_RELATIVE)
 	animate(time = 3, transform = B, pixel_x = anim_width_high, pixel_y = anim_height_high, easing=QUAD_EASING|EASE_OUT, flags = ANIMATION_RELATIVE)
-	sleep(30)
-	var/turf/drone_turf = get_turf(src)
-	if(drone_turf) drone_turf.vis_contents += src
-	qdel(src)
-
-/mob/living/pve_boss_drone/apply_damage(damage, damagetype, def_zone, used_weapon, sharp, edge, force)
-	if(drone_health <= 0) return
-	if(drone_no_damage == 0)
-		drone_health -= 1
-		if(drone_health <= 0)
-			drone_attack_breakpoint = 1
-			DeathAnim()
-
-/mob/living/pve_boss_drone/Destroy()
-	drone_attack_breakpoint = 1
-	GLOB.boss_drones.Remove(src)
-	if(source_landmark)
-		source_landmark.spawned_bot = null
-		source_landmark = null
-	. = ..()
-
-/mob/living/pve_boss_drone/proc/AnimateEntry()
-	drone_no_damage = 1
-	pixel_y = 300
-	animate(src, pixel_y = 0, time = 15, easing = CUBIC_EASING|EASE_IN)
 	sleep(15)
-	drone_no_damage = 0
-
-/mob/living/pve_boss_drone/proc/AnimateExit()
-	drone_no_damage = 1
-	var/turf/drone_turf = get_turf(src)
-	if(drone_turf)
-		drone_turf.vis_contents += src
-	animate(src, pixel_y = 300, time = 15, easing = CUBIC_EASING|EASE_IN)
+	AnimateExit()
+	sleep(15)
+	qdel(src)
 
 /mob/living/pve_boss_drone/Initialize()
 	. = ..()
