@@ -106,7 +106,7 @@ GLOBAL_VAR_INIT(CutsceneUrlOutro, "none")
 		if("sco")
 			narration_setup["Name"] = "LT. David Grant"
 			narration_setup["Location"] = "Arrowhead"
-			narration_setup["Position"] = "ScO"
+			narration_setup["Position"] = "SCO"
 		if("xo")
 			narration_setup["Name"] = "CDR. Gabriel Powell"
 			narration_setup["Location"] = "Arrowhead"
@@ -117,27 +117,27 @@ GLOBAL_VAR_INIT(CutsceneUrlOutro, "none")
 			narration_setup["Position"] = "AI"
 		if("helm-arrow")
 			narration_setup["Name"] = "HELM"
-			narration_setup["Location"] = "ARROWHEAD"
-			narration_setup["Position"] = "BRIDGE"
+			narration_setup["Location"] = "Arrowhead"
+			narration_setup["Position"] = "HLM"
 		if("helm-aegis")
 			narration_setup["Name"] = "HELM"
-			narration_setup["Location"] = "AEGIS"
-			narration_setup["Position"] = "BRIDGE"
+			narration_setup["Location"] = "Aegis"
+			narration_setup["Position"] = "HLM"
 		if("helm-sevas")
 			narration_setup["Name"] = "HELM"
-			narration_setup["Location"] = "SEVASTOPOL"
-			narration_setup["Position"] = "BRIDGE"
+			narration_setup["Location"] = "Sevastopol"
+			narration_setup["Position"] = "HLM"
 		if("com-phoen")
 			narration_setup["Name"] = "COMMAND"
-			narration_setup["Location"] = "PHOENIX"
-			narration_setup["Position"] = "CIC"
+			narration_setup["Location"] = "Phoenix"
+			narration_setup["Position"] = "COM"
 		if("vasquez")
 			narration_setup["Name"] = "LT. Isabel 'Shrike' Vasquez"
-			narration_setup["Location"] = "Arrowhead"
+			narration_setup["Location"] = "Wraith"
 			narration_setup["Position"] = "PO"
 		if("biggs")
 			narration_setup["Name"] = "LT. James 'Jim' Biggs"
-			narration_setup["Location"] = "Arrowhead"
+			narration_setup["Location"] = "Wraith"
 			narration_setup["Position"] = "PO"
 		if("anath")
 			narration_setup["Name"] = "ANATHEMA"
@@ -247,5 +247,30 @@ GLOBAL_VAR_INIT(CutsceneUrlOutro, "none")
 /datum/proc/PlayCutscene(cutscene_id = null)
 	if(cutscene_id == null) return
 	switch(cutscene_id)
-		if(1)
+		if("intro")
+			SendNarrationMessage(2, "Intro narration goes here.")
+			return
+		if("briefing")
+			SendNarrationMessage(2, "Brief narration goes here.")
+			return
+		if("deployment")
+			SendNarrationMessage(2, "Deployment narration goes here.")
+			return
+		if("stage_1")
+			SendNarrationMessage(2, "Boss Stage 1 narration goes here.")
+			return
+		if("stage_2")
+			SendNarrationMessage(2, "Boss Stage 2 narration goes here.")
+			return
+		if("stage_3")
+			SendNarrationMessage(2, "Boss Stage 3 narration goes here.")
+			return
+		if("stage_4")
+			SendNarrationMessage(2, "Boss Stage 4 narration goes here.")
+			return
+		if("evac")
+			SendNarrationMessage(2, "Evac narration goes here.")
+			return
+		if("outro")
+			SendNarrationMessage(2, "Outro narration goes here.")
 			return
