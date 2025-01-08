@@ -63,3 +63,10 @@
 
 /obj/effect/landmark/pve_boss_navigation/center
 	id_tag = "center"
+
+/obj/effect/landmark/npc_nav_waypoint
+	name = "NPC navigation waypoint"
+	icon_state = "waypoint"
+	var/waypoint_id = "none"
+	var/waypoint_previous = "none"
+	var/waypoint_next = "none"

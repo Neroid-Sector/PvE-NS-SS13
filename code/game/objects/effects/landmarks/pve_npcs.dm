@@ -5,6 +5,7 @@
 	var/npc_name = "John Doe"
 	var/npc_chat_color = "#ffffff"
 	var/gender_to_set = MALE
+	var/waypoint_id
 
 /obj/effect/landmark/npc_spawner/Initialize()
 	. = ..()
