@@ -9,13 +9,12 @@
 	owner = human
 	. = ..()
 
-/datum/npc/proc/WalkControlLoop()
+/datum/npc/proc/WalkMove()
 	if(!current_nav_point) return
+	var/turf/target_turf = get_turf(current_nav_point)
+	step_towards(owner,target_turf)
+	sleep(2)
 	var/current_turf = get_turf(owner)
-	var/target_turf = get_turf(current_nav_point)
-	if(current_turf != target_turf)
-		sleep(10)
-		INVOKE_ASYNC(src, PROC_REF(WalkControlLoop))
 	if(current_turf == target_turf)
 		var/next_nav_point
 		if(current_direction == 1)
@@ -33,14 +32,7 @@
 				return
 			next_nav_point = current_nav_point.waypoint_previous
 		current_nav_point = next_nav_point
-	target_turf = get_turf(current_nav_point)
-	if(current_turf != target_turf) WalkMove()
-
-/datum/npc/proc/WalkMove()
-	if(!current_nav_point) return
-	var/turf/target_turf = get_turf(current_nav_point)
-	walk_towards(owner,target_turf)
-	INVOKE_ASYNC(src, PROC_REF(WalkControlLoop))
+	INVOKE_ASYNC(src, PROC_REF(WalkMove))
 	return
 
 /datum/npc/proc/WalkDesignate(target_waypoint_group,target_direction)
