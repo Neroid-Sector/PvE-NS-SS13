@@ -1163,7 +1163,7 @@
 		return
 
 	var/list/speaker_list = list()
-	for(var/mob/living/carbon/human/H in GLOB.mob_list)
+	for(var/mob/living/carbon/human/npc/H in GLOB.mob_list)
 		if(H.talking_npc == 1)
 			speaker_list.Add(H)
 	if(speaker_list.len == 0)
@@ -1190,7 +1190,7 @@
 /client/proc/change_objective()
 	set category = "DM.Narration"
 	set name = "Objectives"
-	set desc = "Speaks as NPC from spawners or otherwise with the talking_npc var turned on."
+	set desc = "Change Objectives."
 
 	if(!check_rights(R_ADMIN))
 		return

@@ -67,6 +67,7 @@
 /obj/effect/landmark/npc_nav_waypoint
 	name = "NPC navigation waypoint"
 	icon_state = "waypoint"
+	var/waypoint_group = "none"
 	var/waypoint_id = "none"
 	var/waypoint_previous_id = "none"
 	var/waypoint_next_id = "none"
@@ -76,10 +77,15 @@
 /obj/effect/landmark/npc_nav_waypoint/Initialize(mapload, ...)
 	GLOB.navigation_waypoints.Add(src)
 	for (var/obj/effect/landmark/npc_nav_waypoint/waypoint in GLOB.navigation_waypoints)
-		if(waypoint.waypoint_id == waypoint_next_id)
-			waypoint_next = waypoint
-		if(waypoint.waypoint_id == waypoint_previous_id)
-			waypoint_previous = waypoint
+		if(waypoint.waypoint_group == waypoint_group)
+			if(waypoint_id != "end")
+				if(waypoint.waypoint_id == waypoint_next_id)
+					waypoint_next = waypoint
+					waypoint.waypoint_previous = src
+			if(waypoint_id != "start")
+				if(waypoint.waypoint_id == waypoint_previous_id)
+					waypoint_previous = waypoint
+					waypoint.waypoint_next = src
 	. = ..()
 
 /obj/effect/landmark/npc_nav_waypoint/Destroy()

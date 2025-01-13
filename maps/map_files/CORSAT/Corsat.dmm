@@ -38736,10 +38736,6 @@
 	icon_state = "red"
 	},
 /area/corsat/gamma/airlock/south/id)
-"elE" = (
-/obj/effect/landmark/observer_start,
-/turf/open/auto_turf/snow/layer0,
-/area/corsat/gamma/biodome)
 "elG" = (
 /obj/effect/landmark/xeno_hive_spawn,
 /obj/effect/landmark/ert_spawns/groundside_xeno,
@@ -77808,7 +77804,7 @@ beX
 aIk
 lMm
 aIk
-elE
+aIk
 aIk
 aIk
 aIk

@@ -5,7 +5,6 @@
 	var/npc_name = "John Doe"
 	var/npc_chat_color = "#ffffff"
 	var/gender_to_set = MALE
-	var/waypoint_id
 
 /obj/effect/landmark/npc_spawner/Initialize()
 	. = ..()
@@ -17,7 +16,7 @@
 	return ..()
 
 /obj/effect/landmark/npc_spawner/proc/spawn_npc()
-	var/mob/living/carbon/human/H = new(loc)
+	var/mob/living/carbon/human/npc/H = new(loc)
 	H.setDir(dir)
 	if(!H.hud_used)
 		H.create_hud()

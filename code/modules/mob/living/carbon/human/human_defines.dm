@@ -171,15 +171,9 @@
 	//hypo shenanigans
 	var/obj/item/stim_injector/bound_injector
 
-	//talking npc identifier to limit speaking picker
-
-	var/talking_npc = 0
-
-	//Npc master control
-	var/is_npc = 0
-	var/datum/npc/npc_datum
-
 /client/var/cached_human_playtime
+	var/client/var/cached_human_playtime
+
 
 /client/proc/get_total_human_playtime(skip_cache = FALSE)
 	if(cached_human_playtime && !skip_cache)

@@ -6226,6 +6226,11 @@
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 10
 	},
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_id = "start";
+	waypoint_group = "test";
+	waypoint_next_id = "2"
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/hallways/aft)
 "gvB" = (
@@ -7180,6 +7185,14 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/lower/firing_range)
+"huc" = (
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "test";
+	waypoint_id = "end";
+	waypoint_previous_id = "5"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/arrowhead_new/upper/briefing)
 "huk" = (
 /obj/structure/phone_base{
 	dir = 8;
@@ -10337,6 +10350,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "test";
+	waypoint_id = "3";
+	waypoint_next_id = "4";
+	waypoint_previous_id = "2"
+	},
 /turf/open/floor/almayer{
 	dir = 8;
 	icon_state = "blue"
@@ -12121,6 +12140,12 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "test";
+	waypoint_id = "2";
+	waypoint_next_id = "3";
+	waypoint_previous_id = "start"
+	},
 /turf/open/floor/almayer{
 	dir = 4;
 	icon_state = "cargo_arrow"
@@ -12177,6 +12202,18 @@
 	icon_state = "green"
 	},
 /area/arrowhead_new/middle/requisitions)
+"muM" = (
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "test";
+	waypoint_id = "5";
+	waypoint_next_id = "end";
+	waypoint_previous_id = "4"
+	},
+/turf/open/floor/almayer{
+	dir = 5;
+	icon_state = "blue"
+	},
+/area/arrowhead_new/upper/briefing)
 "mvx" = (
 /obj/structure/machinery/landinglight/ds1/delaythree{
 	dir = 8
@@ -12810,6 +12847,12 @@
 /area/arrowhead_new/middle/weapon_room)
 "ndB" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "test";
+	waypoint_id = "4";
+	waypoint_next_id = "5";
+	waypoint_previous_id = "3"
+	},
 /turf/open/floor/almayer{
 	dir = 9;
 	icon_state = "blue"
@@ -18919,6 +18962,12 @@
 	},
 /turf/open/floor/kutjevo/colors/blue,
 /area/space)
+"sXi" = (
+/obj/effect/landmark/npc_spawner{
+	equipment_path = /datum/equipment_preset/uscm_ship/xo
+	},
+/turf/open/floor/kutjevo/tan/grey_edge,
+/area/arrowhead_new/upper/hallways/aft)
 "sXo" = (
 /obj/structure/prop/invuln/lattice_prop{
 	dir = 1;
@@ -19185,6 +19234,7 @@
 /obj/structure/pipes/vents/pump{
 	dir = 8
 	},
+/obj/effect/landmark/observer_start,
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/hallways/aft)
 "tid" = (
@@ -47863,7 +47913,7 @@ joN
 gyz
 oTX
 nqY
-suw
+sXi
 thd
 gvb
 epV
@@ -51496,12 +51546,12 @@ gyz
 joN
 uMx
 atR
-blS
+muM
 izO
 wdO
 bzJ
 jCv
-jCv
+huc
 jCv
 fnd
 jQl
