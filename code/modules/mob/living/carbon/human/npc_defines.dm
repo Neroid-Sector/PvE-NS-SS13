@@ -28,4 +28,3 @@
 	if(npc_datum)
 		npc_datum.current_nav_point = null
 	. = ..()
-	
