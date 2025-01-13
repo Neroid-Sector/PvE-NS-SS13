@@ -21,6 +21,9 @@
 	if(SSticker?.mode?.hardcore)
 		hardcore = TRUE //For WO disposing of corpses
 
+	if(is_npc == 1)
+		npc_datum = new /datum/npc/(human = src)
+
 /mob/living/carbon/human/initialize_pass_flags(datum/pass_flags_container/PF)
 	..()
 	if (PF)
