@@ -1508,12 +1508,21 @@
 	},
 /area/arrowhead_new/middle/requisitions)
 "bDL" = (
-/obj/structure/pipes/standard/simple/hidden/supply{
+/obj/structure/window/reinforced/ultra{
+	dir = 8
+	},
+/obj/structure/bed/chair/comfy/beige{
+	dir = 8
+	},
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "test";
+	waypoint_id = "end";
+	waypoint_previous_id = "6"
+	},
+/turf/open/floor/kutjevo/tan/grey_edge{
 	dir = 4
 	},
-/obj/structure/machinery/computer/guestpass,
-/turf/open/floor/plating/plating_catwalk,
-/area/arrowhead_new/upper/hallways/star)
+/area/arrowhead_new/upper/briefing)
 "bEu" = (
 /obj/structure/pipes/standard/manifold/hidden/supply,
 /turf/open/floor/plating/plating_catwalk,
@@ -7188,8 +7197,9 @@
 "huc" = (
 /obj/effect/landmark/npc_nav_waypoint{
 	waypoint_group = "test";
-	waypoint_id = "end";
-	waypoint_previous_id = "5"
+	waypoint_id = "6";
+	waypoint_previous_id = "5";
+	waypoint_next_id = "end"
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/briefing)
@@ -12206,7 +12216,7 @@
 /obj/effect/landmark/npc_nav_waypoint{
 	waypoint_group = "test";
 	waypoint_id = "5";
-	waypoint_next_id = "end";
+	waypoint_next_id = "6";
 	waypoint_previous_id = "4"
 	},
 /turf/open/floor/almayer{
@@ -45240,7 +45250,7 @@ aNP
 aNP
 djZ
 pVn
-bDL
+rzZ
 icX
 vnS
 vnS
@@ -51360,7 +51370,7 @@ sXB
 duX
 uMQ
 yla
-yla
+bDL
 yla
 hmL
 pmy
