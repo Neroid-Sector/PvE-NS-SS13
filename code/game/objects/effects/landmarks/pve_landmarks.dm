@@ -71,6 +71,9 @@
 	var/waypoint_id = "none"
 	var/waypoint_previous_id = "none"
 	var/waypoint_next_id = "none"
+	var/action_id = "none"
+	var/action_next = "none"
+	var/action_previous = "none"
 	var/obj/effect/landmark/npc_nav_waypoint/waypoint_previous
 	var/obj/effect/landmark/npc_nav_waypoint/waypoint_next
 
