@@ -9,6 +9,10 @@
 	owner = human
 	. = ..()
 
+/datum/npc/Destroy(force, ...)
+	owner = null
+	. = ..()
+
 /datum/npc/proc/ChairUnBuckle()
 	var/current_turf = get_turf(owner)
 	for(var/obj/structure/bed/chair/chair in current_turf)

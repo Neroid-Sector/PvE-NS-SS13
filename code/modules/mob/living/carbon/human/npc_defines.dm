@@ -15,6 +15,7 @@
 	. = ..()
 
 /mob/living/carbon/human/npc/Destroy()
+	if(npc_datum) qdel(npc_datum)
 	GLOB.active_npcs.Remove(src)
 	. = ..()
 
