@@ -301,11 +301,9 @@ var/world_topic_spam_protect_time = world.timeofday
 	var/s = ""
 
 	if(CONFIG_GET(string/servername))
-		s += "<a href=\"[CONFIG_GET(string/discordurl)]\"><b>[CONFIG_GET(string/servername)]</b></a>"
-		s += "<br>Hosted by: <b>[CONFIG_GET(string/hostedby)]</b>"
+		s += "<b><a href=\"[CONFIG_GET(string/discordurl)]\">Neroid Sector</a> - Xenosurge</b></a>"
+		s += "<br><b>Role-Play</b> and <b>swarm based PvE</b> based on the CMSS13-PvE codebase."
 		s += "<br>Round time: <b>[duration2text()]</b>"
-		s += "<br>An RP server focused on a tight knit platoon fighting xenos!"
-		s += "<br>Shoot the shit *and* shoot shit."
 
 	world.status = s
 

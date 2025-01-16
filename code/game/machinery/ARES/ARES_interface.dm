@@ -398,7 +398,7 @@
 				return FALSE
 
 			if(SShijack.evac_admin_denied)
-				to_chat(usr, SPAN_WARNING("The USCM has placed a lock on deploying the evacuation pods."))
+				to_chat(usr, SPAN_WARNING("The UACM has placed a lock on deploying the evacuation pods."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 15, 1)
 				return FALSE
 
@@ -436,7 +436,7 @@
 				if((R_ADMIN|R_MOD) & admin.admin_holder.rights)
 					playsound_client(admin,'sound/effects/sos-morse-code.ogg',10)
 			SSticker.mode.request_ert(usr, TRUE)
-			to_chat(usr, SPAN_NOTICE("A distress beacon request has been sent to USCM High Command."))
+			to_chat(usr, SPAN_NOTICE("A distress beacon request has been sent to UACM High Command."))
 			COOLDOWN_START(datacore, ares_distress_cooldown, COOLDOWN_COMM_REQUEST)
 			return TRUE
 
@@ -462,10 +462,10 @@
 				if((R_ADMIN|R_MOD) & admin.admin_holder.rights)
 					playsound_client(admin,'sound/effects/sos-morse-code.ogg',10)
 			message_admins("[key_name(usr)] has requested use of Nuclear Ordnance (via ARES)! Reason: <b>[reason]</b> [CC_MARK(usr)] (<A HREF='?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];nukeapprove=\ref[usr]'>APPROVE</A>) (<A HREF='?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];nukedeny=\ref[usr]'>DENY</A>) [ADMIN_JMP_USER(usr)] [CC_REPLY(usr)]")
-			to_chat(usr, SPAN_NOTICE("A nuclear ordnance request has been sent to USCM High Command for the following reason: [reason]"))
+			to_chat(usr, SPAN_NOTICE("A nuclear ordnance request has been sent to UACM High Command for the following reason: [reason]"))
 			log_ares_security("Nuclear Ordnance Request", "[last_login] has sent a request for nuclear ordnance for the following reason: [reason]")
 			if(ares_can_interface())
-				ai_silent_announcement("[last_login] has sent a request for nuclear ordnance to USCM High Command.", ".V")
+				ai_silent_announcement("[last_login] has sent a request for nuclear ordnance to UACM High Command.", ".V")
 				ai_silent_announcement("Reason given: [reason].", ".V")
 			COOLDOWN_START(datacore, ares_nuclear_cooldown, COOLDOWN_COMM_DESTRUCT)
 			return TRUE

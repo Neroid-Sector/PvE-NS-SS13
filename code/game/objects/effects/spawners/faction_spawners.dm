@@ -1,9 +1,9 @@
 /*
- * USCM weapons
+ * UACM weapons
  */
 /obj/effect/spawner/random/gun/uscm_primary
-	name = "USCM primary weapon spawner"
-	desc = "spawns USCM primary weapons"
+	name = "UACM primary weapon spawner"
+	desc = "spawns UACM primary weapons"
 	mags_max = 2
 	mags_min = 1
 	guns = list(
@@ -27,8 +27,8 @@
 	icon_state = "loot_rifle_80"
 
 /obj/effect/spawner/random/gun/uscm_secondary
-	name = "USCM secondary weapon spawner"
-	desc = "spawns USCM secondary weapons"
+	name = "UACM secondary weapon spawner"
+	desc = "spawns UACM secondary weapons"
 	spawn_nothing_percentage = 0
 	mags_max = 2
 	mags_min = 1

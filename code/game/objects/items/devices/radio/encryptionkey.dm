@@ -11,38 +11,6 @@
 	var/list/tracking_options
 	var/abstract = FALSE
 
-/obj/item/device/encryptionkey/Initialize(mapload, ...)
-	. = ..()
-
-	RegisterSignal(SSdcs, COMSIG_GLOB_PLATOON_NAME_CHANGE, PROC_REF(rename_platoon))
-
-	if(!isnull(channels[SQUAD_MARINE_1]) && SQUAD_MARINE_1 != GLOB.main_platoon_name)
-		rename_platoon(null, GLOB.main_platoon_name, SQUAD_MARINE_1)
-
-/obj/item/device/encryptionkey/proc/rename_platoon(datum/source, new_name, old_name)
-	SIGNAL_HANDLER
-
-	var/toggled_channel = channels[old_name]
-
-	if(isnull(toggled_channel))
-		return
-
-	channels -= old_name
-
-	channels[new_name] = toggled_channel
-
-	if(!istype(loc, /obj/item/device/radio/headset))
-		return
-
-	var/obj/item/device/radio/headset/current_headset = loc
-
-	var/passed_freq = current_headset.secure_radio_connections[old_name].frequency
-	current_headset.secure_radio_connections -= old_name
-
-	SSradio.remove_object(current_headset, passed_freq)
-
-	current_headset.recalculateChannels()
-
 /obj/item/device/encryptionkey/binary
 	icon_state = "binary_key"
 	translate_apollo = TRUE
@@ -339,12 +307,12 @@
 	channels = list(RADIO_CHANNEL_CLF_CMD = TRUE, RADIO_CHANNEL_CLF_GEN = TRUE, RADIO_CHANNEL_CLF_ENGI = TRUE, RADIO_CHANNEL_CLF_MED = TRUE, RADIO_CHANNEL_CLF_CCT = TRUE)
 //---------------------------------------------------
 /obj/item/device/encryptionkey/highcom
-	name = "\improper USCM High Command Radio Encryption Key"
+	name = "\improper UACM High Command Radio Encryption Key"
 	icon_state = "binary_key"
 	channels = list(RADIO_CHANNEL_HIGHCOM = TRUE, SQUAD_SOF = TRUE, RADIO_CHANNEL_PROVOST = TRUE, RADIO_CHANNEL_COMMAND = TRUE, RADIO_CHANNEL_MP = TRUE, SQUAD_MARINE_1 = FALSE, SQUAD_MARINE_2 = FALSE, SQUAD_MARINE_3 = FALSE, SQUAD_MARINE_4 = FALSE, SQUAD_MARINE_5 = FALSE, SQUAD_MARINE_CRYO = FALSE, RADIO_CHANNEL_ENGI = TRUE, RADIO_CHANNEL_MEDSCI = TRUE, RADIO_CHANNEL_REQ = FALSE, RADIO_CHANNEL_JTAC = FALSE, RADIO_CHANNEL_INTEL = TRUE)
 
 /obj/item/device/encryptionkey/provost
-	name = "\improper USCM Provost Radio Encryption Key"
+	name = "\improper UACM Provost Radio Encryption Key"
 	icon_state = "sec_key"
 	channels = list(RADIO_CHANNEL_PROVOST = TRUE, RADIO_CHANNEL_COMMAND = TRUE, RADIO_CHANNEL_MP = TRUE, SQUAD_MARINE_1 = FALSE, SQUAD_MARINE_2 = FALSE, SQUAD_MARINE_3 = FALSE, SQUAD_MARINE_4 = FALSE, SQUAD_MARINE_5 = FALSE, SQUAD_MARINE_CRYO = FALSE, RADIO_CHANNEL_ENGI = TRUE, RADIO_CHANNEL_MEDSCI = TRUE, RADIO_CHANNEL_REQ = FALSE, RADIO_CHANNEL_JTAC = FALSE, RADIO_CHANNEL_INTEL = TRUE)
 

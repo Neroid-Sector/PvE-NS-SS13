@@ -1,6 +1,6 @@
 /obj/item/device/helmet_visor
 	name = "squad optic"
-	desc = "An insertable visor HUD into a standard USCM helmet."
+	desc = "An insertable visor HUD into a standard UACM helmet."
 	icon = 'icons/obj/items/clothing/helmet_visors.dmi'
 	icon_state = "hud_sight"
 	w_class = SIZE_TINY
@@ -179,7 +179,7 @@
 
 /obj/item/device/helmet_visor/night_vision
 	name = "night vision optic"
-	desc = "An insertable visor HUD into a standard USCM helmet. This type gives a form of night vision and is standard issue in units with regular funding."
+	desc = "An insertable visor HUD into a standard UACM helmet. This type gives a form of night vision and is standard issue in units with regular funding."
 	icon_state = "nvg_sight"
 	hud_type = null
 	action_icon_string = "nvg_sight_down"
@@ -289,7 +289,7 @@
 
 /obj/item/device/helmet_visor/night_vision/marine_raider
 	name = "advanced night vision optic"
-	desc = "An insertable visor HUD into a standard USCM helmet. This type gives a form of night vision and is standard issue in special forces units."
+	desc = "An insertable visor HUD into a standard UACM helmet. This type gives a form of night vision and is standard issue in special forces units."
 	hud_type = list(MOB_HUD_FACTION_USCM, MOB_HUD_MEDICAL_ADVANCED)
 	helmet_overlay = "nvg_sight_right_raider"
 	power_use = 0

@@ -131,7 +131,7 @@
 /obj/projectile/ex_act()
 	return FALSE //We do not want anything to delete these, simply to make sure that all the bullet references are not runtiming. Otherwise, constantly need to check if the bullet exists.
 
-/obj/projectile/proc/generate_bullet(datum/ammo/ammo_datum, bonus_damage = 0, special_flags = 0, mob/bullet_generator)
+/obj/projectile/proc/generate_bullet(datum/ammo/ammo_datum, bonus_damage = 0, special_flags = 0, mob/bullet_generator, bullet_color)
 	ammo = ammo_datum
 	name = ammo.name
 	icon = ammo.icon
@@ -145,9 +145,13 @@
 	damage_buildup = ammo.damage_buildup
 	hit_effect_color = ammo.hit_effect_color
 	projectile_override_flags = special_flags
-
+	if(bullet_color != null)
+		light_system = HYBRID_LIGHT
+		light_color = bullet_color
+		light_power = 5
+		light_range = 5
+		set_light(3)
 	ammo_datum.on_bullet_generation(src, bullet_generator)
-
 	// Apply bullet traits from ammo
 	for(var/entry in ammo.traits_to_give)
 		var/list/L
@@ -558,7 +562,8 @@
 				ammo.on_hit_turf(get_turf(src),src)
 				T.bullet_act(src)
 			else if(L && L.loc && (L.bullet_act(src) != -1))
-				ammo.on_hit_mob(L,src, firer)
+				if(ammo)
+					ammo.on_hit_mob(L,src, firer)
 
 				// If we are a xeno shooting something
 				if (istype(ammo, /datum/ammo/xeno) && isxeno(firer) && L.stat != DEAD && ammo.apply_delegate)
@@ -904,10 +909,11 @@
 
 
 /obj/projectile/proc/play_hit_effect(mob/hit_mob)
-	if(ammo.sound_hit)
-		playsound(hit_mob, ammo.sound_hit, 50, 1)
-	if(hit_mob.stat != DEAD && !isnull(hit_effect_color))
-		animation_flash_color(hit_mob, hit_effect_color)
+	if(ammo)
+		if(ammo.sound_hit)
+			playsound(hit_mob, ammo.sound_hit, 50, 1)
+		if(hit_mob.stat != DEAD && !isnull(hit_effect_color))
+			animation_flash_color(hit_mob, hit_effect_color)
 
 /obj/projectile/proc/play_shielded_hit_effect(mob/hit_mob)
 	if(ammo.sound_shield_hit)

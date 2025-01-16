@@ -5093,7 +5093,7 @@
 /area/fiorina/station/security)
 "dec" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/prison,
 /area/fiorina/tumor/servers)
@@ -7473,7 +7473,7 @@
 /area/fiorina/tumor/aux_engi)
 "ezn" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/station/telecomm/lz1_cargo)
@@ -8147,7 +8147,7 @@
 /area/fiorina/station/botany)
 "eWP" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/tumor/ice_lab)
@@ -15301,7 +15301,7 @@
 /area/fiorina/tumor/ship)
 "jpN" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/station/research_cells)
@@ -18386,7 +18386,7 @@
 /area/fiorina/tumor/civres)
 "lhY" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/prison,
 /area/fiorina/station/power_ring)
@@ -20821,7 +20821,7 @@
 /area/fiorina/tumor/ice_lab)
 "mHR" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/tumor/aux_engi)
@@ -24498,7 +24498,7 @@
 /area/fiorina/oob)
 "oVk" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/station/central_ring)
@@ -27552,7 +27552,7 @@
 /area/fiorina/station/medbay)
 "qRg" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/tumor/servers)
@@ -29276,7 +29276,7 @@
 "rTH" = (
 /obj/structure/sign/prop1{
 	layer = 2.5;
-	name = "\improper USCM Emblem"
+	name = "\improper UACM Emblem"
 	},
 /turf/open/floor/carpet,
 /area/fiorina/station/security/wardens)
@@ -30400,7 +30400,7 @@
 /area/fiorina/station/chapel)
 "sJN" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/lz/near_lzI)
@@ -32674,7 +32674,7 @@
 /area/fiorina/lz/near_lzI)
 "ued" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/prison,
 /area/fiorina/station/central_ring)
@@ -37436,7 +37436,7 @@
 /area/fiorina/tumor/aux_engi)
 "xgx" = (
 /obj/structure/machinery/defenses/tesla_coil{
-	faction_group = list("USCM")
+	faction_group = list("UACM")
 	},
 /turf/open/organic/grass{
 	name = "astroturf"
@@ -39114,7 +39114,7 @@
 /area/fiorina/station/botany)
 "yhR" = (
 /obj/structure/sign/prop3{
-	desc = "Enlist in the Penal Battalions today! The USCM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
+	desc = "Enlist in the Penal Battalions today! The UACM 3rd Fleet features a subset of UA sanctioned penal battalions, drawing from inmate popualtions across the colonies. Mostly New Argentina though."
 	},
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/station/medbay)

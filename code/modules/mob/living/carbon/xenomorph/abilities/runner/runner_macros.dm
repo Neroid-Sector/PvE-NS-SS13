@@ -25,3 +25,4 @@
 	set hidden = TRUE
 	var/action_name = "For the Hive!"
 	handle_xeno_macro(src, action_name)
+

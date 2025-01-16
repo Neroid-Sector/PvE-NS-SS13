@@ -3,7 +3,7 @@
 
 
 /obj/item/clothing/under/marine
-	name = "\improper USCM uniform"
+	name = "\improper UACM uniform"
 	desc = "Standard-issue Marine uniform, with venlar armor inserts at critical areas to protect from blades and ballistics."
 	siemens_coefficient = 0.9
 	icon_state = "marine_jumpsuit"
@@ -18,7 +18,7 @@
 	armor_internaldamage = CLOTHING_ARMOR_LOW
 	flags_jumpsuit = UNIFORM_SLEEVE_ROLLABLE
 	///Makes it so that we can see the right name in the vendor.
-	var/specialty = "USCM"
+	var/specialty = "UACM"
 	///List of map variants that use sleeve rolling on something else, like snow uniforms rolling the collar, and therefore shouldn't hide patches etc when rolled.
 	var/list/map_variants_roll_accessories = list("s_")
 	layer = UPPER_ITEM_LAYER
@@ -50,50 +50,66 @@
 
 /obj/item/clothing/under/marine/standard
 	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/medic
-	name = "\improper USCM corpsman uniform"
+	name = "\improper UACM corpsman uniform"
 	desc = "Standard-issue Marine hospital corpsman fatigues with venlar armor inserts at critical areas to protect from blades and ballistics."
 	icon_state = "marine_medic"
 	worn_state = "marine_medic"
-	specialty = "USCM Hospital Corpsman"
+	specialty = "UACM Hospital Corpsman"
 
 /obj/item/clothing/under/marine/medic/standard
 	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/engineer
-	name = "\improper USCM combat technician uniform"
-	desc = "USCMC combat technician's fatigues, shielded by venlar panels and no longer electrically insulated due to 'budget reprioritization'."
+	name = "\improper UACM combat technician uniform"
+	desc = "UACM combat technician's fatigues, shielded by venlar panels and no longer electrically insulated due to 'budget reprioritization'."
 	icon_state = "marine_engineer"
 	worn_state = "marine_engineer"
-	specialty = "USCM Combat Technician"
+	specialty = "UACM Combat Technician"
 
 /obj/item/clothing/under/marine/engineer/standard
 	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/engineer/darker
 	icon_state = "d_marine_engineer"
 	worn_state = "d_marine_engineer"
 	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/rto
-	name = "\improper USCM radio telephone operator uniform"
-	desc = "The uniform of a USCMC radio-telephone operator. Venlar panels provide marginal protection from shrapnel and ballistics."
+	name = "\improper UACM radio telephone operator uniform"
+	desc = "The uniform of a UACM radio-telephone operator. Venlar panels provide marginal protection from shrapnel and ballistics."
 	icon_state = "marine_rto"
 	item_state = "marine_rto"
 	specialty = "marine Radio Telephone Operator"
 
+/obj/item/clothing/under/marine/rto/standard
+	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
+
 /obj/item/clothing/under/marine/sniper
-	name = "\improper USCM sniper uniform"
+	name = "\improper UACM sniper uniform"
 	flags_jumpsuit = FALSE
-	specialty = "USCM Sniper"
+	specialty = "UACM Sniper"
+
+/obj/item/clothing/under/marine/sniper/standard
+	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/tanker
-	name = "\improper USCM tanker uniform"
+	name = "\improper UACM tanker uniform"
 	icon_state = "marine_tanker"
 	worn_state = "marine_tanker"
 	flags_jumpsuit = FALSE
-	specialty = "USCM tanker"
+	specialty = "UACM tanker"
+
+/obj/item/clothing/under/marine/tanker/standard
+	flags_atom = NO_SNOW_TYPE
+	suit_restricted = null
 
 /obj/item/clothing/under/marine/tanker/New(loc,
 	new_protection = list(MAP_ICE_COLONY = ICE_PLANET_MIN_COLD_PROT),
@@ -102,17 +118,17 @@
 	..(loc, new_protection, override_icon_state)
 
 /obj/item/clothing/under/marine/chef
-	name = "\improper USCM Mess Technician uniform"
-	desc = "The stain resistant uniform of a mess technician. Why the USCMC requires them to wear the venlar armor inserts is unknown."
+	name = "\improper UACM Mess Technician uniform"
+	desc = "The stain resistant uniform of a mess technician. Why the UACM requires them to wear the venlar armor inserts is unknown."
 	icon_state = "chef_uniform"
 	worn_state = "chef_uniform"
 	flags_jumpsuit = FALSE
-	specialty = "USCM mess technician"
+	specialty = "UACM mess technician"
 	flags_atom = NO_SNOW_TYPE
 
 /obj/item/clothing/under/marine/mp
-	name = "USCMC military police uniform"
-	desc = "Cut and stab resistant USCMC military police uniform. The venlar liner also offers marginal ballistic defense."
+	name = "UACM military police uniform"
+	desc = "Cut and stab resistant UACM military police uniform. The venlar liner also offers marginal ballistic defense."
 	icon_state = "MP_jumpsuit"
 	worn_state = "MP_jumpsuit"
 	suit_restricted = list(/obj/item/clothing/suit/storage/marine, /obj/item/clothing/suit/armor/riot/marine, /obj/item/clothing/suit/storage/jacket/marine/service/mp)
@@ -157,8 +173,8 @@
 	specialty = "marine intelligence officer"
 
 /obj/item/clothing/under/marine/officer/warrant
-	name = "\improper USCM MP chief uniform"
-	desc = "USCMC Military Police Chief's uniform. Alongside the standard armor panels, it has an uncomfortable energy dispersive polymer lining, and is also rated for low MOPP conditions."
+	name = "\improper UACM MP chief uniform"
+	desc = "UACM Military Police Chief's uniform. Alongside the standard armor panels, it has an uncomfortable energy dispersive polymer lining, and is also rated for low MOPP conditions."
 	icon_state = "WO_jumpsuit"
 	item_state = "WO_jumpsuit"
 	worn_state = "WO_jumpsuit"
@@ -176,7 +192,7 @@
 
 /obj/item/clothing/under/marine/officer/pilot
 	name = "pilot officer bodysuit"
-	desc = "A bodysuit worn by pilot officers of the USCM, good for operating express elevators to hell. Some armor protection provided by the venlar armor weave against shrapnel and ballistics."
+	desc = "A bodysuit worn by pilot officers of the UACM, good for operating express elevators to hell. Some armor protection provided by the venlar armor weave against shrapnel and ballistics."
 	icon_state = "pilot_flightsuit"
 	item_state = "pilot_flightsuit"
 	worn_state = "pilot_flightsuit"
@@ -187,7 +203,7 @@
 
 /obj/item/clothing/under/marine/officer/pilot/flight
 	name = "tactical pilot officer flightsuit"
-	desc = "A flightsuit worn by pilot officers of the USCM, with plenty of leather straps, pouches, and other essential gear you will never use. Looks badass."
+	desc = "A flightsuit worn by pilot officers of the UACM, with plenty of leather straps, pouches, and other essential gear you will never use. Looks badass."
 	icon_state = "pilot_flightsuit_alt"
 	item_state = "pilot_flightsuit_alt"
 	worn_state = "pilot_flightsuit_alt"
@@ -206,7 +222,7 @@
 
 /obj/item/clothing/under/marine/officer/tanker
 	name = "vehicle crewman uniform"
-	desc = "Armored vehicle crew uniform worn by tankers and cav crew of the USCMC. Shrapnel protection provided by venlar panels, badassery hinges on how well the operator works their vehicle. Do the Corps proud."
+	desc = "Armored vehicle crew uniform worn by tankers and cav crew of the UACM. Shrapnel protection provided by venlar panels, badassery hinges on how well the operator works their vehicle. Do the Corps proud."
 	icon_state = "marine_tanker"
 	worn_state = "marine_tanker"
 	suit_restricted = list(/obj/item/clothing/suit/storage/marine/tanker, /obj/item/clothing/suit/storage/jacket/marine/service/tanker)
@@ -234,11 +250,11 @@
 	specialty = "marine operations"
 
 /obj/item/clothing/under/marine/officer/command
-	name = "\improper USCM officer uniform"
-	desc = "A USCMC commanding officer's uniform, custom cut for maximum comfort while staying within regulation."
+	name = "\improper UACM officer uniform"
+	desc = "A UACM commanding officer's uniform, custom cut for maximum comfort while staying within regulation."
 	icon_state = "CO_jumpsuit"
 	worn_state = "CO_jumpsuit"
-	specialty = "USCM officer"
+	specialty = "UACM officer"
 
 /obj/item/clothing/under/marine/officer/general
 	name = "general uniform"
@@ -299,7 +315,7 @@
 
 /obj/item/clothing/under/marine/officer/formal/white
 	name = "Commanding Officer's white formal uniform"
-	desc = "A well-ironed USCM officer uniform in brilliant white with gold accents, intended for parades or hot weather. Wear this with pride."
+	desc = "A well-ironed UACM officer uniform in brilliant white with gold accents, intended for parades or hot weather. Wear this with pride."
 	icon_state = "CO_formal_white"
 	worn_state = "CO_formal_white"
 	specialty = "captain's white formal"
@@ -307,7 +323,7 @@
 
 /obj/item/clothing/under/marine/officer/formal/black
 	name = "Commanding Officer's gray formal uniform"
-	desc = "A well-ironed USCM officer uniform in subdued gray with gold accents, intended for more formal or somber events. Wear this with pride."
+	desc = "A well-ironed UACM officer uniform in subdued gray with gold accents, intended for more formal or somber events. Wear this with pride."
 	icon_state = "CO_formal_black"
 	worn_state = "CO_formal_black"
 	specialty = "captain's gray formal"
@@ -315,7 +331,7 @@
 
 /obj/item/clothing/under/marine/dress
 	name = "marine formal service uniform"
-	desc = "A formal service uniform typically worn by marines of the USCM. Still practicable while still being more formal than the standard service uniform."
+	desc = "A formal service uniform typically worn by marines of the UACM. Still practicable while still being more formal than the standard service uniform."
 	icon_state = "formal_jumpsuit"
 	worn_state = "formal_jumpsuit"
 	specialty = "marine formal"
@@ -325,7 +341,7 @@
 
 /obj/item/clothing/under/marine/dress/command
 	name = "marine officer formal service uniform"
-	desc = "A formal service uniform typically worn by marines of the USCM. Still practicable while still being more formal than the standard service uniform. This one belongs to an officer."
+	desc = "A formal service uniform typically worn by marines of the UACM. Still practicable while still being more formal than the standard service uniform. This one belongs to an officer."
 	icon_state = "formal_jumpsuit"
 	worn_state = "formal_jumpsuit"
 	specialty = "command formal"
@@ -397,7 +413,7 @@
 
 /obj/item/clothing/under/uaac/tis
 	name = "\improper UAAC-TIS Special Agent Uniform"
-	desc = "A modified USCM Provost uniform, with its original insignia replaced by those of the UAAC-TIS Intelligence Service. TIS Special Agents are often recruited from the upper echelons of law enforcement agencies in various UA armed forces. These recruits often take all their gear, uniform included with them and later modify them to include TIS and UAAC insignia."
+	desc = "A modified UACM Provost uniform, with its original insignia replaced by those of the UAAC-TIS Intelligence Service. TIS Special Agents are often recruited from the upper echelons of law enforcement agencies in various UA armed forces. These recruits often take all their gear, uniform included with them and later modify them to include TIS and UAAC insignia."
 	flags_jumpsuit = FALSE
 	flags_atom = NO_SNOW_TYPE|NO_NAME_OVERRIDE
 	siemens_coefficient = 0.9
@@ -414,15 +430,15 @@
 
 /obj/item/clothing/under/uaac/tis/io
 	name = "\improper UAAC-TIS Intelligence Officer uniform"
-	desc = "Originally a USCM officer uniform, all insignia have been carefully removed and replaced by a simple TIS pin worn over the right breast. Like their Special Agent counterparts, TIS Intel Officers are typically transplants from UA aligned armed forces, often initially recruited on a temporary basis then transferred permanently. As such, officers are often forced to adapt their original uniforms."
+	desc = "Originally a UACM officer uniform, all insignia have been carefully removed and replaced by a simple TIS pin worn over the right breast. Like their Special Agent counterparts, TIS Intel Officers are typically transplants from UA aligned armed forces, often initially recruited on a temporary basis then transferred permanently. As such, officers are often forced to adapt their original uniforms."
 	icon_state = "BO_jumpsuit"
 	worn_state = "BO_jumpsuit"
 	flags_jumpsuit = UNIFORM_SLEEVE_ROLLABLE
-//=========================//USCM Survivors\\================================\\
+//=========================//UACM Survivors\\================================\\
 //=======================================================================\\
 
 /obj/item/clothing/under/marine/reconnaissance
-	name = "\improper USCM uniform"
+	name = "\improper UACM uniform"
 	desc = "Torn, Burned and blood stained. This uniform has seen much more than you could possibly imagine."
 	icon_state = "recon_marine"
 	worn_state = "recon_marine"
@@ -940,7 +956,7 @@
 	flags_jumpsuit = UNIFORM_SLEEVE_ROLLABLE
 
 /obj/item/clothing/under/rank/synthetic
-	name = "\improper USCM Support Uniform"
+	name = "\improper UACM Support Uniform"
 	desc = "A simple uniform made for Synthetic crewmembers."
 	icon_state = "rdalt"
 	worn_state = "rdalt"
@@ -979,7 +995,7 @@
 	worn_state = "synth_blue_utility"
 
 /obj/item/clothing/under/rank/synthetic/councillor
-	name = "\improper USCM Pristine Support Uniform"
+	name = "\improper UACM Pristine Support Uniform"
 	desc = "A nicely handcrafted uniform made for Synthetic crewmembers."
 	icon_state = "synth_councillor"
 	worn_state = "synth_councillor"
@@ -1031,7 +1047,7 @@
 
 /obj/item/clothing/under/marine/veteran/royal_marine
 	name = "royal marines commando uniform"
-	desc = "The field uniform of the royal marines commando. They have shards of light Kevlar to help protect against stabbing weapons and bullets. Onpar with similar USCM equipment."
+	desc = "The field uniform of the royal marines commando. They have shards of light Kevlar to help protect against stabbing weapons and bullets. Onpar with similar UACM equipment."
 	icon_state = "rmc_uniform"
 	worn_state = "rmc_uniform"
 	flags_atom = NO_NAME_OVERRIDE|NO_SNOW_TYPE
@@ -1044,7 +1060,7 @@
 
 /obj/item/clothing/under/marine/veteran/royal_marine/lt
 	name = "royal marines commando officers uniform"
-	desc = "The officers uniform of the royal marines commando. They have shards of light Kevlar to help protect against stabbing weapons and bullets. Onpar with similar USCM equipment."
+	desc = "The officers uniform of the royal marines commando. They have shards of light Kevlar to help protect against stabbing weapons and bullets. Onpar with similar UACM equipment."
 	icon_state = "rmc_uniform_lt"
 	worn_state = "rmc_uniform_lt"
 

@@ -563,7 +563,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 							available_specialist_sets -= p_name
 						else if(vendor_role.Find(JOB_SYNTH))
 							if(user.job != JOB_SYNTH)
-								to_chat(user, SPAN_WARNING("Only USCM Synthetics may vend experimental tool tokens."))
+								to_chat(user, SPAN_WARNING("Only UACM Synthetics may vend experimental tool tokens."))
 								vend_fail()
 								return FALSE
 

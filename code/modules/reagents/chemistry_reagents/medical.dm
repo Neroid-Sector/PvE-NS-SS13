@@ -424,3 +424,14 @@
 	custom_metabolism = AMOUNT_PER_TIME(1, 200 SECONDS)
 	data = 0
 	properties = list(PROPERTY_CURING = 2)
+
+/datum/reagent/medical/stimfluid
+	name = "Stimulant liquid"
+	id = "SuperStim"
+	description = "A light green tinted watery liquid. Smells like fresh apples. Tastest awful, which is why it should be injected."
+	reagent_state = LIQUID
+	color = "#8ae786"
+	custom_metabolism = AMOUNT_PER_TIME(1, 10)
+	data = 0
+	overdose = 500
+	properties = list(PROPERTY_OMNIPOTENT = 15,PROPERTY_DEFIBRILLATING = 15,PROPERTY_CARDIOSTABILIZING = 10, PROPERTY_PAINKILLING = 5)

@@ -1,6 +1,6 @@
 /obj/item/defenses/handheld
 	name = "Don't see this."
-	desc = "A compact version of the USCM defenses. Designed for quick deployment of the associated type in the field."
+	desc = "A compact version of the UACM defenses. Designed for quick deployment of the associated type in the field."
 	icon = 'icons/obj/structures/machinery/defenses/sentry.dmi'
 	icon_state = "DMR uac_sentry_handheld"
 

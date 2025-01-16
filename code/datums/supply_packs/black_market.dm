@@ -58,7 +58,7 @@ black market prices are NOT based on real or in-universe costs. they are based o
 
 /*
 
-Non-USCM items, from CLF, UPP, colonies, etc. Mostly combat-related.
+Non-UACM items, from CLF, UPP, colonies, etc. Mostly combat-related.
 
 */
 
@@ -624,17 +624,17 @@ Primarily made up of things that would be best utilized, well, shipside. Recreat
 
 /*
 
-USCM spare items, miscellaneous gear that's too niche and distant (or restricted) to put in normal req but juuuust USCM-related enough to fit here.
+UACM spare items, miscellaneous gear that's too niche and distant (or restricted) to put in normal req but juuuust UACM-related enough to fit here.
 
 */
 
 /datum/supply_packs/contraband/surplus
 	group = "Surplus Equipment"
 
-/* - Misc. USCM equipment - */
+/* - Misc. UACM equipment - */
 
 /datum/supply_packs/contraband/surplus/uscm_poncho
-	name = "surplus USCM poncho crate (x2)"
+	name = "surplus UACM poncho crate (x2)"
 	dollar_cost = 15
 	containertype = /obj/structure/largecrate/black_market/poncho
 	crate_heat = -2
@@ -643,7 +643,7 @@ USCM spare items, miscellaneous gear that's too niche and distant (or restricted
 	. = ..()
 	var/obj/item/paper/nope = new(src)
 	nope.name = "automated ASRS note"
-	nope.info = "Sorry! Your requested order of <b>USCM PONCHO (X2)</b> was not succesfully delivered because: 'No items of that type found in storage.'"
+	nope.info = "Sorry! Your requested order of <b>UACM PONCHO (X2)</b> was not succesfully delivered because: 'No items of that type found in storage.'"
 	nope.color = "green"
 	nope.update_icon()
 
@@ -691,7 +691,7 @@ USCM spare items, miscellaneous gear that's too niche and distant (or restricted
 	dollar_cost = 50
 	containertype = /obj/structure/largecrate/black_market
 
-/* - Misc. USCM weaponry - */
+/* - Misc. UACM weaponry - */
 
 /datum/supply_packs/contraband/surplus/mk45_automag
 	name = "surplus MK-45 Automagnum case"
@@ -845,7 +845,7 @@ This is where the RO can reclaim their lost honor and purchase the M44 custom, t
 // Headgear
 
 /datum/supply_packs/contraband/deep_storage/bandana_random
-	name = "USCM Bandana"
+	name = "UACM Bandana"
 	randomised_num_contained = 1
 	contains = list(
 		/obj/item/clothing/head/cmbandana,
@@ -855,14 +855,14 @@ This is where the RO can reclaim their lost honor and purchase the M44 custom, t
 	containertype = /obj/structure/largecrate/black_market
 
 /datum/supply_packs/contraband/deep_storage/uscm_earpiece
-	name = "USCM Earpiece"
+	name = "UACM Earpiece"
 	randomised_num_contained = 1
 	contains = list(/obj/item/clothing/head/headset)
 	dollar_cost = 10
 	containertype = /obj/structure/largecrate/black_market
 
 /datum/supply_packs/contraband/deep_storage/uscm_headband
-	name = "USCM Headband"
+	name = "UACM Headband"
 	randomised_num_contained = 1
 	contains = list(
 		/obj/item/clothing/head/headband,
@@ -875,7 +875,7 @@ This is where the RO can reclaim their lost honor and purchase the M44 custom, t
 	containertype = /obj/structure/largecrate/black_market
 
 /datum/supply_packs/contraband/deep_storage/uscm_boonie_hat
-	name = "USCM Boonie Hat"
+	name = "UACM Boonie Hat"
 	randomised_num_contained = 1
 	contains = list(
 		/obj/item/clothing/head/cmcap/boonie/tan,

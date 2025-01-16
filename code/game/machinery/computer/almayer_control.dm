@@ -121,7 +121,7 @@
 				return FALSE
 
 			if(SShijack.evac_admin_denied)
-				to_chat(usr, SPAN_WARNING("The USCM has placed a lock on deploying the evacuation pods."))
+				to_chat(usr, SPAN_WARNING("The UACM has placed a lock on deploying the evacuation pods."))
 				return FALSE
 
 			if(!SShijack.initiate_evacuation())
@@ -169,13 +169,13 @@
 			if(!COOLDOWN_FINISHED(src, cooldown_central))
 				to_chat(usr, SPAN_WARNING("Arrays are re-cycling.  Please stand by."))
 				return FALSE
-			var/input = stripped_input(usr, "Please choose a message to transmit to USCM.  Please be aware that this process is very expensive, and abuse will lead to termination.  Transmission does not guarantee a response. There is a small delay before you may send another message. Be clear and concise.", "To abort, send an empty message.", "")
+			var/input = stripped_input(usr, "Please choose a message to transmit to UACM.  Please be aware that this process is very expensive, and abuse will lead to termination.  Transmission does not guarantee a response. There is a small delay before you may send another message. Be clear and concise.", "To abort, send an empty message.", "")
 			if(!input || !(usr in view(1,src)) || !COOLDOWN_FINISHED(src, cooldown_central))
 				return FALSE
 
 			high_command_announce(input, usr)
 			to_chat(usr, SPAN_NOTICE("Message transmitted."))
-			log_announcement("[key_name(usr)] has made an USCM announcement: [input]")
+			log_announcement("[key_name(usr)] has made an UACM announcement: [input]")
 			COOLDOWN_START(src, cooldown_central, COOLDOWN_COMM_CENTRAL)
 			. = TRUE
 
@@ -225,7 +225,7 @@
 				if((R_ADMIN|R_MOD) & admin_client.admin_holder.rights)
 					admin_client << 'sound/effects/sos-morse-code.ogg'
 			SSticker.mode.request_ert(usr)
-			to_chat(usr, SPAN_NOTICE("A distress beacon request has been sent to USCM Central Command."))
+			to_chat(usr, SPAN_NOTICE("A distress beacon request has been sent to UACM Central Command."))
 
 			COOLDOWN_START(src, cooldown_request, COOLDOWN_COMM_REQUEST)
 			. = TRUE
@@ -256,7 +256,7 @@
 				if((R_ADMIN|R_MOD) & admin_client.admin_holder.rights)
 					admin_client << 'sound/effects/sos-morse-code.ogg'
 			message_admins("[key_name(usr)] has requested Self-Destruct! [CC_MARK(usr)] (<A HREF='?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];destroyship=\ref[usr]'>GRANT</A>) (<A HREF='?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];sddeny=\ref[usr]'>DENY</A>) [ADMIN_JMP_USER(usr)] [CC_REPLY(usr)]")
-			to_chat(usr, SPAN_NOTICE("A self-destruct request has been sent to USCM Central Command."))
+			to_chat(usr, SPAN_NOTICE("A self-destruct request has been sent to UACM Central Command."))
 			COOLDOWN_START(src, cooldown_destruct, COOLDOWN_COMM_DESTRUCT)
 			. = TRUE
 

@@ -652,13 +652,30 @@
 		to_chat(src, "Only administrators may use this command.")
 		return
 
-	var/msg = input("Message:", text("Enter the text you wish to appear to everyone:")) as text
+	var/narrate_body_text
+	var/narrate_header_text
+	var/narrate_output
 
-	if(!msg)
+	if(tgui_alert(src, "Do you want your narration to include a header paragraph?", "Global Narrate", list("Yes", "No"), timeout = 0) == "Yes")
+		narrate_header_text = tgui_input_text(src, "Please type the header paragraph below. One or two sentences or a title work best. HTML style tags are available. Paragraphs are not recommended.", "Global Narrate Header", max_length = MAX_BOOK_MESSAGE_LEN, multiline = TRUE, encode = FALSE, timeout = 0)
+		if(!narrate_header_text)
+			return
+	narrate_body_text = tgui_input_text(src, "Please enter the text for your narration. Paragraphs without line breaks produce the best visual results, but HTML tags in general are respected.", "Global Narrate Text", max_length = MAX_BOOK_MESSAGE_LEN, multiline = TRUE, encode = FALSE, timeout = 0)
+	if(!narrate_body_text)
 		return
 
-	to_chat_spaced(world, html = SPAN_ANNOUNCEMENT_HEADER_BLUE(msg))
-	message_admins("\bold GlobalNarrate: [key_name_admin(usr)] : [msg]")
+	if(!narrate_header_text)
+		narrate_output = "[narrate_body("[narrate_body_text]")]"
+	else
+		narrate_output = "[narrate_head("[narrate_header_text]")]" + "[narrate_body("[narrate_body_text]")]"
+
+	to_chat(world, "[narrate_output]")
+	while(narrate_body_text != null)
+		narrate_body_text = tgui_input_text(src, "Please enter the text for your narration. Paragraphs without line breaks produce the best visual results, but HTML tags in general are respected.", "Global Narrate Text", max_length = MAX_BOOK_MESSAGE_LEN, multiline = TRUE, encode = FALSE, timeout = 0)
+		if(!narrate_body_text)
+			return
+		to_chat(world, narrate_body("[narrate_body_text]"))
+
 
 /client/proc/cmd_admin_ground_narrate()
 	set name = "Narrate to Ground Levels"
@@ -1055,3 +1072,206 @@
 		return FALSE
 	show_blurb(GLOB.player_list, duration, message, TRUE, "center", "center", "#bd2020", "ADMIN")
 	message_admins("[key_name(usr)] sent an admin blurb alert to all players. Alert reads: '[message]' and lasts [(duration / 10)] seconds.")
+
+/client/proc/set_narration_preset()
+	set name = "Setup Radio NPC"
+	set category = "DM.Narration"
+	if(!check_rights(R_ADMIN)) return
+
+	var/list/comms_presets = list("Mission Control","Groundside AI","Cassandra AI","Custom")
+	switch(tgui_input_list(usr,"Select a Comms Preset","PRESET",comms_presets,timeout = 0))
+		if(null)
+			return
+		if("Mission Control")
+			usr.narration_settings["Name"] = "Mission Control"
+			usr.narration_settings["Location"] = "Arrowhead Command"
+			usr.narration_settings["Position"] = "SO"
+		if("The Warden")
+			usr.narration_settings["Name"] = "The Warden"
+			usr.narration_settings["Location"] = "Unknown"
+			usr.narration_settings["Position"] = "CIV"
+		if("Groundside AI")
+			usr.narration_settings["Name"] = "Automated Voice"
+			usr.narration_settings["Location"] = "Control"
+			usr.narration_settings["Position"] = "AI"
+		if("Cassandra AI")
+			usr.narration_settings["Name"] = "CASSANDRA"
+			usr.narration_settings["Location"] = "Unknown"
+			usr.narration_settings["Position"] = "AI?"
+		if("Custom")
+			usr.narration_settings["Name"] = tgui_input_text(usr, "Enter the name, complete with a rank prefix.", "NAME entry", usr.narration_settings["Name"], timeout = 0)
+			usr.narration_settings["Location"] = tgui_input_text(usr, "Enter assignment or location, when in doubt, OV-PST works.", "LOCATION entry", usr.narration_settings["Location"], timeout = 0)
+			usr.narration_settings["Position"] = tgui_input_text(usr, "Enter held position like CE, CO, RFN or whatnot. Prefaced with some specialty acronym also can work.", "POSITION entry", usr.narration_settings["Position"], timeout = 0)
+	return
+
+/client/proc/speak_to_comms()
+	set name = "Radio NPC"
+	set category = "DM.Narration"
+	if(!check_rights(R_ADMIN)) return
+
+	if(usr.narration_settings["Name"] == null || usr.narration_settings["Location"] == null || usr.narration_settings["Position"] == null) set_narration_preset()
+	var/text_to_comm = tgui_input_text(usr, "Enter what to say as [usr.narration_settings["Name"]],[usr.narration_settings["Location"]],[usr.narration_settings["Position"]] or cancel to exit.")
+
+	while(text_to_comm != null)
+		to_chat(world, "<span class='big'><span class='radio'><span class='name'>[usr.narration_settings["Name"]]<b>[icon2html('icons/obj/items/radio.dmi', usr, "beacon")] \u005B[usr.narration_settings["Location"]] \u0028[usr.narration_settings["Position"]]\u0029\u005D </b></span><span class='message'>, says \"[text_to_comm]\"</span></span></span>", type = MESSAGE_TYPE_RADIO)
+		text_to_comm = tgui_input_text(usr, "Enter what to say as [usr.narration_settings["Name"]],[usr.narration_settings["Location"]],[usr.narration_settings["Position"]] or cancel to exit.")
+	return
+
+/proc/show_blurb_song(title = "Song Name",additional = "Song Artist - Song Album",)//Shows song blurb, a two line blurb. The first line passes
+	var/message_to_display = "<b>[title]</b>\n[additional]"
+	show_blurb(GLOB.player_list, 10 SECONDS, "[message_to_display]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "song[title]", ignore_key = TRUE, speed = 1)
+
+/client/proc/call_tgui_play_directly()
+	set category = "DM.Music"
+	set name = "Play Music From Direct Link"
+	set desc = "Plays a music file from a https:// link through tguis music player, bypassing the filtering done by the other admin command. This will play as an admin atmospheric and will be muted by clinets who have that setting turned on as expected. A blurb displaying song info can also be displayed as an extra option."
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/targets = GLOB.mob_list
+	var/list/music_extra_data = list()
+	var/web_sound_url = tgui_input_text(usr, "Enter link to sound file. Must use https://","LINK to play", timeout = 0)
+	music_extra_data["title"] = tgui_input_text(usr, "Enter song Title, leaving this blank/null will use its url instead.","Title input", default = "", timeout = 0)
+	music_extra_data["artist"] = tgui_input_text(usr, "Enter song Artist, or leave blank to not display.", "Artist input", default = "", timeout = 0)
+	music_extra_data["album"] = tgui_input_text(usr, "Enter song Album, or leave blank to not display.","Album input", default = "", timeout = 0)
+	if(music_extra_data["title"] == null) music_extra_data["title"] = web_sound_url
+	if(music_extra_data["artist"] == null) music_extra_data["artist"] = "Unknown Artist"
+	if(music_extra_data["album"] == null) music_extra_data["album"] = "Unknown Album"
+	music_extra_data["link"] = "Song Link Hidden"
+	music_extra_data["duration"] = "None"
+	if(tgui_alert(usr, "Show title blurb?", "Blurb", list("No","Yes"), timeout = 0) == "Yes")
+		show_blurb_song(title = music_extra_data["title"], additional = "[music_extra_data["artist"]] - [music_extra_data["album"]]")
+	for(var/mob/mob as anything in targets)
+		var/client/client = mob?.client
+		if((client?.prefs?.toggles_sound & SOUND_MIDI) && (client?.prefs?.toggles_sound & SOUND_ADMIN_ATMOSPHERIC))
+			client?.tgui_panel?.play_music(web_sound_url, music_extra_data)
+		else
+			client?.tgui_panel?.stop_music()
+
+/client/proc/opener_blurb()
+	show_blurb(GLOB.player_list, duration = 10 SECONDS, message = "September 18th, 2224.\n\n<b>UER Force Recon</b> teams <b>Alpha</b> and <b>Delta</b>\nare deploying to the settlement known as\n<b>Solaris Ridge</b>.\n\nThere, they are expected to coordinate\nwith an unknown survivor known only as\n<b>The Warden</b>.\n\nWhile the <b>UER Marines</b> will tie down the\nlocal <b>Surge</b>, an ultra-agressive <b>XX-121</b>\nstrain that has infested the planet,\n<b>The Wardens</b> personnel will extract\ncritical information and supplies." ,scroll_down = TRUE, screen_position = "CENTER,BOTTOM+4.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
+	sleep(600)
+	show_blurb(GLOB.player_list, duration = 10 SECONDS, message = "<b>The Warden</b> promises that not only are\nthese supplies priority items for the\npeople under his care, he is also sure\nthat given enough time, his teams may\nbe able to secure helpful information\nregarding <b>SOLARIS</b>, a <b>space</b>\n<b>station</b> that/nhas been hindering <b>UER</b> progress in the/nsystem.\n\nRegardless of the validity of these\nclaims, <b>UER Command</b> has decided that\ntrying to establish contact with the\n<b>survivors</b> takes precedence above\nconcerns about <b>The Warden</b> themsleves.\n\n<b>Force Recon</b> teams <b>Alpha</b> and <b>Delta</b> are\ndeploying to handle this mission...",scroll_down = TRUE, screen_position = "CENTER,BOTTOM+3.5:16", text_alignment = "center", text_color = "#ffaef2", blurb_key = "introduction", ignore_key = TRUE, speed = 1)
+
+/client/proc/npc_interaction()
+	set category = "DM.Narration"
+	set name = "Speak as NPC"
+	set desc = "Speaks as NPC from spawners or otherwise with the talking_npc var turned on."
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/list/speaker_list = list()
+	for(var/mob/living/carbon/human/npc/H in GLOB.mob_list)
+		if(H.talking_npc == 1)
+			speaker_list.Add(H)
+	if(speaker_list.len == 0)
+		to_chat(usr, SPAN_WARNING("Error: No talking NPCs available."))
+		return
+	var/target_mob = tgui_input_list(src, "Select a NPC to talk as:", "NPC", speaker_list, timeout = 0)
+	if(target_mob == null) return
+	var/mob/living/carbon/human/mob_to_talk_as = target_mob
+	var/use_radio = 0
+	if(tgui_alert(usr, "Broadcast over radio?", "NPC", list("No", "Yes"), timeout = 0) == "Yes") use_radio = 1
+	var/speaking_mode = tgui_alert(usr, "Emote or Speak?", "NPC", list("Emote", "Speak"), timeout = 0)
+	if(speaking_mode == null) return
+	var/text_to_say = tgui_input_text(usr, "[speaking_mode] as [target_mob]","[uppertext(speaking_mode)]-[uppertext(target_mob)]", timeout = 0)
+	while(text_to_say != null)
+		switch(speaking_mode)
+			if("Emote")
+				INVOKE_ASYNC(mob_to_talk_as, TYPE_PROC_REF(/mob/living/carbon/human, emoteas), text_to_say, 0, use_radio)
+				text_to_say = tgui_input_text(usr, "[speaking_mode] as [target_mob]","[uppertext(speaking_mode)]-[uppertext(target_mob)]",timeout = 0)
+			if("Speak")
+				INVOKE_ASYNC(mob_to_talk_as, TYPE_PROC_REF(/mob/living/carbon/human, talkas), text_to_say, 0, use_radio)
+				text_to_say = tgui_input_text(usr, "[speaking_mode] as [target_mob]","[uppertext(speaking_mode)]-[uppertext(target_mob)]",timeout = 0)
+	return
+
+/client/proc/change_objective()
+	set category = "DM.Narration"
+	set name = "Objectives"
+	set desc = "Change Objectives."
+
+	if(!check_rights(R_ADMIN))
+		return
+	var/new_objective
+	var/type_to_change = tgui_alert(usr, "Chnage which Objective?", "Objective", list("Primary","Secondary"), timeout = 0)
+	if(type_to_change == null) return
+	if(type_to_change == "Primary")
+		new_objective = tgui_input_text(usr, "Enter new objective", "Objective", default = GLOB.primary_objective, timeout = 0)
+	else
+		new_objective = tgui_input_text(usr, "Enter new objective", "Objective", default = GLOB.secondary_objective, timeout = 0)
+	if(new_objective == null) return
+	switch(tgui_alert(usr, "Pick Outcome for previous objective", "Objective", list("Success", "Failure", "None"), timeout = 0))
+		if(null)
+			return
+		if("Success")
+			if(type_to_change == "Primary")
+				show_blurb(GLOB.player_list, 10 SECONDS, "Primary Objective\nAccomplished!", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+				GLOB.primary_objective = "Recieving new orders..."
+			else
+				show_blurb(GLOB.player_list, 10 SECONDS, "Secondary Objective\nAccomplished!", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+				GLOB.secondary_objective = "Recieving new orders..."
+			sleep(150)
+		if("Failure")
+			if(type_to_change == "Primary")
+				show_blurb(GLOB.player_list, 10 SECONDS, "Primary Objective\nFailed!", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+			else
+				show_blurb(GLOB.player_list, 10 SECONDS, "Secondary Objective\nFailed!", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+				GLOB.secondary_objective = "Recieving new orders..."
+			sleep(150)
+		if("None")
+			if(type_to_change == "Primary")
+				GLOB.primary_objective = "Recieving new orders..."
+			else
+				GLOB.secondary_objective = "Recieving new orders..."
+			sleep(50)
+	if(type_to_change == "Primary")
+		GLOB.primary_objective = "[new_objective]"
+		show_blurb(GLOB.player_list, 10 SECONDS, "New Primary Objective:\n[GLOB.primary_objective]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+
+	else
+		GLOB.secondary_objective = "[new_objective]"
+		show_blurb(GLOB.player_list, 10 SECONDS, "New Secondary Objective:\n[GLOB.secondary_objective]", screen_position = "LEFT+0:16,BOTTOM+1:16", text_alignment = "left", text_color = "#FFFFFF", blurb_key = "objective", ignore_key = TRUE, speed = 1)
+
+/client/proc/enable_full_restock()
+	set category = "DM.Narration"
+	set name = "Enable/Disable Full Restock"
+	set desc = "Makes the next ressuply drop a big one (or not)."
+
+	if(!check_rights(R_ADMIN))
+		return
+	if(GLOB.ammo_restock_full == 0)
+		GLOB.ammo_restock_full = 1
+		to_chat(usr, SPAN_INFO("Full restock ENABLED."))
+		return
+	if(GLOB.ammo_restock_full == 1)
+		GLOB.ammo_restock_full = 0
+		to_chat(usr, SPAN_INFO("Full restock DISABLED."))
+		return
+
+/client/proc/admin_shutter_control()
+	set category = "DM.Narration"
+	set name = "Shutter Control"
+	set desc = "Opens Admin Shutters"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/list/shutter_numbers = list()
+	for(var/obj/structure/machinery/door/poddoor/admin_shutters/shutter in world)
+		if(shutter_numbers.Find(shutter.shutter_group) == 0)
+			shutter_numbers.Add(shutter.shutter_group)
+	if(shutter_numbers.len == 0)
+		to_chat(usr, SPAN_WARNING("Error: No Admin shutters present"))
+		return
+	var/shutter_choice = tgui_input_list(usr, "Select Shutter Group to Toggle", "SHUTTERS", shutter_numbers, timeout = 0)
+	if(shutter_choice == null) return
+	shutter_choice = text2num(shutter_choice)
+	var/shutter_count = 0
+	for(var/obj/structure/machinery/door/poddoor/admin_shutters/shutter_to_open in world)
+		if(shutter_to_open.shutter_group == shutter_choice)
+			shutter_to_open.opening_sequence()
+			shutter_count += 1
+	message_admins("[usr] has openened shutter group [shutter_choice].")
+	return

@@ -1,6 +1,6 @@
 /obj/structure/gun_rack
 	name = "gun rack"
-	desc = "ARMAT-produced gun rack for storage of long guns. While initial model was supposed to be extremely modifiable, USCM comissioned racks with fixed slots which only fit M41A rifles. Some say they were cheaper, and some say the main reason was marine's ability to easily break anything more complex than a tungsten ball."
+	desc = "ARMAT-produced gun rack for storage of long guns. While initial model was supposed to be extremely modifiable, UACM comissioned racks with fixed slots which only fit M41A rifles. Some say they were cheaper, and some say the main reason was marine's ability to easily break anything more complex than a tungsten ball."
 	icon = 'icons/obj/structures/gun_racks.dmi'
 	icon_state = "m41a"
 	density = TRUE

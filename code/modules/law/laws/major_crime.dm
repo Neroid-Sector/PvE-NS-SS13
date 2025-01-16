@@ -40,7 +40,7 @@
 
 /datum/law/major_law/subterfuge
 	name = "Subterfuge"
-	desc = "Carrying out objectives or being tied to material that describe planned actions that go against the USCM. Strong proof is required that the individual is working against USCM."
+	desc = "Carrying out objectives or being tied to material that describe planned actions that go against the UACM. Strong proof is required that the individual is working against UACM."
 	special_punishment = "Termination of ID/Discharge to planet"
 	brig_time = 15
 

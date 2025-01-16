@@ -103,8 +103,8 @@
 	icon_state = "syndi_cakes"
 
 /obj/item/trash/uscm_mre
-	name = "\improper crumbled USCM MRE"
-	desc = "It has done its part for the USCM. Have you?"
+	name = "\improper crumbled UACM MRE"
+	desc = "It has done its part for the UACM. Have you?"
 	icon = 'icons/obj/items/trash.dmi'
 	icon_state = "mealpackempty"
 
@@ -182,7 +182,7 @@
 	icon_state = "tray"
 
 /obj/item/trash/USCMtray
-	name = "\improper USCM Tray"
+	name = "\improper UACM Tray"
 	desc = "Finished with its tour of duty."
 	icon_state = "MREtray"
 

@@ -121,11 +121,11 @@ export const AlmayerControl = (_props) => {
                 <Button
                   fluid
                   icon="paper-plane"
-                  title="Send a message to USCM High Command"
+                  title="Send a message to UACM High Command"
                   onClick={() => act('messageUSCM')}
                   disabled={!canCentral}
                 >
-                  Send a message to USCM High Command
+                  Send a message to UACM High Command
                 </Button>
               )}
             </Flex.Item>

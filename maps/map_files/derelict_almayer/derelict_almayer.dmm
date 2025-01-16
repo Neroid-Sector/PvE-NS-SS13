@@ -76664,7 +76664,7 @@
 "xKL" = (
 /obj/structure/largecrate/supply/supplies/mre{
 	desc = "A supply crate containing everything you need to stop a CLF uprising.";
-	name = "\improper USCM crate 'FOB supplies'"
+	name = "\improper UACM crate 'FOB supplies'"
 	},
 /obj/structure/sign/arcturianstopsign{
 	pixel_y = 32

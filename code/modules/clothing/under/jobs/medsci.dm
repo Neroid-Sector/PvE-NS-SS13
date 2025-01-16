@@ -3,7 +3,7 @@
  */
 
 /obj/item/clothing/under/rank/rdalt
-	desc = "A simple blue utilitarian jumpsuit that serves as the standard issue service uniform of support synthetics onboard USCM facilities. While commonly associated with the staple Bishop units, reduced funding to the Colonial Marines has led to a wide range of models filling these uniforms, especially in battalions operating in the edge frontier."
+	desc = "A simple blue utilitarian jumpsuit that serves as the standard issue service uniform of support synthetics onboard UACM facilities. While commonly associated with the staple Bishop units, reduced funding to the Colonial Marines has led to a wide range of models filling these uniforms, especially in battalions operating in the edge frontier."
 	name = "synthetic service uniform"
 	icon_state = "rdalt"
 	armor_melee = CLOTHING_ARMOR_NONE

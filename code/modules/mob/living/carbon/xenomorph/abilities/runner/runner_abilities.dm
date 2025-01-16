@@ -51,3 +51,5 @@
 	action_type = XENO_ACTION_CLICK
 	ability_primacy = XENO_PRIMARY_ACTION_2
 	var/minimal_acid = 200
+
+

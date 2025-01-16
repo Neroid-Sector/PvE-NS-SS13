@@ -77,7 +77,7 @@
 //Marine service & tanker jacket + MP themed variants
 /obj/item/clothing/suit/storage/jacket/marine/service
 	name = "marine service jacket"
-	desc = "A USCMC service jacket, usually officer issue. While technically armored to frag/handgun ammunition, it's best if you don't try your luck."
+	desc = "A UACM service jacket, usually officer issue. While technically armored to frag/handgun ammunition, it's best if you don't try your luck."
 	has_buttons = TRUE
 	icon_state = "coat_officer"
 
@@ -91,7 +91,7 @@
 
 /obj/item/clothing/suit/storage/jacket/marine/service/mp
 	name = "military police service jacket"
-	desc = "Marine service jacket in USCMC Military Police scheme. Usually not used due to local standards requiring service armor instead."
+	desc = "Marine service jacket in UACM Military Police scheme. Usually not used due to local standards requiring service armor instead."
 	has_buttons = TRUE
 	icon_state = "coat_mp"
 	flags_atom = NO_SNOW_TYPE
@@ -99,7 +99,7 @@
 
 /obj/item/clothing/suit/storage/jacket/marine/service/warden
 	name = "military warden service jacket"
-	desc = "A marine service jacket adopted for use by Military Wardens on board USCM ships. Ironically most ships require their MP departments to use full armor, making these barely used by on duty Wardens. The jacket of choice for looking all night at a set of monitors, while cigarette butts pile around you."
+	desc = "A marine service jacket adopted for use by Military Wardens on board UACM ships. Ironically most ships require their MP departments to use full armor, making these barely used by on duty Wardens. The jacket of choice for looking all night at a set of monitors, while cigarette butts pile around you."
 	has_buttons = TRUE
 	icon_state = "coat_warden"
 	flags_atom = NO_SNOW_TYPE
@@ -107,7 +107,7 @@
 
 /obj/item/clothing/suit/storage/jacket/marine/service/cmp
 	name = "chief military police service jacket"
-	desc = "A marine service jacket adopted for use by Military Police personnel on board USCM ships. Ironically most ships require their MP departments to use full armor, making these barely used by on duty MPs. Very popular among those who want to inexplicably smell like donuts."
+	desc = "A marine service jacket adopted for use by Military Police personnel on board UACM ships. Ironically most ships require their MP departments to use full armor, making these barely used by on duty MPs. Very popular among those who want to inexplicably smell like donuts."
 	has_buttons = TRUE
 	icon_state = "coat_cmp"
 	flags_atom = NO_SNOW_TYPE
@@ -153,7 +153,7 @@
 
 /obj/item/clothing/suit/storage/jacket/marine/dress/officer
 	name = "marine officer dress jacket"
-	desc = "Dress Jacket worn by Commanding Officers of the USCM."
+	desc = "Dress Jacket worn by Commanding Officers of the UACM."
 	icon_state = "co_jacket"
 	has_buttons = FALSE
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_DECOR, ACCESSORY_SLOT_MEDAL)
@@ -210,7 +210,7 @@
 
 /obj/item/clothing/suit/storage/jacket/marine/dress/bridge_coat
 	name = "bridge coat"
-	desc = "A heavy synthetic woolen coat issued to USCM Officers. Based on a classical design this coat is quite nice on cold nights in the Air conditioned CIC or a miserable cold night on a barren world. This one is a Dressy Blue for a Commanding officer."
+	desc = "A heavy synthetic woolen coat issued to UACM Officers. Based on a classical design this coat is quite nice on cold nights in the Air conditioned CIC or a miserable cold night on a barren world. This one is a Dressy Blue for a Commanding officer."
 	has_buttons = FALSE
 	item_state = "bridge_coat"
 	icon_state = "bridge_coat"
@@ -218,7 +218,7 @@
 
 /obj/item/clothing/suit/storage/jacket/marine/dress/bridge_coat_grey
 	name = "bridge coat"
-	desc = "A heavy synthetic woolen coat issued to USCM Officers. Based on a classical design this coat is quite nice on cold nights in the Air conditioned CIC or a miserable cold night on a barren world. This one is Black."
+	desc = "A heavy synthetic woolen coat issued to UACM Officers. Based on a classical design this coat is quite nice on cold nights in the Air conditioned CIC or a miserable cold night on a barren world. This one is Black."
 	has_buttons = FALSE
 	item_state = "bridge_coat_grey"
 	icon_state = "bridge_coat_grey"

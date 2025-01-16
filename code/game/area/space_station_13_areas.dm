@@ -72,7 +72,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	statistic_exempt = TRUE
 	ceiling = CEILING_METAL
 
-	base_lighting_alpha = 255	
+	base_lighting_alpha = 255
 
 /area/centcom/control
 	name = "\improper abandoned  Centcom Control"
@@ -87,7 +87,6 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	flags_area = AREA_NOTUNNEL
 	statistic_exempt = TRUE
 	ceiling = CEILING_METAL
-
 	base_lighting_alpha = 255
 
 /area/tdome/tdome1

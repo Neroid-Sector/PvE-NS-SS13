@@ -729,7 +729,7 @@
 /obj/item/storage/pill_bottle/stimulant/skillless
 	skilllock = SKILL_MEDICAL_DEFAULT
 
-//NOT FOR USCM USE!!!!
+//NOT FOR UACM USE!!!!
 /obj/item/storage/pill_bottle/paracetamol
 	name = "\improper Paracetamol pill bottle"
 	desc = "This is probably someone's prescription bottle."

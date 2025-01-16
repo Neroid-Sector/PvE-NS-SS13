@@ -35,7 +35,7 @@
 		arm_equipment(mob, /datum/equipment_preset/uscm/cbrn/standard, TRUE, TRUE)
 		to_chat(mob, SPAN_ROLE_HEADER("You are a CBRN Squad Rifleman!"))
 
-	to_chat(mob, SPAN_ROLE_BODY("You are a member of the USCM's CBRN. The CBRN is a force that specializes in handling chemical, biological, radiological, and nuclear threats."))
+	to_chat(mob, SPAN_ROLE_BODY("You are a member of the UACM's CBRN. The CBRN is a force that specializes in handling chemical, biological, radiological, and nuclear threats."))
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), mob, SPAN_BOLD("Objectives:</b> [objectives]")), 1 SECONDS)
 
 /datum/emergency_call/cbrn/ert
@@ -76,5 +76,5 @@
 		arm_equipment(mob, /datum/equipment_preset/uscm/cbrn/specialist, TRUE, TRUE)
 		to_chat(mob, SPAN_ROLE_HEADER("You are a CBRN Specialist!"))
 
-	to_chat(mob, SPAN_ROLE_BODY("You are a member of the USCM's CBRN. The CBRN is a force that specializes in handling chemical, biological, radiological, and nuclear threats."))
+	to_chat(mob, SPAN_ROLE_BODY("You are a member of the UACM's CBRN. The CBRN is a force that specializes in handling chemical, biological, radiological, and nuclear threats."))
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), mob, SPAN_BOLD("Objectives:</b> [objectives]")), 1 SECONDS)

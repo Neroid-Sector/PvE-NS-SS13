@@ -277,8 +277,8 @@
 	supplies = list(/obj/item/frame/table = 10, /obj/item/frame/rack = 10)
 
 /obj/structure/largecrate/supply/supplies/mre
-	name = "\improper USCM MRE crate (x60)"
-	desc = "A supply crate containing sixty USCM MRE packets."
+	name = "\improper UACM MRE crate (x60)"
+	desc = "A supply crate containing sixty UACM MRE packets."
 	supplies = list(/obj/item/ammo_box/magazine/misc/mre = 5)
 
 /obj/structure/largecrate/supply/supplies/water

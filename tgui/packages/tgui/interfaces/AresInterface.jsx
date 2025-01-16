@@ -1521,7 +1521,7 @@ const Emergency = (props) => {
   const canNuke =
     (nuke_available, !mission_failed, evac_reason === 0, minimumNukeTime);
   let nuke_reason =
-    'Request a nuclear device to be authorized by USCM High Command.';
+    'Request a nuclear device to be authorized by UACM High Command.';
   if (!nuke_available) {
     nuke_reason =
       'No nuclear ordnance is available during this operation, or one has already been provided.';

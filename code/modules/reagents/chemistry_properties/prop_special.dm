@@ -274,6 +274,7 @@
 	M.confused = 0
 	M.sleeping = 0
 	M.jitteriness = 0
+	M.blood_volume = min(M.blood_volume + (POTENCY_MULTIPLIER_VHIGH * potency), M.limit_blood)
 	for(var/datum/disease/D in M.viruses)
 		D.spread = "Remissive"
 		D.stage--

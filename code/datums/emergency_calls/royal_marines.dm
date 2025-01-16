@@ -55,8 +55,8 @@
 	to_chat(spawning_mob, SPAN_BOLD("You are [pick_weight(list("unaware" = 75, "faintly aware" = 15, "knoledgeable" = 10))] of the xenomorph threat."))
 	to_chat(spawning_mob, SPAN_BOLD("You are a citizen of the three world empire and joined the Royal Marines Commando"))
 	to_chat(spawning_mob, SPAN_BOLD("You are apart of a jointed UA/TWE taskforce onboard the HMS Patna and Thunderchild."))
-	to_chat(spawning_mob, SPAN_BOLD("Under the directive of the RMC high command, you have been assisting USCM forces with maintaining peace in the area."))
-	to_chat(spawning_mob, SPAN_BOLD("Assist the USCMC Force of the [MAIN_SHIP_NAME] however you can."))
+	to_chat(spawning_mob, SPAN_BOLD("Under the directive of the RMC high command, you have been assisting UACM forces with maintaining peace in the area."))
+	to_chat(spawning_mob, SPAN_BOLD("Assist the UACM Force of the [MAIN_SHIP_NAME] however you can."))
 
 /datum/emergency_call/royal_marines/platoon
 	name = "Royal Marines Commando (Platoon) (Friendly)"

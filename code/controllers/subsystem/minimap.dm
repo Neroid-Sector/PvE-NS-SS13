@@ -730,7 +730,7 @@ SUBSYSTEM_DEF(minimaps)
 	old_map = get_tacmap_data_png(faction)
 	current_svg = get_tacmap_data_svg(faction)
 
-	var/use_live_map = skillcheck(user, SKILL_LEADERSHIP, SKILL_LEAD_EXPERT) || is_xeno
+	var/use_live_map = skillcheck(user, SKILL_OVERWATCH, SKILL_OVERWATCH_TRAINED) || is_xeno
 
 	if(use_live_map && !map_holder)
 		var/level = SSmapping.levels_by_trait(targeted_ztrait)
@@ -740,15 +740,6 @@ SUBSYSTEM_DEF(minimaps)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		if(!wiki_map_fallback)
-			var/wiki_url = CONFIG_GET(string/wikiurl)
-			var/obj/item/map/current_map/new_map = new
-			if(wiki_url && new_map.html_link)
-				wiki_map_fallback ="[wiki_url]/[new_map.html_link]"
-			else
-				debug_log("Failed to determine fallback wiki map! Attempted '[wiki_url]/[new_map.html_link]'")
-			qdel(new_map)
-
 		// Ensure we actually have the map image sent
 		resend_current_map_png(user)
 
@@ -811,9 +802,11 @@ SUBSYSTEM_DEF(minimaps)
 	data["canViewTacmap"] = is_xeno
 	data["canViewCanvas"] = (faction in FACTION_LIST_HUMANOID) || faction == XENO_HIVE_NORMAL
 
+	if(skillcheck(user, SKILL_OVERWATCH, SKILL_OVERWATCH_TRAINED) || faction == XENO_HIVE_NORMAL && isqueen(user))
+		data["canViewTacmap"] = TRUE
+
 	if(skillcheck(user, SKILL_LEADERSHIP, SKILL_LEAD_EXPERT) || faction == XENO_HIVE_NORMAL && isqueen(user))
 		data["canDraw"] = TRUE
-		data["canViewTacmap"] = TRUE
 
 	return data
 

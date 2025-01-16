@@ -308,7 +308,7 @@
 
 #define SUBTLE_MESSAGE_IN_HEAD "Voice in Head"
 #define SUBTLE_MESSAGE_WEYLAND "Weyland-Yutani"
-#define SUBTLE_MESSAGE_USCM "USCM High Command"
+#define SUBTLE_MESSAGE_USCM "UACM High Command"
 #define SUBTLE_MESSAGE_FACTION "Faction Specific"
 
 /datum/admins/proc/subtlemessageall()

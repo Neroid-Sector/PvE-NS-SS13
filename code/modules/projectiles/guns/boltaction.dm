@@ -123,7 +123,7 @@
 	desc_lore = {"
 		Put into production in 2175 as an economical answer to rising militancy in the Outer Rim, the M707 was derived from jury-rigged anti-materiel rifles that were captured during the Linna 349 campaign.
 
-		The rebels (colloquially known among the USCMC as bug-boys and beebops) had achieved extensive success at Neusheune using the aforementioned rifles to pick off incinerator-wielding marines by detonating their napthal fuel tank in the midst of squad formations, subsequently leading to the USCMC designating users of those rifles as high-priority targets, as well as changes in USCMC patrol tactics.
+		The rebels (colloquially known among the UACM as bug-boys and beebops) had achieved extensive success at Neusheune using the aforementioned rifles to pick off incinerator-wielding marines by detonating their napthal fuel tank in the midst of squad formations, subsequently leading to the UACM designating users of those rifles as high-priority targets, as well as changes in UACM patrol tactics.
 
 		Some of the failings and quirks of the beebops' jury-rigged rifle were quickly noticed by vehicle crews early on in the campaign, as in multiple memoirs the crews mention that: "Once the rain starts, that's when you know you've got an ambush."
 

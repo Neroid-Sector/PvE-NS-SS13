@@ -117,11 +117,23 @@
 #define DROPSHIP_NORMANDY "dropship_normandy"
 #define DROPSHIP_UPP "dropship_upp"
 #define DROPSHIP_CYCLONE "dropship_cyclone"
+#define DROPSHIP_WRAITH "dropship_wraith"
 
 #define ALMAYER_DROPSHIP_LZ1 "almayer-hangar-lz1"
 #define ALMAYER_DROPSHIP_LZ2 "almayer-hangar-lz2"
 
 #define GOLDEN_ARROW_LZ "golden arrow lz"
+
+#define ARROWHEAD_LZ "arrowhead lz"
+#define MOBILE_ARROW_ELEVATOR "arrow_elevator"
+#define STAT_ARROW_EMPTY "arrow_empty"
+#define STAT_ARROW_OCCUPIED "arrow_occupied"
+#define STAT_ARROW_UPPER_PORT "UAS Arrowhead - Upper Port Elevator Dock"
+#define STAT_ARROW_UPPER_STAR "UAS Arrowhead - Upper Starboard Elevator Dock"
+#define STAT_ARROW_MID_PORT "UAS Arrowhead - Middle Port Elevator Dock"
+#define STAT_ARROW_MID_STAR "UAS Arrowhead - Middle Starboard Elevator Dock"
+#define STAT_ARROW_LOWER_PORT "UAS Arrowhead - Lower Port Elevator Dock"
+#define STAT_ARROW_LOWER_STAR "UAS Arrowhead - Lower Starboard Elevator Dock"
 
 #define DROPSHIP_FLYBY_ID "special_flight"
 #define DROPSHIP_LZ1 "dropship-lz1"

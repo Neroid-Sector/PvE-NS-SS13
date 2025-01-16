@@ -9,7 +9,7 @@
 
 /client/proc/toggle_fire_support_menu()
 	set name = "Fire Support Menu"
-	set category = "Game Master.Extras"
+	set category = "DM.Extras"
 	if(!check_rights(R_ADMIN))
 		return
 	new /datum/fire_support_menu(mob)

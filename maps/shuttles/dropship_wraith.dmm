@@ -1,0 +1,884 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ag" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "92";
+	name = "\improper Cyclon"
+	},
+/area/shuttle/wraith)
+"aP" = (
+/obj/structure/shuttle/part/dropship2/left_outer_wing_connector{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"bw" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "98"
+	},
+/area/shuttle/wraith)
+"cj" = (
+/obj/structure/shuttle/part/dropship2/nose_front_left{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"cm" = (
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin14"
+	},
+/area/shuttle/wraith)
+"cy" = (
+/obj/structure/stairs/perspective,
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"cJ" = (
+/obj/structure/shuttle/part/dropship2/transparent/outer_left_weapons{
+	name = "\improper Wraith"
+	},
+/obj/effect/attach_point/weapon/midway/left_fore{
+	ship_tag = "dropship_wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"cR" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "39"
+	},
+/area/shuttle/wraith)
+"dN" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "42"
+	},
+/area/shuttle/wraith)
+"eT" = (
+/obj/structure/shuttle/part/dropship2/transparent/left_outer_bottom_wing{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"fo" = (
+/obj/structure/shuttle/part/dropship2/transparent/engine_left_cap{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"fr" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "30"
+	},
+/area/shuttle/wraith)
+"fy" = (
+/obj/docking_port/mobile/marine_dropship/wraith,
+/obj/effect/attach_point/crew_weapon/midway{
+	ship_tag = "dropship_wraith";
+	attach_id = 7
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin14"
+	},
+/area/shuttle/wraith)
+"gn" = (
+/obj/structure/machinery/camera/autoname/almayer/dropship_two{
+	pixel_x = 8;
+	pixel_y = -16;
+	network = list("Golden Arrow","Wraith")
+	},
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
+	},
+/obj/effect/landmark/npc_spawner/pilot_left,
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"ha" = (
+/obj/effect/attach_point/fuel/midway{
+	attach_id = 11;
+	ship_tag = "dropship_wraith"
+	},
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "32"
+	},
+/area/shuttle/wraith)
+"hd" = (
+/obj/effect/attach_point/fuel/dropship2{
+	pixel_x = -32;
+	ship_tag = "dropship_wraith";
+	attach_id = 11
+	},
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "33"
+	},
+/area/shuttle/wraith)
+"hu" = (
+/obj/structure/shuttle/part/dropship2/transparent/right_outer_bottom_wing{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"hS" = (
+/obj/structure/shuttle/part/dropship2/transparent/engine_right_cap{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"hV" = (
+/obj/structure/shuttle/part/dropship2/transparent/engine_right_exhaust{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"ia" = (
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
+	},
+/obj/effect/landmark/npc_spawner/pilot_right,
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"iO" = (
+/obj/structure/shuttle/part/dropship2/right_inner_wing_connector{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"lc" = (
+/obj/structure/machinery/light{
+	dir = 4;
+	pixel_x = 14
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"lV" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "18"
+	},
+/area/shuttle/wraith)
+"mI" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "67"
+	},
+/area/shuttle/wraith)
+"mO" = (
+/obj/structure/shuttle/part/dropship2/transparent/upper_left_wing{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"nj" = (
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin6"
+	},
+/area/shuttle/wraith)
+"nH" = (
+/obj/structure/stairs/perspective,
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"od" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "23"
+	},
+/area/shuttle/wraith)
+"oT" = (
+/obj/structure/machinery/light{
+	dir = 8;
+	pixel_x = -14
+	},
+/obj/structure/bed/chair/vehicle{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/bed/chair/vehicle{
+	dir = 1;
+	pixel_x = -8
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"oX" = (
+/obj/structure/machinery/camera/autoname/golden_arrow/midway{
+	dir = 8;
+	pixel_x = 23;
+	network = list("Golden Arrow","Wraith")
+	},
+/obj/structure/bed/chair/vehicle{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/bed/chair/vehicle{
+	dir = 1;
+	pixel_x = -8
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"pb" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "62"
+	},
+/area/shuttle/wraith)
+"pj" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "96";
+	name = "\improper Cyclon"
+	},
+/area/shuttle/wraith)
+"pz" = (
+/obj/structure/shuttle/part/dropship2/transparent/middle_left_wing{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"qj" = (
+/obj/structure/machinery/light{
+	dir = 8;
+	pixel_x = -14
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"qs" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "47"
+	},
+/area/shuttle/wraith)
+"qN" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "25"
+	},
+/area/shuttle/wraith)
+"qX" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "48"
+	},
+/area/shuttle/wraith)
+"ro" = (
+/obj/structure/shuttle/part/dropship2/nose_front_right{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"rB" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "29"
+	},
+/area/shuttle/wraith)
+"sa" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "73"
+	},
+/area/shuttle/wraith)
+"sA" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "37"
+	},
+/area/shuttle/wraith)
+"tU" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "24"
+	},
+/area/shuttle/wraith)
+"uH" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "72"
+	},
+/area/shuttle/wraith)
+"vt" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "86"
+	},
+/area/shuttle/wraith)
+"vH" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "34"
+	},
+/area/shuttle/wraith)
+"vT" = (
+/obj/structure/shuttle/part/dropship2/transparent/right_inner_bottom_wing{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"wk" = (
+/turf/template_noop,
+/area/template_noop)
+"wA" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "35"
+	},
+/area/shuttle/wraith)
+"xY" = (
+/obj/structure/shuttle/part/dropship2/lower_left_wall{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"yA" = (
+/obj/structure/shuttle/part/dropship2/transparent/nose_center{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"yP" = (
+/obj/structure/stairs/perspective,
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"zz" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "80"
+	},
+/area/shuttle/wraith)
+"zG" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "31"
+	},
+/area/shuttle/wraith)
+"zH" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "38"
+	},
+/area/shuttle/wraith)
+"zL" = (
+/obj/structure/shuttle/part/dropship2/transparent/nose_top_right{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"Ak" = (
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds2{
+	id = "aft_door";
+	name = "\improper Wraith cargo door"
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"At" = (
+/obj/structure/shuttle/part/dropship2/lower_right_wall{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"Ax" = (
+/obj/structure/blocker/invisible_wall,
+/obj/structure/machinery/computer/cameras/dropship/midway{
+	network = list("Wraith","Laser Targets");
+	name = "\improper 'Wraith' camera controls"
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"AP" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "83"
+	},
+/area/shuttle/wraith)
+"Bt" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "89"
+	},
+/area/shuttle/wraith)
+"BU" = (
+/obj/structure/machinery/cm_vending/sorted/medical/wall_med{
+	pixel_x = 30
+	},
+/obj/effect/attach_point/crew_weapon/midway{
+	ship_tag = "dropship_wraith";
+	dir = 4;
+	attach_id = 9
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"Cb" = (
+/obj/structure/shuttle/part/dropship2/transparent/upper_right_wing{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"Cf" = (
+/obj/structure/shuttle/part/dropship2/left_inner_wing_connector{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"Da" = (
+/obj/structure/shuttle/part/dropship2/transparent/engine_left_exhaust{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"Df" = (
+/obj/structure/shuttle/part/dropship2/right_outer_wing_connector{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"Dl" = (
+/obj/structure/machinery/camera/autoname/golden_arrow/midway{
+	dir = 4;
+	pixel_x = -23;
+	network = list("Golden Arrow","Wraith")
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"Ey" = (
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/dropshipside/ds2/wraith{
+	dir = 1;
+	id = "starboard_door"
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"EP" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "75"
+	},
+/area/shuttle/wraith)
+"Fz" = (
+/obj/effect/attach_point/fuel/midway{
+	ship_tag = "dropship_wraith";
+	attach_id = 10
+	},
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "28"
+	},
+/area/shuttle/wraith)
+"FV" = (
+/turf/open/shuttle/dropship{
+	icon_state = "floor8"
+	},
+/area/shuttle/wraith)
+"GE" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "43"
+	},
+/area/shuttle/wraith)
+"GJ" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "27"
+	},
+/area/shuttle/wraith)
+"Hg" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "69"
+	},
+/area/shuttle/wraith)
+"Iz" = (
+/obj/structure/machinery/door/airlock/hatch/cockpit/two{
+	locked = 1
+	},
+/obj/structure/blocker/forcefield/multitile_vehicles,
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"IP" = (
+/obj/structure/shuttle/part/dropship2/transparent/lower_left_wing{
+	name = "\improper Wraith"
+	},
+/obj/effect/attach_point/weapon/midway/left_wing{
+	ship_tag = "dropship_wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"IZ" = (
+/obj/structure/shuttle/part/dropship2/transparent/middle_right_wing{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"JZ" = (
+/obj/structure/machinery/door_control{
+	id = "dropship_midway";
+	name = "Dropship Lockdown";
+	normaldoorcontrol = 3;
+	pixel_y = -19;
+	req_one_access_txt = "3;22"
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin14"
+	},
+/area/shuttle/wraith)
+"Kv" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "81"
+	},
+/area/shuttle/wraith)
+"KQ" = (
+/obj/effect/attach_point/crew_weapon/midway{
+	ship_tag = "dropship_wraith";
+	dir = 8;
+	attach_id = 8
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"KU" = (
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin8"
+	},
+/area/shuttle/wraith)
+"MD" = (
+/obj/structure/bed/chair/vehicle{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/bed/chair/vehicle{
+	dir = 1;
+	pixel_x = -8
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"MU" = (
+/obj/structure/phone_base/rotary{
+	name = "Wraith Telephone";
+	phone_category = "Dropship";
+	phone_id = "Wraith";
+	pixel_x = 11;
+	pixel_y = 16
+	},
+/obj/structure/blocker/invisible_wall,
+/obj/structure/machinery/computer/dropship_weapons/midway{
+	name = "\improper 'Wraith' weapons controls";
+	shuttle_tag = "dropship_wraith"
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"Ob" = (
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin7"
+	},
+/area/shuttle/wraith)
+"Pg" = (
+/obj/structure/blocker/invisible_wall,
+/obj/structure/machinery/computer/shuttle/dropship/flight,
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"QA" = (
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/dropshipside/ds2/wraith{
+	dir = 2;
+	id = "port_door"
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"QN" = (
+/obj/effect/attach_point/weapon/dropship2/right_wing,
+/obj/structure/shuttle/part/dropship2/transparent/lower_right_wing{
+	name = "\improper Wraith"
+	},
+/obj/effect/attach_point/weapon/midway/right_wing{
+	ship_tag = "dropship_wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"RR" = (
+/obj/structure/shuttle/part/dropship2/transparent/nose_top_left{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"Sk" = (
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"Sl" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "77"
+	},
+/area/shuttle/wraith)
+"Ty" = (
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/wraith)
+"Uo" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "64"
+	},
+/area/shuttle/wraith)
+"Vu" = (
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin4"
+	},
+/area/shuttle/wraith)
+"Wr" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "26"
+	},
+/area/shuttle/wraith)
+"Ws" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "19"
+	},
+/area/shuttle/wraith)
+"Wv" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "22"
+	},
+/area/shuttle/wraith)
+"WC" = (
+/obj/structure/machinery/cm_vending/sorted/medical/wall_med{
+	pixel_x = -30
+	},
+/obj/structure/bed/chair/vehicle{
+	dir = 1;
+	pixel_x = 8
+	},
+/obj/structure/bed/chair/vehicle{
+	dir = 1;
+	pixel_x = -8
+	},
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin3"
+	},
+/area/shuttle/wraith)
+"XU" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "97"
+	},
+/area/shuttle/wraith)
+"XY" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "94"
+	},
+/area/shuttle/wraith)
+"YL" = (
+/turf/closed/shuttle/wraith{
+	icon_state = "36"
+	},
+/area/shuttle/wraith)
+"Zd" = (
+/obj/structure/shuttle/part/dropship2/transparent/outer_right_weapons{
+	name = "\improper Wraith"
+	},
+/obj/effect/attach_point/weapon/midway/right_fore{
+	ship_tag = "dropship_wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"ZG" = (
+/obj/structure/shuttle/part/dropship2/transparent/left_outer_inner_wing{
+	name = "\improper Wraith"
+	},
+/turf/template_noop,
+/area/shuttle/wraith)
+"ZU" = (
+/turf/closed/shuttle/wraith/transparent{
+	icon_state = "78"
+	},
+/area/shuttle/wraith)
+
+(1,1,1) = {"
+wk
+wk
+wk
+wk
+wk
+mO
+pz
+IP
+wk
+wk
+wk
+fo
+vH
+Fz
+Wv
+Da
+wk
+eT
+"}
+(2,1,1) = {"
+wk
+wk
+wk
+cJ
+EP
+uH
+mI
+pb
+Ty
+QA
+xY
+hS
+wA
+rB
+od
+hV
+wk
+ZG
+"}
+(3,1,1) = {"
+RR
+cj
+ag
+vt
+Sl
+nj
+WC
+oT
+Vu
+JZ
+qs
+dN
+YL
+fr
+tU
+lV
+Cf
+aP
+"}
+(4,1,1) = {"
+yA
+pj
+Ax
+gn
+ZU
+Ob
+MD
+MD
+KU
+cm
+cy
+nj
+KQ
+Dl
+qj
+Ak
+wk
+wk
+"}
+(5,1,1) = {"
+yA
+XU
+Pg
+Ty
+Iz
+Ty
+Ty
+Ty
+Ty
+fy
+nH
+FV
+Ty
+Ty
+Ty
+Ty
+wk
+wk
+"}
+(6,1,1) = {"
+yA
+bw
+MU
+ia
+zz
+nj
+MD
+MD
+Vu
+cm
+yP
+Ob
+BU
+Sk
+lc
+Ty
+wk
+wk
+"}
+(7,1,1) = {"
+zL
+ro
+XY
+Bt
+Kv
+Ob
+oX
+MD
+KU
+JZ
+qX
+GE
+sA
+zG
+qN
+Ws
+iO
+Df
+"}
+(8,1,1) = {"
+wk
+wk
+wk
+Zd
+AP
+sa
+Hg
+Uo
+Ty
+Ey
+At
+fo
+zH
+ha
+Wr
+Da
+wk
+vT
+"}
+(9,1,1) = {"
+wk
+wk
+wk
+wk
+wk
+Cb
+IZ
+QN
+wk
+wk
+wk
+hS
+cR
+hd
+GJ
+hV
+wk
+hu
+"}

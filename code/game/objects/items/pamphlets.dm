@@ -137,13 +137,13 @@
 
 /obj/item/pamphlet/language
 	name = "translation pamphlet"
-	desc = "A pamphlet used by lazy USCM interpreters to quickly learn new languages on the spot."
+	desc = "A pamphlet used by lazy UACM interpreters to quickly learn new languages on the spot."
 	flavour_text = "You go over the pamphlet, learning a new language."
 	bypass_pamphlet_limit = TRUE
 
 /obj/item/pamphlet/language/russian
 	name = "Printed Copy of Pari"
-	desc = "Pari, also known as 'The Bet' in English, is a short story written by Russian playwright Anton Chekhov about a bet between a lawyer and a banker; the banker wagers that the lawyer cannot remain in solitary confinement for 15 years, and promises 2 million rubles in exchange. You must be a refined reader if you know this one; why are you even in the USCM if you know that?"
+	desc = "Pari, also known as 'The Bet' in English, is a short story written by Russian playwright Anton Chekhov about a bet between a lawyer and a banker; the banker wagers that the lawyer cannot remain in solitary confinement for 15 years, and promises 2 million rubles in exchange. You must be a refined reader if you know this one; why are you even in the UACM if you know that?"
 	trait = /datum/character_trait/language/russian
 
 /obj/item/pamphlet/language/japanese

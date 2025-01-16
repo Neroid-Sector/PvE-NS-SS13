@@ -331,6 +331,9 @@
 
 /// Populate traits_to_give in this proc
 /obj/item/weapon/gun/proc/set_bullet_traits()
+	LAZYADD(traits_to_give, list(
+		BULLET_TRAIT_ENTRY(/datum/element/bullet_trait_iff)
+	)) // This may or may not be a good idea. Makes everythign a smartbullet. Will actually make toggable later.
 	return
 
 /// @bullet_trait_entries: A list of bullet trait entries
@@ -1369,6 +1372,9 @@ and you're good to go.
 
 	//Point blanking doesn't actually fire the projectile. Instead, it simulates firing the bullet proper.
 	if(!able_to_fire(user)) //If it's a valid PB aside from that you can't fire the gun, do nothing.
+		return TRUE
+
+	if(user.faction == attacked_mob.faction) // IFF check. Just like the global smart bullets, for the moment no PBing of friendlies.
 		return TRUE
 
 	//The following relating to bursts was borrowed from Fire code.

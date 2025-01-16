@@ -174,7 +174,7 @@
 
 /obj/structure/closet/crate/green
 	name = "green crate"
-	desc = "A standard green storage crate employed by the USCM. These things are so common, just about anything could be inside."
+	desc = "A standard green storage crate employed by the UACM. These things are so common, just about anything could be inside."
 	icon_state = "closed_green"
 	icon_opened = "open_green"
 	icon_closed = "closed_green"

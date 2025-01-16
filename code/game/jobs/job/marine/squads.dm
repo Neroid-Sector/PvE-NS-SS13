@@ -123,11 +123,21 @@
 
 /datum/squad/marine/alpha
 	name = SQUAD_MARINE_1
-	equipment_color = "#4148c8"
-	chat_color = "#828cff"
+	equipment_color = "#e61919"
+	chat_color = "#e67d7d"
 	access = list(ACCESS_MARINE_ALPHA)
 	radio_freq = ALPHA_FREQ
 	minimap_color = MINIMAP_SQUAD_ALPHA
+	use_stripe_overlay = FALSE
+	usable = TRUE
+
+/datum/squad/marine/delta
+	name = SQUAD_MARINE_4
+	equipment_color = "#4148c8"
+	chat_color = "#828cff"
+	access = list(ACCESS_MARINE_DELTA)
+	radio_freq = DELTA_FREQ
+	minimap_color = MINIMAP_SQUAD_DELTA
 	use_stripe_overlay = FALSE
 	usable = TRUE
 
@@ -144,11 +154,6 @@
 	squad_one_access = ACCESS_UPP_SQUAD_ONE
 	squad_two_access = ACCESS_UPP_SQUAD_TWO
 
-/datum/squad/marine/upp/New()
-	. = ..()
-
-	RegisterSignal(SSdcs, COMSIG_GLOB_PLATOON_NAME_CHANGE, PROC_REF(rename_platoon))
-
 /datum/squad/marine/forecon
 	name = SQUAD_LRRP
 	access = list(ACCESS_MARINE_ALPHA)
@@ -159,14 +164,6 @@
 	minimap_color = "#32CD32"
 	usable = TRUE
 
-/datum/squad/marine/bravo
-	name = SQUAD_MARINE_2
-	equipment_color = "#ffc32d"
-	chat_color = "#ffe650"
-	access = list(ACCESS_MARINE_BRAVO)
-	radio_freq = BRAVO_FREQ
-	minimap_color = MINIMAP_SQUAD_BRAVO
-
 /datum/squad/marine/charlie
 	name = SQUAD_MARINE_3
 	equipment_color = "#c864c8"
@@ -175,13 +172,13 @@
 	radio_freq = CHARLIE_FREQ
 	minimap_color = MINIMAP_SQUAD_CHARLIE
 
-/datum/squad/marine/delta
-	name = SQUAD_MARINE_4
-	equipment_color = "#4148c8"
-	chat_color = "#828cff"
-	access = list(ACCESS_MARINE_DELTA)
-	radio_freq = DELTA_FREQ
-	minimap_color = MINIMAP_SQUAD_DELTA
+/datum/squad/marine/bravo
+	name = SQUAD_MARINE_2
+	equipment_color = "#ffc32d"
+	chat_color = "#ffe650"
+	access = list(ACCESS_MARINE_BRAVO)
+	radio_freq = BRAVO_FREQ
+	minimap_color = MINIMAP_SQUAD_BRAVO
 
 /datum/squad/marine/echo
 	name = SQUAD_MARINE_5
@@ -336,31 +333,6 @@
 
 	RegisterSignal(SSdcs, COMSIG_GLOB_MODE_POSTSETUP, PROC_REF(setup_supply_drop_list))
 
-/datum/squad/marine/alpha/New()
-	. = ..()
-
-	RegisterSignal(SSdcs, COMSIG_GLOB_PLATOON_NAME_CHANGE, PROC_REF(rename_platoon))
-
-/datum/squad/marine/proc/rename_platoon(datum/source, new_name, old_name)
-	SIGNAL_HANDLER
-
-	name = new_name
-
-	for(var/mob/living/carbon/human/marine in marines_list)
-		if(!istype(marine.wear_id, /obj/item/card/id))
-			continue
-
-		var/obj/item/card/id/marine_card = marine.wear_id
-		var/datum/weakref/marine_card_registered = marine.wear_id.registered_ref
-
-		if(!istype(marine_card_registered))
-			continue
-
-		if(marine != marine_card_registered.resolve())
-			continue
-
-		marine_card.assignment = "[new_name] [marine.job]"
-		marine_card.name = "[marine_card.registered_name]'s [marine_card.card_name] ([marine_card.assignment])"
 
 /datum/squad/proc/setup_supply_drop_list()
 	SIGNAL_HANDLER

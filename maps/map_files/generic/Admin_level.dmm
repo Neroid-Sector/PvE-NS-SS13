@@ -127,6 +127,16 @@
 "dy" = (
 /turf/open/floor/wood,
 /area/centcom/living)
+"dF" = (
+/obj/structure/machinery/door/poddoor/almayer/locked{
+	dir = 4;
+	id = "tdome_t2";
+	name = "\improper Team 2 Shutters"
+	},
+/turf/open/floor/tdome{
+	icon_state = "test_floor4"
+	},
+/area/tdome)
 "dG" = (
 /turf/open/floor/plating/almayer,
 /area/adminlevel/ert_station/shuttle_dispatch)
@@ -373,6 +383,15 @@
 	icon_state = "mono"
 	},
 /area/centcom/control)
+"gj" = (
+/obj/effect/decal/warning_stripes{
+	icon_state = "E"
+	},
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome)
 "gu" = (
 /turf/open/floor/plating,
 /area/admin/droppod/holding)
@@ -533,15 +552,6 @@
 	icon_state = "plating"
 	},
 /area/tdome/tdomeobserve)
-"no" = (
-/obj/effect/decal/warning_stripes{
-	icon_state = "E"
-	},
-/turf/open/floor/tdome{
-	dir = 5;
-	icon_state = "plating"
-	},
-/area/tdome)
 "nP" = (
 /turf/open/floor/almayer{
 	dir = 8;
@@ -902,6 +912,13 @@
 	icon_state = "dark_sterile"
 	},
 /area/adminlevel/ert_station)
+"vk" = (
+/obj/effect/landmark/pve_mob/boss_mobs,
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome)
 "vB" = (
 /obj/structure/surface/table/reinforced/black,
 /obj/effect/spawner/random/toy,
@@ -1159,6 +1176,13 @@
 	icon_state = "sterile_green_side"
 	},
 /area/adminlevel/ert_station)
+"AB" = (
+/obj/effect/landmark/pve_boss_navigation,
+/turf/open/floor/tdome{
+	dir = 5;
+	icon_state = "plating"
+	},
+/area/tdome)
 "AI" = (
 /obj/structure/sign/poster{
 	pixel_x = -32;
@@ -1312,6 +1336,7 @@
 /turf/open/floor/plating/almayer,
 /area/adminlevel/ert_station/shuttle_dispatch)
 "Ed" = (
+/obj/effect/landmark/pve_boss_navigation/center,
 /turf/open/floor/tdome{
 	dir = 1;
 	icon_state = "w-y1"
@@ -1387,16 +1412,6 @@
 	icon_state = "silver"
 	},
 /area/adminlevel/ert_station/shuttle_dispatch)
-"Fa" = (
-/obj/structure/machinery/door/poddoor/almayer/locked{
-	dir = 4;
-	id = "tdome_t2";
-	name = "\improper Team 2 Shutters"
-	},
-/turf/open/floor/tdome{
-	icon_state = "test_floor4"
-	},
-/area/tdome)
 "Fd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2
@@ -4448,6 +4463,7 @@ aC
 aa
 ab
 ab
+vk
 iA
 iA
 iA
@@ -4455,8 +4471,7 @@ iA
 iA
 iA
 iA
-iA
-iA
+vk
 ab
 ab
 aa
@@ -4604,7 +4619,7 @@ iA
 iA
 iA
 iA
-iA
+vk
 iA
 iA
 iA
@@ -4754,12 +4769,12 @@ ab
 iA
 iA
 iA
+AB
 iA
 iA
 iA
 iA
-iA
-iA
+AB
 iA
 iA
 ab
@@ -4903,6 +4918,7 @@ aC
 aC
 aa
 ab
+vk
 iA
 iA
 iA
@@ -4912,8 +4928,7 @@ iA
 iA
 iA
 iA
-iA
-iA
+vk
 ab
 aa
 aC
@@ -5059,9 +5074,9 @@ iA
 iA
 iA
 iA
+vk
 iA
-iA
-iA
+vk
 iA
 iA
 iA
@@ -5209,13 +5224,13 @@ OT
 ab
 iA
 iA
+vk
 iA
 iA
 iA
 iA
 iA
-iA
-iA
+vk
 iA
 iA
 ab
@@ -5363,9 +5378,9 @@ iA
 iA
 iA
 iA
-iA
+vk
 jS
-iA
+vk
 iA
 iA
 iA
@@ -5511,7 +5526,7 @@ Qh
 Qh
 Hv
 oD
-iA
+vk
 iA
 iA
 iA
@@ -5521,7 +5536,7 @@ jS
 iA
 iA
 iA
-iA
+vk
 ab
 aa
 aC
@@ -5664,15 +5679,15 @@ Qh
 Hv
 oD
 iA
+AB
 iA
-iA
-iA
+vk
 jS
 Ed
 jS
+vk
 iA
-iA
-iA
+AB
 iA
 ab
 aa
@@ -5815,7 +5830,7 @@ Qh
 Qh
 Hv
 oD
-iA
+vk
 iA
 iA
 iA
@@ -5825,7 +5840,7 @@ jS
 iA
 iA
 iA
-iA
+vk
 ab
 aa
 aC
@@ -5971,9 +5986,9 @@ iA
 iA
 iA
 iA
-iA
+vk
 jS
-iA
+vk
 iA
 iA
 iA
@@ -6121,13 +6136,13 @@ OT
 ab
 iA
 iA
+vk
 iA
 iA
 iA
 iA
 iA
-iA
-iA
+vk
 iA
 iA
 ab
@@ -6275,9 +6290,9 @@ iA
 iA
 iA
 iA
+vk
 iA
-iA
-iA
+vk
 iA
 iA
 iA
@@ -6423,6 +6438,7 @@ aa
 aa
 aa
 ab
+vk
 iA
 iA
 iA
@@ -6432,8 +6448,7 @@ iA
 iA
 iA
 iA
-iA
-iA
+vk
 ab
 aa
 aC
@@ -6578,12 +6593,12 @@ ab
 iA
 iA
 iA
+AB
 iA
 iA
 iA
 iA
-iA
-iA
+AB
 iA
 iA
 ab
@@ -6732,7 +6747,7 @@ iA
 iA
 iA
 iA
-iA
+vk
 iA
 iA
 iA
@@ -6880,6 +6895,7 @@ aC
 aa
 ab
 ab
+vk
 iA
 iA
 iA
@@ -6887,8 +6903,7 @@ iA
 iA
 iA
 iA
-iA
-iA
+vk
 ab
 ab
 aa
@@ -7034,11 +7049,11 @@ aa
 ab
 iA
 iA
-no
-no
-no
-no
-no
+gj
+gj
+gj
+gj
+gj
 iA
 iA
 ab
@@ -7186,11 +7201,11 @@ aa
 ab
 ab
 ab
-Fa
-Fa
-Fa
-Fa
-Fa
+dF
+dF
+dF
+dF
+dF
 ab
 ab
 ab

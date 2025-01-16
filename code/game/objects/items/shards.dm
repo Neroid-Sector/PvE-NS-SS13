@@ -261,3 +261,12 @@
 	name = "alien bone fragments"
 	icon_state = "alienbonechips"
 	desc = "Sharp, jagged fragments of alien bone. Looks like the previous owner exploded violently..."
+
+/obj/item/shard/shrapnel/surge_chip
+
+	name = "surge_shrapnel"
+	gender = PLURAL
+	icon_state = "bonechips"
+	matter = list("bone" = 50)
+	desc = "Matter resembling bone intermixed with bright pink spirals."
+	damage_on_move = 0.5

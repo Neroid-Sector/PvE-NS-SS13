@@ -151,6 +151,15 @@
 	dwidth = 4
 	dheight = 8
 
+/obj/docking_port/mobile/marine_dropship/wraith
+	name = "Wraith"
+	id = DROPSHIP_WRAITH
+	width = 9
+	height = 18
+
+	dwidth = 4
+	dheight = 8
+
 /obj/docking_port/mobile/marine_dropship/cyclone/get_transit_path_type()
 	return /turf/open/space/transit/dropship/cyclone
 
@@ -324,6 +333,12 @@
 	auto_open = TRUE
 	roundstart_template = /datum/map_template/shuttle/midway
 
+/obj/docking_port/stationary/marine_dropship/arrowhead_hangar
+	name = "Wraith Launch Bay"
+	id = ARROWHEAD_LZ
+	auto_open = TRUE
+	roundstart_template = /datum/map_template/shuttle/wraith
+
 /obj/docking_port/stationary/marine_dropship/crash_site
 	auto_open = TRUE
 
@@ -368,3 +383,7 @@
 /datum/map_template/shuttle/cyclone
 	name = "Cyclone"
 	shuttle_id = DROPSHIP_CYCLONE
+
+/datum/map_template/shuttle/wraith
+	name = "Wraith"
+	shuttle_id = DROPSHIP_WRAITH

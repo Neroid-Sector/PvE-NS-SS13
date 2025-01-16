@@ -2,9 +2,9 @@ var/list/obj/structure/machinery/faxmachine/allfaxes = list()
 var/list/alldepartments = list()
 
 #define DEPARTMENT_WY "Weyland-Yutani"
-#define DEPARTMENT_HC "USCM High Command"
+#define DEPARTMENT_HC "UACM High Command"
 #define DEPARTMENT_CMB "CMB Incident Command Center, Local Operations"
-#define DEPARTMENT_PROVOST "USCM Provost Office"
+#define DEPARTMENT_PROVOST "UACM Provost Office"
 #define DEPARTMENT_PRESS "Various Press Organizations"
 #define HIGHCOM_DEPARTMENTS list(DEPARTMENT_WY, DEPARTMENT_HC, DEPARTMENT_CMB, DEPARTMENT_PROVOST, DEPARTMENT_PRESS)
 
@@ -276,7 +276,7 @@ var/list/alldepartments = list()
 /obj/structure/machinery/faxmachine/vv_get_dropdown()
 	. = ..()
 	. += "<option value>-----FAX-----</option>"
-	. += "<option value='?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];USCMFaxReply=\ref[usr];originfax=\ref[src]'>Send USCM fax message</option>"
+	. += "<option value='?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];USCMFaxReply=\ref[usr];originfax=\ref[src]'>Send UACM fax message</option>"
 	. += "<option value='?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];CLFaxReply=\ref[usr];originfax=\ref[src]'>Send CL fax message</option>"
 	. += "<option value='?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];CMBFaxReply=\ref[usr];originfax=\ref[src]'>Send CMB fax message</option>"
 	. += "<option value='?_src_=admin_holder;[HrefToken(forceGlobal = TRUE)];PressFaxReply=\ref[usr];originfax=\ref[src]'>Send Press fax message</option>"
@@ -396,10 +396,10 @@ var/list/alldepartments = list()
 					P.update_icon()
 
 					switch(network)
-						if("USCM High Command Quantum Relay")
+						if("UACM High Command Quantum Relay")
 							var/image/stampoverlay = image('icons/obj/items/paper.dmi')
 							stampoverlay.icon_state = "paper_stamp-uscm"
-							P.stamps += "<HR><i>This paper has been stamped by the USCM High Command Quantum Relay.</i>"
+							P.stamps += "<HR><i>This paper has been stamped by the UACM High Command Quantum Relay.</i>"
 						if("NC4 UA Federal Secure Network - CMB Relay")
 							var/image/stampoverlay = image('icons/obj/items/paper.dmi')
 							stampoverlay.icon_state = "paper_stamp-cmb"
@@ -440,9 +440,9 @@ var/list/alldepartments = list()
 	network = "Weyland-Yutani Quantum Relay"
 
 /obj/structure/machinery/faxmachine/uscm
-	name = "\improper USCM Military Fax Machine"
-	department = "USCM Local Operations"
-	network = "USCM Encrypted Network"
+	name = "\improper UACM Military Fax Machine"
+	department = "UACM Local Operations"
+	network = "UACM Encrypted Network"
 	target_department = DEPARTMENT_HC
 
 /obj/structure/machinery/faxmachine/uscm/command
@@ -454,10 +454,10 @@ var/list/alldepartments = list()
 /obj/structure/machinery/faxmachine/uscm/command/highcom
 	department = DEPARTMENT_HC
 	target_department = "Commanding Officer"
-	network = "USCM High Command Quantum Relay"
+	network = "UACM High Command Quantum Relay"
 
 /obj/structure/machinery/faxmachine/uscm/brig
-	name = "\improper USCM Provost Fax Machine"
+	name = "\improper UACM Provost Fax Machine"
 	department = "Brig"
 	target_department = DEPARTMENT_PROVOST
 
@@ -467,7 +467,7 @@ var/list/alldepartments = list()
 /obj/structure/machinery/faxmachine/uscm/brig/provost
 	department = DEPARTMENT_PROVOST
 	target_department = "Brig"
-	network = "USCM High Command Quantum Relay"
+	network = "UACM High Command Quantum Relay"
 
 /datum/fax
 	var/data

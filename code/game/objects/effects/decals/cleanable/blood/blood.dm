@@ -178,3 +178,6 @@
 
 		if (step_to(src, get_step(src, direction), 0))
 			break
+
+/obj/effect/decal/cleanable/blood/oil
+	basecolor = "#220707"

@@ -128,7 +128,7 @@
 					<br>
 					<br>
 					Surprisingly accurate too despite being a prototype.
-					I know there's like, a couple of prototypes issued to some USCM detachments, but we got to have this shit in production one day.
+					I know there's like, a couple of prototypes issued to some UACM detachments, but we got to have this shit in production one day.
 					<br>
 					<br>
 					Even as a prototype, it's leagues better than some of the junk we're issued.

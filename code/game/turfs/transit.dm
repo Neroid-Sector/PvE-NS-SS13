@@ -249,6 +249,10 @@
 	shuttle_tag = DROPSHIP_CYCLONE
 	dir = SOUTH
 
+/turf/open/space/transit/dropship/wraith
+	shuttle_tag = DROPSHIP_WRAITH
+	dir = SOUTH
+
 /turf/open/space/transit/south
 	dir = SOUTH
 

@@ -85,7 +85,7 @@
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), person, SPAN_BOLD("Objectives: [objectives]")), 1 SECONDS)
 
 //################################################################################################
-// Marine commandos - USCM Deathsquad. Event only
+// Marine commandos - UACM Deathsquad. Event only
 /datum/emergency_call/marsoc
 	name = "Marine Raider Strike Team (!DEATHSQUAD!)"
 	mob_max = 8

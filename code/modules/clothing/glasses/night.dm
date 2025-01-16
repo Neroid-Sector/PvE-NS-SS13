@@ -68,7 +68,7 @@
 
 /obj/item/clothing/glasses/night/m42_night_goggles/spotter
 	name = "\improper M42 spotter sight"
-	desc = "A companion headset and night vision goggles system for USCM spotters. Allows highlighted imaging of surroundings. Click it to toggle."
+	desc = "A companion headset and night vision goggles system for UACM spotters. Allows highlighted imaging of surroundings. Click it to toggle."
 
 /obj/item/clothing/glasses/night/m42_night_goggles/m42c
 	name = "\improper M42C special operations sight"

@@ -5734,7 +5734,6 @@
 /obj/structure/machinery/prop/almayer/CICmap{
 	pixel_y = 29
 	},
-/obj/effect/landmark/map_item,
 /turf/open/floor/almayer{
 	icon_state = "plate"
 	},
@@ -6368,7 +6367,7 @@
 	pixel_y = 22
 	},
 /obj/item/toy/plush/therapy/red{
-	desc = "A USCM approved plush doll. It's not soft and hardly comforting!";
+	desc = "A UACM approved plush doll. It's not soft and hardly comforting!";
 	force = 15;
 	layer = 4.1;
 	name = "Sergeant Huggs";

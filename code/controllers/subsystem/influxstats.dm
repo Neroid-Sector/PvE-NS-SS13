@@ -130,7 +130,7 @@ SUBSYSTEM_DEF(influxstats)
 				if(squad in squad_job_stats)
 					squad_job_stats[squad][job] = (squad_job_stats[squad][job] || 0) + 1
 					continue // Defer to squad stats instead
-			// else: So you're in the USCM and have a job but aren't an human? Tell me more Dr Jones...
+			// else: So you're in the UACM and have a job but aren't an human? Tell me more Dr Jones...
 		else if(ishuman(mob))
 			team = "humans_others"
 		else if(isxeno(mob))

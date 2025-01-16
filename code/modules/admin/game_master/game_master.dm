@@ -10,7 +10,7 @@ GLOBAL_VAR_INIT(radio_communication_clarity, 100)
 
 /proc/open_game_master_panel(client/using_client)
 	set name = "Game Master Panel"
-	set category = "Game Master"
+	set category = "DM.PvE"
 
 	if(using_client.game_master_menu)
 		using_client.game_master_menu.tgui_interact(using_client.mob)
@@ -20,7 +20,7 @@ GLOBAL_VAR_INIT(radio_communication_clarity, 100)
 
 /client/proc/toggle_game_master()
 	set name = "Game Master Panel"
-	set category = "Game Master"
+	set category = "DM.PvE"
 	if(!check_rights(R_ADMIN))
 		return
 
@@ -351,8 +351,12 @@ GLOBAL_VAR_INIT(radio_communication_clarity, 100)
 			var/turf/spawn_turf = get_turf(object)
 
 			for(var/i = 1 to xeno_spawn_count)
-				new spawning_xeno_type(spawn_turf, null, selected_hive, !spawn_ai)
-
+				var/mob/living/carbon/xenomorph/spawned_xeno = new spawning_xeno_type(spawn_turf, null, selected_hive, !spawn_ai)
+				spawned_xeno.health = GLOB.xenosurge_wave_xenos_hp
+				spawned_xeno.maxHealth = GLOB.xenosurge_wave_xenos_hp
+				spawned_xeno.melee_damage_lower = GLOB.xenosurge_wave_xenos_dam_min
+				spawned_xeno.melee_damage_upper = GLOB.xenosurge_wave_xenos_dam_max
+				spawned_xeno.armor_deflection = GLOB.xenosurge_wave_xenos_armor
 			return TRUE
 
 		if(BEHAVIOR_CLICK_INTERCEPT_ACTION)

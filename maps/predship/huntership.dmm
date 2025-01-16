@@ -1598,7 +1598,6 @@
 	},
 /area/yautja)
 "fg" = (
-/obj/item/map/current_map,
 /obj/item/device/flashlight/lantern,
 /obj/structure/closet,
 /turf/open/floor/corsat{

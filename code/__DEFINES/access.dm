@@ -170,11 +170,11 @@ most of them are tied into map-placed objects. This should be reworked in the fu
 ///Well... everything (non Yautja).
 #define ACCESS_LIST_GLOBAL "EVERYTHING"
 
-///Most of the USCM Access Levels used on the USS Almayer, excluding highly restricted ones.
+///Most of the UACM Access Levels used on the USS Almayer, excluding highly restricted ones.
 #define ACCESS_LIST_MARINE_MAIN "Almayer (Main)"
-///All USCM Access levels used on the USS Almayer
+///All UACM Access levels used on the USS Almayer
 #define ACCESS_LIST_MARINE_ALL "Almayer (ALL)"
-///Used by the Wey-Yu - USCM Liaison
+///Used by the Wey-Yu - UACM Liaison
 #define ACCESS_LIST_MARINE_LIAISON "Wey-Yu (Liaison)"
 
 ///The accesses granted to emergency responders.

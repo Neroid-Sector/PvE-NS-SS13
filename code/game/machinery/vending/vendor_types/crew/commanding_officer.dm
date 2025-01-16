@@ -58,7 +58,7 @@ GLOBAL_LIST_INIT(cm_vending_gear_commanding_officer, list(
 
 /obj/structure/machinery/cm_vending/gear/commanding_officer
 	name = "\improper ColMarTech Commanding Officer Weapon Rack"
-	desc = "An automated weapons rack for the Commanding Officer. It features a robust selection of weaponry meant only for the USCM's top officers."
+	desc = "An automated weapons rack for the Commanding Officer. It features a robust selection of weaponry meant only for the UACM's top officers."
 	req_access = list(ACCESS_MARINE_SENIOR)
 	vendor_role = list(JOB_CO, JOB_WO_CO)
 	icon_state = "guns"
@@ -123,7 +123,7 @@ GLOBAL_LIST_INIT(cm_vending_clothing_commanding_officer, list(
 
 /obj/structure/machinery/cm_vending/clothing/commanding_officer
 	name = "\improper ColMarTech Commanding Officer Equipment Rack"
-	desc = "An automated equipment vendor for the Commanding Officer. Contains a prime selection of equipment for only the USCM's top officers."
+	desc = "An automated equipment vendor for the Commanding Officer. Contains a prime selection of equipment for only the UACM's top officers."
 	req_access = list(ACCESS_MARINE_SENIOR)
 	vendor_role = list(JOB_CO, JOB_WO_CO)
 
@@ -133,7 +133,6 @@ GLOBAL_LIST_INIT(cm_vending_clothing_commanding_officer, list(
 /obj/effect/essentials_set/commanding_officer
 	spawned_gear_list = list(
 		/obj/item/device/binoculars/range/designator,
-		/obj/item/map/current_map,
 		/obj/item/device/whistle,
 		/obj/item/weapon/gun/energy/taser,
 		/obj/item/device/megaphone,

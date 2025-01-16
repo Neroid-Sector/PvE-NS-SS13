@@ -52,6 +52,10 @@
 	stamina = new /datum/stamina(src)
 
 /mob/living/carbon/human/Destroy()
+
+	var/area/current_area = get_area(src)
+	if(current_area)
+		if(current_area.players_active.Find(src) == 1) current_area.players_active.Remove(src)
 	SSround_recording.recorder.stop_tracking(src)
 	remove_from_all_mob_huds()
 	assigned_equipment_preset = null
@@ -90,6 +94,8 @@
 	assigned_squad = null
 	selected_ability = null
 	remembered_dropped_objects = null
+
+
 
 /mob/living/carbon/human/get_status_tab_items()
 	. = ..()
@@ -1714,3 +1720,49 @@
 			item.showoff(src)
 			return TRUE
 	return ..()
+
+/mob/living/carbon/human/proc/bind_stimpack(pack_to_bind)
+	bound_injector = pack_to_bind
+
+/mob/living/carbon/human/verb/find_injector()
+	set name = "Recall Injector"
+	set desc = "Recalls a bound injector."
+	set category = "IC"
+
+	if(bound_injector != null)
+		usr.put_in_any_hand_if_possible(bound_injector)
+		to_chat(usr, SPAN_INFO("Injector returned to hand or turf underneath."))
+		return
+	else
+		to_chat(usr, SPAN_WARNING("No bound Injector found!"))
+		return
+
+/mob/living/carbon/human/verb/call_resupply()
+	set name = "Call resupply"
+	set desc = "Calls a resupply droppod. Depending on round state, it may be a partial or full resupply vendor."
+	set category = "IC"
+
+	var/turf_to_spawn = get_turf(src)
+	if(GLOB.ammo_restock_next > world.time)
+		to_chat(usr, SPAN_WARNING("The ammo restock is not ready."))
+		return
+	if(GLOB.ship_areas.Find(get_area(src)) != 0)
+		to_chat(usr, SPAN_WARNING("You cannot use this on the ship."))
+		return
+	to_chat(usr, SPAN_WARNING("Calling ammo restock. This will put the ability on cooldown <b>for the whole team</b>. Move to cancel."))
+	if(!do_after(usr, 20, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, turf_to_spawn, INTERRUPT_MOVED, BUSY_ICON_BUILD))
+		return
+	if(GLOB.ammo_restock_next <= world.time)
+		GLOB.ammo_restock_next = world.time + GLOB.ammo_restock_delay
+		var/obj/structure/droppod/equipment/vendor/droppod
+		if(GLOB.ammo_restock_full == 0)
+			droppod = new /obj/structure/droppod/equipment/vendor/partial(turf_to_spawn, /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/partial/, src)
+		else
+			droppod = new /obj/structure/droppod/equipment/vendor/(turf_to_spawn, /obj/structure/machinery/cm_vending/sorted/cargo_guns/pve/ammo_refill/, src)
+			GLOB.ammo_restock_full = 0
+		droppod.drop_time = 5 SECONDS
+		droppod.launch(turf_to_spawn)
+		return
+	else
+		to_chat(src, SPAN_WARNING("The Ammo Resupply is on cooldown!"))
+		return

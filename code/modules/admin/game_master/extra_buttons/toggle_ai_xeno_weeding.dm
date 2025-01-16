@@ -1,7 +1,7 @@
 /// For PvE CM a convenient button to enable/disable AI xenos weeding.
 /client/proc/toggle_ai_xeno_weeding()
 	set name = "Toggle AI Xeno Weeding"
-	set category = "Game Master.Flags"
+	set category = "DM.Flags"
 
 	if(!admin_holder || !check_rights(R_MOD, FALSE))
 		return

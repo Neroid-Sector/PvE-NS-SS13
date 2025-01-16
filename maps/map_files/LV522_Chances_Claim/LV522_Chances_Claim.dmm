@@ -2320,7 +2320,7 @@
 	armor_melee = 20;
 	armor_rad = 10;
 	desc = "A headset typically found in use by radio-operators and officers. This one bears a purple stripe down its side.";
-	name = "\improper personalized USCM headset"
+	name = "\improper personalized UACM headset"
 	},
 /turf/open/floor/prison,
 /area/lv522/indoors/a_block/admin)
@@ -5692,7 +5692,7 @@
 	desc = "Something about a research lab.";
 	icon = 'icons/obj/items/paper.dmi';
 	icon_state = "folder_black";
-	name = "USCM classified intelligence folder"
+	name = "UACM classified intelligence folder"
 	},
 /turf/open/floor/corsat{
 	dir = 1;
@@ -53479,7 +53479,7 @@
 /obj/item/clothing/head/helmet/marine/scout{
 	armor_bullet = 5;
 	armor_melee = 15;
-	desc = "A custom helmet designed for USCM Scouts. Looks like this one has seen some action.";
+	desc = "A custom helmet designed for UACM Scouts. Looks like this one has seen some action.";
 	name = "\improper Battered M3-S light helmet";
 	pixel_x = -8;
 	pixel_y = 13

@@ -3,7 +3,7 @@
 #define GET_DEFAULT_ROLE(title) (RoleAuthority?.default_roles[title] ? RoleAuthority.default_roles[title] : title)
 
 // Squad name defines
-#define SQUAD_MARINE_1 "Sun Riders"
+#define SQUAD_MARINE_1 "Alpha"
 #define SQUAD_MARINE_2 "Bravo"
 #define SQUAD_MARINE_3 "Charlie"
 #define SQUAD_MARINE_4 "Delta"
@@ -39,6 +39,14 @@
 #define JOB_SQUAD_RTO "Radio Telephone Operator"
 #define JOB_SQUAD_MARINE_FORECON "FORECON Rifleman"
 #define JOB_SQUAD_SMARTGUN_FORECON "FORECON Smartgunner"
+
+#define JOB_UER_MARINE "UER Marine Operator"
+#define JOB_UER_MARINE_POINT "UER Marine Point"
+#define JOB_UER_MARINE_LEAD "UER Marine Team Lead"
+
+#define JOB_UER_MARINE_TESTER "UER Marine Tester"
+
+#define JOB_UER_PO "UER Dropship Pilot"
 
 var/global/list/job_squad_roles = JOB_SQUAD_ROLES_LIST
 
@@ -132,9 +140,9 @@ var/global/list/job_command_roles = JOB_COMMAND_ROLES_LIST
 
 #define JOB_STOWAWAY "Stowaway"
 
-#define JOB_MARINE "USCM Marine" //generic marine
-#define JOB_COLONEL "USCM Colonel"
-#define JOB_GENERAL "USCM General"
+#define JOB_MARINE "UACM Marine" //generic marine
+#define JOB_COLONEL "UACM Colonel"
+#define JOB_GENERAL "UACM General"
 #define JOB_ACMC "Assistant Commandant of the Marine Corps"
 #define JOB_CMC "Commandant of the Marine Corps"
 

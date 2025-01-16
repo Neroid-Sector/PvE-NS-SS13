@@ -8,7 +8,7 @@
 							"Humans" = 0,
 							"Infected humans" = 0,
 							FACTION_MARINE = 0,
-							"USCM Marines" = 0,
+							"UACM Marines" = 0,
 							"Lobby" = 0,
 
 							FACTION_YAUTJA = 0,
@@ -84,7 +84,7 @@
 								if(C.mob.faction == FACTION_MARINE)
 									counted_humanoids[FACTION_MARINE]++
 									if(C.mob.job in (ROLES_MARINES))
-										counted_humanoids["USCM Marines"]++
+										counted_humanoids["UACM Marines"]++
 								else
 									counted_humanoids[C.mob.faction]++
 						else if(isxeno(C.mob))
@@ -103,7 +103,7 @@
 		dat += "<BR><B style='color:#777'>Observers: [counted_humanoids["Observers"]] players and [counted_humanoids["Admin observers"]] staff members</B>"
 		dat += "<BR><B style='color:#2C7EFF'>Humans: [counted_humanoids["Humans"]]</B> <B style='color:#F00'>(Infected: [counted_humanoids["Infected humans"]])</B>"
 		if(counted_humanoids[FACTION_MARINE])
-			dat += "<BR><B style='color:#2C7EFF'>USCM personnel: [counted_humanoids[FACTION_MARINE]]</B> <B style='color:#688944'>(Marines: [counted_humanoids["USCM Marines"]])</B>"
+			dat += "<BR><B style='color:#2C7EFF'>UACM personnel: [counted_humanoids[FACTION_MARINE]]</B> <B style='color:#688944'>(Marines: [counted_humanoids["UACM Marines"]])</B>"
 		if(counted_humanoids[FACTION_YAUTJA])
 			dat += "<BR><B style='color:#7ABA19'>Predators: [counted_humanoids[FACTION_YAUTJA]]</B> [counted_humanoids["Infected preds"] ? "<b style='color:#F00'>(Infected: [counted_humanoids["Infected preds"]])</b>" : ""]"
 		if(counted_humanoids[FACTION_ZOMBIE])

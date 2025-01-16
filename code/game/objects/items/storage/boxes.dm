@@ -548,7 +548,7 @@
 
 /obj/item/storage/box/m94
 	name = "\improper M94 marking flare pack"
-	desc = "A packet of twenty one M94 Marking Flares. Carried by USCM soldiers to light dark areas that cannot be reached with the usual TNR Shoulder Lamp."
+	desc = "A packet of twenty one M94 Marking Flares. Carried by UACM soldiers to light dark areas that cannot be reached with the usual TNR Shoulder Lamp."
 	icon_state = "m94"
 	w_class = SIZE_MEDIUM
 	storage_slots = 21
@@ -706,7 +706,7 @@
 	new /obj/item/lightstick/red(src)
 
 /obj/item/storage/box/MRE
-	name = "\improper USCM MRE"
+	name = "\improper UACM MRE"
 	desc = "A Meal, Ready-to-Eat. A single-meal combat ration designed to provide a soldier with enough nutrients for a day of strenuous work. Its expiration date is at least 20 years ahead of your combat life expectancy."
 	icon_state = "mealpack"
 	w_class = SIZE_SMALL

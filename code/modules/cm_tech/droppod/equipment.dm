@@ -1,5 +1,5 @@
 /obj/structure/droppod/equipment
-	name = "\improper USCM droppod"
+	name = "\improper UACM droppod"
 	var/obj/equipment_to_spawn
 
 /obj/structure/droppod/equipment/Initialize(mapload, equipment, mob/M)
@@ -20,7 +20,6 @@
 	. = ..()
 	move_equipment()
 	equipment_to_spawn = null
-	qdel(src)
 
 /obj/structure/droppod/equipment/proc/move_equipment()
 	if(equipment_to_spawn)

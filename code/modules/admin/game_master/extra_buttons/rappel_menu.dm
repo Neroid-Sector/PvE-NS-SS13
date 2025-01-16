@@ -4,7 +4,7 @@ GLOBAL_DATUM_INIT(rappel_panel, /datum/rappel_menu, new)
 
 /client/proc/toggle_rappel_menu()
 	set name = "Rappel Menu"
-	set category = "Game Master.Extras"
+	set category = "DM.Extras"
 	if(!check_rights(R_ADMIN))
 		return
 

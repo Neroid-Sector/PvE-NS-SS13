@@ -21,7 +21,7 @@ var/list/admin_verbs_default = list(
 	/client/proc/cmd_admin_create_AI_report,  //Allows creation of IC reports by the ships AI utilizing Almayer General channel. Relies on ARES being intact and tcomms being powered.
 	/client/proc/cmd_admin_create_AI_shipwide_report,  //Allows creation of IC reports by the ships AI utilizing announcement code. Will be shown to every conscious human on Almayer z-level regardless of ARES and tcomms status.
 	/client/proc/cmd_admin_create_AI_apollo_report,  //Allows creation of IC reports to the Apollo subprocessor, transmitting to Working Joes and Maintenance Drones.
-	/client/proc/cmd_admin_create_centcom_report, //Messages from USCM command/other factions.
+	/client/proc/cmd_admin_create_centcom_report, //Messages from UACM command/other factions.
 	/client/proc/cmd_admin_create_predator_report, //Predator ship AI report
 	/client/proc/admin_ghost, /*allows us to ghost/reenter body at will*/
 	/client/proc/invismin,
@@ -119,7 +119,7 @@ var/list/admin_verbs_minor_event = list(
 	/client/proc/cmd_admin_world_narrate, /*sends text to all players with no padding*/
 	/client/proc/cmd_admin_ground_narrate,
 	/client/proc/cmd_admin_atom_narrate,
-	/client/proc/cmd_admin_create_centcom_report, //Messages from USCM command/other factions.
+	/client/proc/cmd_admin_create_centcom_report, //Messages from UACM command/other factions.
 	/client/proc/cmd_admin_create_predator_report, //Predator ship AI report
 	/client/proc/toggle_ob_spawn,
 	/client/proc/toggle_sniper_upgrade,
@@ -141,6 +141,21 @@ var/list/admin_verbs_minor_event = list(
 	/client/proc/admin_biohazard_alert,
 	/client/proc/toggle_hardcore_perma,
 	/client/proc/toggle_bypass_joe_restriction,
+	/client/proc/remove_spawners,
+	/client/proc/setup_surge,
+	/client/proc/start_surge,
+	/client/proc/stop_surge,
+	/client/proc/surge_preset_hp,
+	/client/proc/set_narration_preset,
+	/client/proc/speak_to_comms,
+	/client/proc/call_tgui_play_directly,
+	/client/proc/opener_blurb,
+	/client/proc/npc_interaction,
+	/client/proc/change_objective,
+	/client/proc/enable_full_restock,
+	/client/proc/admin_shutter_control,
+	/client/proc/surge_status,
+	/client/proc/setup_surge_globals,
 )
 
 var/list/admin_verbs_major_event = list(
@@ -161,7 +176,17 @@ var/list/admin_verbs_major_event = list(
 	/client/proc/enable_podlauncher,
 	/client/proc/change_taskbar_icon,
 	/client/proc/change_weather,
-	/client/proc/admin_blurb
+	/client/proc/admin_blurb,
+	/client/proc/create_surge_spawner,
+	/client/proc/test_boss_spawn,
+	/client/proc/test_drone_spawn,
+	/client/proc/boss_start,
+	/client/proc/preset_spawning_toggle,
+	/client/proc/prune_drones,
+	/client/proc/remove_drones,
+	/client/proc/boss_phase,
+	/client/proc/boss_factor,
+	/client/proc/setup_cutscenes,
 )
 
 var/list/admin_verbs_spawn = list(
@@ -333,7 +358,6 @@ var/list/roundstart_mod_verbs = list(
 		add_verb(src, /client/proc/open_resin_panel)
 		add_verb(src, /client/proc/open_sound_panel)
 		add_verb(src, /client/proc/toggle_join_xeno)
-		add_verb(src, /client/proc/game_master_rename_platoon)
 		add_verb(src, /client/proc/toggle_vehicle_blockers)
 		add_verb(src, /client/proc/toggle_ai_xeno_weeding)
 		add_verb(src, /client/proc/toggle_rappel_menu)
@@ -371,7 +395,6 @@ var/list/roundstart_mod_verbs = list(
 		/client/proc/open_resin_panel,
 		/client/proc/open_sound_panel,
 		/client/proc/toggle_join_xeno,
-		/client/proc/game_master_rename_platoon,
 		/client/proc/toggle_vehicle_blockers,
 		/client/proc/toggle_ai_xeno_weeding,
 		/client/proc/toggle_rappel_menu,

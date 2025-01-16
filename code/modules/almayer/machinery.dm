@@ -147,13 +147,13 @@
 
 /obj/structure/prop/almayer/computers/mission_planning_system
 	name = "\improper MPS IV computer"
-	desc = "The Mission Planning System IV (MPS IV), an enhancement in mission planning and charting for dropship pilots across the USCM. Fully capable of customizing their flight paths and loadouts to suit their combat needs."
+	desc = "The Mission Planning System IV (MPS IV), an enhancement in mission planning and charting for dropship pilots across the UACM. Fully capable of customizing their flight paths and loadouts to suit their combat needs."
 	icon = 'icons/obj/structures/props/almayer_props.dmi'
 	icon_state = "mps"
 
 /obj/structure/prop/almayer/computers/mapping_computer
 	name = "\improper CMPS II computer"
-	desc = "The Common Mapping Production System version II allows for sensory input from satellites and ship systems to derive planetary maps in a standardized fashion for all USCM pilots."
+	desc = "The Common Mapping Production System version II allows for sensory input from satellites and ship systems to derive planetary maps in a standardized fashion for all UACM pilots."
 	icon = 'icons/obj/structures/props/almayer_props.dmi'
 	icon_state = "mapping_comp"
 
@@ -187,7 +187,7 @@
 
 /obj/structure/prop/almayer/ship_memorial
 	name = "slab of victory"
-	desc = "A ship memorial dedicated to the triumphs of the USCM and the fallen marines of this ship. On the left there are grand tales of victory etched into the slab. On the right there is a list of famous marines who have fallen in combat serving the USCM."
+	desc = "A ship memorial dedicated to the triumphs of the UACM and the fallen marines of this ship. On the left there are grand tales of victory etched into the slab. On the right there is a list of famous marines who have fallen in combat serving the UACM."
 	icon = 'icons/obj/structures/props/almayer_props64.dmi'
 	icon_state = "ship_memorial"
 	bound_width = 64

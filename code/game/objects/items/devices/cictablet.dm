@@ -139,7 +139,7 @@
 				return FALSE
 
 			if(SShijack.evac_admin_denied)
-				to_chat(usr, SPAN_WARNING("The USCM has placed a lock on deploying the evacuation pods."))
+				to_chat(usr, SPAN_WARNING("The UACM has placed a lock on deploying the evacuation pods."))
 				return FALSE
 
 			if(!SShijack.initiate_evacuation())
@@ -163,7 +163,7 @@
 				if((R_ADMIN|R_MOD) & C.admin_holder.rights)
 					playsound_client(C,'sound/effects/sos-morse-code.ogg',10)
 			SSticker.mode.request_ert(usr)
-			to_chat(usr, SPAN_NOTICE("A distress beacon request has been sent to USCM Central Command."))
+			to_chat(usr, SPAN_NOTICE("A distress beacon request has been sent to UACM Central Command."))
 			COOLDOWN_START(src, distress_cooldown, COOLDOWN_COMM_REQUEST)
 			return TRUE
 

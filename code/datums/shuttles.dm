@@ -108,6 +108,29 @@
 	elev.elevator_network = elevator_network
 	log_debug("Adding network [elevator_network] to [M.id]")
 
+
+/*===========================================
+			Arrowhead Elevator
+===========================================*/
+/datum/map_template/shuttle/arrow_elevator
+	name = "Arrowhead Elevator"
+	shuttle_id = MOBILE_ARROW_ELEVATOR
+	var/elevator_network
+
+
+/datum/map_template/shuttle/arrow_elevator
+	elevator_network = "Arrow"
+
+/datum/map_template/shuttle/arrow_elevator/post_load(obj/docking_port/mobile/M)
+	. = ..()
+	var/obj/docking_port/mobile/arrow_elevator/elev = M
+	elev.elevator_network = elevator_network
+	log_debug("Adding network [elevator_network] to [M.id]")
+/*===========================================
+				End
+===========================================*/
+
+
 /datum/map_template/shuttle/trijent_elevator/ice_elevator
 	name = "Classic Ice Elevator"
 	shuttle_id = "ice_classic_shuttle"

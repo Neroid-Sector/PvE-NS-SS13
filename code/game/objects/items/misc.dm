@@ -403,3 +403,77 @@
 		return
 
 	harness.try_extract(H)
+
+/obj/item/tacmap_view
+	name = "Tactical Map tablet"
+	desc = "A device to access the tactical map feed. Standard issue for all Marines."
+	icon_state = "tac_map"
+	var/datum/tacmap/map
+	var/minimap_type = MINIMAP_FLAG_USCM
+	var/faction = FACTION_MARINE
+	w_class = SIZE_SMALL
+
+/obj/item/tacmap_view/Initialize()
+	. = ..()
+
+	map = new /datum/tacmap/drawing(src, minimap_type)
+
+
+/obj/item/tacmap_view/Destroy()
+	QDEL_NULL(map)
+	return ..()
+
+/obj/item/tacmap_view/attack_self(mob/user)
+	. = ..()
+
+	map.tgui_interact(user)
+
+/obj/item/stim_injector
+	name = "UACM GA-8 WY brand Combat Stimulant Syringe"
+	desc = "An autoinjector with five compartments."
+	icon = 'icons/obj/items/syringe.dmi'
+	icon_state = "stim_5"
+	w_class = SIZE_TINY
+	var/owner_mob
+	var/volume = 50
+	var/cooldown_time = 0
+	var/cooldown_val = 50
+
+
+/obj/item/stim_injector/update_icon()
+	if(reagents.total_volume > 0)
+		var/num_to_append = floor(reagents.total_volume / 10)
+		var/text_to_append = num2text(num_to_append)
+		if(num_to_append > 1)
+			icon_state = "stim_[text_to_append]"
+		else
+			icon_state = "stim_empty"
+	else
+		icon_state = "stim_empty"
+	. = ..()
+
+
+/obj/item/stim_injector/Initialize(mapload, ...)
+	. = ..()
+	create_reagents(volume)
+	reagents.add_reagent("SuperStim", volume)
+
+/obj/item/stim_injector/attack_self(mob/user)
+	. = ..()
+	attack(user, user)
+
+/obj/item/stim_injector/attack(mob/living/M, mob/living/user)
+	if(volume <= 0)
+		to_chat(usr, SPAN_WARNING("Your stim is empty!"))
+	if(cooldown_time > world.time)
+		return
+	if(!do_after(user, 20, INTERRUPT_ALL, BUSY_ICON_FRIENDLY, M, INTERRUPT_MOVED, BUSY_ICON_MEDICAL))
+		return
+	cooldown_time = world.time + cooldown_val
+	playsound(loc, 'sound/items/hypospray.ogg', 60, 1)
+	reagents.reaction(M, INGEST)
+	reagents.trans_to(M, 10)
+	user.visible_message("[user] injects [M] with the Super Stimulant!", "You inject [M] with the Super Stimulant!")
+	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been injected with a SuperStim by [key_name(user)].")
+	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has injected [key_name(M)] with a SuperStim.")
+	update_icon()

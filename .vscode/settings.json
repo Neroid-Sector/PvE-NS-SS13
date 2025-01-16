@@ -4,6 +4,7 @@
 	"prettier.prettierPath": "./tgui/.yarn/sdks/prettier/index.cjs",
 	"typescript.tsdk": "./tgui/.yarn/sdks/typescript/lib",
 	"typescript.enablePromptUseWorkspaceTsdk": true,
+    "editor.rulers": [4,44],
 	"search.exclude": {
 		"**/.yarn": true,
 		"**/.pnp.*": true

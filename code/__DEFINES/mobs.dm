@@ -376,6 +376,9 @@
 // Hellhound strain flags
 #define HELLHOUND_NORMAL "Normal"
 
+// Boss strain flags
+#define BOSS_NORMAL "Normal"
+
 var/list/default_onmob_icons = list(
 		WEAR_L_HAND = 'icons/mob/humans/onmob/items_lefthand_0.dmi',
 		WEAR_R_HAND = 'icons/mob/humans/onmob/items_righthand_0.dmi',

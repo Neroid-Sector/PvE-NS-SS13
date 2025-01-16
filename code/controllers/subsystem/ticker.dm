@@ -246,7 +246,7 @@ SUBSYSTEM_DEF(ticker)
 	save_mode(CONFIG_GET(string/gamemode_default))
 
 	if(round_statistics)
-		to_chat_spaced(world, html = FONT_SIZE_BIG(SPAN_ROLE_BODY("<B>Welcome to [round_statistics.round_name]</B>")))
+		to_chat_spaced(world, html = narrate_head("<B>Welcome to [round_statistics.round_name]</B>"))
 
 	supply_controller.process() //Start the supply shuttle regenerating points -- TLE
 
@@ -255,6 +255,8 @@ SUBSYSTEM_DEF(ticker)
 		INVOKE_ASYNC(C, TYPE_PROC_REF(/obj/structure/closet, select_gamemode_equipment), mode.type)
 	for(var/obj/structure/machinery/vending/V in machines)
 		INVOKE_ASYNC(V, TYPE_PROC_REF(/obj/structure/machinery/vending, select_gamemode_equipment), mode.type)
+	if(GLOB.xenosurge_alpha == 0)
+		INVOKE_ASYNC(src, PROC_REF(PlayCutscene),1)
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_POST_SETUP)
 
@@ -327,7 +329,7 @@ SUBSYSTEM_DEF(ticker)
 	if(mode)
 		GLOB.master_mode = SSmapping.configs[GROUND_MAP].force_mode ? SSmapping.configs[GROUND_MAP].force_mode : mode
 	else
-		GLOB.master_mode = "Distress Signal: Lowpop"
+		GLOB.master_mode = "Xenosurge"
 	log_game("Saved mode is '[GLOB.master_mode]'")
 
 

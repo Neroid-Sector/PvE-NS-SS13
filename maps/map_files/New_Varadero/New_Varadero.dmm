@@ -4373,7 +4373,6 @@
 "cNJ" = (
 /obj/structure/closet,
 /obj/item/device/flashlight/lantern,
-/obj/item/map/current_map,
 /turf/open/floor/corsat{
 	dir = 1;
 	icon_state = "squareswood"

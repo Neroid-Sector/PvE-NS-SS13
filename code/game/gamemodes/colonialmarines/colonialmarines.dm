@@ -26,7 +26,7 @@
 	return TRUE
 
 /datum/game_mode/colonialmarines/announce()
-	to_chat_spaced(world, type = MESSAGE_TYPE_SYSTEM, html = SPAN_ROUNDHEADER("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
+	to_chat_spaced(world, type = MESSAGE_TYPE_SYSTEM, html = narrate_head("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
 
 /datum/game_mode/colonialmarines/get_roles_list()
 	return ROLES_DISTRESS_SIGNAL
@@ -118,8 +118,8 @@
 	if(SSmapping.configs[GROUND_MAP].environment_traits[ZTRAIT_BASIC_RT])
 		flags_round_type |= MODE_BASIC_RT
 
-	addtimer(CALLBACK(src, PROC_REF(ares_online)), 5 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(map_announcement)), 20 SECONDS)
+//	addtimer(CALLBACK(src, PROC_REF(ares_online)), 5 SECONDS)
+//	addtimer(CALLBACK(src, PROC_REF(map_announcement)), 20 SECONDS)
 
 	return ..()
 

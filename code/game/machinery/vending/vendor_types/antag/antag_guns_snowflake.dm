@@ -2,7 +2,7 @@
 
 /obj/structure/machinery/cm_vending/gear/antag_guns
 	name = "\improper Suspicious Automated Guns Rack"
-	desc = "While similar in function to ColMarTech automated racks, this one is clearly not of USCM origin. Contains various weapons, ammunition and explosives."
+	desc = "While similar in function to ColMarTech automated racks, this one is clearly not of UACM origin. Contains various weapons, ammunition and explosives."
 	icon_state = "antag_guns"
 	req_one_access = list(ACCESS_ILLEGAL_PIRATE, ACCESS_UPP_GENERAL, ACCESS_CLF_GENERAL)
 	req_access = null
@@ -56,7 +56,6 @@
 	spawned_gear_list = list(
 		/obj/item/explosive/plastic,
 		/obj/item/device/binoculars/range,
-		/obj/item/map/current_map,
 		/obj/item/storage/box/zipcuffs,
 	)
 

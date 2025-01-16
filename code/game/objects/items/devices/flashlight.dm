@@ -235,7 +235,7 @@
 
 /obj/item/device/flashlight/flare
 	name = "flare"
-	desc = "A red USCM issued flare. There are instructions on the side, it reads 'pull cord, make light'."
+	desc = "A red UACM issued flare. There are instructions on the side, it reads 'pull cord, make light'."
 	w_class = SIZE_SMALL
 	light_power = 2
 	light_range = 7
@@ -460,7 +460,7 @@
 //Signal Flare
 /obj/item/device/flashlight/flare/signal
 	name = "signal flare"
-	desc = "A green USCM issued signal flare. The telemetry computer works on chemical reaction that releases smoke and light and thus works only while the flare is burning."
+	desc = "A green UACM issued signal flare. The telemetry computer works on chemical reaction that releases smoke and light and thus works only while the flare is burning."
 	icon_state = "cas_flare"
 	item_state = "cas_flare"
 	layer = ABOVE_FLY_LAYER
