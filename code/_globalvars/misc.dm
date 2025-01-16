@@ -106,4 +106,5 @@ GLOBAL_VAR_INIT(boss_loose_drones_max, 30)
 GLOBAL_VAR_INIT(stats_boss_total_damage, 0)
 GLOBAL_VAR_INIT(stats_boss_hits, 0)
 
+GLOBAL_LIST_EMPTY(active_npcs)
 GLOBAL_LIST_EMPTY(navigation_waypoints)

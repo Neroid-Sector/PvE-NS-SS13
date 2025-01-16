@@ -9,13 +9,6 @@
 	owner = human
 	. = ..()
 
-/datum/npc/proc/ChairBuckle()
-	var/current_turf = get_turf(owner)
-	for(var/obj/structure/bed/chair/chair in current_turf)
-		if(chair != null)
-			chair.do_buckle(owner, owner)
-			break
-
 /datum/npc/proc/ChairUnBuckle()
 	var/current_turf = get_turf(owner)
 	for(var/obj/structure/bed/chair/chair in current_turf)
@@ -85,13 +78,14 @@
 	for(var/obj/effect/landmark/npc_nav_waypoint/waypoint in GLOB.navigation_waypoints)
 		if(waypoint.waypoint_group == current_waypoint_group)
 			if(current_direction == 1)
-				if(waypoint.waypoint_id == "start")
+				if(waypoint.waypoint_id == 1)
 					current_nav_point = waypoint
 					break
 			if(current_direction == 2)
-				if(waypoint.waypoint_id == "end")
-					current_nav_point = waypoint
-					break
+				if(waypoint.waypoint_endpoint == 1)
+					if(waypoint.waypoint_id != 1)
+						current_nav_point = waypoint
+						break
 	if(!current_nav_point)
 		message_admins("Error: [owner] failed to find initial waypoint in waypoint group [current_waypoint_group]. Movement not possible.")
 		return

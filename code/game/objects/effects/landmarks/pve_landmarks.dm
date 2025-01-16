@@ -67,26 +67,36 @@
 /obj/effect/landmark/npc_nav_waypoint
 	name = "NPC navigation waypoint"
 	icon_state = "waypoint"
+	var/waypoint_endpoint = 0
 	var/waypoint_group = "none"
-	var/waypoint_id = "none"
-	var/waypoint_previous_id = "none"
-	var/waypoint_next_id = "none"
+	var/waypoint_id = 1
 	var/action_id = "none"
 	var/action_next = "none"
 	var/action_previous = "none"
-	var/obj/effect/landmark/npc_nav_waypoint/waypoint_previous
 	var/obj/effect/landmark/npc_nav_waypoint/waypoint_next
+	var/obj/effect/landmark/npc_nav_waypoint/waypoint_previous
+
 
 /obj/effect/landmark/npc_nav_waypoint/Initialize(mapload, ...)
 	GLOB.navigation_waypoints.Add(src)
+	var/next_waypoint
+	var/prev_waypoint
+	if(waypoint_endpoint == 0)
+		next_waypoint = waypoint_id + 1
+		prev_waypoint = waypoint_id - 1
+	if(waypoint_endpoint == 1)
+		if(waypoint_id == 1)
+			next_waypoint = waypoint_id + 1
+		if(waypoint_id != 1)
+			prev_waypoint = waypoint_id - 1
 	for (var/obj/effect/landmark/npc_nav_waypoint/waypoint in GLOB.navigation_waypoints)
 		if(waypoint.waypoint_group == waypoint_group)
-			if(waypoint_id != "end")
-				if(waypoint.waypoint_id == waypoint_next_id)
+			if(next_waypoint)
+				if(waypoint.waypoint_id == next_waypoint)
 					waypoint_next = waypoint
 					waypoint.waypoint_previous = src
-			if(waypoint_id != "start")
-				if(waypoint.waypoint_id == waypoint_previous_id)
+			if(prev_waypoint)
+				if(waypoint.waypoint_id == prev_waypoint)
 					waypoint_previous = waypoint
 					waypoint.waypoint_next = src
 	. = ..()

@@ -1,12 +1,23 @@
 /mob/living/carbon/human/npc
 
-	//talking npc identifier to limit speaking picker
+	//NPC ID, this is what the Custene Datum will refer to when trying to move NPCs. Set from respective spawner ideally.
 
+	var/npc_id = "none"
+
+	//talking npc identifier to limit speaking picker
 	var/talking_npc = 0
 
-	//Npc master control
-
+	//Npc master control datum. Currently needs to be manually initalized via InitializeNPCDatum()
 	var/datum/npc/npc_datum
+
+/mob/living/carbon/human/npc/Initialize(mapload, new_species)
+	GLOB.active_npcs.Add(src)
+	. = ..()
+
+/mob/living/carbon/human/npc/Destroy()
+	GLOB.active_npcs.Remove(src)
+	. = ..()
+
 
 /mob/living/carbon/human/npc/proc/InitializeNPCDatum()
 	npc_datum = new /datum/npc/(human = src)

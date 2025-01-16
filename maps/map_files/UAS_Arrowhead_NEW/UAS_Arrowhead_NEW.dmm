@@ -1481,6 +1481,12 @@
 	dir = 1;
 	req_access_txt = "19"
 	},
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 12;
+	pixel_x = 10;
+	pixel_y = 10
+	},
 /turf/open/floor/kutjevo/tan/grey_edge,
 /area/arrowhead_new/upper/briefing)
 "bzK" = (
@@ -1508,19 +1514,16 @@
 	},
 /area/arrowhead_new/middle/requisitions)
 "bDL" = (
-/obj/structure/window/reinforced/ultra{
-	dir = 8
-	},
-/obj/structure/bed/chair/comfy/beige{
-	dir = 8
-	},
+/obj/structure/pipes/standard/simple/hidden/supply,
 /obj/effect/landmark/npc_nav_waypoint{
-	waypoint_group = "test";
-	waypoint_id = "end";
-	waypoint_previous_id = "6"
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 8;
+	pixel_x = 10;
+	pixel_y = 10
 	},
-/turf/open/floor/kutjevo/tan/grey_edge{
-	dir = 4
+/turf/open/floor/almayer{
+	dir = 8;
+	icon_state = "blue"
 	},
 /area/arrowhead_new/upper/briefing)
 "bEu" = (
@@ -6104,6 +6107,16 @@
 /obj/structure/bed/chair/comfy/delta{
 	dir = 8
 	},
+/obj/effect/landmark/npc_spawner{
+	equipment_path = /datum/equipment_preset/uscm_ship/xo
+	},
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "cic-brief-1";
+	waypoint_endpoint = 1;
+	pixel_x = 10;
+	pixel_y = 10;
+	action_previous = "buckle"
+	},
 /turf/open/floor/kutjevo/colors/blue,
 /area/arrowhead_new/upper/cic)
 "grH" = (
@@ -6234,11 +6247,6 @@
 "gvb" = (
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 10
-	},
-/obj/effect/landmark/npc_nav_waypoint{
-	waypoint_id = "start";
-	waypoint_group = "test";
-	waypoint_next_id = "2"
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/hallways/aft)
@@ -7195,14 +7203,20 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/lower/firing_range)
 "huc" = (
-/obj/effect/landmark/npc_nav_waypoint{
-	waypoint_group = "test";
-	waypoint_id = "6";
-	waypoint_previous_id = "5";
-	waypoint_next_id = "end"
+/obj/structure/pipes/standard/simple/hidden/supply{
+	dir = 4
 	},
-/turf/open/floor/plating/plating_catwalk,
-/area/arrowhead_new/upper/briefing)
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 2;
+	pixel_x = 10;
+	pixel_y = 10
+	},
+/turf/open/floor/almayer{
+	dir = 4;
+	icon_state = "blue"
+	},
+/area/arrowhead_new/upper/cic)
 "huk" = (
 /obj/structure/phone_base{
 	dir = 8;
@@ -8597,6 +8611,12 @@
 /obj/structure/pipes/standard/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 3;
+	pixel_x = 10;
+	pixel_y = 10
+	},
 /turf/open/floor/kutjevo/tan/grey_edge{
 	dir = 5
 	},
@@ -8686,6 +8706,12 @@
 /area/arrowhead_new/middle/hangar)
 "iLf" = (
 /obj/structure/pipes/standard/manifold/fourway/hidden/supply,
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 5;
+	pixel_x = 10;
+	pixel_y = 10
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/hallways/star)
 "iLi" = (
@@ -10359,12 +10385,6 @@
 /obj/structure/pipes/standard/manifold/hidden/supply,
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/effect/landmark/npc_nav_waypoint{
-	waypoint_group = "test";
-	waypoint_id = "3";
-	waypoint_next_id = "4";
-	waypoint_previous_id = "2"
 	},
 /turf/open/floor/almayer{
 	dir = 8;
@@ -12150,12 +12170,6 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/effect/landmark/npc_nav_waypoint{
-	waypoint_group = "test";
-	waypoint_id = "2";
-	waypoint_next_id = "3";
-	waypoint_previous_id = "start"
-	},
 /turf/open/floor/almayer{
 	dir = 4;
 	icon_state = "cargo_arrow"
@@ -12214,10 +12228,10 @@
 /area/arrowhead_new/middle/requisitions)
 "muM" = (
 /obj/effect/landmark/npc_nav_waypoint{
-	waypoint_group = "test";
-	waypoint_id = "5";
-	waypoint_next_id = "6";
-	waypoint_previous_id = "4"
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 10;
+	pixel_x = 10;
+	pixel_y = 10
 	},
 /turf/open/floor/almayer{
 	dir = 5;
@@ -12858,10 +12872,10 @@
 "ndB" = (
 /obj/structure/pipes/standard/simple/hidden/supply,
 /obj/effect/landmark/npc_nav_waypoint{
-	waypoint_group = "test";
-	waypoint_id = "4";
-	waypoint_next_id = "5";
-	waypoint_previous_id = "3"
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 9;
+	pixel_x = 10;
+	pixel_y = 10
 	},
 /turf/open/floor/almayer{
 	dir = 9;
@@ -14864,6 +14878,16 @@
 	icon_state = "orange"
 	},
 /area/arrowhead_new/middle/engineering/main)
+"oXj" = (
+/obj/structure/pipes/standard/simple/hidden/supply,
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 7;
+	pixel_x = 10;
+	pixel_y = 10
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/arrowhead_new/upper/hallways/aft)
 "oXu" = (
 /obj/structure/platform,
 /obj/effect/projector{
@@ -18762,6 +18786,15 @@
 	icon_state = "test_floor5"
 	},
 /area/arrowhead_new/middle/engineering/reactor)
+"sKS" = (
+/obj/structure/pipes/standard/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/landmark/observer_start,
+/turf/open/floor/almayer{
+	icon_state = "plate"
+	},
+/area/arrowhead_new/upper/cic)
 "sLe" = (
 /obj/structure/machinery/status_display{
 	pixel_y = -28
@@ -18973,11 +19006,24 @@
 /turf/open/floor/kutjevo/colors/blue,
 /area/space)
 "sXi" = (
-/obj/effect/landmark/npc_spawner{
-	equipment_path = /datum/equipment_preset/uscm_ship/xo
+/obj/structure/window/reinforced/ultra{
+	dir = 8
 	},
-/turf/open/floor/kutjevo/tan/grey_edge,
-/area/arrowhead_new/upper/hallways/aft)
+/obj/structure/bed/chair/comfy/beige{
+	dir = 8
+	},
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 13;
+	waypoint_endpoint = 1;
+	action_next = "buckle";
+	pixel_x = 10;
+	pixel_y = 10
+	},
+/turf/open/floor/kutjevo/tan/grey_edge{
+	dir = 4
+	},
+/area/arrowhead_new/upper/briefing)
 "sXo" = (
 /obj/structure/prop/invuln/lattice_prop{
 	dir = 1;
@@ -19244,7 +19290,12 @@
 /obj/structure/pipes/vents/pump{
 	dir = 8
 	},
-/obj/effect/landmark/observer_start,
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 6;
+	pixel_x = 10;
+	pixel_y = 10
+	},
 /turf/open/floor/plating/plating_catwalk,
 /area/arrowhead_new/upper/hallways/aft)
 "tid" = (
@@ -21359,6 +21410,12 @@
 /area/arrowhead_new/middle/engineering/main)
 "vwC" = (
 /obj/structure/disposalpipe/segment,
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 4;
+	pixel_x = 10;
+	pixel_y = 10
+	},
 /turf/open/floor/kutjevo/tan/grey_edge{
 	dir = 1
 	},
@@ -22029,6 +22086,12 @@
 /obj/structure/stairs/perspective{
 	dir = 1;
 	icon_state = "p_stair_full"
+	},
+/obj/effect/landmark/npc_nav_waypoint{
+	waypoint_group = "cic-brief-1";
+	waypoint_id = 11;
+	pixel_x = 10;
+	pixel_y = 10
 	},
 /turf/open/floor/kutjevo/colors/blue,
 /area/arrowhead_new/upper/briefing)
@@ -37039,7 +37102,7 @@ joN
 gyz
 ptn
 uEG
-fXY
+sKS
 pAa
 wOA
 awk
@@ -37612,7 +37675,7 @@ joN
 gyz
 ptn
 yio
-sLI
+huc
 pLb
 wOA
 moP
@@ -47923,14 +47986,14 @@ joN
 gyz
 oTX
 nqY
-sXi
+suw
 thd
 gvb
 epV
 cNS
 cNS
 cNS
-cNS
+oXj
 cNS
 msK
 pKQ
@@ -48694,7 +48757,7 @@ bjM
 ndB
 uZJ
 uZJ
-uZJ
+bDL
 uZJ
 kxx
 lqT
@@ -51369,8 +51432,8 @@ xTT
 sXB
 duX
 uMQ
+sXi
 yla
-bDL
 yla
 hmL
 pmy
@@ -51561,7 +51624,7 @@ izO
 wdO
 bzJ
 jCv
-huc
+jCv
 jCv
 fnd
 jQl
